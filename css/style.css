@@ -5,6 +5,7 @@ body {
   margin: 0px;
   height: 100%;
   font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
 }
 .loginPage-main-div {
   height: 100vh;
@@ -18,11 +19,12 @@ body {
 .loginPage-image {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center;
 }
 
 .loginPage-form-div {
-  width: 30%;
+  width: 30% !important;
 }
 .login-btn {
   border: 2px solid var(--color-orange) !important;
@@ -33,6 +35,12 @@ a {
   text-decoration: none;
 }
 
+.carousel-indicators > button {
+  height: 15px !important;
+  width: 15px !important;
+  border-radius: 100% !important;
+}
+
 @media only screen and (max-width: 900px) {
   .loginPage-main-div {
     display: flex;
@@ -40,13 +48,18 @@ a {
   }
   .loginPage-image-div {
     width: 100% !important;
-    height: fit-content;
-  }
-  .loginPage-image {
-    object-fit: fill;
+    height: 50vh !important;
+    min-height: 50vh;
   }
   .loginPage-form-div {
-    width: auto;
+    padding-top: 2.5rem;
+    width: 100% !important;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .loginPage-form-div {
+    padding-top: 2.5rem;
   }
 }

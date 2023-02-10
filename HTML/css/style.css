@@ -35,12 +35,42 @@ a {
   text-decoration: none;
 }
 
+.my-carousal-caption {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)) !important;
+  height: 55%;
+  left: 0;
+  bottom: 0;
+  padding: 6rem 1rem;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-carousal-title {
+  font-size: 43px;
+}
+
+.my-carousal-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .carousel-indicators > button {
   height: 15px !important;
   width: 15px !important;
   border-radius: 100% !important;
 }
-
+@media only screen and (max-width: 1250px) {
+  .my-carousal-caption {
+    padding: 5rem 1rem;
+  }
+  .my-carousal-title {
+    font-size: 30px;
+  }
+  .my-carousal-description {
+    font-size: 1rem;
+  }
+}
 @media only screen and (max-width: 900px) {
   .loginPage-main-div {
     display: flex;
@@ -56,10 +86,57 @@ a {
     width: 100% !important;
     height: 100%;
   }
+  .my-carousal-caption {
+    padding: 5rem 1rem;
+  }
+  .my-carousal-title {
+    font-size: 20px;
+  }
+
+  .my-carousal-description {
+    font-size: 10px;
+  }
+
+  .carousel-indicators > button {
+    height: 10px !important;
+    width: 10px !important;
+    border-radius: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .my-carousal-caption {
+    padding: 2rem 1rem;
+  }
+  .my-carousal-title {
+    font-size: 12px;
+  }
+  .my-carousal-description {
+    font-size: 9px;
+  }
+  .carousel-indicators > button {
+    height: 8px !important;
+    width: 8px !important;
+    border-radius: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   .loginPage-form-div {
     padding-top: 2.5rem;
+  }
+  .my-carousal-caption {
+    padding: 1rem 1rem;
+  }
+  .my-carousal-title {
+    font-size: 10px;
+  }
+  .my-carousal-description {
+    font-size: 8px;
+  }
+  .carousel-indicators > button {
+    height: 8px !important;
+    width: 8px !important;
+    border-radius: 100% !important;
   }
 }

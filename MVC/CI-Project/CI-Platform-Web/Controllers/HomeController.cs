@@ -13,7 +13,7 @@ namespace CI_Platform_Web.Controllers
             _logger = logger;
         }
 
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }

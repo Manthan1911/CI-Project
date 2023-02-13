@@ -1,3 +1,10 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --color-orange: #f88634;
 }
@@ -34,10 +41,13 @@ body {
 a {
   text-decoration: none;
 }
-
+.my-carousal-text-div {
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .my-carousal-caption {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)) !important;
-  height: 55%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)) !important;
   left: 0;
   bottom: 0;
   padding: 6rem 1rem;
@@ -48,6 +58,8 @@ a {
 
 .my-carousal-title {
   font-size: 43px;
+  color: #ffffff;
+  width: 65%;
 }
 
 .my-carousal-description {
@@ -60,15 +72,29 @@ a {
   width: 15px !important;
   border-radius: 100% !important;
 }
+@media only screen and (max-width: 1875px) {
+  .my-carousal-title {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .my-carousal-title {
+    font-size: 30px;
+  }
+}
 @media only screen and (max-width: 1250px) {
   .my-carousal-caption {
     padding: 5rem 1rem;
   }
-  .my-carousal-title {
-    font-size: 30px;
-  }
+
   .my-carousal-description {
     font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .my-carousal-title {
+    font-size: 30px;
+    width: 90%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -86,13 +112,6 @@ a {
     width: 100% !important;
     height: 100%;
   }
-  .my-carousal-caption {
-    padding: 5rem 1rem;
-  }
-  .my-carousal-title {
-    font-size: 20px;
-  }
-
   .my-carousal-description {
     font-size: 10px;
   }
@@ -105,14 +124,11 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-  .my-carousal-caption {
-    padding: 2rem 1rem;
-  }
   .my-carousal-title {
-    font-size: 12px;
+    font-size: 20px;
   }
   .my-carousal-description {
-    font-size: 9px;
+    font-size: 12px;
   }
   .carousel-indicators > button {
     height: 8px !important;
@@ -125,14 +141,11 @@ a {
   .loginPage-form-div {
     padding-top: 2.5rem;
   }
-  .my-carousal-caption {
-    padding: 1rem 1rem;
-  }
   .my-carousal-title {
-    font-size: 10px;
+    width: 100%;
   }
   .my-carousal-description {
-    font-size: 8px;
+    font-size: 10px;
   }
   .carousel-indicators > button {
     height: 8px !important;

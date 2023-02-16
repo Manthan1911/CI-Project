@@ -1,0 +1,14 @@
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\bin\Debug\net6.0\StudentCRUDWeb.Entities.deps.json
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\bin\Debug\net6.0\StudentCRUDWeb.Entities.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\bin\Debug\net6.0\StudentCRUDWeb.Entities.pdb
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.csproj.AssemblyReference.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.GeneratedMSBuildEditorConfig.editorconfig
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.AssemblyInfoInputs.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.AssemblyInfo.cs
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.csproj.CoreCompileInputs.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\refint\StudentCRUDWeb.Entities.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.pdb
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\ref\StudentCRUDWeb.Entities.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\bin\Debug\net6.0\StudentCRUDWeb.Entities.runtimeconfig.json
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Entity\obj\Debug\net6.0\StudentCRUDWeb.Entities.genruntimeconfig.cache

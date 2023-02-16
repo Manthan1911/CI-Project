@@ -1,0 +1,17 @@
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Repositories.deps.json
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Repositories.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Repositories.pdb
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.csproj.AssemblyReference.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.AssemblyInfoInputs.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.AssemblyInfo.cs
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.csproj.CoreCompileInputs.cache
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\refint\StudentCRUDWeb.Repositories.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.pdb
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\ref\StudentCRUDWeb.Repositories.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Repositories.runtimeconfig.json
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Entities.dll
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\bin\Debug\net6.0\StudentCRUDWeb.Entities.pdb
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.csproj.CopyComplete
+W:\CI_Project\MVC\StudentCRUD\StudentCRUDWeb.Repositories\obj\Debug\net6.0\StudentCRUDWeb.Repositories.genruntimeconfig.cache

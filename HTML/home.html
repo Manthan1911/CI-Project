@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
-    <script src="./js/custom.js" defer></script>
     <title>Mission Page</title>
     <style>
         *,
@@ -54,6 +53,7 @@
 
         #filter-mission-navbar {
             border-color: #E8E8E8;
+            top: var(--header-height);
         }
 
         @media only screen and (max-width:768px) {
@@ -68,8 +68,6 @@
                 margin-top: 7px;
             }
         }
-
-        /* ----------------------------------------------- */
 
         body {
             width: 100vw;
@@ -128,9 +126,10 @@
 
         #mission-div {
             max-width: var(--max-width);
-            height: calc(100vh - var(--header-height));
+            /* top: var(--header-height)+10px; */
+            /* height: calc(100vh - var(--header-height)); */
+            height: 100%;
             overflow-y: scroll;
-            /* border: 5px solid red; */
         }
 
         /* ------------------------------ */
@@ -172,7 +171,7 @@
             height: 38px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             box-shadow: 0.97px 0.26px 3px #0000000D;
-            border: 1px solid #D9D9D9;
+            border: 1px solid var(--hover-color);
             border-radius: 3px;
             opacity: 1;
         }
@@ -247,7 +246,7 @@
 
         #apply-btn {
             color: #F88634;
-            border-color: #F88634;
+            border: 2px solid #F88634;
         }
 
         #pagination a {
@@ -260,7 +259,7 @@
         }
 
         #mission-footer {
-            position: sticky;
+            position: fixed;
             bottom: 0px;
             left: 0px;
             height: 72px;
@@ -282,7 +281,7 @@
 <body>
 
     <div id="sidebars-div position-absolute">
-
+        <!-- header-sidebar -->
         <div id="header-sidebar" class="sidebar border border-1 ">
             <ul>
                 <div class="d-flex justify-content-end mx-1 py-1 px-2 ">
@@ -300,7 +299,7 @@
                 </li>
             </ul>
         </div>
-
+        <!-- Filter-mission-sidebar -->
         <div id="filter-mission-sidebar" class="sidebar border border-1">
             <ul>
                 <div class="d-flex align-items-center justify-content-between mx-1 py-1 px-2 ">
@@ -340,8 +339,9 @@
             </ul>
         </div>
     </div>
-    <div id="main-container " class="">
-        <header id="header" class="ci-page-header bg-white w-100 z-3 "
+
+    <div id="main-container" class="">
+        <header id="header" class="ci-page-header position-fixed top-0 bg-white w-100 z-3 "
             style="height:var(--header-height);background-color: transparent;min-width: max-content;">
             <div class="mx-auto  d-flex align-items-center justify-content-between"
                 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
@@ -388,108 +388,113 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <div id="filter-mission-navbar"
-            class="container-fluid position-sticky h-auto w-100 z-1 p-0 border border-1 bg-white"
-            style="height:var(--header-height);top:1000px;">
-            <div class="mx-auto row w-100" style="height:78px;max-width:1420px;  ">
-                <div id="search-nav" class=" p-0 col-md-6 col-10 d-flex align-items-center  ">
-                    <input type="text" style="width:90%;" id="search-input" placeholder="Search mission..."
-                        class="border-0 rounded-3 bg-transparent p-3 ps-5">
+            <div id="filter-mission-navbar"
+                class="container-fluid position-fixed h-auto w-100 z-1 p-0 border border-1 bg-white"
+                style="height:var(--header-height);top:1000px;">
+                <div class="mx-auto row w-100" style="height:78px;max-width:1420px;  ">
+                    <div id="search-nav" class=" p-0 col-md-6 col-10 d-flex align-items-center  ">
+                        <input type="text" style="width:90%;" id="search-input" placeholder="Search mission..."
+                            class="border-0 rounded-3 bg-transparent p-3 ps-5">
+                    </div>
+
+                    <div id="search-nav" class="mx-auto col-md-6 col-2 ">
+                        <div class=" h-100 d-flex justify-content-end align-items-center d-md-none px-2">
+                            <button id="filter-mission-sidebar-open-btn"
+                                class="sidebar-open bg-transparent border-0"><img src="./images/filter.png"
+                                    alt=""></button>
+                        </div>
+                        <div class="row d-md-flex d-none" style="height:100%">
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Country
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> India</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Bharat</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Hindustan</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        City
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Rajkot</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Ahemdabad</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Surat</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Theme
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Environment</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Social</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Community</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Skills
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Sports</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Comedy</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Entertainment</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="search-nav" class="mx-auto col-md-6 col-2 ">
-                    <div class=" h-100 d-flex justify-content-end align-items-center d-md-none px-2">
-                        <button id="filter-mission-sidebar-open-btn" class="sidebar-open bg-transparent border-0"><img
-                                src="./images/filter.png" alt=""></button>
-                    </div>
-                    <div class="row d-md-flex d-none" style="height:100%">
-                        <div class="filters col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button
-                                    class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Country
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> India</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Bharat</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Hindustan</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="filters col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button
-                                    class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    City
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Rajkot</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Ahemdabad</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Surat</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="filters col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button
-                                    class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Theme
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Environment</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Social</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Community</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="filters col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button
-                                    class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Skills
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Sports</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Comedy</a></li>
-                                    <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
-                                                name="country" id=""> Entertainment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </header>
+        <!-- Filter-Mission-navbar -->
 
-        </div>
-        <div id="mission-div" class=" mx-auto">
+
+        <!-- Mission Div -->
+        <div id="mission-div" class="overflow-scroll mx-auto ">
 
             <!-- No-mission-found -->
             <div id="no-mission-found" class="d-none">
                 <h3 class="text-center m-5" style="color: #757575;">No Mission Found</h3>
             </div>
 
-
-            <div id="mission-content" class="container-fluid overflow-y-scroll ">
+            <!-- Mission Content -->
+            <div id="mission-content" class="container-fluid">
                 <!-- chips -->
                 <div id="filter-chips" class="my-1">
                     <div class="chips-test chips-initial overflow-hidden">
@@ -499,15 +504,15 @@
                                 <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                             </div>
                             <div class="chip-item border border-1 border-seconday rounded-5 p-1 m-2">
-                                Tree Plantation
+                                Canada
                                 <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                             </div>
                             <div class="chip-item border border-1 border-seconday rounded-5 p-1 m-2">
-                                Tree Plantation
+                                Toronto
                                 <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                             </div>
                             <div class="chip-item border border-1 border-seconday rounded-5 p-1 m-2">
-                                Tree Plantation
+                                Montreal
                                 <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
                             </div>
                         </div>
@@ -521,8 +526,12 @@
                     <div class="h-100 mx-1 d-none align-items-center d-sm-flex">
                         <div id="dropdown-sort" class="me-3">
                             <select name="sort" id="sort-dropdown" class="h-100 w-100">
-                                <option value="Name">Name</option>
-                                <option value="Date">Date</option>
+                                <option value="Name">Newest</option>
+                                <option value="Date">Oldest</option>
+                                <option value="Date">Lowest Available Seats</option>
+                                <option value="Date">Highest Available Seats</option>
+                                <option value="Date">Sort by my favourite</option>
+                                <option value="Date">Sort by deadline</option>
                             </select>
                         </div>
                         <button class="bg-transparent me-3 border-0">
@@ -611,7 +620,236 @@
                                     </div>
                                 </div>
                                 <div class="card-button-apply m-1 p-1 w-100 text-center">
+                                    <button id="apply-btn" class="btn rounded-5 py-2 px-4 fs-5 ">
+                                        Apply
+                                        <img src="images/right-arrow.png" class="mx-1 ms-3" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="card-parent" class="col-lg-4 col-md-6 col-sm-6 col-12 grid-item h-auto mb-4">
+                            <div class="card">
+                                <img class="card-img-top w-100 card-img"
+                                    src="images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
+                                    alt="Card image cap" />
+                                <div id="card-image-content" class="d-flex flex-column justify-content-between  p-2">
+                                    <div id="location-image" class="img-content p-2 rounded-5">
+                                        <img src="images/pin.png" alt="">
+                                        Torrento
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div id="img-heart" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/heart.png" alt="">
+                                        </div>
+                                        <div id="user-img" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/user.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="card-theme-title bg-white rounded-5 p-2">Environment</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-3">Education Supplies for Every Pair of Shoes Sold</h5>
+                                    <p class="card-text">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla
+                                        blanditiis
+                                        laboriosam inventore
+                                        ...
+                                    </p>
+
+                                    <div id="star-content" class="d-flex align-items-center justify-content-between">
+                                        <p class="my-auto">Australian Paradise</p>
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="mission-duration-div">
+                                    <h5 id="card-time-duration-title" class="border bg-white rounded-5 m-auto fs-6 p-2">
+                                        From
+                                        10/01/2019 until 25/02/2019</h5>
+                                </div>
+
+                                <div id="seats-info-card"
+                                    class="d-flex border border-1 position-relative pt-3 align-items-center justify-content-around">
+                                    <div id="remain-seats-cards"
+                                        class=" w-50 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="seats-left-image" src="images/Seats-left.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="count" class="m-0 p-0 fs-5">10</p>
+                                            <p id="seats-left-text" class="m-0 p-0">Seats left</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deadline-info-card"
+                                        class=" w-40 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="deadline-image" src="images/deadline.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="deadline-date" class="m-0 p-0 fs-5">19/11/2022</p>
+                                            <p id="deadline-text" class="m-0 p-0">Deadline</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-button-apply m-1 p-1 w-100 text-center">
                                     <button id="apply-btn" class="btn btn-outline-warning rounded-5 py-2 px-4 fs-5 ">
+                                        Apply
+                                        <img src="images/right-arrow.png" class="mx-1 ms-3" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="card-parent" class="col-lg-4 col-md-6 col-sm-6 col-12 grid-item h-auto mb-4">
+                            <div class="card">
+                                <img class="card-img-top w-100 card-img"
+                                    src="images/Nourish-the-Children-in--African-country.png" alt="Card image cap" />
+                                <div id="card-image-content" class="d-flex flex-column justify-content-between  p-2">
+                                    <div id="location-image" class="img-content p-2 rounded-5">
+                                        <img src="images/pin.png" alt="">
+                                        Torrento
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div id="img-heart" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/heart.png" alt="">
+                                        </div>
+                                        <div id="user-img" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/user.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="card-theme-title bg-white rounded-5 p-2">Environment</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-3">Nourish the Children in African country</h5>
+                                    <p class="card-text">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla
+                                        blanditiis
+                                        laboriosam inventore
+                                        ...
+                                    </p>
+
+                                    <div id="star-content" class="d-flex align-items-center justify-content-between">
+                                        <p class="my-auto">The Hunger</p>
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="mission-duration-div">
+                                    <h5 id="card-time-duration-title" class="border bg-white rounded-5 m-auto fs-6 p-2">
+                                        From
+                                        10/01/2020 until
+                                        11/02/2020</h5>
+                                </div>
+
+                                <div id="seats-info-card"
+                                    class="d-flex border border-1 position-relative pt-3 align-items-center justify-content-around">
+                                    <div id="remain-seats-cards"
+                                        class=" w-50 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="seats-left-image" src="images/Seats-left.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="count" class="m-0 p-0 fs-5">10</p>
+                                            <p id="seats-left-text" class="m-0 p-0">Seats left</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deadline-info-card"
+                                        class=" w-40 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="deadline-image" src="images/deadline.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="deadline-date" class="m-0 p-0 fs-5">19/11/2022</p>
+                                            <p id="deadline-text" class="m-0 p-0">Deadline</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-button-apply m-1 p-1 w-100 text-center">
+                                    <button id="apply-btn" class="btn btn-outline-warning rounded-5 py-2 px-4 fs-5 ">
+                                        Apply
+                                        <img src="images/right-arrow.png" class="mx-1 ms-3" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="card-parent" class="col-lg-4 col-md-6 col-sm-6 col-12 grid-item h-auto mb-4">
+                            <div class="card">
+                                <img class="card-img-top w-100 card-img"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+                                    alt="Card image cap" />
+                                <div id="card-image-content" class="d-flex flex-column justify-content-between  p-2">
+                                    <div id="location-image" class="img-content p-2 rounded-5">
+                                        <img src="images/pin.png" alt="">
+                                        Torrento
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div id="img-heart" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/heart.png" alt="">
+                                        </div>
+                                        <div id="user-img" class="img-content p-2 rounded-5 m-1">
+                                            <img src="images/user.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="card-theme-title bg-white rounded-5 p-2">Environment</h5>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-3">Grow Trees-On the path to environment sustainability
+                                    </h5>
+                                    <p class="card-text">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nulla
+                                        blanditiis
+                                        laboriosam inventore
+                                        ...
+                                    </p>
+
+                                    <div id="star-content" class="d-flex align-items-center justify-content-between">
+                                        <p class="my-auto">Tree Canada</p>
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/selected-star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                            <img src="images/star.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="mission-duration-div">
+                                    <h5 id="card-time-duration-title" class="border bg-white rounded-5 m-auto fs-6 p-2">
+                                        From
+                                        10/01/2020 until
+                                        11/02/2020</h5>
+                                </div>
+
+                                <div id="seats-info-card"
+                                    class="d-flex border border-1 position-relative pt-3 align-items-center justify-content-around">
+                                    <div id="remain-seats-cards"
+                                        class=" w-50 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="seats-left-image" src="images/Seats-left.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="count" class="m-0 p-0 fs-5">10</p>
+                                            <p id="seats-left-text" class="m-0 p-0">Seats left</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="deadline-info-card"
+                                        class=" w-40 d-flex align-items-center p-1 px-lg-4 px-md-1">
+                                        <img id="deadline-image" src="images/deadline.png" alt="">
+                                        <div class="d-flex flex-column p-2 ">
+                                            <p id="deadline-date" class="m-0 p-0 fs-5">19/11/2022</p>
+                                            <p id="deadline-text" class="m-0 p-0">Deadline</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-button-apply m-1 p-1 w-100 text-center">
+                                    <button id="apply-btn" class="btn rounded-5 py-2 px-4 fs-5 ">
                                         Apply
                                         <img src="images/right-arrow.png" class="mx-1 ms-3" alt="">
                                     </button>
@@ -774,7 +1012,9 @@
                     </div>
                 </div>
 
-                <div id="pagination" class="container-fluid d-flex align-items-center justify-content-center p-5 m-2">
+                <!-- pagination -->
+
+                <div id="pagination" class="container-fluid d-flex align-items-center justify-content-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination ">
                             <li class="page-item">
@@ -806,11 +1046,11 @@
 
             </div>
         </div>
-        <!-- <footer id="mission-footer" class="container-fluid border-top bg-white" style="z-index:5;">
+        <footer id="mission-footer" class="container-fluid border-top bg-white" style="z-index:5;">
             <div class="py-4 mx-auto">
                 <a href="#">Privacy Policy</a>
             </div>
-        </footer> -->
+        </footer>
 
     </div>
 
@@ -818,6 +1058,7 @@
 
 
     <script src="js/sidebar.js"></script>
+    <script src="./js/custom.js"></script>
 </body>
 
 </html>

@@ -46,6 +46,8 @@
             --header-height: 72px;
             --hover-color: #e8e8e8;
             --right-arrow-color: #F88634;
+            --hover-underline: #767676;
+            --border-color: #dee2e6;
         }
 
         html {
@@ -132,7 +134,6 @@
             height: var(--header-height);
         }
 
-        #volunteer-mission-apply-mission-photos {}
 
         .volunteer-main-image {
             height: 625px;
@@ -218,6 +219,86 @@
             color: white;
             opacity: 0.6;
             max-width: max-content;
+        }
+
+        /* -------------------  volunteer-information  ---------------------------- */
+        #volunteer-information {
+            height: 830px;
+        }
+
+        #volunteer-info-tabs {
+            width: 60%;
+        }
+
+        #volunteer-recent-info {
+            width: 40%;
+        }
+
+        #volunteer-basic-info-div {
+            height: 35%;
+        }
+
+        #recent-volunteer-info-div {
+            height: 65%;
+        }
+
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            background-color: white;
+
+        }
+
+        .tab button {
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            background-color: white;
+        }
+
+        .tab button:hover {
+            border-bottom: 2px solid black;
+
+        }
+
+        .tab button.active {
+            border-bottom: 2px solid black;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            overflow: scroll;
+            height: calc(100% - 75px);
+        }
+
+        .tabcontent::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        /* --------------- m ------------------ */
+        #Mission {
+            border: none !important;
+            padding: 10px 0;
+        }
+
+        #volunteer-information-div>div:not(:last-child) {
+            border-bottom: 1px solid var(--hover-color) !important;
+        }
+
+        .hover-underline {
+            border-bottom: 3px solid var(--hover-underline);
+        }
+
+        .recent-volunteers-list {
+            /* border: 2px solid black; */
+            padding: 8px 0;
         }
     </style>
 </head>
@@ -410,19 +491,19 @@
                         </div>
                     </div>
                     <div id="mission-favourite-recomend-div" class="d-flex justify-content-around">
-                        <div>
+                        <div class="d-flex justify-content-between">
                             <button
                                 class="bg-transparent py-2 px-4 rounded-5 d-flex justify-content-between align-items-center">
                                 <img class="px-1" src="images/heart1.png" alt=""> Add
                                 To
                                 favourite</button>
                         </div>
-                        <div>
+                        <div class="d-flex justify-content-between">
                             <button
                                 class="bg-transparent py-2 px-4 rounded-5 d-flex justify-content-between align-items-center">
-                                <img class="px-1" src="images/add1.png" alt=""> Add
-                                To
-                                favourite</button>
+                                <img class="px-1" src="images/add1.png" alt="">
+                                Recommend to Co-Worker
+                            </button>
                         </div>
 
                     </div>
@@ -490,7 +571,320 @@
 
                 </div>
             </div>
-            <div id="volunteer-mission-description"></div>
+
+            <div id="volunteer-information" class="d-flex pt-3">
+                <div id="volunteer-info-tabs" class="p-2 h-100">
+                    <!-- Tab links -->
+                    <div class="tab">
+                        <button class="tablinks p-4" onclick="openCity(event, 'Mission')">
+                            Mission
+                        </button>
+                        <button class="tablinks p-4" onclick="openCity(event, 'Organization')">
+                            Organization
+                        </button>
+                        <button class="tablinks p-4" onclick="openCity(event, 'Comments')">
+                            Comments
+                        </button>
+                    </div>
+
+                    <!-- Tab content -->
+                    <div id="Mission" class="tabcontent">
+                        <h3>Introduction</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <h3>Challenge</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <h3>Documents</h3>
+                        <div class="">
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                                <img src="images/doc.png" class="px-2" alt="">lorem-ipsum.pdf
+                            </button>
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                                <img src="images/doc.png" class="px-2" alt="">at_vero_eos_accusamus.doc
+                            </button>
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                                <img src="images/doc.png" class="px-2" alt="">important_doc.xls
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="Organization" class="tabcontent">
+                        <h3>Organization</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+
+                    <div id="Comments" class="tabcontent">
+                        <h3>Comments</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+                <div id="volunteer-recent-info" class="d-flex flex-column justify-content-between h-100 ">
+                    <div id="volunteer-information-div" class="container border  px-3 py-2">
+                        <div class="p-2 px-0">
+                            <span class="hover-underline p-2 px-0 fs-5">
+                                Information
+                            </span>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"><span>skills</span></div>
+                            <div class="col-9"><span>Cool, Easy going, Math, Computer</span></div>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"><span>Days</span></div>
+                            <div class="col-9"><span>Weekend Only</span></div>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"> Rating </div>
+                            <div class="col-9">
+                                <img src="images/selected-star.png" alt="selected-star">
+                                <img src="images/selected-star.png" alt="selected-star">
+                                <img src="images/selected-star.png" alt="selected-star">
+                                <img src="images/selected-star.png" alt="selected-star">
+                                <img src="images/selected-star.png" alt="selected-star">
+                                <span>(by 125 volunteers)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recent-volunteers-div" class="border border-1">
+                        <div id="recent-volunteers" class=" p-2">
+                            <div class="container">
+                                <div class="border border-1 border-top-0 border-start-0 border-end-0 p-2 px-0 ">
+                                    <span class="hover-underline p-2 px-0 fs-5">
+                                        Recent Volunteer
+                                    </span>
+                                </div>
+                                <div class="recent-volunteers-list row">
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+                                        <div class="border-0 rounded-circle">
+                                            <img id="recent-volunteer-id" class="rounded-circle"
+                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                        </div>
+                                        <div>
+                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="recent-volunteer-pageination"
+                            class="border border-1 d-flex align-items-center justify-content-between">
+                            <button style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3"><img
+                                    src="images/left.png" alt=""></button>
+                            <div>1-9 of 25 Recent Volunteers</div>
+                            <button style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3"><img
+                                    src="images/right-arrow1.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="volunteer-mission-related-mission" class="mt-5 ">
                 <p class="fs-2 text-center">Related Mission</p>
                 <div id="cards">
@@ -591,6 +985,7 @@
 
     <script src="js/headerSidebar.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/volunteeringInfo.js"></script>
 </body>
 
 </html>

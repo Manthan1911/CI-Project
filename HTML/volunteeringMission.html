@@ -38,6 +38,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
         }
 
 
@@ -119,7 +120,7 @@
         }
 
         #volunteer-main-content {
-            height: calc(100vh - calc(var(--header-height) * 2) - 15px);
+            height: calc(100vh - calc(var(--header-height) * 2) - 5px);
             position: relative;
             width: 100%;
             top: var(--header-height);
@@ -176,7 +177,7 @@
         }
 
         #volunteer-main-content::-webkit-scrollbar {
-            display: none;
+            scrollbar-width: auto;
         }
 
         .apply-btn {
@@ -242,6 +243,10 @@
             height: 65%;
         }
 
+        #recent-volunteers-div {
+            height: 63%;
+        }
+
         .tab {
             overflow: hidden;
             border-bottom: 1px solid #ccc;
@@ -260,8 +265,7 @@
         }
 
         .tab button:hover {
-            border-bottom: 2px solid black;
-
+            background-color: var(--hover-color);
         }
 
         .tab button.active {
@@ -282,7 +286,7 @@
         }
 
 
-        /* --------------- m ------------------ */
+        /* --------------------------------- */
         #Mission {
             border: none !important;
             padding: 10px 0;
@@ -299,6 +303,103 @@
         .recent-volunteers-list {
             /* border: 2px solid black; */
             padding: 8px 0;
+        }
+
+        #comment {
+            resize: none;
+        }
+
+        .avtar {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+        }
+
+        #volunteer-comments-div {
+            background-color: var(--border-color);
+        }
+
+        #mission-favourite-recomend-div {
+            /* border-top: 2px solid var(--border-color); */
+        }
+
+
+        @media only screen and (max-width:1400px) {
+            .recent-volunteer-avtar {
+                height: 60px;
+                width: 60px;
+            }
+
+            .recent-volunteer-name {
+                font-size: 11px;
+            }
+        }
+
+        @media only screen and (max-width:992px) {
+            #volunteer-info-tabs {
+                width: 100%;
+            }
+
+            #volunteer-recent-info {
+                width: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center;
+            }
+
+            #recent-volunteers-div {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (max-width:768px) {
+            #volunteer-information {
+                margin-top: 2rem;
+                border: 1px solid var(--border-color);
+            }
+
+            #volunteer-recent-info {
+                margin-top: 2rem !important;
+                flex-direction: column !important;
+            }
+
+            #recent-volunteers-div {
+                margin-top: 2rem !important;
+            }
+
+            .recent-volunteer-avtar {
+                height: 70px !important;
+                width: 70px !important;
+            }
+
+            .recent-volunteer-name {
+                font-size: 16px !important;
+            }
+        }
+
+        @media only screen and (max-width:576px) {
+            #carouselExampleControls {
+                height: 90px;
+            }
+
+            #carousal-preview-image {
+                height: 400px;
+            }
+
+            #mission-favourite-recomend-div>div {
+                width: 100% !important;
+            }
+
+            .recent-volunteer-avtar {
+                height: 50px !important;
+                width: 50px !important;
+            }
+
+            .recent-volunteer-name {
+                font-size: 12px !important;
+            }
         }
     </style>
 </head>
@@ -327,7 +428,7 @@
 
     </div>
 
-    <main class="position-relative">
+    <main class="position-relative ">
         <header id="header" class="ci-page-header bg-white w-100 z-3 border border-1"
             style="height:var(--header-height);background-color: transparent;min-width: max-content;">
             <div class="mx-auto  d-flex align-items-center justify-content-between"
@@ -374,71 +475,80 @@
             </div>
         </header>
 
-        <div id="volunteer-main-content" class=" container overflow-y-scroll">
-            <div id="volunteer-mission-apply " class="d-flex">
-                <div id="volunteer-mission-apply-mission-photos" class="w-50 ">
-                    <img src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
-                        class="w-100 volunteer-main-image" alt="">
+        <div id="volunteer-main-content" class="container overflow-y-scroll ">
+            <div id="volunteer-mission-apply " class="row d-flex flex-column flex-lg-row">
+                <div id="volunteer-mission-apply-mission-photos" class="col-12 col-lg-6">
+                    <img id="carousal-preview-image"
+                        src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
+                        class="img-fluid w-100 volunteer-main-image" alt="">
                     <!-- carousel -->
                     <div id="carouselExampleControls" class="carousel slide border border-2 border-primary w-100 my-1"
-                        style="height: 120px;" data-bs-ride="carousel">
+                        style="height: 120px;" data-bs-interval="false">
                         <div class="carousel-inner h-100 w-100">
                             <div class="carousel-item active h-100 w-100">
                                 <div class="d-flex h-100 w-100">
                                     <div class="h-100 w-100">
                                         <img src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
-                                        <img src="images/img1.png" class="d-block w-100 h-100 px-1" alt="..." />
+                                        <img src="images/img1.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
                                         <img src="images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
-                                        <img src="images/img11.png" class="d-block w-100 h-100 px-1" alt="..." />
+                                        <img src="images/img11.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-item active h-100 w-100">
+                            <div class="carousel-item  h-100 w-100">
                                 <div class="d-flex h-100 w-100">
                                     <div class="h-100 w-100">
                                         <img src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
-                                        <img src="images/img1.png" class="d-block w-100 h-100 px-1" alt="..." />
+                                        <img src="images/img1.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
                                         <img src="images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                     <div class="h-100 w-100">
-                                        <img src="images/img11.png" class="d-block w-100 h-100 px-1" alt="..." />
+                                        <img src="images/img11.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item  h-100 w-100">
+                                <div class="d-flex h-100 w-100">
+                                    <div class="h-100 w-100">
+                                        <img src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
+                                    </div>
+                                    <div class="h-100 w-100">
+                                        <img src="images/img1.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
+                                    </div>
+                                    <div class="h-100 w-100">
+                                        <img src="images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
+                                    </div>
+                                    <div class="h-100 w-100">
+                                        <img src="images/img11.png"
+                                            class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-item active h-100 w-100">
-                                <div class="d-flex h-100 w-100">
-                                    <div class="h-100 w-100">
-                                        <img src="images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
-                                    </div>
-                                    <div class="h-100 w-100">
-                                        <img src="images/img1.png" class="d-block w-100 h-100 px-1" alt="..." />
-                                    </div>
-                                    <div class="h-100 w-100">
-                                        <img src="images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-                                            class="d-block w-100 h-100 px-1" alt="..." />
-                                    </div>
-                                    <div class="h-100 w-100">
-                                        <img src="images/img11.png" class="d-block w-100 h-100 px-1" alt="..." />
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </div>
                         <button class="carousel-control-prev bg-dark" type="button"
                             data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -452,7 +562,8 @@
                         </button>
                     </div>
                 </div>
-                <div id="volunteer-mission-apply-details" class="w-50 d-flex flex-column justify-content-around">
+                <div id="volunteer-mission-apply-details"
+                    class="col-12 col-lg-6 d-flex flex-column justify-content-around">
 
                     <div id="mission-title-div" class="px-3">
                         <div id="mission-title" class="fs-1">CSR initiative stands for Coffee & Farmer Equity</div>
@@ -467,7 +578,7 @@
                             <p class="bg-white border border-1 rounded-5 py-1 px-4">Plant 10,000 trees</p>
                         </div>
                         <div id="mission-details-div"
-                            class="p-2 border border-1 border-top border-end-0 d-flex align-items-center justify-content-between position-relative"
+                            class="p-2 border-top d-flex align-items-center justify-content-between position-relative"
                             style="top:-33px;">
 
                             <div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
@@ -490,23 +601,28 @@
 
                         </div>
                     </div>
-                    <div id="mission-favourite-recomend-div" class="d-flex justify-content-around">
-                        <div class="d-flex justify-content-between">
+                    <div id="mission-favourite-recomend-div"
+                        class="d-flex flex-column flex-sm-row justify-content-sm-around justify-content-center"
+                        style="border-top:2px solid var(--border-color);">
+                        <div class="w-50 d-flex align-items-center justify-content-center">
                             <button
-                                class="bg-transparent py-2 px-4 rounded-5 d-flex justify-content-between align-items-center">
-                                <img class="px-1" src="images/heart1.png" alt=""> Add
-                                To
-                                favourite</button>
+                                class="bg-transparent py-2 w-75  px-4 rounded-5 d-flex align-items-center justify-content-center"
+                                style="min-width: max-content;">
+                                <img class="px-1" src="images/heart1.png" alt="">
+                                Add to Favourite
+                            </button>
                         </div>
-                        <div class="d-flex justify-content-between">
+                        <div class="w-50 d-flex align-items-center justify-content-center">
                             <button
-                                class="bg-transparent py-2 px-4 rounded-5 d-flex justify-content-between align-items-center">
+                                class="bg-transparent py-2 w-75  px-4 rounded-5 d-flex align-items-center justify-content-center"
+                                style="min-width: max-content;">
                                 <img class="px-1" src="images/add1.png" alt="">
                                 Recommend to Co-Worker
                             </button>
                         </div>
 
                     </div>
+
                     <div id="mission-related-information-div" class="">
                         <div id="rating" class="position-relative z-1 d-flex justify-content-center align-items-center">
                             <div class="bg-white rounded-5">
@@ -514,7 +630,7 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-around  position-relative border border-1 border-top border-bottom-0 border-end-0 pt-4"
+                        <div class="d-flex justify-content-around  position-relative  border-top pt-4"
                             style="top:-16px;">
                             <div class="d-flex flex-column justify-content-between p-2 rounded-2"
                                 style="height:130px;width:140px;border:1px solid black;">
@@ -572,8 +688,8 @@
                 </div>
             </div>
 
-            <div id="volunteer-information" class="d-flex pt-3">
-                <div id="volunteer-info-tabs" class="p-2 h-100">
+            <div id="volunteer-information" class="d-flex flex-lg-row flex-column  pt-3">
+                <div id="volunteer-info-tabs" class=" border-warning p-2  h-100">
                     <!-- Tab links -->
                     <div class="tab">
                         <button class="tablinks p-4" onclick="openCity(event, 'Mission')">
@@ -588,7 +704,7 @@
                     </div>
 
                     <!-- Tab content -->
-                    <div id="Mission" class="tabcontent">
+                    <div id="Mission" class="tabcontent border-0">
                         <h3>Introduction</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -652,7 +768,7 @@
                         </div>
                     </div>
 
-                    <div id="Organization" class="tabcontent">
+                    <div id="Organization" class="tabcontent border-0 p-0 pt-2">
                         <h3>Organization</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -698,53 +814,109 @@
                         </p>
                     </div>
 
-                    <div id="Comments" class="tabcontent">
-                        <h3>Comments</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                    <div id="Comments" class="tabcontent border-0">
+                        <form class="mt-3" action="">
+                            <textarea id="comment" class="w-100 rounded-2 p-1" placeholder="Enter your comments.."
+                                rows="4" name="" id=""></textarea>
+                            <button class="apply-btn py-2 px-4 my-2 rounded-5 bg-transparent">
+                                Post comment
+                            </button>
+                        </form>
+                        <div id="volunteer-comments-div" class=" p-2 ">
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer1.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer2.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer3.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer4.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer5.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer6.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer7.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+                            <div
+                                class="volunteer-comments-container bg-white d-flex align-items-center rounded-3 p-2 mb-2">
+                                <div class="me-3"><img class="avtar" src="images/volunteer8.png" alt=""></div>
+                                <div class="d-flex flex-column w-100 justify-content-between">
+                                    <div class="p-0 mb-2">
+                                        <p class="p-0 m-0 fw-semibold lh-1 ">Volunteer's Name</p>
+                                        <p class="p-0 m-0 ">Monday,October 21,2019,4:57 PM</p>
+                                    </div>
+                                    <div class="volunteer-comment ">Volunteer's Comment</div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <div id="volunteer-recent-info" class="d-flex flex-column justify-content-between h-100 ">
+                <div id="volunteer-recent-info"
+                    class=" border-warning d-flex mx-5 flex-column justify-content-between h-100 ">
                     <div id="volunteer-information-div" class="container border  px-3 py-2">
                         <div class="p-2 px-0">
                             <span class="hover-underline p-2 px-0 fs-5">
@@ -772,7 +944,7 @@
                         </div>
                     </div>
                     <div id="recent-volunteers-div" class="border border-1">
-                        <div id="recent-volunteers" class=" p-2">
+                        <div id="recent-volunteers" class="p-2">
                             <div class="container">
                                 <div class="border border-1 border-top-0 border-start-0 border-end-0 p-2 px-0 ">
                                     <span class="hover-underline p-2 px-0 fs-5">
@@ -783,91 +955,91 @@
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                     <div
                                         class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
                                         <div class="border-0 rounded-circle">
-                                            <img id="recent-volunteer-id" class="rounded-circle"
-                                                style=" height:70px;width:70px;" src="images/volunteer1.png" alt="">
+                                            <img class="rounded-circle recent-volunteer-avtar avtar"
+                                                src="images/volunteer1.png" alt="">
                                         </div>
                                         <div>
-                                            <span id="recent-volunteer-name">Andrew Johnson</span>
+                                            <span class="recent-volunteer-name">Andrew Johnson</span>
                                         </div>
                                     </div>
                                 </div>
@@ -885,7 +1057,7 @@
                 </div>
             </div>
 
-            <div id="volunteer-mission-related-mission" class="mt-5 ">
+            <!-- <div id="volunteer-mission-related-mission" class="mt-5 ">
                 <p class="fs-2 text-center">Related Mission</p>
                 <div id="cards">
 
@@ -972,12 +1144,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
         </div>
 
-        <footer id="footer" class="border border-1 bg-white">
-            <div class="mx-auto h-100 w-100 d-flex align-items-center" style="max-width:var(--max-width)">
-                <a href="./privacy.html" class="text-decoration-none text-dark ">Privacy
+        <footer id="footer" class=" bg-white">
+            <div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+                <a href="./privacy.html" class="text-decoration-none text-dark p-2">
+                    Privacy
                     Policy</a>
             </div>
         </footer>

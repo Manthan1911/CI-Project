@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title> Stories </title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+
+        :root {
+            --max-width: 1420px;
+            --header-height: 72px;
+            --hover-color: #e8e8e8;
+            --right-arrow-color: #F88634;
+            --hover-underline: #767676;
+            --border-color: #dee2e6;
+            --story-card-max-height: 500px;
+            --story-card-image-height: 200px;
+        }
+
+        html {
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        main {
+            height: 100%;
+            width: 100%;
+        }
+
+        #header {
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar {
+            display: none;
+            background-color: white;
+            width: 50vw;
+            position: absolute;
+            z-index: 5;
+            height: 100vh;
+            padding: 0;
+        }
+
+
+        .sidebar ul {
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            color: black;
+            width: 98%;
+            padding: .5rem;
+            margin: 4px;
+        }
+
+        .sidebar>ul>li>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar li:hover {
+            background-color: var(--hover-color);
+        }
+
+        .sidebar-close:hover {
+            background-color: var(--hover-color) !important;
+            border-radius: 50%;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .clear-all:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+        #header-profile {
+            height: var(--header-height);
+        }
+
+        #search-input {
+            background: url('images/search.png') no-repeat;
+            background-position: 10px center;
+        }
+
+        .filters {
+            border-left: 1px solid #E8E8E8;
+            border-right: 1px solid #E8E8E8;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #filter-mission-navbar {
+            border-color: #E8E8E8;
+            height: var(--header-height) !important;
+        }
+
+        footer {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            height: var(--header-height);
+            border-top: 2px solid var(--border-color);
+        }
+
+        #story-banner-div {
+            height: 500px;
+            width: 100%;
+        }
+
+        #banner-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            filter: brightness(50%);
+        }
+
+        #story-cards-div {
+            padding: 0px !important;
+            max-width: var(--max-width);
+            min-height: 100px;
+            max-height: min-content;
+        }
+
+        .story-card-parent-div {
+            padding: 10px;
+            min-height: max-content;
+            max-height: max-content;
+        }
+
+        .story-card {
+            height: 100%;
+        }
+
+        .story-card-banner-image-div {
+            width: 100%;
+        }
+
+        .story-banner-image {
+            height: var(--story-card-image-height);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .story-card-details-part {
+            height: calc(100% - 200px);
+        }
+
+        .avtar {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        #scrollable-area::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-hover-filter {
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+        }
+
+        .image-hover-filter:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebars-div position-absolute">
+        <!-- header-sidebar -->
+        <div id="header-sidebar" class="sidebar border border-1 ">
+            <ul>
+                <div class="d-flex justify-content-end mx-1 py-1 px-2 ">
+                    <button id="header-sidebar-close"
+                        class="sidebar-close d-flex  justify-content-center p-2 bg-transparent border-0">
+                        <img src="./images/cancel1.png" alt="">
+                    </button>
+                </div>
+                <li><a href="">Stories</a></li>
+                <li class="d-flex align-items-center justify-content-between">
+                    Policy
+                    <button class="bg-transparent border-0">
+                        <img style="height:6px;width: 11px;" src="./images/drop-down.png" alt="">
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- Filter-mission-sidebar -->
+        <div id="filter-mission-sidebar" class="sidebar border border-1">
+            <ul>
+                <div class="d-flex align-items-center justify-content-between mx-1 py-1 px-2 ">
+                    <button id="filter-mission-sidebar-close-btn"
+                        class="sidebar-close d-flex  justify-content-center p-2 bg-transparent border-0">
+                        <img src="./images/left.png" alt="">
+                    </button>
+                    <button id="filter-mission-clear-all-btn"
+                        class="clear-all d-flex  justify-content-center p-2 bg-transparent border-0">
+                        Clear All
+                    </button>
+                </div>
+                <li class="d-flex align-items-center justify-content-between">
+                    Country
+                    <button class="bg-transparent border-0">
+                        <img style="height:6px;width: 11px;" src="./images/drop-down.png" alt="">
+                    </button>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                    City
+                    <button class="bg-transparent border-0">
+                        <img style="height:6px;width: 11px;" src="./images/drop-down.png" alt="">
+                    </button>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                    Theme
+                    <button class="bg-transparent border-0">
+                        <img style="height:6px;width: 11px;" src="./images/drop-down.png" alt="">
+                    </button>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                    Skills
+                    <button class="bg-transparent border-0">
+                        <img style="height:6px;width: 11px;" src="./images/drop-down.png" alt="">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="position-relative">
+        <header id="header" class="ci-page-header bg-white w-100 z-3"
+            style="background-color: transparent;min-width: max-content;">
+            <div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
+                style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+                <div class="ci-page-header-left-div d-flex ">
+                    <div class="p-2 h-100 d-sm-none d-flex">
+                        <button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0"><img
+                                src="./images/list.png" alt=""></button>
+                    </div>
+                    <img id="logo" class=" mx-2" src="./images/logo.png" alt="">
+                    <a class="text-decoration-none text-black mx-2 d-sm-block d-none" href="#">Stories</a>
+                    <div class="dropdown mx-2 d-sm-block d-none">
+                        <button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Policy
+                            <img class="mx-1" src="./images/drop-down.png" alt="">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
+                    <button id="search-button" class="p-1 mx-3 border-0 bg-white  d-sm-none">
+                        <img src="images/search.png" alt="search-btn">
+                    </button>
+                    <a href=""><img class="ci-page-header-profile-img mx-1"
+                            style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+                            src="./images/user-img.png" alt="user-img"></a>
+                    <div class="dropdown mx-2 d-md-block d-none px-sm-0 px-2">
+                        <span class="ci-page-header-profile-name mx-1 py-1">
+                            Evan Donohue
+                        </span>
+                        <button class="bg-transparent border-0 p-0 py-1 dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./images/drop-down.png" alt="">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="filter-mission-navbar" class="h-auto w-100 z-1 p-0 border border-1 bg-white"
+                style="height:var(--header-height);">
+                <div class="mx-auto row w-100" style="height:78px;max-width:1420px;  ">
+                    <div id="search-nav" class=" p-0 col-md-6 col-10 d-flex align-items-center  ">
+                        <input type="text" style="width:90%;" id="search-input" placeholder="Search mission..."
+                            class="border-0 rounded-3 bg-transparent p-3 ps-5">
+                    </div>
+
+                    <div id="search-nav" class="mx-auto col-md-6 col-2 ">
+                        <div class=" h-100 d-flex justify-content-end align-items-center d-md-none px-2">
+                            <button id="filter-mission-sidebar-open-btn"
+                                class="sidebar-open bg-transparent border-0"><img src="./images/filter.png"
+                                    alt=""></button>
+                        </div>
+                        <div class="row d-md-flex d-none" style="height:100%">
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Country
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> India</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Bharat</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Hindustan</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        City
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Rajkot</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Ahemdabad</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Surat</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Theme
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Environment</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Social</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Community</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters col-3">
+                                <div class="dropdown w-100 h-100 p-0">
+                                    <button
+                                        class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Skills
+                                        <img src="images/drop-down.png" alt="">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Sports</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Comedy</a></li>
+                                        <li class="p-1"><a class="dropdown-item" href="#"><input type="checkbox"
+                                                    name="country" id=""> Entertainment</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="scrollable-area" class=" overflow-y-scroll">
+            <div id="story-banner-div" class="w-100 mb-4 position-relative">
+                <img id="banner-image" src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+                    alt="banner-image">
+                <div id="share-your-story-div"
+                    class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+                    <div class="w-50 text-center">
+                        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem esse,
+                            error consectetur
+                            labore
+                            aliquam deleniti blanditiis? Ducimus natus excepturi quidem quasi, architecto porro pariatur
+                            adipisci sint quia enim iusto consequatur!</p>
+                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white"> Share your Story <img
+                                src="images/right-arrow.png" alt="right-arrow"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="story-cards-div" class="container p-2">
+                <div class="row gx-2">
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+                        <div class="story-card shadow-lg">
+                            <div class="story-card-banner-image-div position-relative">
+                                <img class="story-banner-image"
+                                    src="images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="">
+                                <div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+                                    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                        <button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+                                            View Details
+                                            <img src="images/right-arrow.png" alt="right-arrow"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-card-details-part container d-flex justify-content-between flex-column">
+                                <div class="bg-transparent w-100 d-flex align-items-center justify-content-center"
+                                    style="margin-top:-17px;">
+                                    <span class="bg-white rounded-5 p-2 z-2 shadow-lg">CustomerExperience</span>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="fs-5 fw-semibold">10 user and customer engagement startegies for 2019</p>
+                                    <p style="text-overflow: ellipsis;overflow:hidden;">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit.Lorem ipsum dolor sit
+                                        amet consectetur adipisicing elit </p>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-2 d-flex justify-content-center align-items-center"><img
+                                            class="avtar" src="images/volunteer5.png" alt=""></div>
+                                    <div class="col-10 d-flex justify-content-start align-items-center"><span>Andrew
+                                            Johnson</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" class=" bg-white">
+            <div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+                <a href="./privacy.html" class="text-decoration-none text-dark p-2">
+                    Privacy
+                    Policy</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/headerSidebar.js"></script>
+    <script src="js/filterMissionSidebar.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/scrolable.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

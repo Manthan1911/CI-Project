@@ -1,10 +1,6 @@
 const searchButton = document.getElementById("search-button");
 const filterMissionNavbar = document.getElementById("filter-mission-navbar");
 
-console.log("custom");
-console.log(searchButton);
-console.log(filterMissionNavbar);
-
 let flag = 0;
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();

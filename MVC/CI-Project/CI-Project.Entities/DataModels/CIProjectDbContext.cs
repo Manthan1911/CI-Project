@@ -146,7 +146,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<CmsPage>(entity =>
         {
-            entity.HasKey(e => e.CmsPageId).HasName("PK__cms_page__B46D5B5292421B44");
+            entity.HasKey(e => e.CmsPageId).HasName("PK__cms_page__B46D5B523AAA21AC");
 
             entity.ToTable("cms_page");
 
@@ -179,7 +179,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.CommentId).HasName("PK__comment__E7957687E6AD1C6F");
+            entity.HasKey(e => e.CommentId).HasName("PK__comment__E7957687B467D324");
 
             entity.ToTable("comment");
 
@@ -237,7 +237,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<FavouriteMission>(entity =>
         {
-            entity.HasKey(e => e.FavouriteMissionId).HasName("PK__favourit__94E4D8CA3AF2DDA6");
+            entity.HasKey(e => e.FavouriteMissionId).HasName("PK__favourit__94E4D8CABDA69C0E");
 
             entity.ToTable("favourite_mission");
 
@@ -268,7 +268,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<GoalMission>(entity =>
         {
-            entity.HasKey(e => e.GoalMissionId).HasName("PK__goal_mis__358E02C777D090F2");
+            entity.HasKey(e => e.GoalMissionId).HasName("PK__goal_mis__358E02C773F7A137");
 
             entity.ToTable("goal_mission");
 
@@ -298,7 +298,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<Mission>(entity =>
         {
-            entity.HasKey(e => e.MissionId).HasName("PK__mission__B5419AB24D8B9D8C");
+            entity.HasKey(e => e.MissionId).HasName("PK__mission__B5419AB238AE43A0");
 
             entity.ToTable("mission");
 
@@ -367,7 +367,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionApplication>(entity =>
         {
-            entity.HasKey(e => e.MissionApplicationId).HasName("PK__mission___DF92838AFEA55936");
+            entity.HasKey(e => e.MissionApplicationId).HasName("PK__mission___DF92838ACD40592C");
 
             entity.ToTable("mission_application");
 
@@ -403,7 +403,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionDocument>(entity =>
         {
-            entity.HasKey(e => e.MissionDocumentId).HasName("PK__mission___E80E0CC8C4E317A4");
+            entity.HasKey(e => e.MissionDocumentId).HasName("PK__mission___E80E0CC812435548");
 
             entity.ToTable("mission_document");
 
@@ -440,7 +440,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionInvite>(entity =>
         {
-            entity.HasKey(e => e.MissionInviteId).HasName("PK__mission___A97ED158181D19B1");
+            entity.HasKey(e => e.MissionInviteId).HasName("PK__mission___A97ED158671F86F7");
 
             entity.ToTable("mission_invite");
 
@@ -472,7 +472,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionMedium>(entity =>
         {
-            entity.HasKey(e => e.MissionMediaId).HasName("PK__mission___848A78E8941165CF");
+            entity.HasKey(e => e.MissionMediaId).HasName("PK__mission___848A78E844B8CD37");
 
             entity.ToTable("mission_media");
 
@@ -512,7 +512,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionRating>(entity =>
         {
-            entity.HasKey(e => e.MissionRatingId).HasName("PK__mission___320E51720A002435");
+            entity.HasKey(e => e.MissionRatingId).HasName("PK__mission___320E5172184C8E80");
 
             entity.ToTable("mission_rating");
 
@@ -544,7 +544,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<MissionSkill>(entity =>
         {
-            entity.HasKey(e => e.MissionSkillId).HasName("PK__mission___82712008702EE56A");
+            entity.HasKey(e => e.MissionSkillId).HasName("PK__mission___82712008C64D0AFA");
 
             entity.ToTable("mission_skill");
 
@@ -630,7 +630,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<Story>(entity =>
         {
-            entity.HasKey(e => e.StoryId).HasName("PK__story__66339C56A094FE68");
+            entity.HasKey(e => e.StoryId).HasName("PK__story__66339C56CD59EF3B");
 
             entity.ToTable("story");
 
@@ -693,7 +693,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<StoryMedium>(entity =>
         {
-            entity.HasKey(e => e.StoryMediaId).HasName("PK__story_me__29BD053CC368EA7A");
+            entity.HasKey(e => e.StoryMediaId).HasName("PK__story_me__29BD053C2891BAFB");
 
             entity.ToTable("story_media");
 
@@ -725,7 +725,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<Timesheet>(entity =>
         {
-            entity.HasKey(e => e.TimesheetId).HasName("PK__timeshee__7BBF506835510F66");
+            entity.HasKey(e => e.TimesheetId).HasName("PK__timeshee__7BBF506809573FB4");
 
             entity.ToTable("timesheet");
 
@@ -768,7 +768,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__user__B9BE370F198A1283");
+            entity.HasKey(e => e.UserId).HasName("PK__user__B9BE370FF225C73C");
 
             entity.ToTable("user");
 
@@ -838,7 +838,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<UserSkill>(entity =>
         {
-            entity.HasKey(e => e.UserSkillId).HasName("PK__user_ski__FD3B576BF1FCBBA6");
+            entity.HasKey(e => e.UserSkillId).HasName("PK__user_ski__FD3B576B24764890");
 
             entity.ToTable("user_skill");
 

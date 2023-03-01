@@ -1,17 +1,25 @@
 ﻿using CI_Project.Entities.ViewModels;
+using CI_Project.Entities.DataModels;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using CI_Project.Entities.DataModels;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace CI_Platform_Web.Controllers
 {
     public class AuthenticationController : Controller
     {
         private readonly IUserRepository _userRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IPassword _password;
 
-        public AuthenticationController(IUserRepository userRepository)
+
+        public AuthenticationController(IUserRepository userRepository,IHttpContextAccessor httpContextAccessor, IPassword password)
         {
             _userRepository = userRepository;
+            _httpContextAccessor = httpContextAccessor;
+            _password = password;
         }
 
         public IActionResult Index()
@@ -69,7 +77,33 @@ namespace CI_Platform_Web.Controllers
             if (ModelState.IsValid)
             { 
                 var userObj = _userRepository.findUser(forgotPasswordModelObj.EmailId);
-                return RedirectToAction("ResetPassword","Authentication",new { id = userObj.UserId });
+
+                string uuid = Guid.NewGuid().ToString();
+                PasswordReset resetPasswordObj = new PasswordReset()
+                {
+                    Email = userObj.Email,
+                    Token= uuid,
+                    CreatedAt= DateTime.Now,
+                };
+               
+
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("umang", "gohelumang12@gmail.com"));
+                message.To.Add(new MailboxAddress("manthan", "patelmanthan2000@gmail.com"));
+                message.Subject = "ci platform test message";
+                message.Body = new TextPart("html")
+                {
+                    Text = "<a href=\"" + " https://" + _httpContextAccessor.HttpContext.Request.Host.Value + "/Authentication/ResetPassword?token=" + uuid + " \"  style=\"font-weight:500;color:blue;\" > Click here to Reset Your Password </a>"
+                };
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("gohelumang12@gmail.com", "wujtwmdgjeivnsme");
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+
+                return View();
             }
             else
             {
@@ -100,7 +134,7 @@ namespace CI_Platform_Web.Controllers
                     user.LastName= registerationModel.LastName;
                     user.PhoneNumber = long.Parse(registerationModel.PhoneNo);
                     user.Email = registerationModel.EmailId;
-                    user.Password= registerationModel.Password;
+                    user.Password= _password.Encode(registerationModel.Password);
                     user.CreatedAt= DateTime.Now;
                     var IsUserAdded =_userRepository.addUser(user);
                 }
@@ -120,20 +154,35 @@ namespace CI_Platform_Web.Controllers
             }
         }
 
-        public IActionResult ResetPassword(int? id)
+        public IActionResult ResetPassword(string token)
         {
-            return View();
+            var resetObj = _userRepository.findUserByToken(token);
+            TimeSpan remainingTime = (TimeSpan) (DateTime.Now - resetObj.CreatedAt);
+
+            int hour = remainingTime.Hours;
+
+            if (hour >= 4)
+            {
+                _userRepository.removeResetPasswordToken(resetObj);
+                return RedirectToAction("Login");
+            }
+
+            ResetPasswordModel resetPassword = new ResetPasswordModel();
+            resetPassword.token = token;
+            return View(resetPassword);
         }
 
         [HttpPost]
-        public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel,int? id)
+        public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
         {   
 
             if (resetPasswordModel.NewPassword.Equals(resetPasswordModel.ConfirmPassword))
             {
-                var user = _userRepository.findUser(id);
+                string token = resetPasswordModel.token;
+                var resetObj = _userRepository.findUserByToken(token);
+                var user = _userRepository.findUser(resetObj.Email);
 
-                if (resetPasswordModel.NewPassword.Equals(user.Password))
+                if (resetPasswordModel.NewPassword.Equals(_password.Decode(user.Password)))
                 {
                     ModelState.AddModelError("NewPassword", "You cannot set your OldPassword as NewPassword");
                 }
@@ -141,8 +190,9 @@ namespace CI_Platform_Web.Controllers
                 {
                     try
                     {
-                        user.Password= resetPasswordModel.NewPassword;
+                        user.Password= _password.Encode(resetPasswordModel.NewPassword);
                         var IsPasswordUpdated = _userRepository.updatePassword(user);
+                        _userRepository.removeResetPasswordToken(resetObj);
                     }
                     catch
                     {

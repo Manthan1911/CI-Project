@@ -89,3 +89,6 @@ W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\CI-Project.Reposit
 W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\CI-Project.Entities.pdb
 W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\CI-Project.Repository.pdb
 W:\CI_Project\MVC\CI-Project\CI-Platform-Web\obj\Debug\net6.0\CI-Platform-Web.csproj.CopyComplete
+W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\MailKit.dll
+W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\MimeKit.dll
+W:\CI_Project\MVC\CI-Project\CI-Platform-Web\bin\Debug\net6.0\BouncyCastle.Crypto.dll

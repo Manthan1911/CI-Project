@@ -13,9 +13,15 @@ namespace CI_Project.Repository.Repository.Interface
 
         public User findUser(int? id);
 
+        public PasswordReset findUserByToken(string token);
+
+
         public Boolean updatePassword(User user);
 
         public Boolean addUser(User user);
 
+        public void addResetPasswordToken(PasswordReset passwordResetObj);
+
+        public void removeResetPasswordToken(PasswordReset obj);
     }
 }

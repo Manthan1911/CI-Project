@@ -11,5 +11,7 @@ namespace CI_Project.Entities.ViewModels
         [Required]
         [MinLength(8 , ErrorMessage = "Password should be minimum 8 characters long")]
         public string ConfirmPassword { get; set; }
+
+        public string token { get; set; }
     }
 }

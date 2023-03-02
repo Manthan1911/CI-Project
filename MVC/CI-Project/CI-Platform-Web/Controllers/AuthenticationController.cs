@@ -101,7 +101,7 @@ namespace CI_Platform_Web.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("gohelumang12@gmail.com", "lswlzdyxovdtabkr");
+                    client.Authenticate("gohelumang12@gmail.com", "");
                     client.Send(message);
                     client.Disconnect(true);
                 }

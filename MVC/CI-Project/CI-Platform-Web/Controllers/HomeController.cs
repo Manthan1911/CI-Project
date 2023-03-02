@@ -15,6 +15,10 @@ namespace CI_Platform_Web.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("UserEmail") == null)
+            {
+                return RedirectToAction("Login","Authentication");
+            }
             return View();
         }
 

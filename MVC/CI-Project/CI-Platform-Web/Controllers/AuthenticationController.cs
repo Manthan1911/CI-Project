@@ -23,6 +23,7 @@ namespace CI_Platform_Web.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -50,6 +51,9 @@ namespace CI_Platform_Web.Controllers
                 }
 
                 if (ModelState.IsValid) {
+
+                    HttpContext.Session.SetString("UserEmail", loginModelObj.EmailId);
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 else

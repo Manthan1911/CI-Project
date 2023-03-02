@@ -2,7 +2,6 @@
 using CI_Project.Entities.DataModels;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
-using CI_Project.Entities.DataModels;
 using MimeKit;
 using MailKit.Net.Smtp;
 
@@ -37,9 +36,9 @@ namespace CI_Platform_Web.Controllers
         public IActionResult Login(LoginModel loginModelObj)
         {
                 var isEmailValid = _userRepository.validateEmail(loginModelObj.EmailId);
-                var isUserValid = _userRepository.validateUser(loginModelObj.EmailId,loginModelObj.Password);
                 if (isEmailValid)
                 {
+                    var isUserValid = _userRepository.validateUser(loginModelObj.EmailId,loginModelObj.Password);
                     if (!isUserValid) 
                     { 
                         ModelState.AddModelError("Password", "Password didn't match... Please try again");
@@ -86,10 +85,10 @@ namespace CI_Platform_Web.Controllers
                     CreatedAt= DateTime.Now,
                 };
                
-
+                _userRepository.addResetPasswordToken(resetPasswordObj);
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("umang", "gohelumang12@gmail.com"));
-                message.To.Add(new MailboxAddress("manthan", "patelmanthan2000@gmail.com"));
+                message.From.Add(new MailboxAddress("CI-Platform", "gohelumang12@gmail.com"));
+                message.To.Add(new MailboxAddress("User", forgotPasswordModelObj.EmailId));
                 message.Subject = "ci platform test message";
                 message.Body = new TextPart("html")
                 {
@@ -98,7 +97,7 @@ namespace CI_Platform_Web.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("gohelumang12@gmail.com", "wujtwmdgjeivnsme");
+                    client.Authenticate("gohelumang12@gmail.com", "lswlzdyxovdtabkr");
                     client.Send(message);
                     client.Disconnect(true);
                 }
@@ -155,21 +154,37 @@ namespace CI_Platform_Web.Controllers
         }
 
         public IActionResult ResetPassword(string token)
-        {
-            var resetObj = _userRepository.findUserByToken(token);
-            TimeSpan remainingTime = (TimeSpan) (DateTime.Now - resetObj.CreatedAt);
-
-            int hour = remainingTime.Hours;
-
-            if (hour >= 4)
             {
-                _userRepository.removeResetPasswordToken(resetObj);
-                return RedirectToAction("Login");
-            }
+                PasswordReset resetObj;
 
-            ResetPasswordModel resetPassword = new ResetPasswordModel();
-            resetPassword.token = token;
-            return View(resetPassword);
+
+                try
+                {
+                    resetObj = _userRepository.findUserByToken(token);
+
+                    if (resetObj.Token == null)
+                    {
+                        throw new Exception("token might have expired!");
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    return View("ForgotPassword");
+                }
+
+            TimeSpan remainingTime = (TimeSpan)(DateTime.Now - resetObj.CreatedAt);
+
+                int hour = remainingTime.Hours;
+
+                if (hour >= 4)
+                {
+                    _userRepository.removeResetPasswordToken(resetObj);
+                    return RedirectToAction("Login");
+                }
+
+                ResetPasswordModel resetPassword = new ResetPasswordModel();
+                resetPassword.token = token;
+                return View(resetPassword);
         }
 
         [HttpPost]
@@ -192,11 +207,15 @@ namespace CI_Platform_Web.Controllers
                     {
                         user.Password= _password.Encode(resetPasswordModel.NewPassword);
                         var IsPasswordUpdated = _userRepository.updatePassword(user);
+                        if(!IsPasswordUpdated)
+                        {
+                            throw new Exception("Some problem occured while saving changes...Please try again!");
+                        }
                         _userRepository.removeResetPasswordToken(resetObj);
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        throw new Exception("Some problem occured while saving changes...Please try again!");
+                        Console.WriteLine(ex + " : " + ex.Message);
                     }
                     return RedirectToAction("Login");
                 }
@@ -205,7 +224,7 @@ namespace CI_Platform_Web.Controllers
             {
                 ModelState.AddModelError("ConfirmPassword","ConfirmPassword and NewPassword don't match");
             }
-            return View();
+            return View(resetPasswordModel);
         }
     }
 }

@@ -16,16 +16,9 @@ namespace CI_Project.Repository.Repository
 
         public bool addUser(User user)
         {
-            try
-            {
-                _db.Users.Add(user);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error while creating user!" + ex);
-            }
+            _db.Users.Add(user);
+            _db.SaveChanges();
+            return true;
         }
 
         public void addResetPasswordToken(PasswordReset passwordResetObj)
@@ -72,15 +65,8 @@ namespace CI_Project.Repository.Repository
 
         public bool updatePassword(User user)
         {
-            try
-            {
-                _db.Update(user);
-                _db.SaveChanges();
-            }
-            catch(Exception ex)
-            {
-                throw new Exception("Some error occured while saving!" + ex);
-            }
+            _db.Update(user);
+            _db.SaveChanges();
             return true;
         }
 

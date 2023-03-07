@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\landingPage.css",
+      "PackagePath": "staticwebassets\\css\\landingPage.css"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -453,8 +457,28 @@
       "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\filterMissionSidebar.js",
+      "PackagePath": "staticwebassets\\js\\filterMissionSidebar.js"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
+      "PackagePath": "staticwebassets\\js\\headerSidebar.js"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
+      "PackagePath": "staticwebassets\\js\\scrolable.js"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\volunteeringInfo.js",
+      "PackagePath": "staticwebassets\\js\\volunteeringInfo.js"
     },
     {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\LICENSE",

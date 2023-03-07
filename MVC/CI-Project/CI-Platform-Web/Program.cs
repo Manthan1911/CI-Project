@@ -1,4 +1,5 @@
 using CI_Project.Entities.DataModels;
+using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<CIProjectDbContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<IPassword, Password>();
+builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 

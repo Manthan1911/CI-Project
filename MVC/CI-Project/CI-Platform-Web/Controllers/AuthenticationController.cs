@@ -93,7 +93,7 @@ namespace CI_Platform_Web.Controllers
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("CI-Platform", "gohelumang12@gmail.com"));
                 message.To.Add(new MailboxAddress("User", forgotPasswordModelObj.EmailId));
-                message.Subject = "ci platform test message";
+                message.Subject = "CI-Platform RESET PASSWORD";
                 message.Body = new TextPart("html")
                 {
                     Text = "<a href=\"" + " https://" + _httpContextAccessor.HttpContext.Request.Host.Value + "/Authentication/ResetPassword?token=" + uuid + " \"  style=\"font-weight:500;color:blue;\" > Click here to Reset Your Password </a>"
@@ -101,7 +101,7 @@ namespace CI_Platform_Web.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("gohelumang12@gmail.com", "");
+                    client.Authenticate("coder5255@gmail.com", "icxemzbfyycvvzpd");
                     client.Send(message);
                     client.Disconnect(true);
                 }
@@ -171,7 +171,7 @@ namespace CI_Platform_Web.Controllers
                         throw new Exception("token might have expired!");
                     }
                 }
-                catch (Exception ex) 
+                catch (Exception) 
                 {
                     return View("ForgotPassword");
                 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lQlUavLdpoBoKWyQBJp9N7mBlaoMaA2gA6xRt3Vxsxo=",
+  "Hash": "mIHgmJqPxlCnP7FG+DiZEqiHGziFCsl0pwClySyHHt0=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -2004,6 +2004,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\filterMissionSidebar.js"
+    },
+    {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/gridList.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\gridList.js"
     },
     {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",

@@ -465,6 +465,10 @@
       "PackagePath": "staticwebassets\\js\\filterMissionSidebar.js"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
+      "PackagePath": "staticwebassets\\js\\gridList.js"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
       "PackagePath": "staticwebassets\\js\\headerSidebar.js"
     },

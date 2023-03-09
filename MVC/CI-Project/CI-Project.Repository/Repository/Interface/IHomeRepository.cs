@@ -9,5 +9,9 @@ namespace CI_Project.Repository.Repository.Interface
 
         public List<MissionTheme> getAllThemes();
         public List<Skill> getAllSkills();
+
+        public List<Mission> getAllMissions();
+
+        public MissionMedium? getAllMissionMediaRows(long? id);
     }
 }

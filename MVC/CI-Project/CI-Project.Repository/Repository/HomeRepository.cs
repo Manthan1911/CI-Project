@@ -1,5 +1,6 @@
 ﻿using CI_Project.Entities.DataModels;
 using CI_Project.Repository.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace CI_Project.Repository.Repository
 {
@@ -27,6 +28,20 @@ namespace CI_Project.Repository.Repository
         public List<Skill> getAllSkills()
         {
             return _db.Skills.ToList();
+        }
+
+        public List<Mission> getAllMissions()
+        {
+            return _db.Missions.Include(m => m.GoalMissions)
+                .Include(m => m.MissionApplications)
+                .Include(m => m.MissionMedia)
+                .Include(m=> m.FavouriteMissions)
+                .Include(m => m.Theme).ToList();
+        }
+
+        public MissionMedium? getAllMissionMediaRows(long? id)
+        {
+            return _db.MissionMedia.Where(x => x.MissionId == id).FirstOrDefault();
         }
     }
 }

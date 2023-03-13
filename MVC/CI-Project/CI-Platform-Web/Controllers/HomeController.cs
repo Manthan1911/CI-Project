@@ -5,7 +5,6 @@ using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-
 namespace CI_Platform_Web.Controllers
 {
     public class HomeController : Controller
@@ -13,8 +12,8 @@ namespace CI_Platform_Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IHomeRepository _homeRepository;
         private readonly IUserRepository _userRepository;
-        
-        public HomeController(ILogger<HomeController> logger,IHomeRepository homeRepository,IUserRepository userRepository)
+
+        public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository, IUserRepository userRepository)
         {
             _logger = logger;
             _homeRepository = homeRepository;
@@ -26,9 +25,9 @@ namespace CI_Platform_Web.Controllers
             var userEmailId = HttpContext.Session.GetString("UserEmail");
             if (userEmailId == null)
             {
-                return RedirectToAction("Login","Authentication");
+                return RedirectToAction("Login", "Authentication");
             }
-            
+
             List<Country> countryList = _homeRepository.getAllCountries();
             List<City> cityList = _homeRepository.getAllCities();
             List<MissionTheme> themeList = _homeRepository.getAllThemes();
@@ -39,9 +38,8 @@ namespace CI_Platform_Web.Controllers
                 user = new(),
                 countries = new(),
                 cities = new(),
-                themes= new(),
-                skills=new(),
-                missions=new(),
+                themes = new(),
+                skills = new(),
             };
 
             model.user = _userRepository.findUser(userEmailId);
@@ -51,39 +49,65 @@ namespace CI_Platform_Web.Controllers
                 CountryId = currentCountry.CountryId,
                 CountryName = currentCountry.Name
             }));
-            
+
             model.cities.AddRange(cityList.Select(currentCity => new CityModel
             {
                 CityId = currentCity.CityId,
                 CityName = currentCity.Name
             }));
-            
+
             model.themes.AddRange(themeList.Select(currentTheme => new ThemeModel
             {
-                MissionThemeId= currentTheme.MissionThemeId,
+                MissionThemeId = currentTheme.MissionThemeId,
                 MissionThemeTitle = currentTheme.Title
             }));
-            
+
             model.skills.AddRange(skillList.Select(currentSkill => new SkillModel
             {
-                SkillId= currentSkill.SkillId,
-                SkillName= currentSkill.SkillName,
+                SkillId = currentSkill.SkillId,
+                SkillName = currentSkill.SkillName,
             }));
 
+            return View(model);
+            }
 
-            List<Mission> missions = _homeRepository.getAllMissions();
+        public IActionResult bringMissionsToGridView(string sortBy ,string missionToSearch)
+        {
+            sortBy = String.IsNullOrEmpty(sortBy) ? "Newest" : sortBy;
 
-
-
+            List<Mission> missions ;
             List<MissionModel> missionVmList = new();
+            if(missionToSearch != null)
+            {
+                missions =  _homeRepository.searchMissionAccToTitle(missionToSearch);
+                foreach (var currMisssion in missions)
+                {
+                    missionVmList.Add(convertDataModelToMissionModel(currMisssion));
+                }
+                return PartialView("_GridViewListViewPartial", missionVmList);
+            }
+
+            missions =  _homeRepository.getAllMissions();
+
+            switch (sortBy)
+            {
+                case "Newest":
+                    missions = missions.OrderByDescending(mission => mission.CreatedAt).ToList();
+                    break;
+                case "Oldest":
+                    missions = missions.OrderBy(mission => mission.CreatedAt).ToList();
+                    break;
+                default:
+                    missions = missions.OrderBy(mission => mission.CreatedAt).ToList();
+                    break;
+            }
+
             foreach (var currMisssion in missions)
             {
                 missionVmList.Add(convertDataModelToMissionModel(currMisssion));
             }
 
-            model.missions= missionVmList;
-
-            return View(model);
+            return PartialView("_GridViewListViewPartial", missionVmList);
         }
 
         public MissionModel convertDataModelToMissionModel(Mission mission)
@@ -96,8 +120,8 @@ namespace CI_Platform_Web.Controllers
             missionModel.Theme = mission.Theme;
             missionModel.Title = mission.Title;
             missionModel.ShortDescription= mission.ShortDescription;
-            missionModel.StartDate= mission.StartDate;
-            missionModel.EndDate= mission.EndDate;
+            missionModel.StartDate= mission.StartDate.ToString().Remove(10);
+            missionModel.EndDate= mission.EndDate.ToString().Remove(10);
             missionModel.OrganizationName = mission.OrganizationName;
             missionModel.MissionType= mission.MissionType;
             missionModel.CoverImage = getMissionCoverImageUrl(mission.MissionId);
@@ -106,8 +130,8 @@ namespace CI_Platform_Web.Controllers
 
         public string getMissionCoverImageUrl(long id)
         {
-            MissionMedium missionMedia = _homeRepository.getAllMissionMediaRows(id);
-            string missionCoverImageUrl = missionMedia.MediaPath + missionMedia.MediaName + missionMedia.MediaType;
+            MissionMedium? missionMedia = _homeRepository.getAllMissionMediaRows(id);
+            string missionCoverImageUrl = missionMedia?.MediaPath + missionMedia?.MediaName + missionMedia?.MediaType;
             return missionCoverImageUrl;
         }
 

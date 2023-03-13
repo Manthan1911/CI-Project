@@ -156,6 +156,9 @@ footer {
     background-color: var(--hover-color) !important;
 }
 
+.hidden{
+    display:none !important;
+}
 
 @media only screen and (max-width: 576px) {
     #header-sidebar {

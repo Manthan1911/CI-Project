@@ -1,4 +1,5 @@
 ﻿using CI_Project.Entities.DataModels;
+using CI_Project.Entities.ViewModels;
 
 namespace CI_Project.Repository.Repository.Interface
 {
@@ -13,5 +14,7 @@ namespace CI_Project.Repository.Repository.Interface
         public List<Mission> getAllMissions();
 
         public MissionMedium? getAllMissionMediaRows(long? id);
+
+        public List<Mission> searchMissionAccToTitle(string missionToSearch);
     }
 }

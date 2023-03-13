@@ -2,11 +2,9 @@
 const missionCards = document.querySelectorAll(".card-to-hide");
 
 let cardsCount = missionCards.length;
-console.log(searchBar);
 
 searchBar.addEventListener("keyup", () => {
     let searchedValue = searchBar.value.toLowerCase();
-    console.log(searchedValue);
 
     for (let i = 0; i < missionCards.length; i++) {
         var title = missionCards[i].getElementsByClassName("mission-title-to-hide")[0];

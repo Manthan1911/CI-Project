@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mIHgmJqPxlCnP7FG+DiZEqiHGziFCsl0pwClySyHHt0=",
+  "Hash": "Ef0/FNuM4UDi6GXX8HyMXSRpxWkHBcvd4i84W3I9AHU=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -2040,6 +2040,23 @@
       "OriginalItemSpec": "wwwroot\\js\\headerSidebar.js"
     },
     {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/pagination.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\pagination.js"
+    },
+    {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -2055,6 +2072,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\scrolable.js"
+    },
+    {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/searchMission.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\searchMission.js"
     },
     {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",

@@ -473,8 +473,16 @@
       "PackagePath": "staticwebassets\\js\\headerSidebar.js"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
+      "PackagePath": "staticwebassets\\js\\pagination.js"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
       "PackagePath": "staticwebassets\\js\\scrolable.js"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
+      "PackagePath": "staticwebassets\\js\\searchMission.js"
     },
     {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",

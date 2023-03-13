@@ -14,7 +14,7 @@ namespace CI_Project.Entities.ViewModels
 
         public User user { get; set; }
 
-        public List<MissionModel> missions { get; set; } 
+        //public List<MissionModel> missions { get; set; } 
 
     }
 }

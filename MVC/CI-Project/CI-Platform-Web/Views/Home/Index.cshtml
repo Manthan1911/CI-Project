@@ -1,338 +1,311 @@
 ﻿@model CI_Project.Entities.ViewModels.HomeModel
 
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 @section Styles {
-    <link rel="Stylesheet" href="@Href("~/css/landingPage.css")" />
+	<link rel="Stylesheet" href="@Href("~/css/landingPage.css")" />
 }
-
 <main class="position-relative">
-    <header id="header" class="ci-page-header bg-white w-100 z-3"
-            style="background-color: transparent;min-width: max-content;">
-        <div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
-             style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
-            <div class="ci-page-header-left-div d-flex ">
-                <div class="p-2 h-100 d-sm-none">
-                    <button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
-                        <img src="./images/list.png" alt="">
-                    </button>
-                </div>
-                <img id="logo" class=" mx-2" src="./images/logo.png" alt="">
-                <div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
-                    <div id="close-btn-div" class="p-2">
-                        <button id="header-sidebar-close"
-                                class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
-                            <img src="./images/cancel1.png" alt="">
-                        </button>
-                    </div>
-                    <div id="stories-div" class="p-2">
-                        <a class="text-decoration-none text-black mx-2 " href="#">
-                            Stories
-                        </a>
-                    </div>
+	<header id="header" class="ci-page-header bg-white w-100 z-3"
+			style="background-color: transparent;min-width: max-content;">
+		<div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
+			 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+			<div class="ci-page-header-left-div d-flex ">
+				<div class="p-2 h-100 d-sm-none">
+					<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
+						<img src="./images/list.png" alt="">
+					</button>
+				</div>
+				<img id="logo" class=" mx-2" src="./images/logo.png" alt="">
+				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
+					<div id="close-btn-div" class="p-2">
+						<button id="header-sidebar-close"
+								class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
+							<img src="./images/cancel1.png" alt="">
+						</button>
+					</div>
+					<div id="stories-div" class="p-2">
+						<a class="text-decoration-none text-black mx-2 " href="#">
+							Stories
+						</a>
+					</div>
 
-                    <div id="policy-div" class="dropdown mx-2">
-                        <button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                            Policy
-                            <img class="mx-1" src="./images/drop-down.png" alt="">
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
-                <button id="search-button" class="p-1 mx-3 border-0 bg-white  d-sm-none">
-                    <img src="images/search.png" alt="search-btn">
-                </button>
-                <a href="">
-                    <img class="ci-page-header-profile-img mx-1"
-                         style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
-                         src="./images/user-img.png" alt="user-img">
-                </a>
-                <div class="dropdown mx-2 d-md-block d-none px-sm-0 px-2">
-                    <span class="ci-page-header-profile-name mx-1 py-1">
-                        @Model.user.FirstName @Model.user.LastName
-                    </span>
-                    <button class="bg-transparent border-0 p-0 py-1 dropdown-toggle" type="button"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./images/drop-down.png" alt="">
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div id="filter-mission-navbar" class="h-auto w-100 z-1 p-0 border border-1 bg-white"
-             style="height:var(--header-height);">
-            <div class="mx-auto row w-100" style="height:78px;max-width:1420px;  ">
-                <div id="search-nav" class=" p-0 col-md-6 col-10 d-flex align-items-center  ">
-                    <input type="text" style="width:90%;" id="search-input" placeholder="Search mission..."
-                           class="border-0 rounded-3 bg-transparent p-3 ps-5">
-                </div>
+					<div id="policy-div" class="dropdown mx-2">
+						<button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+							Policy
+							<img class="mx-1" src="./images/drop-down.png" alt="">
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
+				<button id="search-button" class="p-1 mx-3 border-0 bg-white  d-sm-none">
+					<img src="images/search.png" alt="search-btn">
+				</button>
+				<a href="">
+					<img class="ci-page-header-profile-img mx-1"
+						 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+						 src="./images/user-img.png" alt="user-img">
+				</a>
+				<div class="dropdown mx-2 d-md-block d-none px-sm-0 px-2">
+					<span class="ci-page-header-profile-name mx-1 py-1">
+						@Model.user.FirstName @Model.user.LastName
+					</span>
+					<button class="bg-transparent border-0 p-0 py-1 dropdown-toggle" type="button"
+							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="./images/drop-down.png" alt="">
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="filter-mission-navbar" class="h-auto w-100 z-1 p-0 border border-1 bg-white"
+			 style="height:var(--header-height);">
+			<div class="mx-auto row w-100" style="height:78px;max-width:1420px;  ">
+				<div id="search-nav" class=" p-0 col-md-6 col-10 d-flex align-items-center  ">
+					<input type="text" style="width:90%;" id="search-input" placeholder="Search mission..."
+						   class="border-0 rounded-3 bg-transparent p-3 ps-5">
+				</div>
 
-                <div id="search-nav" class="mx-auto col-md-6 col-2 ">
-                    <div class=" h-100 d-flex justify-content-end align-items-center d-md-none px-2">
-                        <button id="filter-mission-sidebar-open-btn"
-                                class="sidebar-open bg-transparent border-0">
-                            <img src="./images/filter.png"
-                                 alt="">
-                        </button>
-                    </div>
-                    <div id="filter-bar" class="row" style="height:100%;left:-50vw;">
-                        <div class="d-flex d-md-none align-items-center justify-content-between mx-1 py-1 px-2 ">
-                            <button id="filter-mission-sidebar-close-btn"
-                                    class="sidebar-close d-flex  justify-content-center p-2 bg-transparent border-0">
-                                <img src="./images/left.png" alt="">
-                            </button>
-                            <button id="filter-mission-clear-all-btn"
-                                    class="clear-all d-flex  justify-content-center p-2 bg-transparent border-0">
-                                Clear All
-                            </button>
-                        </div>
-                        <div class="col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Country
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    @foreach(var currCountry in @Model.countries)
-                                    {
-                                        <li class="p-1"><input type="checkbox" name="country" value="@currCountry.CountryName">@currCountry.CountryName</li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    City
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    
-                                    @foreach (var currCity in Model.cities)
-                                    {
-                                        <li class="p-1">
-                                            <input type="checkbox" name="country" value="@currCity.CityName"> @currCity.CityName
-                                        </li>
-                                    }
+				<div id="search-nav" class="mx-auto col-md-6 col-2 ">
+					<div class=" h-100 d-flex justify-content-end align-items-center d-md-none px-2">
+						<button id="filter-mission-sidebar-open-btn"
+								class="sidebar-open bg-transparent border-0">
+							<img src="./images/filter.png"
+								 alt="">
+						</button>
+					</div>
+					<div id="filter-bar" class="row" style="height:100%;left:-50vw;">
+						<div class="d-flex d-md-none align-items-center justify-content-between mx-1 py-1 px-2 ">
+							<button id="filter-mission-sidebar-close-btn"
+									class="sidebar-close d-flex  justify-content-center p-2 bg-transparent border-0">
+								<img src="./images/left.png" alt="">
+							</button>
+							<button id="filter-mission-clear-all-btn"
+									class="clear-all d-flex  justify-content-center p-2 bg-transparent border-0">
+								Clear All
+							</button>
+						</div>
+						<div class="col-3">
+							<div class="dropdown w-100 h-100 p-0">
+								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+										type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Country
+									<img src="images/drop-down.png" alt="">
+								</button>
+								<ul id="country-dropdown" class="dropdown-menu">
+									@foreach (var currCountry in @Model.countries)
+									{
+										<li class="p-1"><input class="countryName" type="checkbox" name="country" data-id="@currCountry.CountryId" value="@currCountry.CountryName">@currCountry.CountryName</li>
+									}
+								</ul>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="dropdown w-100 h-100 p-0">
+								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+										type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									City
+									<img src="images/drop-down.png" alt="">
+								</button>
+								<ul class="dropdown-menu">
 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Theme
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    @foreach (var currTheme in @Model.themes)
-                                    {
-                                        <li class="p-1">
-                                            <input type="checkbox" name="country" value="@currTheme.MissionThemeTitle">
-                                            @currTheme.MissionThemeTitle
-                                        </li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="dropdown w-100 h-100 p-0">
-                                <button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
-                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Skills
-                                    <img src="images/drop-down.png" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    @foreach(var currSkill in @Model.skills)
-                                    {
-                                        <li class="p-1">
-                                            <input type="checkbox" name="country" value="@currSkill.SkillName"> @currSkill.SkillName
-                                        </li>
-                                    }
+									@foreach (var currCity in Model.cities)
+									{
+										<li class="p-1">
+											<input type="checkbox" name="country" value="@currCity.CityName"> @currCity.CityName
+										</li>
+									}
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+								</ul>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="dropdown w-100 h-100 p-0">
+								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+										type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Theme
+									<img src="images/drop-down.png" alt="">
+								</button>
+								<ul class="dropdown-menu">
+									@foreach (var currTheme in @Model.themes)
+									{
+										<li class="p-1">
+											<input type="checkbox" name="country" value="@currTheme.MissionThemeTitle">
+											@currTheme.MissionThemeTitle
+										</li>
+									}
+								</ul>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="dropdown w-100 h-100 p-0">
+								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
+										type="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Skills
+									<img src="images/drop-down.png" alt="">
+								</button>
+								<ul class="dropdown-menu">
+									@foreach (var currSkill in @Model.skills)
+									{
+										<li class="p-1">
+											<input type="checkbox" name="country" value="@currSkill.SkillName"> @currSkill.SkillName
+										</li>
+									}
 
-    <div id="scrollable-area" class="overflow-y-scroll ">
-        <div id="main-container" class="container mt-2 mb-2 mb-sm-4">
-            <!-- chips -->
-            <div id="chips-div" class="mt-2 p-3 d-flex align-items-center overflow-x-scroll ">
-                <span class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
-                    Canada
-                    <button class="button px-2 border-0">
-                        <img src="images/cancel.png" alt="">
-                    </button>
-                </span>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="scrollable-area" class="overflow-y-scroll ">
+		<div id="main-container" class="container mt-2 mb-2 mb-sm-4">
+			<!-- chips -->
+			<div id="chips-div" class="mt-2 p-3 d-flex align-items-center overflow-x-scroll ">
+				@*<span class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
+					Canada
+					<button class="button px-2 border-0">
+						<img src="images/cancel.png" alt="">
+					</button>
+				</span>*@
+				<button class="button px-2 border-0" style="min-width: max-content;">
+					Clear all
+				</button>
+			</div>
 
 
-                <button class="button px-2 border-0" style="min-width: max-content;">
-                    Clear all
-                </button>
-
-            </div>
-            <!-- 72 Mission -->
-            <div class="mt-2 d-flex align-items-center justify-content-between">
-                <div class="fs-2">
-                    Explore
-                    <span class="fw-bold">72 missions</span>
-                </div>
-                <div class=" d-md-flex d-none justify-content-around">
-                    @*<div class="dropdown mx-2 d-sm-block d-none border border-1 p-1 ">
-                        <button class="bg-transparent border-0 px-2 dropdown-toggle d-flex align-items-center"
-                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Policy
-                            <img class="mx-1 ps-5" src="./images/drop-down.png" alt="">
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li>
-
-                            </li>
-                            <li><a class="dropdown-item" href="#">Oldest</a></li>
-                        </ul>
-                    </div>*@
-                    <div class="border border-1 w-100 d-flex align-items-center justify-content-center">
-                        <select class="bg-transparent border-0 w-100" id="sort-div">
-                            <option value="Newest">Newest</option>
-                            <option value="Oldest">Oldest</option>
-                        </select>
-                    </div>
-                    <div id="grid-view-parent-div" class="d-flex align-items-center justify-content-center">
-                        <button id="grid-view" class="mx-2 p-1 rounded-circle border-0 bg-transparent">
-                            <img src="images/grid.png" class="button " style="height: 30px; width: 30px;"
-                                 alt="">
-                        </button>
-                    </div>
-                    <div id="list-view-parent-div" class="d-flex align-items-center justify-content-center">
-                        <button id="list-view" class="mx-2 px-2 rounded-circle border-0 bg-transparent">
-                            <img src="images/list.png" class="button " style="height: 15px; width: 20px; "
-                                 alt="">
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div id="missions-list">
-
-            </div>
-
-            <!-- Pagination -->
-            <div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li id="double-prev-button" class="page-item me-2">
-                            <a class="page-link text-dark" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;&lt;</span>
-                            </a>
-                        </li>
-                        <li id="prev-button" class="page-item  me-2">
-                            <a class="page-link text-dark" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;</span>
-                            </a>
-                        </li>
-
-                        <div class="d-flex align-items-center">
-                            <ul id="pagination-numbers" class="m-0 d-flex align-items-center p-0" style="list-style:none;">
-                            </ul>
-                        </div>
-
-                        <li id="next-button" class="page-item me-2">
-                            <a class="page-link text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>
-                        <li id="double-next-button" class="page-item me-2">
-                            <a class="page-link text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;&gt;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-        </div>
-    </div>
+			<div id="missions-list">
+			</div>
 
 
 
-    <footer id="footer" class=" bg-white">
-        <div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
-            <a href="./privacy.html" class="text-decoration-none text-dark p-2">
-                Privacy
-                Policy
-            </a>
-        </div>
-    </footer>
+		</div>
+	</div>
+
+	<footer id="footer" class=" bg-white">
+		<div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
+				Privacy
+				Policy
+			</a>
+		</div>
+	</footer>
 </main>
 
 @section Scripts{
-        <script src="~/js/custom.js"></script>
-        <script src="~/js/filterMissionSidebar.js"></script>
-        <script src="~/js/headerSidebar.js"></script>
-        <script src="~/js/scrolable.js"></script>
-        <script src="~/js/gridList.js"></script>
 
-        <script type="text/javascript">
-            let missionToSearch = "";
-            let sortVal = "";
-            let missionCount;
+	<script type="text/javascript">
+		let arrOfCountries = [];
+		let missionToSearch = "";
+		let sortVal = "";
+		let missionCount;
+		let currPage = 1;
 
-            $(document).ready(function () {
-                console.log("helu");
-                loadMissions();
-            });
+		$(document).ready(function () {
+			loadMissions();
+		});
 
-            $("#search-input").on("keyup", function (e) {
-                missionToSearch = $("#search-input").val().toLowerCase();
-                loadMissions();
-            });
+		$("#search-input").on("keyup", function (e) {
+			missionToSearch = $("#search-input").val().toLowerCase();
+			loadMissions();
+		});
 
-            $('#sort-div').on("change",function(){
-                sortVal = $('#sort-div').val();
-                loadMissions();
-                console.log(sortVal);
-            });
+		function loadMissions() {
+			$.ajax({
+				url: "/Home/bringMissionsToGridView",
+				method: "GET",
+				dataType: "html",
+				data: { "sortBy": sortVal, "missionToSearch": missionToSearch, "pageNo": currPage, "pageSize": 3 },
+				success: function (data) {
+					$('#missions-list').html("");
+					$('#missions-list').html(data);
 
-            function loadMissions(){
-                $.ajax({
-                    url: "/Home/bringMissionsToGridView",
-                    method: "GET",
-                    dataType:"html",
-                    data: { "sortBy": sortVal, "missionToSearch": missionToSearch },
-                    success: function (data) {
-                        $('#missions-list').html("");
-                        $('#missions-list').html(data);
+					//----------------- sorting -----------------
+					$('#sort-div > li > a').on('click', function () {
+						console.log("changed");
+						sortVal = $(this).html();
+						currPage = 1;
+						console.log(sortVal);
+						loadMissions();
+						console.log("loaded!");
+					});
 
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-            }
-        </script>
+					//----------------- paging -----------------
+					$('.pageCounters > a > span').on('click', function () {
+						currPage = $(this).html();
+						console.log(currPage);
+						loadMissions();
+					});
 
-    <script src="~/js/pagination.js"></script>
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+		}
 
+		// -------------------------------------------------------------------------------------------------------------
+		const countries = document.querySelectorAll("#country-dropdown > li > input");
+		const chipsDiv = document.getElementById("chips-div");
+		
+
+
+		for (let currCountry of countries) {
+			currCountry.addEventListener("change", () => {
+
+				let valueToAdd = currCountry.getAttribute("data-id");
+				//let valueToAdd = currCountry.value;
+
+				if (arrOfCountries.indexOf(valueToAdd) === -1) {
+					console.log(currCountry);
+					arrOfCountries.push(valueToAdd);
+					chipsDiv.insertAdjacentHTML("afterbegin", `<span class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
+										${ currCountry.value }
+										<button data-id="${valueToAdd}" data-type="country" class="button px-2 border-0">
+											<img  src="images/cancel.png" alt="">
+										</button>
+									</span>`);
+				}
+				else {
+					//console.log(currCountry);
+					//console.log(arrOfCountries.indexOf(valueToAdd));
+					arrOfCountries.splice(arrOfCountries.indexOf(valueToAdd),1);
+					let allCountryButtons = document.querySelectorAll("#chips-div span button");
+					for(let currCountryBtn in allCountryButtons){
+						console.log(currCountry.getAttribute("data-id"));
+					}
+				}
+				console.log(arrOfCountries);
+			});
+		}
+
+		function renderCountry(arrOfCountries) {
+
+			console.log("array of country : ");
+			console.log(arrOfCountries);
+		}
+	</script>
+
+	<script src="~/js/custom.js"></script>
+	<script src="~/js/filterMissionSidebar.js"></script>
+	<script src="~/js/headerSidebar.js"></script>
+	<script src="~/js/scrolable.js"></script>
+	@*<script src="~/js/gridList.js"></script>*@
+	@*<script src="~/js/pagination.js"></script>*@
 }

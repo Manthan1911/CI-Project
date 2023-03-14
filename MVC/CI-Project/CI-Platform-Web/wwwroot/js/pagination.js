@@ -1,12 +1,13 @@
-﻿const gridMissionCards = document.querySelectorAll(".grid-mission-card");
+﻿
+const gridMissionCards = document.querySelectorAll(".grid-mission-card");
 console.log(gridMissionCards)
 const listMissionCards = document.querySelectorAll(".list-mission-card");
 console.log(listMissionCards)
 const paginationNumbers = document.getElementById("pagination-numbers");
-const paginatedList = document.getElementById("mission-card-grid-div");
+const paginatedList = document.querySelector("#mission-card-grid-div");
 console.log(paginatedList)
-const listItems = paginatedList.querySelectorAll(".grid-mission-card");
-console.log(listItems)
+//const listItems = paginatedList.querySelectorAll(".grid-mission-card");
+//console.log(listItems)
 const doublePrevButton = document.getElementById("double-prev-button");
 console.log(doublePrevButton)
 const prevButton = document.getElementById("prev-button");
@@ -15,6 +16,7 @@ const nextButton = document.getElementById("next-button");
 console.log(nextButton)
 const doubleNextButton = document.getElementById("double-next-button");
 console.log(doubleNextButton)
+
 
 
 
@@ -69,7 +71,7 @@ window.addEventListener("load", () => {
     let pageNumbersLi = document.querySelectorAll(".pagination-number");
 
     for (let i = 0; i < pageNumbersLi.length; i++) {
-        
+
         pageNumbersLi[i].addEventListener("click", () => {
             const pageIndex = Number(pageNumbersLi[i].id);
             setCurrentPage(pageIndex);
@@ -77,6 +79,3 @@ window.addEventListener("load", () => {
     }
 
 });
-
-
-

@@ -71,43 +71,37 @@ namespace CI_Platform_Web.Controllers
             return View(model);
             }
 
-        public IActionResult bringMissionsToGridView(string sortBy ,string missionToSearch)
+        public IActionResult bringMissionsToGridView(string sortBy ,string missionToSearch,int pageNo, int pageSize = 3)
         {
+          
+
             sortBy = String.IsNullOrEmpty(sortBy) ? "Newest" : sortBy;
+            pageNo = pageNo <= 0 ? 1 : pageNo;
 
             List<Mission> missions ;
             List<MissionModel> missionVmList = new();
             if(missionToSearch != null)
             {
-                missions =  _homeRepository.searchMissionAccToTitle(missionToSearch);
+                missions =  sortMissions(sortBy, _homeRepository.searchMissionAccToTitle(missionToSearch));
+
                 foreach (var currMisssion in missions)
                 {
                     missionVmList.Add(convertDataModelToMissionModel(currMisssion));
                 }
-                return PartialView("_GridViewListViewPartial", missionVmList);
+
+                ViewBag.totalMissions = missionVmList.Count;
+                return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
             }
 
-            missions =  _homeRepository.getAllMissions();
-
-            switch (sortBy)
-            {
-                case "Newest":
-                    missions = missions.OrderByDescending(mission => mission.CreatedAt).ToList();
-                    break;
-                case "Oldest":
-                    missions = missions.OrderBy(mission => mission.CreatedAt).ToList();
-                    break;
-                default:
-                    missions = missions.OrderBy(mission => mission.CreatedAt).ToList();
-                    break;
-            }
+            missions = sortMissions(sortBy,_homeRepository.getAllMissions());
 
             foreach (var currMisssion in missions)
             {
                 missionVmList.Add(convertDataModelToMissionModel(currMisssion));
             }
 
-            return PartialView("_GridViewListViewPartial", missionVmList);
+            ViewBag.totalMissions = missionVmList.Count;
+          return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
         }
 
         public MissionModel convertDataModelToMissionModel(Mission mission)
@@ -126,6 +120,19 @@ namespace CI_Platform_Web.Controllers
             missionModel.MissionType= mission.MissionType;
             missionModel.CoverImage = getMissionCoverImageUrl(mission.MissionId);
             return missionModel;
+        }
+
+        public List<Mission> sortMissions(string sortBy,List<Mission> missions)
+        {
+            switch (sortBy)
+            {
+                case "Newest":
+                     return missions.OrderByDescending(mission => mission.CreatedAt).ToList();
+                case "Oldest":
+                    return missions.OrderBy(mission => mission.CreatedAt).ToList();
+                default:
+                    return missions.OrderBy(mission => mission.CreatedAt).ToList();
+            }
         }
 
         public string getMissionCoverImageUrl(long id)

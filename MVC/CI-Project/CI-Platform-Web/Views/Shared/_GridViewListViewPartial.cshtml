@@ -150,105 +150,105 @@
 <!-- List -->
 <div id="mission-card-list-div" style="display:none;" class="container px-3 p-2 ">
 
-	@*@foreach (var currMission in ViewBag.missions)
+	@foreach (var currMission in Model)
 	{
-	<div id="list-div" class="card-to-hide list-mission-card row shadow-lg m-1 mb-5">
+		<div id="list-div" class="card-to-hide list-mission-card row shadow-lg m-1 mb-5">
 
-	<div class="list-img-div position-relative col-4 col-lg-3  m-0 p-0">
-	<img class="h-100 w-100"
-	src="@currMission.CoverImage" alt="">
+			<div class="list-img-div position-relative col-4 col-lg-3  m-0 p-0">
+				<img class="h-100 w-100"
+				 src="@currMission.CoverImage" alt="">
 
-	<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
-	<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-	<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;" alt="">
-	<span class="pe-2 text-white">@currMission.City.Name</span>
-	</div>
-	<div>
-	<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
-	<img src="images/heart.png" style="height:20px;width:22px;" alt="">
-	</button>
-	<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
-	<img src="images/user.png" style="height:20px;width:22px;" alt="">
-	</button>
-	</div>
-	</div>
+				<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
+					<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
+						<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;" alt="">
+						<span class="pe-2 text-white">@currMission.City.Name</span>
+					</div>
+					<div>
+						<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+							<img src="images/heart.png" style="height:20px;width:22px;" alt="">
+						</button>
+						<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
+							<img src="images/user.png" style="height:20px;width:22px;" alt="">
+						</button>
+					</div>
+				</div>
 
-	<div class="w-100 d-flex align-items-center justify-content-center "
-	style="margin-top: -12px;">
-	<span class="px-3 rounded-pill bg-white"> @currMission.Theme.Title </span>
-	</div>
-	</div>
+				<div class="w-100 d-flex align-items-center justify-content-center "
+				 style="margin-top: -12px;">
+					<span class="px-3 rounded-pill bg-white"> @currMission.Theme.Title </span>
+				</div>
+			</div>
 
-	<div class="list-descriptoion-div col-8 col-lg-9 d-flex flex-column  p-2">
+			<div class="list-descriptoion-div col-8 col-lg-9 d-flex flex-column  p-2">
 
-	<div class="1 list-description">
-	<p class="mission-title-to-hide fs-4 fw-bold p-0 m-0">@currMission.Title</p>
-	<p class="p-0 m-0">
-	@currMission.ShortDescription
-	</p>
-	</div>
+				<div class="1 list-description">
+					<p class="mission-title-to-hide fs-4 fw-bold p-0 m-0">@currMission.Title</p>
+					<p class="p-0 m-0">
+						@currMission.ShortDescription
+					</p>
+				</div>
 
-	<div class="d-flex  justify-content-between py-3">
-	<div>
-	<div class="d-flex flex-column flex-lg-row align-items-lg-center">
-	<div class="py-2">
-	<span>@currMission.OrganizationName</span>
-	</div>
-	<div class="px-0 px-lg-3">
-	<img src="images/selected-star.png" alt="">
-	<img src="images/selected-star.png" alt="">
-	<img src="images/selected-star.png" alt="">
-	<img src="images/selected-star.png" alt="">
-	<img src="images/selected-star.png" alt="">
-	</div>
-	</div>
-	<div class="py-2">
-	<button class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-2">
-	<span class="px-2">Apply</span>
-	<img class="px-2" src="images/right-arrow.png" alt="">
-	</button>
-	</div>
-	</div>
+				<div class="d-flex  justify-content-between py-3">
+					<div>
+						<div class="d-flex flex-column flex-lg-row align-items-lg-center">
+							<div class="py-2">
+								<span>@currMission.OrganizationName</span>
+							</div>
+							<div class="px-0 px-lg-3">
+								<img src="images/selected-star.png" alt="">
+								<img src="images/selected-star.png" alt="">
+								<img src="images/selected-star.png" alt="">
+								<img src="images/selected-star.png" alt="">
+								<img src="images/selected-star.png" alt="">
+							</div>
+						</div>
+						<div class="py-2">
+							<button class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-2">
+								<span class="px-2">Apply</span>
+								<img class="px-2" src="images/right-arrow.png" alt="">
+							</button>
+						</div>
+					</div>
 
-	<div class=" d-flex flex-column ">
-	<div class="position-relative py-2">
-	<div class="d-flex justify-content-center w-100">
-	<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
-	From
-	@currMission.StartDate
-	To
-	@currMission.EndDate
-	</span>
-	</div>
-	<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
-	</div>
-	</div>
-	<div class="d-flex py-2">
-	<div class="d-flex align-items-center justify-content-center w-100 px-2">
-	<div>
-	<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
-	</div>
-	<div class="d-flex flex-column ms-2">
-	<p class="p-0 m-0 fs-5 fw-semibold">10</p>
-	<p class="p-0 m-0 ">Seats left</p>
-	</div>
-	</div>
-	<div class="d-flex align-items-center  justify-content-center w-100 px-2">
-	<div>
-	<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
-	</div>
-	<div class="d-flex flex-column ms-2">
-	<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
-	<p class="p-0 m-0 ">Deadline</p>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
+					<div class=" d-flex flex-column ">
+						<div class="position-relative py-2">
+							<div class="d-flex justify-content-center w-100">
+								<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
+									From
+									@currMission.StartDate
+									To
+									@currMission.EndDate
+								</span>
+							</div>
+							<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
+							</div>
+						</div>
+						<div class="d-flex py-2">
+							<div class="d-flex align-items-center justify-content-center w-100 px-2">
+								<div>
+									<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+								</div>
+								<div class="d-flex flex-column ms-2">
+									<p class="p-0 m-0 fs-5 fw-semibold">10</p>
+									<p class="p-0 m-0 ">Seats left</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-center  justify-content-center w-100 px-2">
+								<div>
+									<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+								</div>
+								<div class="d-flex flex-column ms-2">
+									<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+									<p class="p-0 m-0 ">Deadline</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-	</div>
-	</div>
-	}*@
+			</div>
+		</div>
+	}
 </div>
 
 <!-- Pagination -->

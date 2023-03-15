@@ -33,7 +33,8 @@ namespace CI_Project.Repository.Repository
 
         public List<Mission> getAllMissions()
         {
-            return _db.Missions.Include(m => m.GoalMissions)
+            return _db.Missions
+                .Include(m => m.GoalMissions)
                 .Include(m => m.MissionApplications)
                 .Include(m => m.MissionMedia)
                 .Include(m => m.FavouriteMissions)

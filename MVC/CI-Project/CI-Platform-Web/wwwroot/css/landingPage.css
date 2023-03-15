@@ -1,241 +1,244 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 :root {
-  --max-width: 1420px;
-  --header-height: 72px;
-  --hover-color: #e8e8e8;
-  --right-arrow-color: #f88634;
-  --hover-underline: #767676;
-  --border-color: #dee2e6;
-  --mission-image-height: 40%;
+    --max-width: 1420px;
+    --header-height: 72px;
+    --hover-color: #e8e8e8;
+    --right-arrow-color: #f88634;
+    --hover-underline: #767676;
+    --border-color: #dee2e6;
+    --mission-image-height: 40%;
 }
 
 html {
-  font-family: "Noto Sans", sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  /* border: 5px solid yellow; */
+    height: 100vh;
+    width: 100vw;
+    /* border: 5px solid yellow; */
 }
 
 main {
-  height: 100%;
-  width: 100%;
-  /* border: 5px solid black; */
+    height: 100%;
+    width: 100%;
+    /* border: 5px solid black; */
 }
 
 #header {
-  top: 0;
-  left: 0;
-  /* border: 5px solid orange; */
+    top: 0;
+    left: 0;
+    /* border: 5px solid orange; */
 }
 
 .sidebar-close:hover {
-  background-color: var(--hover-color) !important;
-  border-radius: 50%;
+    background-color: var(--hover-color) !important;
+    border-radius: 50%;
 }
 
 .dropdown-toggle::after {
-  display: none;
+    display: none;
 }
 
 .clear-all:hover {
-  text-decoration: underline;
-  color: red;
+    text-decoration: underline;
+    color: red;
 }
 
 #header-profile {
-  height: var(--header-height);
+    height: var(--header-height);
 }
 
 #search-input {
-  background: url("~/images/search.png") no-repeat !important;
-  background-position: 10px center;
+    background: url("/images/search.png") no-repeat !important;
+    background-position: 10px center !important;
 }
 
+#search-input:hover{
+    border : 2px solid var(--border-color) !important;
+}
 #filter-mission-navbar {
-  border-color: #e8e8e8;
-  height: var(--header-height) !important;
-  height: 80px !important;
+    border-color: #e8e8e8;
+    height: var(--header-height) !important;
+    height: 80px !important;
 }
 
 #scrollable-area::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 footer {
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  height: var(--header-height);
-  border-top: 2px solid var(--border-color);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    height: var(--header-height);
+    border-top: 2px solid var(--border-color);
 }
 
 #main-container {
-  max-width: var(--max-width);
-  min-height: max-content;
+    max-width: var(--max-width);
+    min-height: max-content;
 }
 
 #chips-div {
-  overflow: hidden;
+    overflow: hidden;
 }
 
-#chips-div::-webkit-scrollbar {
-  display: none;
-}
+    #chips-div::-webkit-scrollbar {
+        display: none;
+    }
 
 .chips {
-  color: var(--border-color);
-  min-width: max-content;
+    color: var(--border-color);
+    min-width: max-content;
 }
 
 .button {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 
 #grid-view::hover {
-  background-color: green !important;
+    background-color: green !important;
 }
 
 #mission-card-grid-div {
-  max-width: var(--max-width) !important;
+    max-width: var(--max-width) !important;
 }
 
 #mission-card-list-div {
-  max-width: var(--max-width) !important;
+    max-width: var(--max-width) !important;
 }
 
 .mission-card-parent {
-  min-height: max-content;
+    min-height: max-content;
 }
 
 .mission-card-img-div {
-  height: var(--mission-image-height);
+    height: var(--mission-image-height);
 }
 
 .bg-dark-opacity {
-  background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .mission-card-details-div {
-  height: calc(100% - var(--mission-image-height));
+    height: calc(100% - var(--mission-image-height));
 }
 
 .mission-card-apply-details-div {
-  border-top: 2px solid var(--border-color);
-  border-bottom: 2px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .warning-btn {
-  border: 2px solid var(--right-arrow-color);
-  color: var(--right-arrow-color);
+    border: 2px solid var(--right-arrow-color);
+    color: var(--right-arrow-color);
 }
 
 .list-descriptoion-div {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between;
 }
 
 .page-link:hover {
-  background-color: #f88634;
-  color: white !important;
+    background-color: #f88634;
+    color: white !important;
 }
 
 #grid-view-parent-div:hover, #list-view-parent-div:hover {
     background-color: var(--hover-color) !important;
 }
 
-.hidden{
-    display:none !important;
+.hidden {
+    display: none !important;
 }
 
 @media only screen and (max-width: 576px) {
     #header-sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    background-color: white;
-    height: 100vh;
-    z-index: 1;
-    width: 50vw;
-    border: 2px solid black;
-  }
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        background-color: white;
+        height: 100vh;
+        z-index: 1;
+        width: 50vw;
+        border: 2px solid black;
+    }
 
-  #close-btn-div {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-  }
+    #close-btn-div {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
 
-  #stories-div {
-    width: 100%;
-  }
+    #stories-div {
+        width: 100%;
+    }
 
-  #policy-div {
-    width: 100%;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    padding: 8px;
-  }
+    #policy-div {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding: 8px;
+    }
 
-  #policy-div > button {
-    width: 100%;
-    height: 100%;
-    padding: 8px !important;
-    display: flex !important;
-    align-items: center;
-    padding-left: 17px !important;
-    justify-content: space-between !important;
-  }
+        #policy-div > button {
+            width: 100%;
+            height: 100%;
+            padding: 8px !important;
+            display: flex !important;
+            align-items: center;
+            padding-left: 17px !important;
+            justify-content: space-between !important;
+        }
 }
 
 @media only screen and (max-width: 768px) {
-  #mission-card-grid-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    #mission-card-grid-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-  #filter-bar {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    flex-direction: column;
-    background-color: white;
-    width: 50vw !important;
-    border: 1px solid black;
-  }
+    #filter-bar {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        flex-direction: column;
+        background-color: white;
+        width: 50vw !important;
+        border: 1px solid black;
+    }
 
-  #filter-bar > div {
-    margin: 0 !important;
-    padding: 0px;
-    width: 100%;
-    padding: 16px;
-  }
+        #filter-bar > div {
+            margin: 0 !important;
+            padding: 0px;
+            width: 100%;
+            padding: 16px;
+        }
 
-  #filter-bar > div:hover:not(:first-child) {
-    background-color: var(--hover-color);
-  }
+            #filter-bar > div:hover:not(:first-child) {
+                background-color: var(--hover-color);
+            }
 
-  .dropdown-menu {
-    border: 2px solid yellow;
-    position: relative;
-  }
+    .dropdown-menu {
+        border: 2px solid yellow;
+        position: relative;
+    }
 }

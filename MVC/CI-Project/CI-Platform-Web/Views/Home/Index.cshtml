@@ -108,7 +108,12 @@
 								<ul id="country-dropdown" class="dropdown-menu">
 									@foreach (var currCountry in @Model.countries)
 									{
-										<li class="p-1"><input class="countryName" type="checkbox" name="country" data-id="@currCountry.CountryId" value="@currCountry.CountryName">@currCountry.CountryName</li>
+										<li class="p-1">
+											<input class="countryName form-check-input" id="@currCountry.CountryName" type="checkbox" data-id="@currCountry.CountryId" data-type="country" value="@currCountry.CountryName" />
+											<label for="@currCountry.CountryName">
+												@currCountry.CountryName
+											</label>
+										</li>
 									}
 								</ul>
 							</div>
@@ -120,12 +125,15 @@
 									City
 									<img src="images/drop-down.png" alt="">
 								</button>
-								<ul class="dropdown-menu">
+								<ul id="city-dropdown" class=" dropdown-menu">
 
 									@foreach (var currCity in Model.cities)
 									{
 										<li class="p-1">
-											<input type="checkbox" name="country" value="@currCity.CityName"> @currCity.CityName
+											<input class="cityName form-check-input" id="@currCity.CityName" type="checkbox" data-id="@currCity.CityId" data-type="city" value="@currCity.CityName">
+											<label for="@currCity.CityName">
+												@currCity.CityName
+											</label>
 										</li>
 									}
 
@@ -139,12 +147,14 @@
 									Theme
 									<img src="images/drop-down.png" alt="">
 								</button>
-								<ul class="dropdown-menu">
+								<ul id="theme-dropdown" class="dropdown-menu">
 									@foreach (var currTheme in @Model.themes)
 									{
 										<li class="p-1">
-											<input type="checkbox" name="country" value="@currTheme.MissionThemeTitle">
-											@currTheme.MissionThemeTitle
+											<input class="themeName form-check-input" id="@currTheme.MissionThemeTitle" type="checkbox" data-id="@currTheme.MissionThemeId" data-type="theme" value="@currTheme.MissionThemeTitle">
+											<label for="@currTheme.MissionThemeTitle">
+												@currTheme.MissionThemeTitle
+											</label>
 										</li>
 									}
 								</ul>
@@ -157,11 +167,14 @@
 									Skills
 									<img src="images/drop-down.png" alt="">
 								</button>
-								<ul class="dropdown-menu">
+								<ul id="skill-dropdown" class="dropdown-menu">
 									@foreach (var currSkill in @Model.skills)
 									{
 										<li class="p-1">
-											<input type="checkbox" name="country" value="@currSkill.SkillName"> @currSkill.SkillName
+											<input class="skillName form-check-input" id="@currSkill.SkillName" type="checkbox" data-id="@currSkill.SkillId" data-type="skill" value="@currSkill.SkillName">
+											<label for="@currSkill.SkillName">
+												@currSkill.SkillName
+											</label>
 										</li>
 									}
 
@@ -178,12 +191,6 @@
 		<div id="main-container" class="container mt-2 mb-2 mb-sm-4">
 			<!-- chips -->
 			<div id="chips-div" class="mt-2 p-3 d-flex align-items-center overflow-x-scroll ">
-				@*<span class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
-					Canada
-					<button class="button px-2 border-0">
-						<img src="images/cancel.png" alt="">
-					</button>
-				</span>*@
 				<button class="button px-2 border-0" style="min-width: max-content;">
 					Clear all
 				</button>
@@ -212,6 +219,10 @@
 
 	<script type="text/javascript">
 		let arrOfCountries = [];
+		let arrOfCities = [];
+		let arrOfThemes = [];
+		let arrOfSkills = [];
+
 		let missionToSearch = "";
 		let sortVal = "";
 		let missionCount;
@@ -260,46 +271,114 @@
 			});
 		}
 
-		// -------------------------------------------------------------------------------------------------------------
+		// ------------------------------------------------- CHIPS ------------------------------------------------------------
 		const countries = document.querySelectorAll("#country-dropdown > li > input");
+		const cities = document.querySelectorAll("#city-dropdown > li > input");
+		const themes = document.querySelectorAll("#theme-dropdown > li > input");
+		const skills = document.querySelectorAll("#skill-dropdown > li > input");
 		const chipsDiv = document.getElementById("chips-div");
-		
 
+		addListnerToFilter(countries);
+		addListnerToFilter(cities);
+		addListnerToFilter(themes);
+		addListnerToFilter(skills);
 
-		for (let currCountry of countries) {
-			currCountry.addEventListener("change", () => {
+		function addListnerToFilter(filter){
+			for (let currElement of filter) {
+				currElement.addEventListener("change", () => {
+					let dataIdOfChipToDelete = currElement.getAttribute("data-id");
+					let dataTypeOfChipToDelete = currElement.getAttribute("data-type");
+					let valueToAdd = +(currElement.getAttribute("data-id"));
 
-				let valueToAdd = currCountry.getAttribute("data-id");
-				//let valueToAdd = currCountry.value;
+					if(dataTypeOfChipToDelete == "country"){
+						checkUncheck(arrOfCountries, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd);
+					}
+					else if (dataTypeOfChipToDelete == "city") {
+						checkUncheck(arrOfCities, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd);
+					}
+					else if (dataTypeOfChipToDelete == "theme") {
+						checkUncheck(arrOfThemes, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd);
+					}
+					else if (dataTypeOfChipToDelete == "skill") {
+						checkUncheck(arrOfSkills, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd);
+					}
+				});
+			}
+		}
+		//--------------------------------------------
+		function checkUncheck(arr, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd) {
+			//--------------------------- check-add -------------------------
+			if (arr.indexOf(valueToAdd) == -1) {
+				arr.push(valueToAdd);
+				chipsDiv.insertAdjacentHTML("afterbegin", `<span data="${currElement.value}" class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
+																				${currElement.value}
+																		<button data-id="${valueToAdd}" data-type="${dataTypeOfChipToDelete}" class="button px-2 border-0">
+																			<img  src="images/cancel.png" alt="">
+																		</button>
+																	</span>`);
 
-				if (arrOfCountries.indexOf(valueToAdd) === -1) {
-					console.log(currCountry);
-					arrOfCountries.push(valueToAdd);
-					chipsDiv.insertAdjacentHTML("afterbegin", `<span class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
-										${ currCountry.value }
-										<button data-id="${valueToAdd}" data-type="country" class="button px-2 border-0">
-											<img  src="images/cancel.png" alt="">
-										</button>
-									</span>`);
+				//----------------------- cross-delete -----------------------
+				let allChipsItemsBtn = document.querySelectorAll("#chips-div span button");
+				for (let currChipDeleteBtn of allChipsItemsBtn) {
+					currChipDeleteBtn.addEventListener("click", () => {
+						deleteChip(currChipDeleteBtn.parentElement);
+						console.log("deleted");
+					});
+					break;
 				}
-				else {
-					//console.log(currCountry);
-					//console.log(arrOfCountries.indexOf(valueToAdd));
-					arrOfCountries.splice(arrOfCountries.indexOf(valueToAdd),1);
-					let allCountryButtons = document.querySelectorAll("#chips-div span button");
-					for(let currCountryBtn in allCountryButtons){
-						console.log(currCountry.getAttribute("data-id"));
+			}
+			//--------------------------- uncheck-delete -------------------------
+			else {
+				let idxOfChipToDelete = arr.indexOf(valueToAdd);
+				arr.splice(idxOfChipToDelete, 1);
+				let allChipsItems = document.querySelectorAll("#chips-div span");
+				if (allChipsItems.length > 0) {
+					for (let currChip of allChipsItems) {
+						if (currChip.childNodes[1].getAttribute("data-type") == dataTypeOfChipToDelete) {
+							if (currChip.childNodes[1].getAttribute("data-id") == dataIdOfChipToDelete) {
+								currChip.remove();
+							}
+						}
 					}
 				}
-				console.log(arrOfCountries);
-			});
+			}
 		}
 
-		function renderCountry(arrOfCountries) {
+		//--------------------------------------------
 
-			console.log("array of country : ");
-			console.log(arrOfCountries);
+		function deleteChip(chipToDelete) {
+			console.log("chip to delete ");
+			console.log(chipToDelete);
+			let dataIdOfChipToDelete = +chipToDelete.childNodes[1].getAttribute("data-id");
+			let dataTypeOfChipToDelete = chipToDelete.childNodes[1].getAttribute("data-type");
+
+			switch (dataTypeOfChipToDelete) {
+				case "country":
+					arrOfCountries.splice(arrOfCountries.indexOf(dataIdOfChipToDelete), 1);
+					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
+					chipToDelete.remove();
+					break;
+				case "city":
+					arrOfCities.splice(arrOfCities.indexOf(dataIdOfChipToDelete), 1);
+					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
+					chipToDelete.remove();
+					break;
+				case "theme":
+					arrOfThemes.splice(arrOfThemes.indexOf(dataIdOfChipToDelete), 1);
+					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
+					chipToDelete.remove();
+					break;
+				case "skill":
+					arrOfSkills.splice(arrOfSkills.indexOf(dataIdOfChipToDelete), 1);
+					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
+					chipToDelete.remove();
+					break;
+				default:
+					alert("Error");
+					break;
+			}
 		}
+
 	</script>
 
 	<script src="~/js/custom.js"></script>

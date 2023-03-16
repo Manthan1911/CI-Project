@@ -62,9 +62,10 @@ main {
     background-position: 10px center !important;
 }
 
-#search-input:hover{
-    border : 2px solid var(--border-color) !important;
-}
+    #search-input:hover {
+        border: 2px solid var(--border-color) !important;
+    }
+
 #filter-mission-navbar {
     border-color: #e8e8e8;
     height: var(--header-height) !important;
@@ -106,7 +107,7 @@ footer {
     background-color: transparent !important;
 }
 
-#grid-view::hover {
+#grid-view:hover {
     background-color: green !important;
 }
 
@@ -152,6 +153,10 @@ footer {
 
 .page-link:hover {
     background-color: #f88634;
+    color: white !important;
+}
+.page-link-active {
+    background-color: #f88634 !important;
     color: white !important;
 }
 

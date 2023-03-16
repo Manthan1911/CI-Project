@@ -1,6 +1,7 @@
 ﻿@model List<CI_Project.Entities.ViewModels.MissionModel>
 @{
 	var totalMissions = ViewBag.totalMissions;
+	var MissionPerPageLimit = ViewBag.paginationLimit;
 }
 <!-- 72 Mission -->
 <div class="mt-2 d-flex align-items-center justify-content-between">
@@ -271,7 +272,7 @@
 					@if (totalMissions > 0)
 					{
 						int pageCount = 0;
-						int paginationLimit = 3;
+						int paginationLimit = MissionPerPageLimit;
 						if (totalMissions % paginationLimit != 0)
 						{
 							pageCount = (totalMissions / paginationLimit) + 1;
@@ -283,10 +284,10 @@
 
 						for (var i = 1; i <= pageCount; i++)
 						{
-							<li class="pageCounters page-item me-2">
-								<a class="page-link text-dark" aria-label="Next">
+							<li id="page-@i" class="pageCounters page-item me-2 page-link">
+								
 									<span aria-hidden="true"> @i </span>
-								</a>
+
 							</li>
 						}
 					}

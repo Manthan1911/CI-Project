@@ -3,149 +3,183 @@ using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 
 namespace CI_Platform_Web.Controllers
 {
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IHomeRepository _homeRepository;
-        private readonly IUserRepository _userRepository;
+	public class HomeController : Controller
+	{
+		private readonly ILogger<HomeController> _logger;
+		private readonly IHomeRepository _homeRepository;
+		private readonly IUserRepository _userRepository;
+		private readonly CIProjectDbContext _cIProjectDbContext;
 
-        public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository, IUserRepository userRepository)
-        {
-            _logger = logger;
-            _homeRepository = homeRepository;
-            _userRepository = userRepository;
-        }
+		public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
+		{
+			_logger = logger;
+			_homeRepository = homeRepository;
+			_userRepository = userRepository;
+			_cIProjectDbContext = cIProjectDbContext;
+		}
 
-        public IActionResult Index()
-        {
-            var userEmailId = HttpContext.Session.GetString("UserEmail");
-            if (userEmailId == null)
-            {
-                return RedirectToAction("Login", "Authentication");
-            }
+		public IActionResult Index()
+		{
+			var userEmailId = HttpContext.Session.GetString("UserEmail");
+			if (userEmailId == null)
+			{
+				return RedirectToAction("Login", "Authentication");
+			}
 
-            List<Country> countryList = _homeRepository.getAllCountries();
-            List<City> cityList = _homeRepository.getAllCities();
-            List<MissionTheme> themeList = _homeRepository.getAllThemes();
-            List<Skill> skillList = _homeRepository.getAllSkills();
+			List<Country> countryList = _homeRepository.getAllCountries();
+			List<City> cityList = _homeRepository.getAllCities();
+			List<MissionTheme> themeList = _homeRepository.getAllThemes();
+			List<Skill> skillList = _homeRepository.getAllSkills();
 
-            HomeModel model = new HomeModel()
-            {
-                user = new(),
-                countries = new(),
-                cities = new(),
-                themes = new(),
-                skills = new(),
-            };
+			HomeModel model = new HomeModel()
+			{
+				user = new(),
+				countries = new(),
+				cities = new(),
+				themes = new(),
+				skills = new(),
+			};
 
-            model.user = _userRepository.findUser(userEmailId);
+			model.user = _userRepository.findUser(userEmailId);
 
-            model.countries.AddRange(countryList.Select(currentCountry => new CountryModel
-            {
-                CountryId = currentCountry.CountryId,
-                CountryName = currentCountry.Name
-            }));
+			model.countries.AddRange(countryList.Select(currentCountry => new CountryModel
+			{
+				CountryId = currentCountry.CountryId,
+				CountryName = currentCountry.Name
+			}));
 
-            model.cities.AddRange(cityList.Select(currentCity => new CityModel
-            {
-                CityId = currentCity.CityId,
-                CityName = currentCity.Name
-            }));
+			model.cities.AddRange(cityList.Select(currentCity => new CityModel
+			{
+				CityId = currentCity.CityId,
+				CityName = currentCity.Name
+			}));
 
-            model.themes.AddRange(themeList.Select(currentTheme => new ThemeModel
-            {
-                MissionThemeId = currentTheme.MissionThemeId,
-                MissionThemeTitle = currentTheme.Title
-            }));
+			model.themes.AddRange(themeList.Select(currentTheme => new ThemeModel
+			{
+				MissionThemeId = currentTheme.MissionThemeId,
+				MissionThemeTitle = currentTheme.Title
+			}));
 
-            model.skills.AddRange(skillList.Select(currentSkill => new SkillModel
-            {
-                SkillId = currentSkill.SkillId,
-                SkillName = currentSkill.SkillName,
-            }));
+			model.skills.AddRange(skillList.Select(currentSkill => new SkillModel
+			{
+				SkillId = currentSkill.SkillId,
+				SkillName = currentSkill.SkillName,
+			}));
 
-            return View(model);
-            }
+			return View(model);
+		}
 
-        public IActionResult bringMissionsToGridView(string sortBy ,string missionToSearch,int pageNo, int pageSize = 3)
-        {
-          
+		[HttpPost]
+		public IActionResult bringMissionsToGridView(long?[] countries,long?[] cities, long?[] themes, long?[] skills, string sortBy, string missionToSearch, int pageNo, int pageSize)
+		{
+			sortBy = String.IsNullOrEmpty(sortBy) ? "Newest" : sortBy;
+			pageNo = pageNo <= 0 ? 1 : pageNo;
 
-            sortBy = String.IsNullOrEmpty(sortBy) ? "Newest" : sortBy;
-            pageNo = pageNo <= 0 ? 1 : pageNo;
+			List<Mission> missions = _homeRepository.getAllMissions();
+			List<MissionModel> missionVmList = new();
 
-            List<Mission> missions ;
-            List<MissionModel> missionVmList = new();
-            if(missionToSearch != null)
-            {
-                missions =  sortMissions(sortBy, _homeRepository.searchMissionAccToTitle(missionToSearch));
 
-                foreach (var currMisssion in missions)
-                {
-                    missionVmList.Add(convertDataModelToMissionModel(currMisssion));
-                }
+			if (!countries.IsNullOrEmpty() || !cities.IsNullOrEmpty() || !themes.IsNullOrEmpty() || !skills.IsNullOrEmpty())
+			{
+				missions = applyFiltersOnMission(missions, countries, cities, themes, skills);
+			}
 
-                ViewBag.totalMissions = missionVmList.Count;
-                return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
-            }
+			missions = sortMissions(sortBy, missions);
 
-            missions = sortMissions(sortBy,_homeRepository.getAllMissions());
+			if (missionToSearch != null)
+			{
+				missions = sortMissions(sortBy, _homeRepository.searchMissionAccToTitle(missionToSearch,missions));
 
-            foreach (var currMisssion in missions)
-            {
-                missionVmList.Add(convertDataModelToMissionModel(currMisssion));
-            }
+				foreach (var currMisssion in missions)
+				{
+					missionVmList.Add(convertDataModelToMissionModel(currMisssion));
+				}
 
-            ViewBag.totalMissions = missionVmList.Count;
-          return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
-        }
+				ViewBag.totalMissions = missionVmList.Count;
+				ViewBag.paginationLimit = pageSize;
+				return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
+			}
 
-        public MissionModel convertDataModelToMissionModel(Mission mission)
-        {
-            MissionModel missionModel = new MissionModel();
-            missionModel.MissionId = mission.MissionId;
-            missionModel.CityId = mission.CityId;
-            missionModel.City = mission.City;
-            missionModel.ThemeId = mission.ThemeId;
-            missionModel.Theme = mission.Theme;
-            missionModel.Title = mission.Title;
-            missionModel.ShortDescription= mission.ShortDescription;
-            missionModel.StartDate= mission.StartDate.ToString().Remove(10);
-            missionModel.EndDate= mission.EndDate.ToString().Remove(10);
-            missionModel.OrganizationName = mission.OrganizationName;
-            missionModel.MissionType= mission.MissionType;
-            missionModel.CoverImage = getMissionCoverImageUrl(mission.MissionId);
-            return missionModel;
-        }
+			foreach (var currMisssion in missions)
+			{
+				missionVmList.Add(convertDataModelToMissionModel(currMisssion));
+			}
 
-        public List<Mission> sortMissions(string sortBy,List<Mission> missions)
-        {
-            switch (sortBy)
-            {
-                case "Newest":
-                     return missions.OrderByDescending(mission => mission.CreatedAt).ToList();
-                case "Oldest":
-                    return missions.OrderBy(mission => mission.CreatedAt).ToList();
-                default:
-                    return missions.OrderBy(mission => mission.CreatedAt).ToList();
-            }
-        }
+			ViewBag.totalMissions = missionVmList.Count;
+			ViewBag.paginationLimit = pageSize;
+			return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
+		}
 
-        public string getMissionCoverImageUrl(long id)
-        {
-            MissionMedium? missionMedia = _homeRepository.getAllMissionMediaRows(id);
-            string missionCoverImageUrl = missionMedia?.MediaPath + missionMedia?.MediaName + missionMedia?.MediaType;
-            return missionCoverImageUrl;
-        }
+		public MissionModel convertDataModelToMissionModel(Mission mission)
+		{
+			MissionModel missionModel = new MissionModel();
+			missionModel.MissionId = mission.MissionId;
+			missionModel.CityId = mission.CityId;
+			missionModel.City = mission.City;
+			missionModel.ThemeId = mission.ThemeId;
+			missionModel.Theme = mission.Theme;
+			missionModel.Title = mission.Title;
+			missionModel.ShortDescription = mission.ShortDescription;
+			missionModel.StartDate = mission.StartDate.ToString().Remove(10);
+			missionModel.EndDate = mission.EndDate.ToString().Remove(10);
+			missionModel.OrganizationName = mission.OrganizationName;
+			missionModel.MissionType = mission.MissionType;
+			missionModel.CoverImage = getMissionCoverImageUrl(mission.MissionId);
+			return missionModel;
+		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		public List<Mission> sortMissions(string sortBy, List<Mission> missions)
+		{
+			switch (sortBy)
+			{
+				case "Newest":
+					return missions.OrderByDescending(mission => mission.CreatedAt).ToList();
+				case "Oldest":
+					return missions.OrderBy(mission => mission.CreatedAt).ToList();
+				default:
+					return missions.OrderBy(mission => mission.CreatedAt).ToList();
+			}
+		}
+
+		public List<Mission> applyFiltersOnMission(List<Mission> missions, long?[] countries, long?[] cities, long?[] themes, long?[] skills)
+		{
+			if (countries.Length > 0)
+			{
+				missions = missions.Where(x => countries.Contains(x.CountryId)).ToList();
+			}
+			
+			if (cities.Length > 0)
+			{
+				missions = missions.Where(x => cities.Contains(x.CityId)).ToList();
+			}
+
+			if (themes.Length > 0)
+			{
+				missions = missions.Where(x => themes.Contains(x.ThemeId)).ToList();
+			}
+			if (skills.Length > 0)
+			{
+				missions = missions.Where(x => skills.Any(s => x.MissionSkills.Any(ms => ms.SkillId == s))).ToList();
+			}
+			return missions;
+		}
+
+		public string getMissionCoverImageUrl(long id)
+		{
+			MissionMedium? missionMedia = _homeRepository.getAllMissionMediaRows(id);
+			string missionCoverImageUrl = missionMedia?.MediaPath + missionMedia?.MediaName + missionMedia?.MediaType;
+			return missionCoverImageUrl;
+		}
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error()
+		{
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+	}
 }

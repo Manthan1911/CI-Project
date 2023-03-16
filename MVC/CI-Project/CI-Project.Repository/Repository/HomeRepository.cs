@@ -41,6 +41,7 @@ namespace CI_Project.Repository.Repository
                 .Include(m => m.Theme)
                 .Include(m => m.City)
                 .Include(m => m.Country)
+                .Include(m => m.MissionSkills)
                 .ToList();
         }
 
@@ -49,10 +50,10 @@ namespace CI_Project.Repository.Repository
             return _db.MissionMedia.Where(x => x.MissionId == id).FirstOrDefault();
         }
 
-        public List<Mission> searchMissionAccToTitle(string missionToSearch)
+        public List<Mission> searchMissionAccToTitle(string missionToSearch , List<Mission> missions)
         {
             
-            return getAllMissions().Where(mission => mission.Title.ToLower().Contains(missionToSearch)).ToList();    
+            return missions.Where(mission => mission.Title.ToLower().Contains(missionToSearch)).ToList();    
         }
     }
 }

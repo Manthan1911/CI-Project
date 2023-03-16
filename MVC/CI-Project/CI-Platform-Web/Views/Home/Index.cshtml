@@ -218,11 +218,12 @@
 @section Scripts{
 
 	<script type="text/javascript">
-		let arrOfCountries = [];
-		let arrOfCities = [];
-		let arrOfThemes = [];
-		let arrOfSkills = [];
+		const arrOfCountries = [];
+		const arrOfCities = [];
+		const arrOfThemes = [];
+		const arrOfSkills = [];
 
+		const maxMissionPerPage = 1;
 		let missionToSearch = "";
 		let sortVal = "";
 		let missionCount;
@@ -234,35 +235,22 @@
 
 		$("#search-input").on("keyup", function (e) {
 			missionToSearch = $("#search-input").val().toLowerCase();
+			currPage = 1;
 			loadMissions();
 		});
 
 		function loadMissions() {
 			$.ajax({
 				url: "/Home/bringMissionsToGridView",
-				method: "GET",
+				method: "POST",
 				dataType: "html",
-				data: { "sortBy": sortVal, "missionToSearch": missionToSearch, "pageNo": currPage, "pageSize": 3 },
+				data: { "countries": arrOfCountries, "cities": arrOfCities, "themes": arrOfThemes, "skills": arrOfSkills, "sortBy": sortVal, "missionToSearch": missionToSearch, "pageNo": currPage, "pageSize": maxMissionPerPage},
 				success: function (data) {
 					$('#missions-list').html("");
 					$('#missions-list').html(data);
 
-					//----------------- sorting -----------------
-					$('#sort-div > li > a').on('click', function () {
-						console.log("changed");
-						sortVal = $(this).html();
-						currPage = 1;
-						console.log(sortVal);
-						loadMissions();
-						console.log("loaded!");
-					});
-
-					//----------------- paging -----------------
-					$('.pageCounters > a > span').on('click', function () {
-						currPage = $(this).html();
-						console.log(currPage);
-						loadMissions();
-					});
+					sorting();
+					pageNumbersEventListner();
 
 				},
 				error: function (error) {
@@ -283,14 +271,14 @@
 		addListnerToFilter(themes);
 		addListnerToFilter(skills);
 
-		function addListnerToFilter(filter){
+		function addListnerToFilter(filter) {
 			for (let currElement of filter) {
 				currElement.addEventListener("change", () => {
 					let dataIdOfChipToDelete = currElement.getAttribute("data-id");
 					let dataTypeOfChipToDelete = currElement.getAttribute("data-type");
 					let valueToAdd = +(currElement.getAttribute("data-id"));
 
-					if(dataTypeOfChipToDelete == "country"){
+					if (dataTypeOfChipToDelete == "country") {
 						checkUncheck(arrOfCountries, currElement, dataIdOfChipToDelete, dataTypeOfChipToDelete, valueToAdd);
 					}
 					else if (dataTypeOfChipToDelete == "city") {
@@ -311,18 +299,20 @@
 			if (arr.indexOf(valueToAdd) == -1) {
 				arr.push(valueToAdd);
 				chipsDiv.insertAdjacentHTML("afterbegin", `<span data="${currElement.value}" class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
-																				${currElement.value}
-																		<button data-id="${valueToAdd}" data-type="${dataTypeOfChipToDelete}" class="button px-2 border-0">
-																			<img  src="images/cancel.png" alt="">
-																		</button>
-																	</span>`);
-
+																						${currElement.value}
+																				<button data-id="${valueToAdd}" data-type="${dataTypeOfChipToDelete}" class="button px-2 border-0">
+																					<img  src="images/cancel.png" alt="">
+																				</button>
+																			</span>`);
+				loadMissions();
 				//----------------------- cross-delete -----------------------
 				let allChipsItemsBtn = document.querySelectorAll("#chips-div span button");
 				for (let currChipDeleteBtn of allChipsItemsBtn) {
 					currChipDeleteBtn.addEventListener("click", () => {
+						console.log(arrOfCountries);
 						deleteChip(currChipDeleteBtn.parentElement);
 						console.log("deleted");
+						console.log(arrOfCountries);
 					});
 					break;
 				}
@@ -337,6 +327,7 @@
 						if (currChip.childNodes[1].getAttribute("data-type") == dataTypeOfChipToDelete) {
 							if (currChip.childNodes[1].getAttribute("data-id") == dataIdOfChipToDelete) {
 								currChip.remove();
+								loadMissions();
 							}
 						}
 					}
@@ -357,21 +348,25 @@
 					arrOfCountries.splice(arrOfCountries.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					loadMissions();
 					break;
 				case "city":
 					arrOfCities.splice(arrOfCities.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					loadMissions();
 					break;
 				case "theme":
 					arrOfThemes.splice(arrOfThemes.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					loadMissions();
 					break;
 				case "skill":
 					arrOfSkills.splice(arrOfSkills.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					loadMissions();
 					break;
 				default:
 					alert("Error");
@@ -379,6 +374,54 @@
 			}
 		}
 
+
+		function sorting() {
+			//----------------- sorting -----------------
+			$('#sort-div > li > a').on('click', function () {
+				sortVal = $(this).html();
+				currPage = 1;
+				loadMissions();
+			});
+		}
+
+		//----------------- paging -----------------
+		
+
+		function pageNumbersEventListner() {
+			const doublePrevButton = document.getElementById("double-prev-button");
+			const prevButton = document.getElementById("prev-button");
+			const paginationNumbers = document.querySelectorAll("#pagination-numbers > li");
+			const nextButton = document.getElementById("next-button");
+			const doubleNextButton = document.getElementById("double-next-button");
+			let pageNums = [];
+			for (let i = 1; i <= paginationNumbers.length; i++) {
+				pageNums.push(i);
+			}
+				$(`#page-${currPage}`).addClass('page-link-active');
+
+			$('.pageCounters').on('click', function () {
+				currPage = +$(this).children(0).text();
+				console.log(currPage);
+				let pageToColorId = "#page-"+currPage;
+				//$(pageToColorId).addClass("page-link-active");
+				//console.log(pageToColorId);
+				//console.log($(pageToColorId));
+				//document.getElementById(pageToColorId).classList.add("page-link-active");
+				loadMissions();
+			});
+			
+			if (currPage == pageNums[0]) {
+				doublePrevButton.style.display = "none";
+				prevButton.style.display = "none";
+			}
+			if (currPage == pageNums[pageNums.length-1]) {
+				nextButton.style.display = "none";
+				doubleNextButton.style.display = "none";
+			}
+
+			console.log(pageNums);
+			
+		}
 	</script>
 
 	<script src="~/js/custom.js"></script>

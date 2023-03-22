@@ -1,0 +1,447 @@
+﻿*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --max-width: 1420px;
+    --header-height: 72px;
+    --hover-color: #e8e8e8;
+    --right-arrow-color: #f88634;
+    --hover-underline: #767676;
+    --border-color: #dee2e6;
+    --mission-image-height: 40%;
+}
+
+html {
+    font-family: "Noto Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid var(--border-color) !important;
+}
+
+.sidebar-close:hover {
+    background-color: var(--hover-color) !important;
+    border-radius: 50%;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.clear-all:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+#header-profile {
+    height: var(--header-height);
+}
+
+#scrollable-area::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    height: var(--header-height);
+    border-top:     2px solid var(--border-color);
+}
+
+#main-container {
+    max-width: var(--max-width);
+    min-height: max-content;
+}
+
+.button {
+    background-color: transparent !important;
+}
+
+
+.mission-card-parent {
+    min-height: max-content;
+}
+
+.mission-card-img-div {
+    height: var(--mission-image-height);
+}
+
+.bg-dark-opacity {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mission-card-details-div {
+    height: calc(100% - var(--mission-image-height));
+}
+
+.mission-card-apply-details-div {
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.warning-btn {
+    border: 2px solid var(--right-arrow-color);
+    color: var(--right-arrow-color);
+}
+
+.list-description-div {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.carousel-control-prev {
+    all: unset;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgba(35, 35, 35, 0.8) !important;
+}
+
+.carousel-control-next {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(35, 35, 35, 0.8) !important;
+}
+
+
+.progress-bar {
+    background-color: #F88634;
+}
+
+.progress {
+    width: 150px;
+    height: 12px;
+    height: 12px;
+}
+
+
+#mission-related-information-div .caption-badge {
+    display: none;
+}
+
+#mission-related-information-div .krajee-icon-clear {
+    display: none;
+}
+
+
+/*@media only screen and (max-width: 576px) {
+    #header-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        background-color: white;
+        height: 100vh;
+        z-index: 1;
+        width: 50vw;
+        border: 2px solid black;
+    }
+
+    #close-btn-div {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    #stories-div {
+        width: 100%;
+    }
+
+    #policy-div {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding: 8px;
+    }
+
+        #policy-div > button {
+            width: 100%;
+            height: 100%;
+            padding: 8px !important;
+            display: flex !important;
+            align-items: center;
+            padding-left: 17px !important;
+            justify-content: space-between !important;
+        }
+}
+
+@media only screen and (max-width: 768px) {
+    #mission-card-grid-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown-menu {
+        border: 2px solid yellow;
+        position: relative;
+    }
+}
+
+*/
+#volunteer-information {
+    height: 830px;
+}
+
+#volunteer-info-tabs {
+    width: 60%;
+}
+
+#volunteer-recent-info {
+    width: 40%;
+}
+
+#volunteer-basic-info-div {
+    height: 35%;
+}
+
+#recent-volunteer-info-div {
+    height: 65%;
+}
+
+#recent-volunteers-div {
+    height: 63%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+}
+
+    .tab button {
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        background-color: white;
+    }
+
+        .tab button:hover {
+            background-color: var(--hover-color);
+        }
+
+        .tab button.active {
+            border-bottom: 2px solid black;
+        }
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    overflow: scroll;
+    height: calc(100% - 75px);
+}
+
+    .tabcontent::-webkit-scrollbar {
+        display: none;
+    }
+
+
+/* --------------------------------- */
+#Mission {
+    border: none !important;
+    padding: 10px 0;
+}
+
+#volunteer-information-div > div:not(:last-child) {
+    border-bottom: 1px solid var(--hover-color) !important;
+}
+
+.hover-underline {
+    border-bottom: 3px solid var(--hover-underline);
+}
+
+.recent-volunteers-list {
+    /* border: 2px solid black; */
+    padding: 8px 0;
+}
+
+#comment {
+    resize: none;
+}
+
+.avtar {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+#volunteer-comments-div {
+    background-color: var(--border-color);
+}
+
+
+@media only screen and (max-width:1400px) {
+    .recent-volunteer-avtar {
+        height: 60px;
+        width: 60px;
+    }
+
+    .recent-volunteer-name {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #volunteer-info-tabs {
+        width: 100%;
+    }
+
+    #volunteer-recent-info {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+    }
+
+    #recent-volunteers-div {
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    #carouselExampleControls {
+        height: 90px !important;
+    }
+
+    #volunteer-information {
+        margin-top: 2rem;
+        border: 1px solid var(--border-color);
+    }
+
+    #volunteer-recent-info {
+        margin-top: 2rem !important;
+        flex-direction: column !important;
+    }
+
+    #recent-volunteers-div {
+        margin-top: 2rem !important;
+    }
+
+    .recent-volunteer-avtar {
+        height: 70px !important;
+        width: 70px !important;
+    }
+
+    .recent-volunteer-name {
+        font-size: 16px !important;
+    }
+}
+
+@media only screen and (max-width:576px) {
+
+    #header-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        background-color: white;
+        height: 100vh;
+        z-index: 1;
+        width: 50vw;
+        border: 2px solid black;
+    }
+    #close-btn-div {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        border:5px solid black;
+        background-color:transparent;
+    }
+
+    #stories-div {
+        width: 100%;
+    }
+
+    #policy-div {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding: 8px;
+    }
+
+        #policy-div > button {
+            width: 100%;
+            height: 100%;
+            padding: 8px !important;
+            display: flex !important;
+            align-items: center;
+            padding-left: 17px !important;
+            justify-content: space-between !important;
+        }
+
+    .tab button {
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 0px;
+        transition: 0.3s;
+        background-color: white;
+    }
+    #carouselExampleControls {
+        height: 60px !important;
+    }
+
+    #carousal-preview-image {
+        height: 300px !important;
+    }
+
+    #mission-favourite-recomend-div > div {
+        width: 100% !important;
+    }
+
+    .recent-volunteer-avtar {
+        height: 50px !important;
+        width: 50px !important;
+    }
+
+    .recent-volunteer-name {
+        font-size: 12px !important;
+    }
+}

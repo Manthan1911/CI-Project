@@ -50,23 +50,24 @@
 				<button id="search-button" class="p-1 mx-3 border-0 bg-white  d-sm-none">
 					<img src="images/search.png" alt="search-btn">
 				</button>
-				<a href="">
-					<img class="ci-page-header-profile-img mx-1"
-						 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
-						 src="./images/user-img.png" alt="user-img">
-				</a>
-				<div class="dropdown mx-2 d-md-block d-none px-sm-0 px-2">
-					<span class="ci-page-header-profile-name mx-1 py-1">
-						@Model.user.FirstName @Model.user.LastName
-					</span>
-					<button class="bg-transparent border-0 p-0 py-1 dropdown-toggle" type="button"
+				
+				<div class="dropdown mx-2 px-sm-0 px-2">
+					<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
 							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="./images/drop-down.png" alt="">
+						<div href="">
+							<img class="ci-page-header-profile-img mx-1"
+								 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+								 src="./images/user-img.png" alt="user-img">
+						</div>
+						<div class="d-md-block d-none">
+							<span class="ci-page-header-profile-name mx-1 py-1">
+								@Model.user.FirstName @Model.user.LastName
+							</span>
+							<img src="./images/drop-down.png" alt="">
+						</div>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
+						<li><a class="dropdown-item" href="#">logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -98,7 +99,7 @@
 								Clear All
 							</button>
 						</div>
-						<div class="col-3">
+						<div class="col-3 border-start border-end ">
 							<div class="dropdown w-100 h-100 p-0">
 								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
 										type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -118,7 +119,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-3">
+						<div class="col-3 border-start border-end">
 							<div class="dropdown w-100 h-100 p-0">
 								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
 										type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -140,7 +141,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-3">
+						<div class="col-3 border-start border-end">
 							<div class="dropdown w-100 h-100 p-0">
 								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
 										type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -160,7 +161,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-3">
+						<div class="col-3 border-start border-end">
 							<div class="dropdown w-100 h-100 p-0">
 								<button class="w-100 h-100 dropdown-toggle border-0  bg-transparent  d-flex justify-content-between align-items-center"
 										type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -191,16 +192,11 @@
 		<div id="main-container" class="container mt-2 mb-2 mb-sm-4">
 			<!-- chips -->
 			<div id="chips-div" class="mt-2 p-3 d-flex align-items-center overflow-x-scroll ">
-				<button class="button px-2 border-0" style="min-width: max-content;">
-					Clear all
-				</button>
+				
 			</div>
-
 
 			<div id="missions-list">
 			</div>
-
-
 
 		</div>
 	</div>
@@ -223,11 +219,12 @@
 		const arrOfThemes = [];
 		const arrOfSkills = [];
 
-		const maxMissionPerPage = 1;
+		const maxMissionPerPage = 3;
 		let missionToSearch = "";
 		let sortVal = "";
 		let missionCount;
 		let currPage = 1;
+		let currViewType = "grid";
 
 		$(document).ready(function () {
 			loadMissions();
@@ -236,7 +233,7 @@
 		$("#search-input").on("keyup", function (e) {
 			missionToSearch = $("#search-input").val().toLowerCase();
 			currPage = 1;
-			loadMissions();
+			setTimeout(loadMissions,1500);
 		});
 
 		function loadMissions() {
@@ -248,10 +245,13 @@
 				success: function (data) {
 					$('#missions-list').html("");
 					$('#missions-list').html(data);
-
 					sorting();
 					pageNumbersEventListner();
-
+					switchBetweenGridViewAndListView();
+					clearAllFilters();
+					if ($('#chips-div>span').length < 1) {
+						$('#chips-div').empty();
+					}
 				},
 				error: function (error) {
 					console.log(error);
@@ -298,6 +298,10 @@
 			//--------------------------- check-add -------------------------
 			if (arr.indexOf(valueToAdd) == -1) {
 				arr.push(valueToAdd);
+				currPage = 1;
+				if ($('#chips-div>span').length < 1) {
+					chipsDiv.insertAdjacentHTML("afterbegin", `<button id="clear-all" class="button px-2 border-0" style="min-width:max-content;">Clear all</button>`);
+				}
 				chipsDiv.insertAdjacentHTML("afterbegin", `<span data="${currElement.value}" class="chip p-1 px-3 me-2 border border-1 d-flex align-items-center justify-content-end rounded-pill">
 																						${currElement.value}
 																				<button data-id="${valueToAdd}" data-type="${dataTypeOfChipToDelete}" class="button px-2 border-0">
@@ -309,10 +313,7 @@
 				let allChipsItemsBtn = document.querySelectorAll("#chips-div span button");
 				for (let currChipDeleteBtn of allChipsItemsBtn) {
 					currChipDeleteBtn.addEventListener("click", () => {
-						console.log(arrOfCountries);
 						deleteChip(currChipDeleteBtn.parentElement);
-						console.log("deleted");
-						console.log(arrOfCountries);
 					});
 					break;
 				}
@@ -327,6 +328,7 @@
 						if (currChip.childNodes[1].getAttribute("data-type") == dataTypeOfChipToDelete) {
 							if (currChip.childNodes[1].getAttribute("data-id") == dataIdOfChipToDelete) {
 								currChip.remove();
+								currPage = 1;
 								loadMissions();
 							}
 						}
@@ -335,11 +337,7 @@
 			}
 		}
 
-		//--------------------------------------------
-
 		function deleteChip(chipToDelete) {
-			console.log("chip to delete ");
-			console.log(chipToDelete);
 			let dataIdOfChipToDelete = +chipToDelete.childNodes[1].getAttribute("data-id");
 			let dataTypeOfChipToDelete = chipToDelete.childNodes[1].getAttribute("data-type");
 
@@ -348,24 +346,28 @@
 					arrOfCountries.splice(arrOfCountries.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					currPage = 1;
 					loadMissions();
 					break;
 				case "city":
 					arrOfCities.splice(arrOfCities.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					currPage = 1;
 					loadMissions();
 					break;
 				case "theme":
 					arrOfThemes.splice(arrOfThemes.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					currPage = 1;
 					loadMissions();
 					break;
 				case "skill":
 					arrOfSkills.splice(arrOfSkills.indexOf(dataIdOfChipToDelete), 1);
 					$('#' + chipToDelete.getAttribute('data')).prop('checked', false)
 					chipToDelete.remove();
+					currPage = 1;
 					loadMissions();
 					break;
 				default:
@@ -374,8 +376,20 @@
 			}
 		}
 
+		function clearAllFilters(){
+			$("#clear-all").on("click",()=>{
+				$('#filter-mission-navbar input[type=checkbox]').prop('checked', false);
+				arrOfCountries.splice(0,arrOfCountries.length);
+				arrOfCities.splice(0,arrOfCities.length);
+				arrOfThemes.splice(0, arrOfThemes);
+				arrOfSkills.splice(0, arrOfSkills);
+				currPage=1;
+				$('#chips-div').empty();
+				loadMissions();
+			});
+		}
 
-		function sorting() {
+				function sorting() {
 			//----------------- sorting -----------------
 			$('#sort-div > li > a').on('click', function () {
 				sortVal = $(this).html();
@@ -398,15 +412,11 @@
 				pageNums.push(i);
 			}
 				$(`#page-${currPage}`).addClass('page-link-active');
+				$(`#page-${currPage} > span`).addClass('page-link-active');
 
 			$('.pageCounters').on('click', function () {
 				currPage = +$(this).children(0).text();
-				console.log(currPage);
 				let pageToColorId = "#page-"+currPage;
-				//$(pageToColorId).addClass("page-link-active");
-				//console.log(pageToColorId);
-				//console.log($(pageToColorId));
-				//document.getElementById(pageToColorId).classList.add("page-link-active");
 				loadMissions();
 			});
 			
@@ -419,8 +429,64 @@
 				doubleNextButton.style.display = "none";
 			}
 
-			console.log(pageNums);
+			if (currPage == pageNums[pageNums.length-2]) {
+				doubleNextButton.style.display = "none";
+			}
+			if (currPage == 2) {
+				doublePrevButton.style.display = "none";
+			}
+			$('#double-prev-button').on('click', function () {
+				currPage = 1;
+				loadMissions();
+			});
 			
+			$('#next-button').on('click', function () {
+				currPage = currPage+1;
+				loadMissions();
+			});
+			
+			$('#prev-button').on('click', function () {
+				currPage = currPage-1;
+				loadMissions();
+			});
+
+			$('#double-next-button').on('click', function () {
+				currPage = pageNums[pageNums.length-1];
+				loadMissions();
+			});
+		}
+
+		function switchBetweenGridViewAndListView(){
+			const gridView = document.getElementById("mission-card-grid-div");
+			const listView = document.getElementById("mission-card-list-div");
+			const gridBtn = document.getElementById("grid-view");
+			const listBtn = document.getElementById("list-view");
+
+			if (currViewType == "grid") {
+				gridView.setAttribute("style", "display:flex !important");
+				listView.setAttribute("style", "display:none !important");
+			}
+			else{
+				gridView.setAttribute("style", "display:none !important");
+				listView.setAttribute("style", "display:block !important");
+			}
+
+			gridBtn.addEventListener("click", () => {
+				currViewType="grid";
+				gridView.setAttribute("style", "display:flex !important");
+				listView.setAttribute("style", "display:none !important");
+			});
+
+			listBtn.addEventListener("click", () => {
+				currViewType="list";
+				gridView.setAttribute("style", "display:none !important");
+				listView.setAttribute("style", "display:block !important");
+			});
+
+			window.matchMedia("(max-width:768px)").addListener(() => {
+				gridView.setAttribute("style", "display:flex !important");
+				listView.setAttribute("style", "display:none !important");
+			});
 		}
 	</script>
 
@@ -428,6 +494,4 @@
 	<script src="~/js/filterMissionSidebar.js"></script>
 	<script src="~/js/headerSidebar.js"></script>
 	<script src="~/js/scrolable.js"></script>
-	@*<script src="~/js/gridList.js"></script>*@
-	@*<script src="~/js/pagination.js"></script>*@
 }

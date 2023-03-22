@@ -1,0 +1,22 @@
+﻿@model List<CI_Project.Entities.ViewModels.CommentModel>
+<div class="volunteer-comments-container-div ">
+
+
+	@foreach (var currComment in Model)
+	{
+		<div class="d-flex align-items-center bg-white rounded-3 p-2 mb-2">
+			<div class="me-3"><img class="avtar" src="~/images/volunteer1.png" alt=""></div>
+			<div class="d-flex flex-column w-100 justify-content-between">
+				<div class="p-0 mb-2">
+					<p class="p-0 m-0 fw-semibold lh-1 ">@currComment.User.FirstName @currComment.User.LastName</p>
+					<p class="p-0 m-0 ">
+						@currComment.CreatedAt.DayOfWeek,@currComment.CreatedAt.ToString("MMMM") @currComment.CreatedAt.Day,@currComment.CreatedAt.Year,@currComment.CreatedAt.ToString("hh:mm tt")
+					</p>
+				</div>
+				<div class="volunteer-comment ">@currComment.CommentText</div>
+			</div>
+		</div>
+	}
+
+
+</div>

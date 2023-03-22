@@ -115,25 +115,47 @@ namespace CI_Platform_Web.Controllers
 			return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
 		}
 
-		public MissionModel convertDataModelToMissionModel(Mission mission)
+		public static MissionModel convertDataModelToMissionModel(Mission mission)
 		{
-			MissionModel missionModel = new MissionModel();
-			missionModel.MissionId = mission.MissionId;
-			missionModel.CityId = mission.CityId;
-			missionModel.City = mission.City;
-			missionModel.ThemeId = mission.ThemeId;
-			missionModel.Theme = mission.Theme;
-			missionModel.Title = mission.Title;
-			missionModel.ShortDescription = mission.ShortDescription;
-			missionModel.StartDate = mission.StartDate.ToString().Remove(10);
-			missionModel.EndDate = mission.EndDate.ToString().Remove(10);
-			missionModel.OrganizationName = mission.OrganizationName;
-			missionModel.MissionType = mission.MissionType;
-			missionModel.CoverImage = getMissionCoverImageUrl(mission.MissionId);
+			MissionModel missionModel = new MissionModel
+			{
+				MissionId = mission.MissionId,
+				CityId = mission.CityId,
+				City = mission.City,
+				ThemeId = mission.ThemeId,
+				Theme = mission.Theme,
+				Title = mission.Title,
+				Availability = mission.Availability,
+				ShortDescription = mission.ShortDescription,
+				Description= mission.Description,
+				StartDate = mission.StartDate.ToString().Remove(10),
+				EndDate = mission.EndDate.ToString().Remove(10),
+				OrganizationName = mission.OrganizationName,
+				OrganizationDetails=mission.OrganizationDetail,
+				MissionType = mission.MissionType,
+				MissionSkills = mission.MissionSkills,
+				FavouriteMissions = mission.FavouriteMissions,
+				GoalMissions = mission.GoalMissions,
+				MissionRatings = mission.MissionRatings,
+				countOfRatingsByPeople = mission.MissionRatings.Select(m => m.MissionId == mission.MissionId).Count(),
+				sumOfRating = mission.MissionRatings.Where(m => m.MissionId == mission.MissionId).Sum(m => m.Rating),
+				CoverImage = getMissionCoverImageUrl(mission.MissionMedia)
+			};
+			if (missionModel.countOfRatingsByPeople != 0)
+			{
+				missionModel.avgRating = ((missionModel.sumOfRating % missionModel.countOfRatingsByPeople) != 0) ? ((missionModel.sumOfRating / missionModel.countOfRatingsByPeople) + 1) : (missionModel.sumOfRating / missionModel.countOfRatingsByPeople);
+			}
 			return missionModel;
 		}
 
-		public List<Mission> sortMissions(string sortBy, List<Mission> missions)
+        private static string? getMissionCoverImageUrl(ICollection<MissionMedium> missionMedia)
+        {
+			var media =  missionMedia.FirstOrDefault(m => m.Default == true);
+            string? missionCoverImageUrl = media?.MediaPath + media?.MediaName + media?.MediaType;
+			return missionCoverImageUrl;
+        }
+
+        public List<Mission> sortMissions(string sortBy, List<Mission> missions)
 		{
 			switch (sortBy)
 			{
@@ -169,12 +191,6 @@ namespace CI_Platform_Web.Controllers
 			return missions;
 		}
 
-		public string getMissionCoverImageUrl(long id)
-		{
-			MissionMedium? missionMedia = _homeRepository.getAllMissionMediaRows(id);
-			string missionCoverImageUrl = missionMedia?.MediaPath + missionMedia?.MediaName + missionMedia?.MediaType;
-			return missionCoverImageUrl;
-		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

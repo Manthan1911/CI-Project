@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
+      "PackagePath": "staticwebassets\\css\\volunteeringMission.css"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -343,6 +347,10 @@
     {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
       "PackagePath": "staticwebassets\\images\\previous.png"
+    },
+    {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
+      "PackagePath": "staticwebassets\\images\\red-heart.png"
     },
     {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",

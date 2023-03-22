@@ -3,69 +3,168 @@
 	var totalMissions = ViewBag.totalMissions;
 	var MissionPerPageLimit = ViewBag.paginationLimit;
 }
-<!-- 72 Mission -->
-<div class="mt-2 d-flex align-items-center justify-content-between">
-	<div class="fs-2">
-		Explore
-		<span class="fw-bold">
-			@ViewBag.totalMissions
-			missions
-		</span>
-	</div>
-	<div class=" d-md-flex d-none justify-content-around">
-		<div class="dropdown mx-2 d-sm-block d-none border border-1 p-1 ">
-			<button class="bg-transparent border-0 px-2 dropdown-toggle d-flex align-items-center"
-					type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-				Sort By
-				<img class="mx-1 ps-5" src="./images/drop-down.png" alt="">
-			</button>
-
-			<ul id="sort-div" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<li>
-					<a class="dropdown-item" href="#">Newest</a>
-				</li>
-				<li>
-					<a class="dropdown-item" href="#">Oldest</a>
-				</li>
-			</ul>
+@if(totalMissions > 0){
+	<!-- 72 Mission -->
+	<div class="mt-2 d-flex align-items-center justify-content-between">
+		<div class="fs-2">
+			Explore
+			<span class="fw-bold">
+				@ViewBag.totalMissions
+				missions
+			</span>
 		</div>
-		@*<div class="border border-1 w-100 d-flex align-items-center justify-content-center">
+		<div class=" d-md-flex d-none justify-content-around">
+			<div class="dropdown mx-2 d-sm-block d-none border border-1 p-1 ">
+				<button class="bg-transparent border-0 px-2 dropdown-toggle d-flex align-items-center"
+					type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					Sort By
+					<img class="mx-1 ps-5" src="./images/drop-down.png" alt="">
+				</button>
+
+				<ul id="sort-div" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li>
+						<a class="dropdown-item" href="#">Newest</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">Oldest</a>
+					</li>
+				</ul>
+			</div>
+			@*<div class="border border-1 w-100 d-flex align-items-center justify-content-center">
 		<select class="bg-transparent border-0 w-100" id="sort-div">
 		<option value="Newest">Newest</option>
 		<option value="Oldest">Oldest</option>
 		</select>
 		</div>*@
-		<div id="grid-view-parent-div" class="d-flex align-items-center justify-content-center">
-			<button id="grid-view" class="mx-2 p-1 rounded-circle border-0 bg-transparent">
-				<img src="images/grid.png" class="button " style="height: 30px; width: 30px;"
+			<div id="grid-view-parent-div" class="d-flex align-items-center justify-content-center">
+				<button id="grid-view" class="mx-2 p-1 rounded-circle border-0 bg-transparent">
+					<img src="images/grid.png" class="button " style="height: 30px; width: 30px;"
 					 alt="">
-			</button>
-		</div>
-		<div id="list-view-parent-div" class="d-flex align-items-center justify-content-center">
-			<button id="list-view" class="mx-2 px-2 rounded-circle border-0 bg-transparent">
-				<img src="images/list.png" class="button " style="height: 15px; width: 20px; "
+				</button>
+			</div>
+			<div id="list-view-parent-div" class="d-flex align-items-center justify-content-center">
+				<button id="list-view" class="mx-2 px-2 rounded-circle border-0 bg-transparent">
+					<img src="images/list.png" class="button " style="height: 15px; width: 20px; "
 					 alt="">
-			</button>
+				</button>
+			</div>
+
 		</div>
+	</div>
+
+	<!-- Grid -->
+	<div id="mission-card-grid-div" style="display:flex;" class="row mx-auto w-100">
+
+		@foreach (var currMission in Model)
+		{
+			<div class="mission-card-parent grid-mission-card card-to-hide p-1 col-12 col-md-6 col-lg-4">
+				<div class="mission-card shadow-lg h-100">
+
+					<div class="mission-card-img-div position-relative w-100">
+						<img class="h-100 w-100 object-fit-cover"
+					 src="@currMission.CoverImage" alt="">
+						<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
+							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
+								<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
+							 alt="">
+								<span class="pe-2 text-white">@currMission.City.Name</span>
+							</div>
+							<div>
+									<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+										<img src="images/heart.png" style="height:20px;width:22px;" alt="">
+									</button>
+								<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
+									<img src="images/user.png" style="height:20px;width:22px;" alt="">
+								</button>
+							</div>
+						</div>
+						<div style="margin-top:-15px;"
+					 class="d-flex align-items-center  justify-content-center w-100">
+							<div class="bg-white p-1 px-2 shadow-lg rounded-pill">
+								@currMission.Theme.Title
+							</div>
+						</div>
+					</div>
+
+					<div class="mission-card-details-div d-flex flex-column justify-content-between py-md-4 px-2">
+						<div class="mission-card-description-div">
+							<div class="mission-card-title">
+								<span class="mission-title-to-hide fs-5 fw-semibold">
+									@currMission.Title
+								</span>
+							</div>
+							<div class="mission-card-short-description-div">
+								<span>
+									@currMission.ShortDescription
+								</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-between ">
+								<div class="fs-5">
+									@currMission.OrganizationName
+								</div>
+								<div class="pt-sm-1 pb-sm-2 py-3 py-sm-0">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
+							<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
+						 style="margin-top: -14px;">
+								<div class="bg-white px-4 rounded-pill border border-1">
+									From @currMission.StartDate to @currMission.EndDate
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-center w-100">
+								<div>
+									<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+								</div>
+								<div class="d-flex flex-column ms-4">
+									<p class="p-0 m-0 fs-5 fw-semibold">10</p>
+									<p class="p-0 m-0 ">Seats left</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-center  justify-content-center w-100">
+								<div>
+									<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+								</div>
+								<div class="d-flex flex-column ms-2">
+									<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+									<p class="p-0 m-0 ">Deadline</p>
+								</div>
+							</div>
+						</div>
+						<div class="w-100  d-flex justify-content-center align-items-center py-4">
+							<a  asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId"
+					   class="warning-btn text-decoration-none bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-5">
+								<span class="px-3">View Details</span>
+								<img src="images/right-arrow.png" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
 
 	</div>
-</div>
+	
+	<!-- List -->
+	<div id="mission-card-list-div" style="display:none;" class="container px-3 p-2 ">
 
-<!-- Grid -->
-<div id="mission-card-grid-div" style="display:flex;" class="row mx-auto w-100">
+		@foreach (var currMission in Model)
+		{
+			<div id="list-div" class="card-to-hide list-mission-card row shadow-lg m-1 mb-5">
 
-	@foreach (var currMission in Model)
-	{
-		<div class="mission-card-parent grid-mission-card card-to-hide p-1 col-12 col-md-6 col-lg-4">
-			<div class="mission-card shadow-lg h-100">
+				<div class="list-img-div position-relative col-4 col-lg-3  m-0 p-0">
+					<img class="h-100 w-100"
+				 src="@currMission.CoverImage" alt="">
 
-				<div class="mission-card-img-div position-relative w-100">
-					<img class="h-100 w-100 object-fit-cover"
-					 src="@currMission.CoverImage" alt="">
 					<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
 						<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-							<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
-							 alt="">
+							<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;" alt="">
 							<span class="pe-2 text-white">@currMission.City.Name</span>
 						</div>
 						<div>
@@ -77,233 +176,144 @@
 							</button>
 						</div>
 					</div>
-					<div style="margin-top:-15px;"
-					 class="d-flex align-items-center  justify-content-center w-100">
-						<div class="bg-white p-1 px-2 shadow-lg rounded-pill">
-							@currMission.Theme.Title
-						</div>
-					</div>
-				</div>
 
-				<div class="mission-card-details-div d-flex flex-column justify-content-between py-md-4 px-2">
-					<div class="mission-card-description-div">
-						<div class="mission-card-title">
-							<span class="mission-title-to-hide fs-5 fw-semibold">
-								@currMission.Title
-							</span>
-						</div>
-						<div class="mission-card-short-description-div">
-							<span>
-								@currMission.ShortDescription
-							</span>
-						</div>
-						<div class="d-flex align-items-center justify-content-between ">
-							<div class="fs-5">
-								@currMission.OrganizationName
-							</div>
-							<div class="pt-sm-1 pb-sm-2 py-3 py-sm-0">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-							</div>
-						</div>
-					</div>
-					<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
-						<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
-						 style="margin-top: -14px;">
-							<div class="bg-white px-4 rounded-pill border border-1">
-								From @currMission.StartDate to @currMission.EndDate
-							</div>
-						</div>
-						<div class="d-flex align-items-center justify-content-center w-100">
-							<div>
-								<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
-							</div>
-							<div class="d-flex flex-column ms-4">
-								<p class="p-0 m-0 fs-5 fw-semibold">10</p>
-								<p class="p-0 m-0 ">Seats left</p>
-							</div>
-						</div>
-						<div class="d-flex align-items-center  justify-content-center w-100">
-							<div>
-								<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
-							</div>
-							<div class="d-flex flex-column ms-2">
-								<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
-								<p class="p-0 m-0 ">Deadline</p>
-							</div>
-						</div>
-					</div>
-					<div class="w-100 d-flex justify-content-center align-items-center py-4">
-						<button class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-5">
-							<span class="px-3">Apply</span>
-							<img src="images/right-arrow.png" alt="">
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	}
-
-</div>
-<!-- List -->
-<div id="mission-card-list-div" style="display:none;" class="container px-3 p-2 ">
-
-	@foreach (var currMission in Model)
-	{
-		<div id="list-div" class="card-to-hide list-mission-card row shadow-lg m-1 mb-5">
-
-			<div class="list-img-div position-relative col-4 col-lg-3  m-0 p-0">
-				<img class="h-100 w-100"
-				 src="@currMission.CoverImage" alt="">
-
-				<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
-					<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-						<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;" alt="">
-						<span class="pe-2 text-white">@currMission.City.Name</span>
-					</div>
-					<div>
-						<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
-							<img src="images/heart.png" style="height:20px;width:22px;" alt="">
-						</button>
-						<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
-							<img src="images/user.png" style="height:20px;width:22px;" alt="">
-						</button>
-					</div>
-				</div>
-
-				<div class="w-100 d-flex align-items-center justify-content-center "
+					<div class="w-100 d-flex align-items-center justify-content-center "
 				 style="margin-top: -12px;">
-					<span class="px-3 rounded-pill bg-white"> @currMission.Theme.Title </span>
-				</div>
-			</div>
-
-			<div class="list-descriptoion-div col-8 col-lg-9 d-flex flex-column  p-2">
-
-				<div class="1 list-description">
-					<p class="mission-title-to-hide fs-4 fw-bold p-0 m-0">@currMission.Title</p>
-					<p class="p-0 m-0">
-						@currMission.ShortDescription
-					</p>
+						<span class="px-3 rounded-pill bg-white"> @currMission.Theme.Title </span>
+					</div>
 				</div>
 
-				<div class="d-flex  justify-content-between py-3">
-					<div>
-						<div class="d-flex flex-column flex-lg-row align-items-lg-center">
+				<div class="list-descriptoion-div col-8 col-lg-9 d-flex flex-column  p-2">
+
+					<div class="1 list-description">
+						<p class="mission-title-to-hide fs-4 fw-bold p-0 m-0">@currMission.Title</p>
+						<p class="p-0 m-0">
+							@currMission.ShortDescription
+						</p>
+					</div>
+
+					<div class="d-flex  justify-content-between py-3">
+						<div>
+							<div class="d-flex flex-column flex-lg-row align-items-lg-center">
+								<div class="py-2">
+									<span>@currMission.OrganizationName</span>
+								</div>
+								<div class="px-0 px-lg-3">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+									<img src="images/selected-star.png" alt="">
+								</div>
+							</div>
 							<div class="py-2">
-								<span>@currMission.OrganizationName</span>
-							</div>
-							<div class="px-0 px-lg-3">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
-								<img src="images/selected-star.png" alt="">
+								<button asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-2">
+									<span class="px-2">Apply</span>
+									<img class="px-2" src="images/right-arrow.png" alt="">
+								</button>
 							</div>
 						</div>
-						<div class="py-2">
-							<button class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-2">
-								<span class="px-2">Apply</span>
-								<img class="px-2" src="images/right-arrow.png" alt="">
-							</button>
+
+						<div class=" d-flex flex-column ">
+							<div class="position-relative py-2">
+								<div class="d-flex justify-content-center w-100">
+									<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
+										From
+										@currMission.StartDate
+										To
+										@currMission.EndDate
+									</span>
+								</div>
+								<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
+								</div>
+							</div>
+							<div class="d-flex py-2">
+								<div class="d-flex align-items-center justify-content-center w-100 px-2">
+									<div>
+										<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-2">
+										<p class="p-0 m-0 fs-5 fw-semibold">10</p>
+										<p class="p-0 m-0 ">Seats left</p>
+									</div>
+								</div>
+								<div class="d-flex align-items-center  justify-content-center w-100 px-2">
+									<div>
+										<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-2">
+										<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+										<p class="p-0 m-0 ">Deadline</p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
-					<div class=" d-flex flex-column ">
-						<div class="position-relative py-2">
-							<div class="d-flex justify-content-center w-100">
-								<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
-									From
-									@currMission.StartDate
-									To
-									@currMission.EndDate
-								</span>
-							</div>
-							<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
-							</div>
-						</div>
-						<div class="d-flex py-2">
-							<div class="d-flex align-items-center justify-content-center w-100 px-2">
-								<div>
-									<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
-								</div>
-								<div class="d-flex flex-column ms-2">
-									<p class="p-0 m-0 fs-5 fw-semibold">10</p>
-									<p class="p-0 m-0 ">Seats left</p>
-								</div>
-							</div>
-							<div class="d-flex align-items-center  justify-content-center w-100 px-2">
-								<div>
-									<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
-								</div>
-								<div class="d-flex flex-column ms-2">
-									<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
-									<p class="p-0 m-0 ">Deadline</p>
-								</div>
-							</div>
-						</div>
-					</div>
+				</div>
+			</div>
+		}
+	</div>
+
+	<!-- Pagination -->
+	<div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li id="double-prev-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Previous">
+						<span aria-hidden="true">&lt;&lt;</span>
+					</a>
+				</li>
+				<li id="prev-button" class="page-item  me-2">
+					<a class="page-link text-dark" href="#" aria-label="Previous">
+						<span aria-hidden="true">&lt;</span>
+					</a>
+				</li>
+
+				<div class="d-flex align-items-center">
+					<ul id="pagination-numbers" class="m-0 d-flex align-items-center p-0" style="list-style:none;">
+						@if (totalMissions > 0)
+						{
+							int pageCount = 0;
+							int paginationLimit = MissionPerPageLimit;
+							if (totalMissions % paginationLimit != 0)
+							{
+								pageCount = (totalMissions / paginationLimit) + 1;
+							}
+							else
+							{
+								pageCount = (totalMissions / paginationLimit);
+							}
+
+							for (var i = 1; i <= pageCount; i++)
+							{
+								<li id="page-@i" class="pageCounters page-item me-2 page-link">
+									<span class="text-black" aria-hidden="true"> @i </span>
+								</li>
+							}
+						}
+					</ul>
 				</div>
 
-			</div>
-		</div>
-	}
-</div>
+				<li id="next-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Next">
+						<span aria-hidden="true">&gt;</span>
+					</a>
+				</li>
+				<li id="double-next-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Next">
+						<span aria-hidden="true">&gt;&gt;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 
-<!-- Pagination -->
-<div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li id="double-prev-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Previous">
-					<span aria-hidden="true">&lt;&lt;</span>
-				</a>
-			</li>
-			<li id="prev-button" class="page-item  me-2">
-				<a class="page-link text-dark" href="#" aria-label="Previous">
-					<span aria-hidden="true">&lt;</span>
-				</a>
-			</li>
+}
+else
+{
+	<div id="no-mission-found" class="d-flex justify-content-center align-items-center">
+		<h2>No mission found</h2>
+	</div>
+}
 
-			<div class="d-flex align-items-center">
-				<ul id="pagination-numbers" class="m-0 d-flex align-items-center p-0" style="list-style:none;">
-					@if (totalMissions > 0)
-					{
-						int pageCount = 0;
-						int paginationLimit = MissionPerPageLimit;
-						if (totalMissions % paginationLimit != 0)
-						{
-							pageCount = (totalMissions / paginationLimit) + 1;
-						}
-						else
-						{
-							pageCount = (totalMissions / paginationLimit);
-						}
-
-						for (var i = 1; i <= pageCount; i++)
-						{
-							<li id="page-@i" class="pageCounters page-item me-2 page-link">
-								
-									<span aria-hidden="true"> @i </span>
-
-							</li>
-						}
-					}
-				</ul>
-			</div>
-
-			<li id="next-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Next">
-					<span aria-hidden="true">&gt;</span>
-				</a>
-			</li>
-			<li id="double-next-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Next">
-					<span aria-hidden="true">&gt;&gt;</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-</div>

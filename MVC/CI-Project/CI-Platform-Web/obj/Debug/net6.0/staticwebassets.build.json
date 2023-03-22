@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ef0/FNuM4UDi6GXX8HyMXSRpxWkHBcvd4i84W3I9AHU=",
+  "Hash": "PbxAE9XLSZ3HF/S3WLQdl2gJbW6kkz+Kcr5hsGpi8jA=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "css/volunteeringMission.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\volunteeringMission.css"
     },
     {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
@@ -1443,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\previous.png"
+    },
+    {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/red-heart.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\red-heart.png"
     },
     {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right.png",

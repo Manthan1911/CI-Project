@@ -24,19 +24,16 @@ html {
 body {
     height: 100vh;
     width: 100vw;
-    /* border: 5px solid yellow; */
 }
 
 main {
     height: 100%;
     width: 100%;
-    /* border: 5px solid black; */
 }
 
 #header {
     top: 0;
     left: 0;
-    /* border: 5px solid orange; */
 }
 
 .sidebar-close:hover {
@@ -107,9 +104,6 @@ footer {
     background-color: transparent !important;
 }
 
-#grid-view:hover {
-    background-color: green !important;
-}
 
 #mission-card-grid-div {
     max-width: var(--max-width) !important;
@@ -145,6 +139,10 @@ footer {
     color: var(--right-arrow-color);
 }
 
+.warning-btn:hover{
+    color: var(--right-arrow-color);
+}
+
 .list-descriptoion-div {
     display: flex !important;
     flex-direction: column !important;
@@ -167,6 +165,7 @@ footer {
 .hidden {
     display: none !important;
 }
+
 
 @media only screen and (max-width: 576px) {
     #header-sidebar {

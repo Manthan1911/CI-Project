@@ -22,7 +22,6 @@ namespace CI_Project.Repository.Repository
         }
 
         public void addResetPasswordToken(PasswordReset passwordResetObj)
-
         {
             bool isAlreadyGenerated = _db.PasswordResets.Any(u => u.Email.Equals(passwordResetObj.Email));
             if (isAlreadyGenerated)

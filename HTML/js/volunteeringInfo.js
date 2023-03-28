@@ -26,17 +26,3 @@ document.getElementById("Mission").style.display = "block";
 tablinks[0].classList.add("active");
 
 // ---------------------------------------------------------------------------------------
-const carousalImagesFromSlider = document.querySelectorAll(
-  ".carousal-images-from-slider"
-);
-const carousalPreviewImage = document.getElementById("carousal-preview-image");
-
-for (let i = 0; i < carousalImagesFromSlider.length; i++) {
-  carousalImagesFromSlider[i].addEventListener("click", (e) => {
-    e.preventDefault();
-    carousalPreviewImage.setAttribute(
-      "src",
-      carousalImagesFromSlider[i].getAttribute("src")
-    );
-  });
-}

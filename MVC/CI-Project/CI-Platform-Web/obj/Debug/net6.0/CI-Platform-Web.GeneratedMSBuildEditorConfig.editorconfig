@@ -56,8 +56,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9HcmlkVmlld0xpc3RWaWV3UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/Shared/_RecentVolunteers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWNlbnRWb2x1bnRlZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/Shared/_RecommentToCoWorkers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWNvbW1lbnRUb0NvV29ya2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/Shared/_RelatedMissions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWxhdGVkTWlzc2lvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/Shared/_StoryListing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdG9yeUxpc3RpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/StoryListing/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlMaXN0aW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [w:/CI_Project/MVC/CI-Project/CI-Platform-Web/Views/VolunteeringMission/Index.cshtml]

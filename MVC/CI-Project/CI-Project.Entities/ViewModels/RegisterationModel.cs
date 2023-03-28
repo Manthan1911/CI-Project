@@ -27,5 +27,7 @@ namespace CI_Project.Entities.ViewModels
         [Required]
         [MinLength(8)]
         public string ConfirmPassword { get; set; }
+
+        
     }
 }

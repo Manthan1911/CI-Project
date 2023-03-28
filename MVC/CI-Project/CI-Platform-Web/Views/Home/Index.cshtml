@@ -18,7 +18,7 @@
 						<img src="./images/list.png" alt="">
 					</button>
 				</div>
-				<img id="logo" class=" mx-2" src="./images/logo.png" alt="">
+				<a asp-action="Index" asp-controller="Home"><img id="logo" class=" mx-2" src="./images/logo.png" alt=""></a>
 				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
 					<div id="close-btn-div" class="p-2">
 						<button id="header-sidebar-close"
@@ -27,7 +27,7 @@
 						</button>
 					</div>
 					<div id="stories-div" class="p-2">
-						<a class="text-decoration-none text-black mx-2 " href="#">
+						<a class="text-decoration-none text-black mx-2" asp-action="Index" asp-controller="StoryListing">
 							Stories
 						</a>
 					</div>
@@ -233,7 +233,7 @@
 		$("#search-input").on("keyup", function (e) {
 			missionToSearch = $("#search-input").val().toLowerCase();
 			currPage = 1;
-			setTimeout(loadMissions,1500);
+			loadMissions();
 		});
 
 		function loadMissions() {
@@ -249,9 +249,12 @@
 					pageNumbersEventListner();
 					switchBetweenGridViewAndListView();
 					clearAllFilters();
+					
 					if ($('#chips-div>span').length < 1) {
 						$('#chips-div').empty();
 					}
+
+					toggleAddToFavouriteButton();
 				},
 				error: function (error) {
 					console.log(error);
@@ -455,7 +458,7 @@
 				loadMissions();
 			});
 		}
-
+		// -------------------------------------------- toggle grid and list view ---------------------------------------------
 		function switchBetweenGridViewAndListView(){
 			const gridView = document.getElementById("mission-card-grid-div");
 			const listView = document.getElementById("mission-card-list-div");
@@ -488,6 +491,27 @@
 				listView.setAttribute("style", "display:none !important");
 			});
 		}
+
+		//----------------------------------- ad to fav and remove from fav ----------------------------------------
+		function toggleAddToFavouriteButton(){
+			$('.fav-mission-id').on('click',function (){
+				let missionId = $(this).children(0).attr("data-id");
+
+				$.ajax({
+					url: "/Home/addOrRemoveFavourite",
+					method: "POST",
+					dataType: "html",
+					data: { "missionId": missionId},
+					success: function (data) {
+						loadMissions();
+					},
+					error: function (error) {
+						console.log(error);
+					}
+				});
+			});
+		}
+
 	</script>
 
 	<script src="~/js/custom.js"></script>

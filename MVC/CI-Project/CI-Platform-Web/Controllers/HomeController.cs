@@ -70,7 +70,6 @@ namespace CI_Platform_Web.Controllers
 				SkillId = currentSkill.SkillId,
 				SkillName = currentSkill.SkillName,
 			}));
-
 			return View(model);
 		}
 
@@ -82,6 +81,9 @@ namespace CI_Platform_Web.Controllers
 
 			List<Mission> missions = _homeRepository.getAllMissions();
 			List<MissionModel> missionVmList = new();
+			GridListModel gridListModel = new GridListModel();
+			string? currentUserEmail = HttpContext.Session.GetString("UserEmail");
+			gridListModel.userId = _userRepository.findUser(currentUserEmail!).UserId;
 
 
 			if (!countries.IsNullOrEmpty() || !cities.IsNullOrEmpty() || !themes.IsNullOrEmpty() || !skills.IsNullOrEmpty())
@@ -97,7 +99,7 @@ namespace CI_Platform_Web.Controllers
 
 				foreach (var currMisssion in missions)
 				{
-					missionVmList.Add(convertDataModelToMissionModel(currMisssion));
+					missionVmList.Add(convertDataModelToMissionModel(currMisssion, gridListModel.userId));
 				}
 
 				ViewBag.totalMissions = missionVmList.Count;
@@ -107,15 +109,17 @@ namespace CI_Platform_Web.Controllers
 
 			foreach (var currMisssion in missions)
 			{
-				missionVmList.Add(convertDataModelToMissionModel(currMisssion));
+				missionVmList.Add(convertDataModelToMissionModel(currMisssion,gridListModel.userId));
 			}
 
 			ViewBag.totalMissions = missionVmList.Count;
 			ViewBag.paginationLimit = pageSize;
-			return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
+
+			gridListModel.missionModels = missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
+			return PartialView("_GridViewListViewPartial", gridListModel);
 		}
 
-		public static MissionModel convertDataModelToMissionModel(Mission mission)
+		public static MissionModel convertDataModelToMissionModel(Mission mission,long userId)
 		{
 			MissionModel missionModel = new MissionModel
 			{
@@ -127,19 +131,23 @@ namespace CI_Platform_Web.Controllers
 				Title = mission.Title,
 				Availability = mission.Availability,
 				ShortDescription = mission.ShortDescription,
-				Description= mission.Description,
+				Description = mission.Description,
 				StartDate = mission.StartDate.ToString().Remove(10),
 				EndDate = mission.EndDate.ToString().Remove(10),
 				OrganizationName = mission.OrganizationName,
-				OrganizationDetails=mission.OrganizationDetail,
+				OrganizationDetails = mission.OrganizationDetail,
 				MissionType = mission.MissionType,
 				MissionSkills = mission.MissionSkills,
-				FavouriteMissions = mission.FavouriteMissions,
 				GoalMissions = mission.GoalMissions,
+				GoalMission = mission.GoalMissions.FirstOrDefault(gm => gm.MissionId == mission.MissionId),
+				FavouriteMissions = mission.FavouriteMissions,
 				MissionRatings = mission.MissionRatings,
 				countOfRatingsByPeople = mission.MissionRatings.Select(m => m.MissionId == mission.MissionId).Count(),
 				sumOfRating = mission.MissionRatings.Where(m => m.MissionId == mission.MissionId).Sum(m => m.Rating),
-				CoverImage = getMissionCoverImageUrl(mission.MissionMedia)
+				CoverImage = getMissionCoverImageUrl(mission.MissionMedia),
+				isMissionFavourite = mission.FavouriteMissions.Any(fm => fm.MissionId == mission.MissionId && fm.UserId == userId) ? 1 : 0,
+				totalSeats=mission.TotalSeats,
+				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count()
 			};
 			if (missionModel.countOfRatingsByPeople != 0)
 			{
@@ -191,6 +199,12 @@ namespace CI_Platform_Web.Controllers
 			return missions;
 		}
 
+		public void addOrRemoveFavourite(long missionId)
+        {
+			var email = HttpContext.Session.GetString("UserEmail");
+			var userId = _userRepository.findUser(email!).UserId;
+			_homeRepository.addOrRemoveFavourite(missionId,userId);
+        }
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

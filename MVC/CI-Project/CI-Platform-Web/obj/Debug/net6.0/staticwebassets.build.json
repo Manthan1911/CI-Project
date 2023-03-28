@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PbxAE9XLSZ3HF/S3WLQdl2gJbW6kkz+Kcr5hsGpi8jA=",
+  "Hash": "wJr7qkDchZ7i1fqQIzE8AQ5MUGr2857wK5TbXvLgrzU=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "css/story.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\story.css"
     },
     {
       "Identity": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",

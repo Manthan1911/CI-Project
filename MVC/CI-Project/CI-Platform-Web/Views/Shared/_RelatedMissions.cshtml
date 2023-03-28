@@ -1,0 +1,194 @@
+﻿@model List<CI_Project.Entities.ViewModels.MissionModel>
+@if(Model.Count() > 0){
+
+	<div id="mission-card-grid-div" style="display:flex;" class="row mx-auto w-100 pt-3">
+		<div class="d-flex align-items-center justify-content-center fw-semibold">
+			<h2>Related Missions</h2>
+		</div>
+		@foreach (var currMission in Model)
+		{
+			<div class="mission-card-parent grid-mission-card card-to-hide p-2 col-12 col-md-6 col-lg-4">
+				<div class="mission-card shadow-lg h-100">
+
+					<div class="mission-card-img-div position-relative w-100">
+						<img class="h-100 w-100 object-fit-cover"
+					 src="@currMission.CoverImage" alt="">
+						<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
+							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
+								<img src="~/images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
+							 alt="">
+								<span class="pe-2 text-white">@currMission.City.Name</span>
+							</div>
+							<div>
+								@if (currMission.isMissionFavourite == 1)
+								{
+									<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+										<img data-id="@currMission.MissionId" src="~/images/red-heart.png" style="height:20px;width:22px;" alt="">
+									</button>
+								}
+								else
+								{
+									<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+										<img data-id="@currMission.MissionId" src="~/images/heart.png" style="height:20px;width:22px;" alt="">
+									</button>
+								}
+								<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
+									<img src="~/images/user.png" style="height:20px;width:22px;" alt="">
+								</button>
+							</div>
+						</div>
+						<div style="margin-top:-15px;"
+					 class="d-flex align-items-center  justify-content-center w-100">
+							<div class="bg-white p-1 px-2 shadow-lg rounded-pill">
+								@currMission.Theme.Title
+							</div>
+						</div>
+					</div>
+
+					<div class="mission-card-details-div d-flex flex-column justify-content-between py-md-4 px-2">
+						<div class="mission-card-description-div">
+							<div class="mission-card-title">
+								<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="mission-title-to-hide fs-5 fw-semibold text-black" style="text-decoration:none;">
+									@if (currMission.Title.Length > 26)
+									{
+										@currMission.Title.Remove(26)
+
+										<span>...</span>
+									}
+									else
+									{
+										@currMission.Title
+									}
+								</a>
+							</div>
+							<div class="mission-card-short-description-div">
+								<span>
+									@if (currMission.ShortDescription!.Length > 40)
+									{
+										@currMission.ShortDescription.Remove(40)
+										<span>...</span>
+									}
+									else
+									{
+										@currMission.ShortDescription
+									}
+								</span>
+							</div>
+
+							<div class="d-flex align-items-center justify-content-between pt-1 pb-4">
+								<div class="fs-5">
+									@currMission.OrganizationName
+								</div>
+								<div class="  ">
+									@for (var i = 1; i <= 5; i++)
+									{
+										if (i <= currMission.avgRating)
+										{
+											<img src="~/images/selected-star.png" alt="selected-star">
+										}
+										else
+										{
+											<img src="~/images/star.png" alt="unselected-star">
+										}
+									}
+								</div>
+							</div>
+						</div>
+
+						@if (currMission.MissionType == "time")
+						{
+							<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
+								<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
+						 style="margin-top: -14px;">
+									<div class="bg-white px-4 rounded-pill border border-1">
+										From @currMission.StartDate to @currMission.EndDate
+									</div>
+								</div>
+								<div class="d-flex align-items-center justify-content-center w-100">
+									<div>
+										<img style="height:30px;width:30px;" src="~/images/Seats-left.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-4">
+										<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+										<p class="p-0 m-0 ">Seats left</p>
+									</div>
+								</div>
+								<div class="d-flex align-items-center  justify-content-center w-100">
+									<div>
+										<img style="height:30px;width:30px;" src="~/images/deadline.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-2">
+										<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+										<p class="p-0 m-0 ">Deadline</p>
+									</div>
+								</div>
+							</div>
+						}
+						else
+						{
+							<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
+								<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
+						 style="margin-top: -14px;">
+									<div class="bg-white px-4 rounded-pill border border-1">
+										@if (currMission.GoalMission?.GoalObjectiveText?.Length > 20)
+										{
+											@currMission.GoalMission?.GoalObjectiveText.Remove(20)
+											<span>...</span>
+										}
+										else
+										{
+											@currMission.GoalMission?.GoalObjectiveText
+										}
+									</div>
+								</div>
+								@if (@currMission.seatsLeft > 0)
+								{
+									<div class="d-flex align-items-center justify-content-center w-100">
+										<div>
+											<img style="height:30px;width:30px;" src="~/images/seats-left.png" alt="">
+										</div>
+										<div class="d-flex flex-column ms-4">
+											<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+											<p class="p-0 m-0 ">seats left</p>
+										</div>
+									</div>
+								}
+								else
+								{
+									<div class="d-flex align-items-center justify-content-center w-100">
+										<div>
+											<img style="height:30px;width:30px;" src="~/images/Already-volunteered.png">
+										</div>
+										<div class="d-flex flex-column ms-4">
+											<p class="p-0 m-0 fs-5 fw-semibold">@currMission.totalSeats</p>
+											<p class="p-0 m-0 ">Already Volunteered</p>
+										</div>
+									</div>
+								}
+								<div id="mission-progress-div" class="d-flex justify-content-center p-2 w-100 ">
+									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
+									<div class="d-flex flex-column px-2 ">
+										<div class="progress ">
+											<div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
+									 aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+										<span>8000 achieved</span>
+									</div>
+								</div>
+							</div>
+						}
+
+						<div class="w-100  d-flex justify-content-center align-items-center py-4">
+							<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId"
+					   class="warning-btn text-decoration-none bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-5">
+								<span class="px-3">View Details</span>
+								<img src="~/images/right-arrow.png" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+
+	</div>
+}

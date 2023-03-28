@@ -1,10 +1,11 @@
-﻿@model List<CI_Project.Entities.ViewModels.MissionModel>
+﻿@model CI_Project.Entities.ViewModels.GridListModel
 @{
 	var totalMissions = ViewBag.totalMissions;
 	var MissionPerPageLimit = ViewBag.paginationLimit;
 }
-@if(totalMissions > 0){
-	<!-- 72 Mission -->
+@if (totalMissions > 0)
+{
+	@*<!-- 72 Mission -->*@
 	<div class="mt-2 d-flex align-items-center justify-content-between">
 		<div class="fs-2">
 			Explore
@@ -30,12 +31,7 @@
 					</li>
 				</ul>
 			</div>
-			@*<div class="border border-1 w-100 d-flex align-items-center justify-content-center">
-		<select class="bg-transparent border-0 w-100" id="sort-div">
-		<option value="Newest">Newest</option>
-		<option value="Oldest">Oldest</option>
-		</select>
-		</div>*@
+
 			<div id="grid-view-parent-div" class="d-flex align-items-center justify-content-center">
 				<button id="grid-view" class="mx-2 p-1 rounded-circle border-0 bg-transparent">
 					<img src="images/grid.png" class="button " style="height: 30px; width: 30px;"
@@ -52,12 +48,12 @@
 		</div>
 	</div>
 
-	<!-- Grid -->
+	@*<!-- Grid -->*@
 	<div id="mission-card-grid-div" style="display:flex;" class="row mx-auto w-100">
 
-		@foreach (var currMission in Model)
+		@foreach (var currMission in Model.missionModels)
 		{
-			<div class="mission-card-parent grid-mission-card card-to-hide p-1 col-12 col-md-6 col-lg-4">
+			<div class="mission-card-parent grid-mission-card card-to-hide p-2 col-12 col-md-6 col-lg-4">
 				<div class="mission-card shadow-lg h-100">
 
 					<div class="mission-card-img-div position-relative w-100">
@@ -65,16 +61,25 @@
 					 src="@currMission.CoverImage" alt="">
 						<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
 							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-								<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
+								<img src="~/images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
 							 alt="">
 								<span class="pe-2 text-white">@currMission.City.Name</span>
 							</div>
 							<div>
-									<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
-										<img src="images/heart.png" style="height:20px;width:22px;" alt="">
+								@if (currMission.isMissionFavourite == 1)
+								{
+									<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+										<img data-id="@currMission.MissionId" src="~/images/red-heart.png" style="height:20px;width:22px;" alt="">
 									</button>
+								}
+								else
+								{
+									<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+										<img data-id="@currMission.MissionId" src="~/images/heart.png" style="height:20px;width:22px;" alt="">
+									</button>
+								}
 								<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
-									<img src="images/user.png" style="height:20px;width:22px;" alt="">
+									<img src="~/images/user.png" style="height:20px;width:22px;" alt="">
 								</button>
 							</div>
 						</div>
@@ -89,59 +94,141 @@
 					<div class="mission-card-details-div d-flex flex-column justify-content-between py-md-4 px-2">
 						<div class="mission-card-description-div">
 							<div class="mission-card-title">
-								<span class="mission-title-to-hide fs-5 fw-semibold">
-									@currMission.Title
-								</span>
+								<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="mission-title-to-hide fs-5 fw-semibold text-black" style="text-decoration:none;">
+									@if (currMission.Title.Length > 26)
+									{
+										@currMission.Title.Remove(26)
+
+										<span>...</span>
+									}
+									else
+									{
+										@currMission.Title
+									}
+								</a>
 							</div>
 							<div class="mission-card-short-description-div">
 								<span>
-									@currMission.ShortDescription
+									@if (currMission.ShortDescription!.Length > 40)
+									{
+										@currMission.ShortDescription.Remove(40)
+										<span>...</span>
+									}
+									else
+									{
+										@currMission.ShortDescription
+									}
 								</span>
 							</div>
-							<div class="d-flex align-items-center justify-content-between ">
+
+							<div class="d-flex align-items-center justify-content-between pt-1 pb-4">
 								<div class="fs-5">
 									@currMission.OrganizationName
 								</div>
-								<div class="pt-sm-1 pb-sm-2 py-3 py-sm-0">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
+								<div class="  ">
+									@for (var i = 1; i <= 5; i++)
+									{
+										if (i <= currMission.avgRating)
+										{
+											<img src="~/images/selected-star.png" alt="selected-star">
+										}
+										else
+										{
+											<img src="~/images/star.png" alt="unselected-star">
+										}
+									}
 								</div>
 							</div>
 						</div>
-						<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
-							<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
+
+						@if (currMission.MissionType == "time")
+						{
+							<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
+								<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
 						 style="margin-top: -14px;">
-								<div class="bg-white px-4 rounded-pill border border-1">
-									From @currMission.StartDate to @currMission.EndDate
+									<div class="bg-white px-4 rounded-pill border border-1">
+										From @currMission.StartDate to @currMission.EndDate
+									</div>
+								</div>
+								<div class="d-flex align-items-center justify-content-center w-100">
+									<div>
+										<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-4">
+										<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+										<p class="p-0 m-0 ">Seats left</p>
+									</div>
+								</div>
+								<div class="d-flex align-items-center  justify-content-center w-100">
+									<div>
+										<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+									</div>
+									<div class="d-flex flex-column ms-2">
+										<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+										<p class="p-0 m-0 ">Deadline</p>
+									</div>
 								</div>
 							</div>
-							<div class="d-flex align-items-center justify-content-center w-100">
-								<div>
-									<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+						}
+						else
+						{
+							<div class="mission-card-apply-details-div position-relative d-flex w-100 py-4 ">
+								<div class="position-absolute d-flex align-items-center justify-content-center top-0 start-0 w-100"
+						 style="margin-top: -14px;">
+									<div class="bg-white px-4 rounded-pill border border-1">
+										@if (currMission.GoalMission?.GoalObjectiveText?.Length > 20)
+										{
+											@currMission.GoalMission?.GoalObjectiveText.Remove(20)
+											<span>...</span>
+										}
+										else
+										{
+											@currMission.GoalMission?.GoalObjectiveText
+										}
+									</div>
 								</div>
-								<div class="d-flex flex-column ms-4">
-									<p class="p-0 m-0 fs-5 fw-semibold">10</p>
-									<p class="p-0 m-0 ">Seats left</p>
+								@if (@currMission.seatsLeft > 0)
+								{
+									<div class="d-flex align-items-center justify-content-center w-100">
+										<div>
+											<img style="height:30px;width:30px;" src="images/seats-left.png" alt="">
+										</div>
+										<div class="d-flex flex-column ms-4">
+											<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+											<p class="p-0 m-0 ">seats left</p>
+										</div>
+									</div>
+								}
+								else
+								{
+									<div class="d-flex align-items-center justify-content-center w-100">
+										<div>
+											<img style="height:30px;width:30px;" src="~/images/Already-volunteered.png">
+										</div>
+										<div class="d-flex flex-column ms-4">
+											<p class="p-0 m-0 fs-5 fw-semibold">@currMission.totalSeats</p>
+											<p class="p-0 m-0 ">Already Volunteered</p>
+										</div>
+									</div>
+								}
+								<div id="mission-progress-div" class="d-flex justify-content-center p-2 w-100 ">
+									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
+									<div class="d-flex flex-column px-2 ">
+										<div class="progress ">
+											<div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
+									 aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+										<span style="min-width:max-content;">8000 achieved</span>
+									</div>
 								</div>
 							</div>
-							<div class="d-flex align-items-center  justify-content-center w-100">
-								<div>
-									<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
-								</div>
-								<div class="d-flex flex-column ms-2">
-									<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
-									<p class="p-0 m-0 ">Deadline</p>
-								</div>
-							</div>
-						</div>
+						}
+
 						<div class="w-100  d-flex justify-content-center align-items-center py-4">
-							<a  asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId"
+							<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId"
 					   class="warning-btn text-decoration-none bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-5">
 								<span class="px-3">View Details</span>
-								<img src="images/right-arrow.png" alt="">
+								<img src="~/images/right-arrow.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -150,11 +237,12 @@
 		}
 
 	</div>
-	
-	<!-- List -->
+
+
+	@*<!-- List -->*@
 	<div id="mission-card-list-div" style="display:none;" class="container px-3 p-2 ">
 
-		@foreach (var currMission in Model)
+		@foreach (var currMission in Model.missionModels)
 		{
 			<div id="list-div" class="card-to-hide list-mission-card row shadow-lg m-1 mb-5">
 
@@ -168,9 +256,18 @@
 							<span class="pe-2 text-white">@currMission.City.Name</span>
 						</div>
 						<div>
-							<button class="bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
-								<img src="images/heart.png" style="height:20px;width:22px;" alt="">
-							</button>
+							@if (currMission.isMissionFavourite == 1)
+							{
+								<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+									<img data-id="@currMission.MissionId" src="images/red-heart.png" style="height:20px;width:22px;" alt="">
+								</button>
+							}
+							else
+							{
+								<button class="fav-mission-id  bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
+									<img data-id="@currMission.MissionId" src="images/heart.png" style="height:20px;width:22px;" alt="">
+								</button>
+							}
 							<button class="bg-dark-opacity border-0 p-2  d-flex align-items-center justify-content-center rounded-circle">
 								<img src="images/user.png" style="height:20px;width:22px;" alt="">
 							</button>
@@ -186,7 +283,7 @@
 				<div class="list-descriptoion-div col-8 col-lg-9 d-flex flex-column  p-2">
 
 					<div class="1 list-description">
-						<p class="mission-title-to-hide fs-4 fw-bold p-0 m-0">@currMission.Title</p>
+						<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="mission-title-to-hide fs-4 fw-bold p-0 m-0 text-black text-decoration-none">@currMission.Title</a>
 						<p class="p-0 m-0">
 							@currMission.ShortDescription
 						</p>
@@ -199,55 +296,131 @@
 									<span>@currMission.OrganizationName</span>
 								</div>
 								<div class="px-0 px-lg-3">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
-									<img src="images/selected-star.png" alt="">
+									@for (var i = 1; i <= 5; i++)
+									{
+										if (i <= currMission.avgRating)
+										{
+											<img src="~/images/selected-star.png" alt="selected-star">
+										}
+										else
+										{
+											<img src="~/images/star.png" alt="unselected-star">
+										}
+									}
 								</div>
 							</div>
 							<div class="py-2">
-								<button asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="warning-btn bg-transparent d-flex align-items-center justify-content-between border-1 rounded-pill py-2 px-2">
-									<span class="px-2">Apply</span>
+								<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@currMission.MissionId" class="warning-btn bg-transparent d-flex align-items-center  border-1 rounded-pill py-2 px-2" style="min-width:max-content;max-width:min-content;text-decoration:none;">
+									<span class="px-2">View Details</span>
 									<img class="px-2" src="images/right-arrow.png" alt="">
-								</button>
+								</a>
 							</div>
 						</div>
 
-						<div class=" d-flex flex-column ">
-							<div class="position-relative py-2">
-								<div class="d-flex justify-content-center w-100">
-									<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
-										From
-										@currMission.StartDate
-										To
-										@currMission.EndDate
-									</span>
+						@if (currMission.MissionType == "time")
+						{
+
+							<div class=" d-flex flex-column ">
+								<div class="position-relative py-2">
+									<div class="d-flex justify-content-center w-100">
+										<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
+											From
+											@currMission.StartDate
+											To
+											@currMission.EndDate
+										</span>
+									</div>
+									<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
+									</div>
 								</div>
-								<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
+								<div class="d-flex py-2">
+									<div class="d-flex align-items-center justify-content-center w-100 px-2">
+										<div>
+											<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+										</div>
+										<div class="d-flex flex-column ms-2">
+											<p class="p-0 m-0 fs-5 fw-semibold">10</p>
+											<p class="p-0 m-0 ">Seats left</p>
+										</div>
+									</div>
+									<div class="d-flex align-items-center  justify-content-center w-100 px-2">
+										<div>
+											<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+										</div>
+										<div class="d-flex flex-column ms-2">
+											<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+											<p class="p-0 m-0 ">Deadline</p>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="d-flex py-2">
-								<div class="d-flex align-items-center justify-content-center w-100 px-2">
-									<div>
-										<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
+						}
+						else
+						{
+							<div class=" d-flex flex-column ">
+								<div class="position-relative py-2">
+									<div class="d-flex justify-content-center w-100">
+										<span class="border border-1 position-relative bg-white rounded-pill px-2 z-1">
+											@currMission.GoalMission?.GoalObjectiveText
+										</span>
 									</div>
-									<div class="d-flex flex-column ms-2">
-										<p class="p-0 m-0 fs-5 fw-semibold">10</p>
-										<p class="p-0 m-0 ">Seats left</p>
-									</div>
-								</div>
-								<div class="d-flex align-items-center  justify-content-center w-100 px-2">
-									<div>
-										<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
-									</div>
-									<div class="d-flex flex-column ms-2">
-										<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
-										<p class="p-0 m-0 ">Deadline</p>
+									<div class="border position-absolute w-100 border-1" style="margin-top: -12px;">
 									</div>
 								</div>
-							</div>
+								<div class="d-flex py-2">
+									@*<div class="d-flex align-items-center justify-content-center w-100 px-2">
+						<div>
+						<img style="height:30px;width:30px;" src="images/Seats-left.png" alt="">
 						</div>
+						<div class="d-flex flex-column ms-2">
+						<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+						<p class="p-0 m-0 ">Seats left</p>
+						</div>
+						</div>*@
+									@if (@currMission.seatsLeft > 0)
+									{
+										<div class="d-flex align-items-center justify-content-center w-100">
+											<div>
+												<img style="height:30px;width:30px;" src="images/seats-left.png" alt="">
+											</div>
+											<div class="d-flex flex-column ms-4">
+												<p class="p-0 m-0 fs-5 fw-semibold">@currMission.seatsLeft</p>
+												<p class="p-0 m-0 ">seats left</p>
+											</div>
+										</div>
+									}
+									else
+									{
+										<div class="d-flex align-items-center justify-content-center w-100">
+											<div>
+												<img style="height:30px;width:30px;" src="~/images/Already-volunteered.png">
+											</div>
+											<div class="d-flex flex-column ms-4">
+												<p class="p-0 m-0 fs-5 fw-semibold">@currMission.totalSeats</p>
+												<p class="p-0 m-0 " style="min-width:max-content">Already Volunteered</p>
+											</div>
+										</div>
+									}
+									<div class="d-flex align-items-center  justify-content-center w-100 px-2">
+										@*<div>
+							<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
+							</div>
+							<div class="d-flex flex-column ms-2">
+							<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+							<p class="p-0 m-0 ">Deadline</p>
+							</div>*@
+										<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
+										<div class="d-flex flex-column px-2 ">
+											<div class="progress ">
+												<div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
+										 aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+											<span style="min-width:max-content;">8000 achieved</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
 					</div>
 
 				</div>
@@ -255,7 +428,7 @@
 		}
 	</div>
 
-	<!-- Pagination -->
+	@*<!-- Pagination -->*@
 	<div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">

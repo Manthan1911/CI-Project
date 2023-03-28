@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
+      "PackagePath": "staticwebassets\\css\\story.css"
+    },
+    {
       "Id": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },

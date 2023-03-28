@@ -3,6 +3,15 @@
 @{
 	ViewData["Title"] = "Volunteering Mission";
 	var GoalMissionCtx = @Model.MissionModel.GoalMissions.FirstOrDefault(m => m.MissionId == Model.MissionModel.MissionId);
+	var isMissionFavourite = 0;
+	if (Model.user.UserId != 0)
+	{
+		if (Model.MissionModel.FavouriteMissions.Any(favMission => favMission.UserId == Model.user.UserId))
+		{
+			isMissionFavourite = 1;
+		}
+
+	}
 }
 
 @section Styles {
@@ -19,7 +28,7 @@
 						<img src="/images/list.png" alt="">
 					</button>
 				</div>
-				<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				<a asp-action="Index" asp-controller="Home"><img id="logo" class=" mx-2" src="~/images/logo.png" alt=""></a>
 				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
 					<div id="close-btn-div" class="p-2">
 						<button id="header-sidebar-close"
@@ -28,7 +37,7 @@
 						</button>
 					</div>
 					<div id="stories-div" class="p-2">
-						<a class="text-decoration-none text-black mx-2 " href="#">
+						<a class="text-decoration-none text-black mx-2" asp-action="Index" asp-controller="StoryListing">
 							Stories
 						</a>
 					</div>
@@ -163,7 +172,7 @@
 								<div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
 									<img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
 									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">10</span>
+										<span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
 										<span style="min-width: max-content;">Seats Left</span>
 									</div>
 								</div>
@@ -189,7 +198,7 @@
 								<div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
 									<img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
 									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">10</span>
+										<span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
 										<span style="min-width: max-content;">Seats Left</span>
 									</div>
 								</div>
@@ -212,20 +221,34 @@
 					<div id="mission-favourite-recomend-div"
 						 class="d-flex flex-column flex-sm-row justify-content-sm-around justify-content-center border-top py-4">
 						<div class="d-flex align-items-center justify-content-sm-start justify-content-center pb-sm-0 pb-2">
-							<button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
+							@if (isMissionFavourite == 1)
+							{
+								<button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
 									style="min-width: max-content;">
-								<img id="favImg" class="px-1" src="~/images/heart1.png" style="height:20px;width:30px;" alt="">
-								<span id="favText">Add to Favourite</span>
-							</button>
+									<img id="favImg" class="px-1" src="~/images/red-heart.png" style="height:20px;width:30px;" alt="">
+									<span id="favText">Remove from Favourite</span>
+								</button>
+								<input type="hidden" id="isFavourite" value="@isMissionFavourite" />
+							}
+							else
+							{
+								<button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
+									style="min-width: max-content;">
+									<img id="favImg" class="px-1" src="~/images/heart1.png" style="height:20px;width:30px;" alt="">
+									<span id="favText">Add to Favourite</span>
+								</button>
+								<input type="hidden" id="isFavourite" value="@isMissionFavourite" />
+							}
 						</div>
 						<div class=" d-flex align-items-center justify-content-sm-end justify-content-center">
-							<button class="bg-transparent py-2 px-4 rounded-5 d-flex align-items-center "
+							<button data-bs-target="#recommend-modal" id="recommend-button" class="bg-transparent py-2 px-4 rounded-5 d-flex align-items-center "
 									style="min-width: max-content;">
 								<img class="px-1" src="~/images/add1.png" alt="">
 								Recommend to Co-Worker
 							</button>
 						</div>
-
+						<div id="recommend-partial">
+						</div>
 					</div>
 
 					<div id="mission-related-information-div" class="position-relative border-top py-4 d-flex justify-content-around gap-2 ">
@@ -308,123 +331,35 @@
 					<!-- Tab content -->
 					<div id="Mission" class="tabcontent border-0">
 						<h3>Introduction</h3>
-						@Model.MissionModel.Description
-						@*<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.
-						</p>
-						<p>
-						Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-						<h3>Challenge</h3>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum.
-						</p>*@
-						<h3>Documents</h3>
+						@Html.Raw(Model.MissionModel.Description)
+
+						@*<h3>Documents</h3>
 						<div class="">
-							<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-								<img src="images/doc.png" class="px-2" alt="">lorem-ipsum.pdf
-							</button>
-							<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-								<img src="images/doc.png" class="px-2" alt="">at_vero_eos_accusamus.doc
-							</button>
-							<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-								<img src="images/doc.png" class="px-2" alt="">important_doc.xls
-							</button>
-						</div>
+						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+						<img src="images/doc.png" class="px-2" alt="">lorem-ipsum.pdf
+						</button>
+						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+						<img src="images/doc.png" class="px-2" alt="">at_vero_eos_accusamus.doc
+						</button>
+						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+						<img src="images/doc.png" class="px-2" alt="">important_doc.xls
+						</button>
+						</div>*@
 					</div>
 
 					<div id="Organization" class="tabcontent border-0 p-0 pt-2">
 						<h3>Organization</h3>
-						@Model.MissionModel.OrganizationDetails
-						@*<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.
-						</p>
-						<p>
-						Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.
-						</p>
-						<p>
-						Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-						cupidatat non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum.
-						</p>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>*@
+						@Html.Raw(Model.MissionModel.OrganizationDetails)
 					</div>
 
 					<div id="Comments" class="tabcontent border-0">
 						<textarea id="commentText" class="w-100 rounded-2 p-1" placeholder="Enter your comments.."
 								  rows="4" name=""></textarea>
-						<button id="post-comment-btn" class="apply-btn py-2 px-4 my-2 rounded-5 bg-transparent">
+						<button id="post-comment-btn" class="warning-btn apply-btn py-2 px-4 my-2 rounded-5 bg-transparent">
 							Post comment
 						</button>
-						<div id="volunteer-comments-div" class=" p-2 ">
+						<div id="volunteer-comments-div" class="rounded-3">
+							@*comments here*@
 						</div>
 					</div>
 				</div>
@@ -467,121 +402,23 @@
 							</div>
 						</div>
 					</div>
+
 					<div id="recent-volunteers-div" class="border border-1">
-						<div id="recent-volunteers" class="p-2">
-							<div class="container">
-								<div class="border border-1 border-top-0 border-start-0 border-end-0 p-2 px-0 ">
-									<span class="hover-underline p-2 px-0 fs-5">
-										Recent Volunteer
-									</span>
-								</div>
-								<div class="recent-volunteers-list row">
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-									<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
-										<div class="border-0 rounded-circle">
-											<img class="rounded-circle recent-volunteer-avtar avtar"
-												 src="images/volunteer1.png" alt="">
-										</div>
-										<div>
-											<span class="recent-volunteer-name">Andrew Johnson</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div id="recent-volunteer-pageination"
-							 class="border border-1 d-flex align-items-center justify-content-between">
-							<button style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3">
-								<img src="images/left.png" alt="">
-							</button>
-							<div>1-9 of 25 Recent Volunteers</div>
-							<button style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3">
-								<img src="images/right-arrow1.png" alt="">
-							</button>
-						</div>
+						@*Recent Volunteers here*@
 					</div>
+
 				</div>
 			</div>
 
+			<div id="related-missions" class="w-100">
+			</div>
 		</div>
 	</div>
 
 	<footer id="footer" class="bottom-0 left-0 bg-white">
 		<div class="mx-auto bg-white h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
 			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
-				Privacy
-				Policy
+				Privacy Policy
 			</a>
 		</div>
 	</footer>
@@ -592,19 +429,77 @@
 
 		let userId = @Model.user.UserId;
 		let missionId = @Model.MissionModel.MissionId;
-		let isMissionFavourite = false;
+		let isMissionFavourite = document.getElementById("isFavourite").value;
+
+		//let isMissionFavourite = false;
+
+
+		let pageNo = 1;
+		let pageSize = 4;
+		let userIds = [];
 
 		$(document).ready(() => {
 			let starInput = $("#star-input-id");
 			let favouriteBtn = $('#addToFav');
 			addStar(starInput, userId, missionId);
-			isMissionAlreadyFavourite(userId, missionId);
+
+
 			addToFavourites(favouriteBtn, userId, missionId);
+
 			let lastSkill = document.getElementById("skillsList").children[document.getElementById("skillsList").children.length - 1];
 			lastSkill.innerHTML = lastSkill.innerHTML.split(',')[0];
 			getComments(userId, missionId);
-			 postComment(userId, missionId);
+
+			getRecentVolunteers(missionId, pageNo, pageSize);
+			postComment(userId, missionId);
+			getAllRelatedMissions();
+
+			// ------------------------ recommend
+			$('#recommend-button').on("click", () => {
+				console.log("recommend");
+
+				$.ajax({
+					url: "/VolunteeringMission/getAllUsers",
+					method: "GET",
+					dataType: "html",
+					data: { "missionId": missionId, "userId": userId },
+					success: function (data) {
+
+						$('#recommend-partial').html(data);
+						$('#recommend-modal').modal("show");
+
+						$('#send-recommendation').on('click', () => {
+							getCheckedUsersEmail();
+							$('#recommend-modal').modal("hide");
+
+							$.ajax({
+								url: "/VolunteeringMission/addToMissionInvite",
+								method: "POST",
+								dataType: "html",
+								data: { "userEmailList":userIds , "missionId": missionId, "userId": userId },
+								success: function (data) {
+
+								},
+								error: function (error) {
+									console.log(error);
+								}
+							});
+							
+						});
+					},
+					error: function (error) {
+						console.log(error);
+					}
+				});
+			});
 		});
+
+		function getCheckedUsersEmail() {
+			var checkedUsers = document.querySelectorAll('#userChkBox:checked').forEach(val => {
+				var selectedUserId = $(val).val();
+				userIds.push(selectedUserId);
+			})
+		}
 
 		function addStar(starInput, userId, missionId) {
 			$("#rating .rating-stars").on("click", function (event) {
@@ -614,27 +509,30 @@
 					url: '/VolunteeringMission/postRating',
 					data: { userId: userId, missionId: missionId, rating: starRating },
 					success: function (data) {
+						alert("You rated this mission " + starRating + " star !");
 					}
 				});
 			});
 		}
 
 		function addToFavourites(favouriteBtn, userId, missionId) {
+			console.log("add clicked");
 			$('#addToFav').on("click", function (favouriteBtn) {
 				console.log(isMissionFavourite);
-				if (isMissionFavourite) {
+				if (isMissionFavourite == 1) {
 					$.ajax({
 						type: "POST",
 						url: '/VolunteeringMission/removeFromFavourite',
 						data: { userId: userId, missionId: missionId },
 						success: function (data) {
 							document.getElementById("favImg").src = "/images/heart1.png";
-							document.getElementById("favText").innerHTML = "Add To Favourites";
-							isMissionFavourite = false;
+							document.getElementById("favText").innerHTML = "Add To Favourite";
+							isMissionFavourite = 0;
+							alert("mission removed from favourites !");
 						}
 					});
 				}
-				else {
+				else if (isMissionFavourite == 0) {
 					$.ajax({
 						type: "POST",
 						url: '/VolunteeringMission/addToFavourite',
@@ -642,24 +540,10 @@
 						success: function (data) {
 							document.getElementById("favImg").src = "/images/red-heart.png";
 							document.getElementById("favText").innerHTML = "Remove From Favourites";
-							isMissionFavourite = true;
+							isMissionFavourite = 1;
+							alert("mission added to favourites !");
 						}
 					});
-				}
-			});
-		}
-
-		function isMissionAlreadyFavourite() {
-			$.ajax({
-				type: "GET",
-				url: '/VolunteeringMission/isMissionFavourite',
-				data: { userId: userId, missionId: missionId },
-				success: function (data) {
-					isMissionFavourite = data;
-					if (isMissionFavourite == true) {
-						document.getElementById("favImg").src = "/images/red-heart.png";
-						document.getElementById("favText").innerHTML = "Remove From Favourites";
-					}
 				}
 			});
 		}
@@ -667,18 +551,20 @@
 		function postComment(userId, missionId) {
 			$('#post-comment-btn').on("click", () => {
 				console.log("post clicked;");
-				let commentText = $('#commentText').val();
-				if (commentText != "" || commentText != null) {
+				let commentText = $('#commentText').val().trim();
+				console.log("text .. " + commentText);
+				if (commentText != "") {
 					$.ajax({
 						type: "POST",
 						url: '/VolunteeringMission/postComment',
 						data: { userId: userId, missionId: missionId, commentText: commentText },
 						success: function (data) {
+							document.getElementById('commentText').value = ""; 
 							getComments(userId, missionId);
 						}
 					});
 				}
-				else{
+				else {
 					alert("comment text is null");
 				}
 			});
@@ -694,6 +580,82 @@
 				}
 			});
 		}
+		// ------------------------------------------- Recent Volunteers Pagination ------------------------------------------------
+
+
+		function addListnerToRecentVolunteers() {
+			let leftShift = document.getElementById("left-shift");
+			let rightShift = document.getElementById("right-shift");
+			let totalVolunteers = +document.getElementById("totalVolunteers").value;
+			console.log("total volunteers : " + totalVolunteers);
+			let maxPage = Math.ceil(totalVolunteers / pageSize);
+			leftShift.addEventListener("click", () => {
+				if (pageNo > 1) {
+					pageNo -= 1;
+					getRecentVolunteers(missionId, pageNo, pageSize);
+				}
+				console.log("pageNo : " + pageNo);
+			});
+
+			rightShift.addEventListener("click", () => {
+				if (pageNo < maxPage) {
+					pageNo += 1;
+					getRecentVolunteers(missionId, pageNo, pageSize);
+				}
+				console.log("pageNo : " + pageNo);
+			});
+		}
+
+		function getRecentVolunteers(missionId, pageNo, pageSize) {
+			$.ajax({
+				type: "GET",
+				url: '/VolunteeringMission/getRecentVolunteers',
+				data: { missionId: missionId, pageNo: pageNo, pageSize: pageSize },
+				success: function (data) {
+					$('#recent-volunteers-div').html('');
+					$('#recent-volunteers-div').html(data);
+
+					addListnerToRecentVolunteers();
+				}
+			});
+		}
+
+		//-------------------------------- Related Missions --------------------------------
+		function getAllRelatedMissions() {
+			$.ajax({
+				type: "GET",
+				url: '/VolunteeringMission/getAllRelatedMissions',
+				data: { "missionId": missionId, "userId": userId },
+				success: function (data) {
+					$('#related-missions').html('');
+					$('#related-missions').html(data);
+					toggleAddToFavouriteButton();
+				}
+			});
+		}
+
+		//----------------------------------- ad to fav and remove from fav ----------------------------------------
+		function toggleAddToFavouriteButton() {
+			$('.fav-mission-id').on('click', function () {
+				let missionId = $(this).children(0).attr("data-id");
+
+				$.ajax({
+					url: "/Home/addOrRemoveFavourite",
+					method: "POST",
+					dataType: "html",
+					data: { "missionId": missionId },
+					success: function (data) {
+						getAllRelatedMissions();
+					},
+					error: function (error) {
+						console.log(error);
+					}
+				});
+			});
+		}
+
+
+
 	</script>
 	<script src="~/js/headerSidebar.js"></script>
 	<script src="~/js/scrolable.js"></script>

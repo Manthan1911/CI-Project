@@ -1,0 +1,273 @@
+﻿*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --max-width: 1420px;
+    --header-height: 72px;
+    --hover-color: #e8e8e8;
+    --right-arrow-color: #f88634;
+    --hover-underline: #767676;
+    --border-color: #dee2e6;
+    --mission-image-height: 40%;
+    --story-card-max-height: 500px;
+    --story-card-image-height: 200px;
+}
+
+html {
+    font-family: "Noto Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    top: 0;
+    left: 0;
+}
+
+.sidebar-close:hover {
+    background-color: var(--hover-color) !important;
+    border-radius: 50%;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.clear-all:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+#header-profile {
+    height: var(--header-height);
+}
+
+#search-input {
+    background: url("/images/search.png") no-repeat !important;
+    background-position: 10px center !important;
+}
+
+    #search-input:hover {
+        border: 2px solid var(--border-color) !important;
+    }
+
+#filter-mission-navbar {
+    border-color: #e8e8e8;
+    height: var(--header-height) !important;
+    height: 80px !important;
+}
+
+#scrollable-area::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    height: var(--header-height);
+    border-top: 2px solid var(--border-color);
+}
+
+#main-container {
+    max-width: var(--max-width);
+    min-height: max-content;
+}
+
+#chips-div {
+    overflow: hidden;
+}
+
+    #chips-div::-webkit-scrollbar {
+        display: none;
+    }
+
+.chips {
+    color: var(--border-color);
+    min-width: max-content;
+}
+
+.button {
+    background-color: transparent !important;
+}
+
+
+
+
+.warning-btn {
+    border: 2px solid var(--right-arrow-color);
+    color: var(--right-arrow-color);
+}
+
+    .warning-btn:hover {
+        color: var(--right-arrow-color);
+    }
+
+.page-link:hover {
+    background-color: #f88634;
+    color: white !important;
+}
+
+.page-link-active {
+    background-color: #f88634 !important;
+    color: white !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.progress-bar {
+    background-color: #F88634;
+}
+
+/* ------------------------------- Story related css -----------------------------*/
+
+#story-banner-div {
+    height: 500px;
+    width: 100%;
+}
+
+#banner-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+#story-cards-div {
+    padding: 0px !important;
+    max-width: var(--max-width);
+    min-height: 100px;
+    max-height: min-content;
+}
+
+.story-card-parent-div {
+    padding: 10px;
+    min-height: max-content;
+}
+
+
+
+.story-banner-image {
+    height: var(--story-card-image-height);
+    width: 100%;
+    object-fit: cover;
+}
+
+.story-card-details-part {
+    height: calc(100% - 200px);
+}
+
+.avtar {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#scrollable-area::-webkit-scrollbar {
+    display: none;
+}
+
+.image-hover-filter {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+}
+
+    .image-hover-filter:hover {
+        opacity: 1;
+    }
+
+@media only screen and (max-width: 576px) {
+    #header-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        background-color: white;
+        height: 100vh;
+        z-index: 5;
+        width: 50vw;
+    }
+
+    #close-btn-div {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    #stories-div {
+        width: 100%;
+    }
+
+    #policy-div {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding: 8px;
+    }
+
+        #policy-div > button {
+            width: 100%;
+            height: 100%;
+            padding: 8px !important;
+            display: flex !important;
+            align-items: center;
+            padding-left: 17px !important;
+            justify-content: space-between !important;
+        }
+}
+
+@media only screen and (max-width: 768px) {
+    #mission-card-grid-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #filter-bar {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        flex-direction: column;
+        background-color: white;
+        width: 50vw !important;
+        border: 1px solid black;
+    }
+
+        #filter-bar > div {
+            margin: 0 !important;
+            padding: 0px;
+            width: 100%;
+            padding: 16px;
+        }
+
+            #filter-bar > div:hover:not(:first-child) {
+                background-color: var(--hover-color);
+            }
+
+    .dropdown-menu {
+        position: relative;
+    }
+}

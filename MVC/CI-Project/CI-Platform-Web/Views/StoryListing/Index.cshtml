@@ -1,0 +1,201 @@
+﻿@model CI_Project.Entities.ViewModels.StoryListingModel
+@{
+	ViewData["Title"] = "StoryListing Page";
+}
+
+@section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+}
+
+
+<main class="position-relative">
+	<header id="header" class="ci-page-header bg-white w-100 z-3"
+			style="background-color: transparent;min-width: max-content;">
+		<div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
+			 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+			<div class="ci-page-header-left-div d-flex ">
+				<div class="p-2 h-100 d-sm-none">
+					<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
+						<img src="~/images/list.png" alt="">
+					</button>
+					<button id="search-button" class="d-none"></button>
+				</div>
+				<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
+					<div id="close-btn-div" class="p-2">
+						<button id="header-sidebar-close"
+								class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
+							<img src="~/images/cancel1.png" alt="">
+						</button>
+					</div>
+					<div id="stories-div" class="p-2">
+						<a class="text-decoration-none text-black mx-2 " href="#">
+							Stories
+						</a>
+					</div>
+
+					<div id="policy-div" class="dropdown mx-2">
+						<button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+							Policy
+							<img class="mx-1" src="~/images/drop-down.png" alt="">
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
+
+				<div class="dropdown mx-2 px-sm-0 px-2">
+					<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
+							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						<div href="">
+							<img class="ci-page-header-profile-img mx-1"
+								 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+								 src="~/images/user-img.png" alt="user-img">
+						</div>
+						<div class="d-md-block d-none">
+							<span class="ci-page-header-profile-name mx-1 py-1">
+								@Model.User?.FirstName @Model.User?.LastName
+							</span>
+							<img src="~/images/drop-down.png" alt="">
+						</div>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" href="#">logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</header>
+
+	<div id="scrollable-area" class="overflow-y-scroll ">
+
+		<div id="story-banner-div" class="w-100 mb-4 position-relative">
+
+			<img id="banner-image" src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+				 alt="banner-image">
+
+			<div id="share-your-story-div"
+				 class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+				<div class="w-50 text-center">
+					<p class="text-white">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem esse,
+						error consectetur
+						labore
+						aliquam deleniti blanditiis? Ducimus natus excepturi quidem quasi, architecto porro pariatur
+						adipisci sint quia enim iusto consequatur!
+					</p>
+					<button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+						Share your Story <img src="~/images/right-arrow.png" alt="right-arrow">
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="story-cards-div" class="container p-2">
+			
+		</div>
+	</div>
+
+	<footer id="footer" class=" bg-white">
+		<div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
+				Privacy
+				Policy
+			</a>
+		</div>
+	</footer>
+</main>
+
+@section Scripts{
+	<script>
+		let currPage = 1;
+		let pageSize = 1;
+
+		$(document).ready(()=>{
+			loadAllStories();
+		});
+
+		function loadAllStories(){
+			$.ajax({
+				url: "/StoryListing/getAllStories",
+				method:"GET",
+				dataType:"html",
+				data:{ "pageNo": currPage,"pageSize": pageSize },
+				success:(data)=>{
+					$('#story-cards-div').html('');
+					$('#story-cards-div').html(data);
+					pageNumbersEventListner();
+				},
+				failure:(error)=>{
+
+				}
+				
+			});
+		}
+
+		function pageNumbersEventListner() {
+			const doublePrevButton = document.getElementById("double-prev-button");
+			const prevButton = document.getElementById("prev-button");
+			const paginationNumbers = document.querySelectorAll("#pagination-numbers > li");
+			const nextButton = document.getElementById("next-button");
+			const doubleNextButton = document.getElementById("double-next-button");
+			let pageNums = [];
+			for (let i = 1; i <= paginationNumbers.length; i++) {
+				pageNums.push(i);
+			}
+			$(`#page-${currPage}`).addClass('page-link-active');
+			$(`#page-${currPage} > span`).addClass('page-link-active');
+
+			$('.pageCounters').on('click', function () {
+				currPage = +$(this).children(0).text();
+				console.log(currPage);
+				let pageToColorId = "#page-" + currPage;
+				loadAllStories();
+			});
+
+			if (currPage == pageNums[0]) {
+				doublePrevButton.style.display = "none";
+				prevButton.style.display = "none";
+			}
+			if (currPage == pageNums[pageNums.length - 1]) {
+				nextButton.style.display = "none";
+				doubleNextButton.style.display = "none";
+			}
+
+			if (currPage == pageNums[pageNums.length - 2]) {
+				doubleNextButton.style.display = "none";
+			}
+			if (currPage == 2) {
+				doublePrevButton.style.display = "none";
+			}
+			$('#double-prev-button').on('click', function () {
+				currPage = 1;
+				loadAllStories();
+			});
+
+			$('#next-button').on('click', function () {
+				currPage = currPage + 1;
+				loadAllStories();
+			});
+
+			$('#prev-button').on('click', function () {
+				currPage = currPage - 1;
+				loadAllStories();
+			});
+
+			$('#double-next-button').on('click', function () {
+				currPage = pageNums[pageNums.length - 1];
+				loadAllStories();
+			});
+		}
+	</script>
+	<script src="~/js/headerSidebar.js"></script>
+	<script src="~/js/scrolable.js"></script>
+}

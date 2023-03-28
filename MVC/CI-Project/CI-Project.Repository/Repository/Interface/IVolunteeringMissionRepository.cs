@@ -18,5 +18,12 @@ namespace CI_Project.Repository.Repository.Interface
         public List<Comment> getAllComments(long? missionId);
 
         public void saveComment(Comment comment);
+		public List<MissionApplication> getPaginatedRecentVolunteers(long? missionId,int pageNo,int pageSize);
+
+        public List<MissionApplication> getRecentVolunteers(long? missionId);
+
+        public List<Mission> getAllMissions();
+        public void addToMissionInvite(MissionInvite obj);
+
 	}
 }

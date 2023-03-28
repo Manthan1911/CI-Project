@@ -1,0 +1,47 @@
+﻿@model CI_Project.Entities.ViewModels.RecentVolunteersModel
+
+@if(Model.recentVolunteersCount > 0){
+	<div id="recent-volunteers" class="p-2">
+		<input type="hidden" id="totalVolunteers" value="@Model.recentVolunteersCount" />
+		<input type="hidden" id="totalVolunteers" value="" />
+		<input type="hidden" id="totalVolunteers" value="" />
+		<div class="container">
+			<div class="border border-1 border-top-0 border-start-0 border-end-0 p-2 px-0 ">
+				<span class="hover-underline p-2 px-0 fs-5">
+					Recent Volunteer
+				</span>
+			</div>
+			<div class="recent-volunteers-list row">
+
+				@foreach (var currVolunteer in Model.recentVolunteers!)
+				{
+					<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
+						<div class="border-0 rounded-circle">
+							<img class="rounded-circle recent-volunteer-avtar avtar"
+						 src="~/images/volunteer1.png" alt="">
+						</div>
+						<div>
+							<span class="recent-volunteer-name">@currVolunteer.User!.FirstName @currVolunteer.User.LastName</span>
+						</div>
+					</div>
+				}
+
+			</div>
+		</div>
+	</div>
+	<div id="recent-volunteer-pageination"
+	 class="border border-1 d-flex align-items-center justify-content-between">
+		<button id="left-shift" style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3">
+			<img src="~/images/left.png" alt="">
+		</button>
+		<div>@Model.indexOfFirstVolunteerOfCurrPage-@Model.indexOfLastVolunteerOfCurrPage of @Model.recentVolunteersCount Recent Volunteers</div>
+		<button id="right-shift" style="border-color:#dee2e6;" class="bg-transparent border-1 py-2 px-3">
+			<img src="~/images/right-arrow1.png" alt="">
+		</button>
+	</div>
+}
+else{
+	<div class="d-flex align-items-center justify-content-center h-100 w-100">
+		<h3>No recent volunteers</h3>
+	</div>
+}

@@ -47,8 +47,8 @@ namespace CI_Project.Entities.ViewModels
         public virtual ICollection<FavouriteMission> FavouriteMissions { get; set; } = new List<FavouriteMission>();
 
         public virtual ICollection<GoalMission> GoalMissions { get; set; } = new List<GoalMission>();
-
-        public virtual ICollection<MissionInvite> MissionInvites { get; set; } = new List<MissionInvite>();
+		public virtual GoalMission? GoalMission { get; set; }
+		public virtual ICollection<MissionInvite> MissionInvites { get; set; } = new List<MissionInvite>();
 
         public virtual ICollection<MissionMedium> MissionMedia { get; set; } = new List<MissionMedium>();
 
@@ -65,5 +65,10 @@ namespace CI_Project.Entities.ViewModels
         public int countOfRatingsByPeople { get; set; } 
         public int sumOfRating { get; set; } 
         public int avgRating { get; set; } 
+
+        public int isMissionFavourite { get; set; }
+
+        public long? seatsLeft { get; set; }
+        public long? totalSeats { get; set; }
     }
 }

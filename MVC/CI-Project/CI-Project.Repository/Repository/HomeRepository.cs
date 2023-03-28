@@ -34,14 +34,15 @@ namespace CI_Project.Repository.Repository
         public List<Mission> getAllMissions()
         {
             return _db.Missions
+                .Include(m => m.MissionMedia)
                 .Include(m => m.GoalMissions)
                 .Include(m => m.MissionApplications)
-                .Include(m => m.MissionMedia)
                 .Include(m => m.FavouriteMissions)
+                .Include(m => m.MissionRatings)
+                .Include(m => m.MissionSkills)
                 .Include(m => m.Theme)
                 .Include(m => m.City)
                 .Include(m => m.Country)
-                .Include(m => m.MissionSkills)
                 .ToList();
         }
 
@@ -55,5 +56,25 @@ namespace CI_Project.Repository.Repository
             
             return missions.Where(mission => mission.Title.ToLower().Contains(missionToSearch)).ToList();    
         }
-    }
+
+		public void addOrRemoveFavourite(long missionId,long userId)
+        {
+           var favouriteMission =_db.FavouriteMissions.FirstOrDefault(f => f.UserId == userId && f.MissionId == missionId);
+            FavouriteMission mission = new FavouriteMission()
+            {
+                UserId = userId,
+                MissionId= missionId,
+            };
+
+            if (favouriteMission != null)
+            {
+                _db.FavouriteMissions.Remove(favouriteMission);	
+			}
+            else
+            {
+                _db.FavouriteMissions.Add(mission);
+            }
+            _db.SaveChanges();
+        }
+	}
 }

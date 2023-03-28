@@ -7,5 +7,6 @@ namespace CI_Project.Entities.ViewModels
         public MissionModel MissionModel { get; set; }
 
         public User user { get; set; }  
+
     }
 }

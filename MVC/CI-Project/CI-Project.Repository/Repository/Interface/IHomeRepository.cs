@@ -16,5 +16,8 @@ namespace CI_Project.Repository.Repository.Interface
         public MissionMedium? getAllMissionMediaRows(long? id);
 
         public List<Mission> searchMissionAccToTitle(string missionToSearch,List<Mission> missions);
-    }
+
+        public void addOrRemoveFavourite(long missionId,long userId);
+
+	}
 }

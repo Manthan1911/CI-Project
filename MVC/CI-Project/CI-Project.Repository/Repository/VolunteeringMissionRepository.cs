@@ -1,7 +1,9 @@
-﻿using CI_Project.Entities.DataModels;
+﻿using Azure;
+using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CI_Project.Repository.Repository
 {
@@ -91,5 +93,42 @@ namespace CI_Project.Repository.Repository
 			_db.SaveChanges();
 		}
 
+		public List<MissionApplication> getPaginatedRecentVolunteers(long? missionId, int pageNo, int pageSize)
+		{
+			return _db.MissionApplications
+				.Where(application => application.MissionId == missionId)
+				.Skip((pageNo - 1) * pageSize)
+				.Take(pageSize)
+				.Include(application => application.User)
+				.ToList();
+		}
+
+		public List<MissionApplication> getRecentVolunteers(long? missionId)
+		{
+			return _db.MissionApplications
+				.Where(application => application.MissionId == missionId)
+					.ToList();
+		}
+		public List<Mission> getAllMissions()
+		{
+			return _db.Missions
+				.Include(m => m.GoalMissions)
+				.Include(m => m.MissionApplications)
+				.Include(m => m.MissionMedia)
+				.Include(m => m.FavouriteMissions)
+				.Include(m => m.MissionRatings)
+				.Include(m => m.MissionSkills).ThenInclude(sk => sk.Skill)
+				.Include(m => m.Theme)
+				.Include(m => m.City)
+				.Include(m => m.Country)
+				.ToList();
+
+		}
+
+		public void addToMissionInvite(MissionInvite obj)
+		{
+			_db.MissionInvites.Add(obj);
+			_db.SaveChanges();
+		}
 	}
 }

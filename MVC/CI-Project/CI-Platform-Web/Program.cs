@@ -13,6 +13,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<IPassword, Password>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IVolunteeringMissionRepository,VolunteeringMissionRepository>();
+builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 

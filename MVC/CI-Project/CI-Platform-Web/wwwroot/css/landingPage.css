@@ -171,6 +171,13 @@ footer {
     background-color: #F88634;
 }
 
+.applied-pill{
+    background-color:green !important;
+    color:white !important;
+    border-bottom-right-radius:50px;
+    border-top-right-radius:50px;
+}
+
 
 @media only screen and (max-width: 576px) {
     #header-sidebar {

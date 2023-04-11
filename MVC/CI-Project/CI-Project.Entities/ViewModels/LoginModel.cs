@@ -12,5 +12,6 @@ namespace CI_Project.Entities.ViewModels
         [Required]
         [MinLength(8, ErrorMessage = "Please enter password of min 8 length")]
         public string Password { get; set; }
+
     }
 }

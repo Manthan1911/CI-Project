@@ -666,6 +666,12 @@ public partial class CIProjectDbContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.VideoUrl)
+                .HasColumnType("text")
+                .HasColumnName("video_url");
+            entity.Property(e => e.Views)
+                .HasDefaultValueSql("((0))")
+                .HasColumnName("views");
 
             entity.HasOne(d => d.Mission).WithMany(p => p.Stories)
                 .HasForeignKey(d => d.MissionId)
@@ -693,6 +699,21 @@ public partial class CIProjectDbContext : DbContext
             entity.Property(e => e.StoryId).HasColumnName("story_id");
             entity.Property(e => e.ToUserId).HasColumnName("to_user_id");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+
+            entity.HasOne(d => d.FromUser).WithMany(p => p.StoryInviteFromUsers)
+                .HasForeignKey(d => d.FromUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__story_inv__from___2A164134");
+
+            entity.HasOne(d => d.Story).WithMany(p => p.StoryInvites)
+                .HasForeignKey(d => d.StoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__story_inv__story__29221CFB");
+
+            entity.HasOne(d => d.ToUser).WithMany(p => p.StoryInviteToUsers)
+                .HasForeignKey(d => d.ToUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__story_inv__to_us__2B0A656D");
         });
 
         modelBuilder.Entity<StoryMedium>(entity =>
@@ -777,6 +798,7 @@ public partial class CIProjectDbContext : DbContext
             entity.ToTable("user");
 
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.Availability).HasColumnName("availability");
             entity.Property(e => e.Avatar)
                 .HasMaxLength(2048)
                 .IsUnicode(false)

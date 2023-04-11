@@ -20,7 +20,9 @@
 					</button>
 					<button id="search-button" class="d-none"></button>
 				</div>
-				<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				<a asp-action="Index" asp-controller="Home">
+					<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				</a>
 				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
 					<div id="close-btn-div" class="p-2">
 						<button id="header-sidebar-close"
@@ -29,7 +31,7 @@
 						</button>
 					</div>
 					<div id="stories-div" class="p-2">
-						<a class="text-decoration-none text-black mx-2 " href="#">
+						<a asp-action="Index" asp-controller="StoryListing" class="text-decoration-none text-black mx-2">
 							Stories
 						</a>
 					</div>
@@ -66,15 +68,16 @@
 						</div>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile">Add Profile</a></li>
 						<li><a class="dropdown-item" href="#">logout</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		
+
 	</header>
 
-	<div id="scrollable-area" class="overflow-y-scroll ">
+	<div id="scrollable-area" class="overflow-y-scroll">
 
 		<div id="story-banner-div" class="w-100 mb-4 position-relative">
 
@@ -82,7 +85,7 @@
 				 alt="banner-image">
 
 			<div id="share-your-story-div"
-				 class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+				 class="position-absolute top-0 start-0 p-0 m-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
 				<div class="w-50 text-center">
 					<p class="text-white">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem esse,
@@ -91,15 +94,16 @@
 						aliquam deleniti blanditiis? Ducimus natus excepturi quidem quasi, architecto porro pariatur
 						adipisci sint quia enim iusto consequatur!
 					</p>
-					<button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
+				</div>
+				<div>
+					<a href="@Url.Action("ShareStory","StoryListing",new { userId = Model.User?.UserId })" class="p-2 px-4 border border-2 text-decoration-none rounded-5 bg-transparent text-white border-white">
 						Share your Story <img src="~/images/right-arrow.png" alt="right-arrow">
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
 
-		<div id="story-cards-div" class="container p-2">
-			
+		<div id="story-cards-div" class="mx-auto">
 		</div>
 	</div>
 
@@ -118,25 +122,25 @@
 		let currPage = 1;
 		let pageSize = 1;
 
-		$(document).ready(()=>{
+		$(document).ready(() => {
 			loadAllStories();
 		});
 
-		function loadAllStories(){
+		function loadAllStories() {
 			$.ajax({
 				url: "/StoryListing/getAllStories",
-				method:"GET",
-				dataType:"html",
-				data:{ "pageNo": currPage,"pageSize": pageSize },
-				success:(data)=>{
+				method: "GET",
+				dataType: "html",
+				data: { "pageNo": currPage, "pageSize": pageSize },
+				success: (data) => {
 					$('#story-cards-div').html('');
 					$('#story-cards-div').html(data);
 					pageNumbersEventListner();
 				},
-				failure:(error)=>{
+				failure: (error) => {
 
 				}
-				
+
 			});
 		}
 

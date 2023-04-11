@@ -1,0 +1,445 @@
+﻿@model CI_Project.Entities.ViewModels.UserProfileModel
+@{
+	ViewData["Title"] = "Story Details Page";
+	var userId = Context.Session.GetString("UserId");
+	var fullName = Context.Session.GetString("FullName");
+}
+
+@section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+}
+
+
+<main class="position-relative">
+	<header id="header" class="border-2 border-bottom ci-page-header bg-white w-100 z-3"
+			style="background-color: transparent;min-width: max-content;">
+		<div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
+			 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+			<div class="ci-page-header-left-div d-flex ">
+				<div class="p-2 h-100 d-sm-none">
+					<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
+						<img src="~/images/list.png" alt="">
+					</button>
+					<button id="search-button" class="d-none"></button>
+				</div>
+				<a asp-action="Index" asp-controller="Home">
+					<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				</a>
+				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
+					<div id="close-btn-div" class="p-2">
+						<button id="header-sidebar-close"
+								class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
+							<img src="~/images/cancel1.png" alt="">
+						</button>
+					</div>
+					<div id="stories-div" class="p-2">
+						<a asp-action="Index" asp-controller="StoryListing" class="text-decoration-none text-black mx-2">
+							Stories
+						</a>
+					</div>
+
+					<div id="policy-div" class="dropdown mx-2">
+						<button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+							Policy
+							<img class="mx-1" src="~/images/drop-down.png" alt="">
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
+
+				<div class="dropdown mx-2 px-sm-0 px-2">
+					<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
+							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						<div>
+							<img class="ci-page-header-profile-img mx-1"
+								 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+								 src="~/images/user-img.png" alt="user-img">
+						</div>
+						<div class="d-md-block d-none">
+							<span class="ci-page-header-profile-name mx-1 py-1">
+								@fullName
+							</span>
+							<img src="~/images/drop-down.png" alt="">
+						</div>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile">Add Profile</a></li>
+						<li><a class="dropdown-item" href="#">logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div id="scrollable-area" class="overflow-y-scroll">
+
+
+		<div class="container " style="max-width:var(--max-width);">
+			<div class="row py-3 my-3">
+
+				<div class="user-profile-image-div col-lg-3 col-12">
+					<div class="border border-1 d-flex flex-column align-items-center justify-content-center m-4 p-5">
+						<div id="profile-img-div">
+							<img src="~/images/user-img-large.png" class="rounded-circle object-fit-cover" style="height:150px;width:150px;" />
+						</div>
+						<div class="fw-semibold fs-5" style="min-width:max-content;">@Model.FirstName @Model.LastName</div>
+						<a asp-controller="" asp-action="" class="text-decoration-none text-secondary" style="font-size:12px;min-width:max-content;">Change Password</a>
+					</div>
+				</div>
+
+				<div class="col-lg-9 col-12">
+
+					<form id="userProfileForm" method="post" enctype="multipart/form-data">
+						<input hidden id="profileImageInput" name="profileImage" type="file" />
+
+						<div class="user-details-div ">
+							<div class="py-3">
+								<div class="border-2 border-bottom py-2">
+									<span class="fs-4 fw-semibold text-decoration-underline " style="text-underline-offset:17px;">Basic Information</span>
+								</div>
+								<div class="row mt-4">
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Name<span class="text-danger">*</span></label>
+										<input type="text" asp-for="FirstName" value="@Model.FirstName" class="p-2 border border-2 rounded-3" />
+										<span class="text-danger" asp-validation-for="FirstName"></span>
+									</div>
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Surname<span class="text-danger">*</span></label>
+										<input type="text" asp-for="LastName" value="@Model.LastName" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="LastName"></span>
+									</div>
+								</div>
+								<div class="row mt-4">
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Employee Id</label>
+										<input type="text" asp-for="EmployeeId" value="@Model.EmployeeId" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="EmployeeId"></span>
+									</div>
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Contact No <span class="text-danger">*</span></label>
+										<input type="text" asp-for="PhoneNo" value="@Model.PhoneNo" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="PhoneNo"></span>
+									</div>
+								</div>
+
+								<div class="row mt-4">
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Title</label>
+										<input type="text" asp-for="Title" value="@Model.Title" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="Title"></span>
+									</div>
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Department</label>
+										<input type="text" asp-for="Department" value="@Model.Department" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="Department"></span>
+									</div>
+								</div>
+								<div class="row mt-4">
+									<div class="col-12 d-flex flex-column">
+										<label>My Profile <span class="text-danger">*</span></label>
+										<textarea class="p-2 border border-2  rounded-3" asp-for="MyProfile" value="@Model.MyProfile" style="min-height:100px;"></textarea>
+										<span class="text-danger" asp-validation-for="MyProfile"></span>
+									</div>
+								</div>
+								<div class="row mt-4">
+									<div class="col-12 d-flex flex-column">
+										<label>Why I Volunteer </label>
+										<textarea value="@Model.WhyIVolunteer" asp-for="WhyIVolunteer" class="p-2 border border-2  rounded-3" style="min-height:100px;"></textarea>
+										<span class="text-danger" asp-validation-for="WhyIVolunteer"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="my-5">
+								<div class="border-2 border-bottom py-2">
+									<span class="fs-4 fw-semibold text-decoration-underline " style="text-underline-offset:17px;">Address Information</span>
+								</div>
+								<div class="row mt-4">
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>City</label>
+										<select asp-for="CityId" class="p-2 border border-2  rounded-3">
+											<option selected disabled>Select Your City</option>
+											@foreach (var currCity in Model.Cities)
+											{
+												@if (Model.CityId > 0 && currCity.CityId == Model.CityId)
+												{
+													<option selected value="@currCity.CityId">@currCity.Name</option>
+												}
+												else
+												{
+													<option value="@currCity.CityId">@currCity.Name</option>
+												}
+											}
+										</select>
+										<span class="text-danger" asp-validation-for="CityId"></span>
+
+									</div>
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Country<span class="text-danger">*</span></label>
+										<select asp-for="CountryId" class="p-2 border border-2  rounded-3">
+											<option selected disabled>Select Your Country</option>
+											@foreach (var currCountry in Model.Countries!)
+											{
+												@if (Model.CountryId > 0 && currCountry.CountryId == Model.CountryId)
+												{
+													<option selected value="@currCountry.CountryId">@currCountry.Name</option>
+												}
+												else
+												{
+													<option value="@currCountry.CountryId">@currCountry.Name</option>
+												}
+											}
+										</select>
+										<span class="text-danger" asp-validation-for="CountryId"></span>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="my-5">
+								<div class="border-2 border-bottom py-2">
+									<span class="fs-4 fw-semibold text-decoration-underline " style="text-underline-offset:17px;">Professional Information</span>
+								</div>
+								<div class="row mt-4">
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Availability</label>
+										<select asp-for="Availability" class="p-2 border border-2  rounded-3">
+											<option disabled selected>Select your availability</option>
+											<option value="0">Daily</option>
+											<option value="1">Weekly</option>
+											<option value="2">Week-end Only</option>
+											<option value="3">Monthly</option>
+										</select>
+										<span class="text-danger" asp-validation-for="Availability"></span>
+									</div>
+									<div class="col-sm-6 py-sm-0 py-2 d-flex flex-column">
+										<label>Linked In</label>
+										<input asp-for="LinkedIn" value="@Model.LinkedIn" type="text" class="p-2 border border-2  rounded-3" />
+										<span class="text-danger" asp-validation-for="LinkedIn"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="my-5">
+								<div class="border-2 border-bottom py-2">
+									<span class="fs-4 fw-semibold text-decoration-underline " style="text-underline-offset:17px;">My Skills </span>
+								</div>
+								<div class="row mt-4">
+									<div class="col-12 d-flex flex-column">
+										<textarea id="skillTextBox" class="p-2 border border-2  rounded-3" style="min-height:100px;" disabled></textarea>
+										<span class="text-danger" asp-validation-for="UserSkills"></span>
+									</div>
+									<div class=" py-3">
+										<a id="addSkillBtn" data-bs-toggle="modal" data-bs-target="#skillModal" class="bg-transparent text-decoration-none rounded-pill py-2 px-4 border border-2 text-secondary">Add Skills</a>
+										<div id="skillModal" class="modal" tabindex="-1">
+											<div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
+												<div class="modal-content">
+													<div class="modal-header border-bottom-0">
+														<h5 class="modal-title">Add your Skills</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-body">
+
+														<div class="d-flex h-100">
+															@if (Model.UserSkills?.Count > 0)
+															{
+																@foreach (var currUserSkill in Model.UserSkills)
+																{
+																	<input hidden class="hidden-userSkills" value="@currUserSkill.SkillId" />
+																}
+															}
+
+															<select multiple id="listOfSkills" class="form-select" style="height:50vh !important;">
+																@foreach (var currSkill in Model.Skills!)
+																{
+																	<option class="px-2 py-1 rounded-2 mt-1" value="@currSkill.SkillId" data-skillName="@currSkill.SkillName">@currSkill.SkillName</option>
+																}
+															</select>
+
+															<div class="px-2 d-flex flex-column justify-content-center align-items-center">
+																<button type="button" id="unselectSkill" class="p-1 bg-transparent border-0">
+																	<img src="~/images/left.png" />
+																</button>
+																<button type="button" id="selectSkill" class="p-1 bg-transparent border-0">
+																	<img src="~/images/right-arrow1.png" />
+																</button>
+															</div>
+															<select multiple name="skills" id="listOfSelectedSkills" class="form-select ">
+															</select>
+														</div>
+
+													</div>
+													<div class="modal-footer border-top-0 d-flex justify-content-start">
+														<button id="cancelSkills" type="button" class="bg-transparent border border-2 border-danger text-danger rounded-pill py-2 px-3" data-bs-dismiss="modal">Cancel</button>
+														<button id="saveSkills" type="button" class="bg-transparent border border-2 border-warning text-warning rounded-pill py-2 px-3">Save</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="my-4 d-flex justify-content-end">
+								<button type="submit" class="bg-transparent rounded-pill py-2 px-4 border border-2 border-warning text-warning">Save</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	<footer id="footer" class=" bg-white">
+		<div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
+				Privacy
+				Policy
+			</a>
+		</div>
+	</footer>
+</main>
+
+@section Scripts{
+	<script>
+		let skillIdArr = [];
+		let skillTextBox = document.getElementById('skillTextBox');
+		let userProfileForm = document.getElementById('userProfileForm');
+
+
+		$(document).ready(function () {
+			renderSkills();
+		});
+
+		$('#selectSkill').on('click', function (e) {
+			let selectedSkills = $('#listOfSkills option:selected');
+			if (selectedSkills.length <= 0) {
+				alert("No skill to add !");
+			}
+			addSkillValueToSkillIdArr(selectedSkills);
+		});
+
+		$('#unselectSkill').on('click', (e) => {
+			let selectedSkills = $('#listOfSelectedSkills option:selected');
+			if (selectedSkills.length <= 0) {
+				alert("No skill to remove !");
+			}
+			removeSkillValueFromSkillIdArr(selectedSkills);
+		});
+
+		$('#cancelSkills').on('click', function () {
+		});
+
+		$('#saveSkills').on('click', function () {
+			let selectedSkills = $('#listOfSelectedSkills option');
+			skillTextBox.value = "";
+			for (var currSelectedSkill of selectedSkills) {
+				renderNamesOfSkills(currSelectedSkill.getAttribute('data-skillName'));
+			}
+			$('#skillModal').modal('hide');
+		});
+
+
+
+		function addSkillValueToSkillIdArr(selectedSkills) {
+
+			for (let currSkill of selectedSkills) {
+				let currSkillId = +currSkill.value;
+				if (skillIdArr.indexOf(currSkillId) === -1) {
+					skillIdArr.push(currSkillId);
+					previewSkillToSelectedSkillList(currSkill);
+				}
+			}
+
+		}
+
+		function previewSkillToSelectedSkillList(currSkill) {
+
+			$("#listOfSelectedSkills").append($(currSkill).clone());
+		}
+
+
+		function removeSkillValueFromSkillIdArr(selectedSkills) {
+			for (let currSkill of selectedSkills) {
+				let currSkillId = +currSkill.value;
+				let indexOfSkillInSkillArr = skillIdArr.indexOf(currSkillId);
+
+				if (indexOfSkillInSkillArr > -1) {
+					skillIdArr.splice(indexOfSkillInSkillArr, 1);
+					let valueToFind = currSkill.value;
+					$(currSkill).remove();
+					document.querySelector(`#listOfSkills option[value="${valueToFind}"]`).selected = false;
+				}
+			}
+
+		}
+
+		function renderSkills() {
+			let userSkills = $('.hidden-userSkills');
+
+			if (userSkills.length > 0) {
+				for (let currUserSkill of userSkills) {
+					let valueToPush = +currUserSkill.value;
+					skillIdArr.push(valueToPush);
+					document.querySelector(`#listOfSkills option[value="${valueToPush}"]`).selected = true;
+				}
+
+				let selectedSkills = $('#listOfSkills option:selected');
+				for (var currSelectedSkill of selectedSkills) {
+					previewSkillToSelectedSkillList(currSelectedSkill);
+					renderNamesOfSkills(currSelectedSkill.getAttribute('data-skillName'));
+				}
+			}
+		}
+
+		function renderNamesOfSkills(skillName) {
+			skillTextBox.value += skillName + "\n";
+		}
+
+		//-------------- submit form ----------------
+		const userForm = document.getElementById('userProfileForm');
+		userForm.addEventListener('submit',(e)=>{
+			e.preventDefault();
+			
+			let listOfSelectedSkills = $("#listOfSelectedSkills option");
+			let actuallySelectedSkills = skillTextBox.value.trim().split('\n');
+
+			for (let i = 0; i < actuallySelectedSkills.length; i++) {
+				for (let j = 0; j < listOfSelectedSkills.length; j++) {
+					let skillTextName = actuallySelectedSkills[i];
+					let skillName = listOfSelectedSkills[j].getAttribute('data-skillName');
+					if (skillTextName == skillName) {
+						document.querySelector(`#listOfSelectedSkills option[data-skillName="${skillName}"]`).selected = true;
+					}
+				}
+			}
+
+			userForm.submit();
+		});
+
+
+		//------------------ profile-img ----------------------
+		$('#profile-img-div').on('click', () => { $('#profileImageInput').click() });
+		$('#profileImageInput').on('change',()=>{
+			$('#profile-img-div img').prop('src', URL.createObjectURL($('#profileImageInput').prop('files')[0]));
+		});
+	</script>
+	<script src="~/js/tiny.js"></script>
+	<script src="~/js/headerSidebar.js"></script>
+	<script src="~/js/scrolable.js"></script>
+}

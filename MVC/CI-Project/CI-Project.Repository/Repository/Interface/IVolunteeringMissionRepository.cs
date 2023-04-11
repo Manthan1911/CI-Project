@@ -25,5 +25,7 @@ namespace CI_Project.Repository.Repository.Interface
         public List<Mission> getAllMissions();
         public void addToMissionInvite(MissionInvite obj);
 
+        public List<MissionInvite> getListOfSentInvitesOfUser(long userId,long missionId);
+
 	}
 }

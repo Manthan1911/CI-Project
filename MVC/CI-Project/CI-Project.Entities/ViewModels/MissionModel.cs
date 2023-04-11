@@ -70,5 +70,6 @@ namespace CI_Project.Entities.ViewModels
 
         public long? seatsLeft { get; set; }
         public long? totalSeats { get; set; }
+        public int isMissionApplied { get; set; }
     }
 }

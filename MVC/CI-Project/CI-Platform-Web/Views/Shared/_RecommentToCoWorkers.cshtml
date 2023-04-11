@@ -1,8 +1,8 @@
 ﻿@model List<CI_Project.Entities.ViewModels.UserModel>
-@{
+@*@{
 	var userId = ViewBag.userId;
 	var missionId = ViewBag.missionId;
-}
+}*@
 <div id="recommend-modal" class="modal" tabindex="-1">
 	<div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
 		<div class="modal-content">
@@ -11,28 +11,27 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-			
-				@foreach(var currUser in Model)
+
+				@foreach (var currUser in Model)
 				{
-					@if (currUser.missionInvitesTo!.Any(user => user.FromUser == userId && user.MissionId == missionId) )
-					{
-						<div class="form-check mb-2">
-							<img class="form-check-input border-0" src="~/images/success-green-check-mark-icon.svg" alt="check" height="30px" width="30px">
-							<label class="form-check-label d-flex gap-3 align-items-center flex-wrap">
-								@currUser.FirstName @currUser.LastName (@currUser.EmailId)
-							</label>
-						</div>
-					}
-					else
-					{
-						<div class="form-check mb-2">
-							
-							<input class="form-check-input" type="checkbox" value="@currUser.UserId" id="userChkBox">
-							<label class="form-check-label d-flex gap-3 align-items-center flex-wrap">
-								@currUser.FirstName @currUser.LastName (@currUser.EmailId)
-							</label>
-						</div>
-					}
+					@*@if (currUser.missionInvitesTo!.Any(user => user.FromUserId == userId && user.MissionId == missionId) )
+				{
+				<div class="form-check mb-2">
+				<img class="form-check-input border-0" src="~/images/right.png" alt="check" height="30px" width="30px">
+				<label class="form-check-label d-flex gap-3 align-items-center flex-wrap">
+				@currUser.FirstName @currUser.LastName (@currUser.EmailId)
+				</label>
+				</div>
+				}
+				else
+				{}*@
+					<div class="form-check mb-2">
+
+						<input class="form-check-input" type="checkbox" value="@currUser.UserId" id="userChkBox">
+						<label class="form-check-label d-flex gap-3 align-items-center flex-wrap">
+							@currUser.FirstName @currUser.LastName (@currUser.EmailId)
+						</label>
+					</div>
 				}
 
 			</div>

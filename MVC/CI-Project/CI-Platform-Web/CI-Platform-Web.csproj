@@ -26,4 +26,8 @@
     <ProjectReference Include="..\CI-Project.Repository\CI-Project.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\storyimages\" />
+  </ItemGroup>
+
 </Project>

@@ -1,84 +1,99 @@
 ﻿using CI_Project.Entities.DataModels;
 using CI_Project.Repository.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace CI_Project.Repository.Repository
 {
-    public class UserRepository:IUserRepository
-    {
-        private readonly CIProjectDbContext _db;
-        private readonly IPassword _pasword;
+	public class UserRepository : IUserRepository
+	{
+		private readonly CIProjectDbContext _db;
+		private readonly IPassword _pasword;
 
-        public UserRepository(CIProjectDbContext db, IPassword pasword)
-        {
-            _db = db;
-            _pasword = pasword;
-        }
+		public UserRepository(CIProjectDbContext db, IPassword pasword)
+		{
+			_db = db;
+			_pasword = pasword;
+		}
 
-        public bool addUser(User user)
-        {
-            _db.Users.Add(user);
-            _db.SaveChanges();
-            return true;
-        }
+		public bool addUser(User user)
+		{
+			_db.Users.Add(user);
+			_db.SaveChanges();
+			return true;
+		}
 
-        public void addResetPasswordToken(PasswordReset passwordResetObj)
-        {
-            bool isAlreadyGenerated = _db.PasswordResets.Any(u => u.Email.Equals(passwordResetObj.Email));
-            if (isAlreadyGenerated)
-            {
-                _db.Update(passwordResetObj);
+		public void addResetPasswordToken(PasswordReset passwordResetObj)
+		{
+			bool isAlreadyGenerated = _db.PasswordResets.Any(u => u.Email.Equals(passwordResetObj.Email));
+			if (isAlreadyGenerated)
+			{
+				_db.Update(passwordResetObj);
 
-            }
-            else
-            {
-                _db.Add(passwordResetObj);
-            }
-            _db.SaveChanges();
-        }
+			}
+			else
+			{
+				_db.Add(passwordResetObj);
+			}
+			_db.SaveChanges();
+		}
 
-        public void removeResetPasswordToken(PasswordReset obj)
-        {
-            _db.Remove(obj);
-            _db.SaveChanges();
-        }
+		public void removeResetPasswordToken(PasswordReset obj)
+		{
+			_db.Remove(obj);
+			_db.SaveChanges();
+		}
 
-        public User findUser(string email)
-        {
-            return _db.Users.Where(user => user.Email.Equals(email)).First();
-        }
+		public User findUser(string email)
+		{
+			return _db.Users.Where(user => user.Email.Equals(email)).First();
+		}
 
-        public User findUser(int? id)
-        {
-            return _db.Users.Where(user => user.UserId == id).First();
-        }
+		public User findUser(int? id)
+		{
+			return _db.Users.Where(user => user.UserId == id).First();
+		}
 
-        public PasswordReset findUserByToken(string token)
-        {
-            return _db.PasswordResets.Where( row => row.Token == token).First();
-        }
+		public User findUser(long? id)
+		{
+			return _db.Users.FirstOrDefault(user => user.UserId == id)!;
+		}
+		public PasswordReset findUserByToken(string token)
+		{
+			return _db.PasswordResets.Where(row => row.Token == token).First();
+		}
 
-        public IEnumerable<User> getAllUsers()
-        {
-            return _db.Users;
-        }
+		public IEnumerable<User> getAllUsers()
+		{
+			return _db.Users;
+		}
 
-        public bool updatePassword(User user)
-        {
-            _db.Update(user);
-            _db.SaveChanges();
-            return true;
-        }
+		public IEnumerable<User> getAllToRecommendMission()
+		{
+			return _db.Users.Include(u => u.MissionInviteFromUsers).Include(u => u.MissionInviteToUsers);
+		}
 
-        public bool validateEmail(string email)
-        {
-            return _db.Users.Any(u => u.Email.Equals(email));    
-        }
+		public bool updatePassword(User user)
+		{
+			_db.Update(user);
+			_db.SaveChanges();
+			return true;
+		}
 
-        public bool validateUser(string email, string password)
-        {
-            var user = findUser(email);
-            var DecryptedPassword = _pasword.Decode(user.Password);
-            return _db.Users.Any(u => u.Email.Equals(email) && DecryptedPassword.Equals(password));
-        }
-    }
+		public bool validateEmail(string email)
+		{
+			return _db.Users.Any(u => u.Email.Equals(email));
+		}
+
+		public bool validateUser(string email, string password)
+		{
+			var user = findUser(email);
+			var DecryptedPassword = _pasword.Decode(user.Password);
+			return _db.Users.Any(u => u.Email.Equals(email) && DecryptedPassword.Equals(password));
+		}
+
+		public List<Story> getAllStoriesOfCurrentUser(long userId)
+		{
+			return _db.Stories.Where(s => s.UserId == userId).ToList();
+		}
+	}
 }

@@ -12,6 +12,7 @@ namespace CI_Project.Repository.Repository.Interface
         public User findUser(string email);
 
         public User findUser(int? id);
+        public User findUser(long? id);
 
         public PasswordReset findUserByToken(string token);
 
@@ -23,5 +24,10 @@ namespace CI_Project.Repository.Repository.Interface
         public void addResetPasswordToken(PasswordReset passwordResetObj);
 
         public void removeResetPasswordToken(PasswordReset obj);
-    }
+
+		public List<Story> getAllStoriesOfCurrentUser(long userId);
+
+        public IEnumerable<User> getAllToRecommendMission();
+
+	}
 }

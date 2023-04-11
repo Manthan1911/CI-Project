@@ -73,6 +73,7 @@
 						</div>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile">Add Profile</a></li>
 						<li id="logoutBtn"><a class="dropdown-item" href="#">logout</a></li>
 					</ul>
 				</div>
@@ -569,6 +570,7 @@
 				}
 			});
 		}
+		
 		function getComments(userId, missionId) {
 			$.ajax({
 				type: "GET",

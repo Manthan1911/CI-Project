@@ -59,13 +59,26 @@
 					<div class="mission-card-img-div position-relative w-100">
 						<img class="h-100 w-100 object-fit-cover"
 					 src="@currMission.CoverImage" alt="">
-						<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
-							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-								<img src="~/images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
-							 alt="">
-								<span class="pe-2 text-white">@currMission.City.Name</span>
+						<div class="position-absolute py-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 w-100 h-75">
+							<div class="d-flex justify-content-between w-100 pe-2">
+								@if(currMission.isMissionApplied == 1){
+									<div class="applied-pill p-2 px-4">
+										Applied
+									</div>
+								}
+								else
+								{
+									<div>
+
+									</div>
+								}
+								<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
+									<img src="~/images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
+								 alt="">
+									<span class="pe-2 text-white">@currMission.City.Name</span>
+								</div>
 							</div>
-							<div>
+							<div class="p-2">
 								@if (currMission.isMissionFavourite == 1)
 								{
 									<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">
@@ -90,6 +103,8 @@
 							</div>
 						</div>
 					</div>
+
+
 
 					<div class="mission-card-details-div d-flex flex-column justify-content-between py-md-4 px-2">
 						<div class="mission-card-description-div">
@@ -250,12 +265,27 @@
 					<img class="h-100 w-100"
 				 src="@currMission.CoverImage" alt="">
 
-					<div class="position-absolute p-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 h-75">
-						<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
-							<img src="images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;" alt="">
-							<span class="pe-2 text-white">@currMission.City.Name</span>
+					<div class="position-absolute py-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 w-100 h-75">
+						<div class="d-flex justify-content-between w-100 pe-2">
+							@if (currMission.isMissionApplied == 1)
+							{
+								<div class="applied-pill p-2 px-4">
+									Applied
+								</div>
+							}
+							else
+							{
+								<div>
+								</div>
+							}
+							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
+								<img src="~/images/pin.png" class="m-1 mx-2" style="height:17px; width:12px;"
+							 alt="">
+								<span class="pe-2 text-white">@currMission.City.Name</span>
+							</div>
 						</div>
-						<div>
+						
+						<div class="pe-2">
 							@if (currMission.isMissionFavourite == 1)
 							{
 								<button class="fav-mission-id bg-dark-opacity border-0 p-2 mb-2 d-flex align-items-center justify-content-center rounded-circle">

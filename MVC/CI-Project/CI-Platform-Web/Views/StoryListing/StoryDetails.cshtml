@@ -1,0 +1,262 @@
+﻿@model CI_Project.Entities.ViewModels.StoryDetailsModel
+@{
+	ViewData["Title"] = "Story Details Page";
+	var userId = Context.Session.GetString("UserId");
+	var fullName = Context.Session.GetString("FullName");
+}
+
+@section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+}
+
+
+<main class="position-relative">
+	<header id="header" class="border-2 border-bottom ci-page-header bg-white w-100 z-3"
+			style="background-color: transparent;min-width: max-content;">
+		<div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
+			 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+			<div class="ci-page-header-left-div d-flex ">
+				<div class="p-2 h-100 d-sm-none">
+					<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
+						<img src="~/images/list.png" alt="">
+					</button>
+					<button id="search-button" class="d-none"></button>
+				</div>
+				<a asp-action="Index" asp-controller="Home">
+					<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
+				</a>
+				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
+					<div id="close-btn-div" class="p-2">
+						<button id="header-sidebar-close"
+								class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
+							<img src="~/images/cancel1.png" alt="">
+						</button>
+					</div>
+					<div id="stories-div" class="p-2">
+						<a asp-action="Index" asp-controller="StoryListing" class="text-decoration-none text-black mx-2">
+							Stories
+						</a>
+					</div>
+
+					<div id="policy-div" class="dropdown mx-2">
+						<button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+							Policy
+							<img class="mx-1" src="~/images/drop-down.png" alt="">
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
+
+				<div class="dropdown mx-2 px-sm-0 px-2">
+					<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
+							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						<div href="">
+							<img class="ci-page-header-profile-img mx-1"
+								 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+								 src="~/images/user-img.png" alt="user-img">
+						</div>
+						<div class="d-md-block d-none">
+							<span class="ci-page-header-profile-name mx-1 py-1">
+								@fullName
+							</span>
+							<img src="~/images/drop-down.png" alt="">
+						</div>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile">Add Profile</a></li>
+						<li><a class="dropdown-item" href="#">logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div id="scrollable-area" class="overflow-y-scroll">
+		<div class="container" style="max-width:var(--max-width)">
+			@*-------------------- Row-1 ----------------------*@
+			<div class="row">
+
+				@*-------------------- carousel ----------------------*@
+				<div class="new-carousel col-lg-6 col-12 p-0">
+
+					<div class="w-100 p-0 " style="height:600px;">
+
+						@if (Model.Story?.StoryMedia?.Count() <= 1)
+						{
+							@if (Model.Story?.StoryMedia?.Count() == 1)
+							{
+								<div class="p-2 w-100 h-100">
+									<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.Story?.CoverImage" />
+								</div>
+							}
+							@if (Model.Story?.StoryMedia?.Count() == 0)
+							{
+								<div class="p-2 w-100 h-100">
+									<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images//404-Page-image.png" />
+								</div>
+							}
+
+						}
+						else
+						{
+							<div class="p-2 w-100" style="height:calc(100% - 100px) !important;">
+								<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-login.png" />
+							</div>
+
+							<div class="d-flex position-relative m-2" style="height:100px !important;">
+								<div id="carouselLeftShiftArrow">
+									<img src="~/images/left1.png" />
+								</div>
+								<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
+									@foreach (var currStoryMedia in Model.Story?.StoryMedia!)
+									{
+										<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.Path@currStoryMedia.Type" />
+									}
+								</div>
+								<div id="carouselRightShiftArrow">
+									<img src="~/images/right-arrow2.png" />
+								</div>
+							</div>
+						}
+
+
+					</div>
+
+				</div>
+
+				@*-------------------- user-details-div ----------------------*@
+				<div class="col-lg-6 col-12  p-4" style="max-height:600px;">
+
+					@*-------------------- user-details ----------------------*@
+					<div class="d-flex justify-content-between">
+
+						<div id="user-profile-image-div" class="d-flex   h-100">
+							<div style="min-width:max-content;">
+								<img src="~/images/volunteer2.png" class="rounded-circle object-fit-fill" style="height:100px;width:100px;" />
+								<span class="d-flex align-items-center justify-content-center pt-2">@Model.User?.FirstName @Model.User?.LastName</span>
+							</div>
+						</div>
+						<div class="d-flex align-items-end justify-content-end w-100">
+							<span class="border border-2  px-3 d-flex align-items-center justify-content-center rounded-pill">
+								<img src="~/images/eye.png" class="me-2" style="height:15px;width:30px;" />
+								<span class="text-secondary" style="color:var(--border-color);min-width:max-content;">@Model.Story?.Views Views</span>
+							</span>
+						</div>
+
+					</div>
+
+					@*-------------------- why i volunteer ----------------------*@
+					<div class="pt-4">
+						@Html.Raw(Model.User?.WhyIVolunteer)
+					</div>
+					<input hidden id="userId" value="@userId" />
+					<input hidden id="storyId" value="@Model.Story?.StoryId" />
+					@*-------------------- recommend and open mission buttons ----------------------*@
+					<div class="pt-4 d-flex justify-content-between">
+						<button data-bs-target="#recommend-modal" id="recommend-button" class="bg-transparent text-secondary border border-2 border-secondary py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
+							<img src="~/images/add1.png" />
+							<span style="min-width:max-content;">Recommend to a Co-Worker</span>
+						</button>
+						<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@Model.Story?.MissionId" class="bg-transparent text-decoration-none text-warning border border-2 border-warning py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
+							<span style="min-width:max-content;"> Open Mission </span>
+							<img src="~/images/right-arrow.png" />
+						</a>
+					</div>
+
+				</div>
+			</div>
+
+			@*-------------------- Row-2 ----------------------*@
+			<div class="row pt-4">
+				<div class="py-2 border-2 border-bottom">
+					<span class="story-details-title p-0 m-0 fs-3  text-decoration-underline" style="text-underline-offset:17px;text-decoration-thickness:5px;">
+						@Html.Raw(Model.Story?.StoryTitle)
+					</span>
+				</div>
+				<div class="story-details-description">
+					@Html.Raw(Model.Story?.StoryDescription)
+				</div>
+
+			</div>
+
+			<div id="recommend-partial">
+			</div>
+		</div>
+	</div>
+
+
+	<footer id="footer" class=" bg-white">
+		<div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
+			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
+				Privacy
+				Policy
+			</a>
+		</div>
+	</footer>
+</main>
+
+@section Scripts{
+	<script>
+		let userId = document.getElementById('userId').value;
+		let storyId = document.getElementById('storyId').value;
+		console.log("user:" + userId);
+		let userIds = [];
+		// ------------------------ recommend ------------------------
+		$('#recommend-button').on("click", () => {
+			console.log("recommend");
+
+			$.ajax({
+				url: "/StoryListing/getAllUsersForRecommendingStory",
+				method: "GET",
+				dataType: "html",
+				data: { "userId": userId },
+				success: function (data) {
+
+					$('#recommend-partial').html(data);
+					$('#recommend-modal').modal("show");
+
+					$('#send-recommendation').on('click', () => {
+						getCheckedUsersId();
+						$('#recommend-modal').modal("hide");
+
+						$.ajax({
+							url: "/StoryListing/addDataToStoryInvite",
+							method: "POST",
+							dataType: "html",
+							data: { "userIdList": userIds, "storyId": storyId, "userId": userId },
+							success: function (data) {
+
+							},
+							error: function (error) {
+								console.log(error);
+							}
+						});
+
+					});
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+		});
+
+		function getCheckedUsersId() {
+			var checkedUsers = document.querySelectorAll('#userChkBox:checked').forEach(val => {
+				var selectedUserId = $(val).val();
+				userIds.push(selectedUserId);
+			})
+		}
+	</script>
+	<script src="~/js/tiny.js"></script>
+	<script src="~/js/headerSidebar.js"></script>
+	<script src="~/js/scrolable.js"></script>
+	<script src="~/js/carouselImageChanger.js"></script>
+}

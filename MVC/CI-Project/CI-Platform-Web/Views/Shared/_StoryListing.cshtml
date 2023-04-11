@@ -3,111 +3,130 @@
 	var totalStories = ViewBag.totalStories;
 	var MissionPerPageLimit = ViewBag.paginationLimit;
 }
-<div class="row gx-2">
+@if(totalStories > 0)
+{
+	<div class="row gx-2">
 
 
-	@foreach (var currStory in Model)
-	{
-		<div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
+		@foreach (var currStory in Model)
+		{
+			<div class="story-card-parent-div col-12 col-sm-6 col-lg-4 ">
 
-			<div class="story-card h-100 shadow-lg">
+				<div class="story-card h-100 shadow-lg">
 
-				<div class="story-card-banner-image-div position-relative">
-					<img class="position-relative story-banner-image"
-					 src="@currStory.CoverImage" alt="">
-					<div class="position-absolute bottom-0 bg-transparent w-100 d-flex align-items-center justify-content-center" style="margin-bottom:-22px">
-						<span class="bg-white rounded-5 p-2 shadow-lg z-2">CustomerExperience</span>
-					</div>
-					<div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
-						<div class="d-flex align-items-center justify-content-center w-100 h-100">
-							<button class="p-2 px-4 rounded-5 bg-transparent text-white border-white">
-								View Details
-								<img src="~/images/right-arrow.png" alt="right-arrow">
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="story-card-details-part container d-flex flex-column justify-content-between" style="height:calc(100% - 200px)">
-
-					<div class="overflow-hidden pt-4">
-						<p class="fs-5 fw-semibold">@currStory.StoryTitle</p>
-						<p style="text-overflow: ellipsis;overflow:hidden;">
-							@if (@currStory.StoryDescription?.Length > 100)
-							{
-								@currStory.StoryDescription.Remove(100)
-							}
-							else
-							{
-								@currStory.StoryDescription
-							}
-						</p>
-					</div>
-					<div class="row pb-4">
-						<div class="col-2 d-flex justify-content-center align-items-center">
-							<img class="avtar" src="~/images/volunteer5.png" alt="">
-						</div>
-						<div class="col-10 d-flex justify-content-start align-items-center">
-							<span>
-								@currStory.User?.FirstName @currStory.User?.LastName
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	}
-</div>
-@*<!-- Pagination -->*@
-<div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li id="double-prev-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Previous">
-					<span aria-hidden="true">&lt;&lt;</span>
-				</a>
-			</li>
-			<li id="prev-button" class="page-item  me-2">
-				<a class="page-link text-dark" href="#" aria-label="Previous">
-					<span aria-hidden="true">&lt;</span>
-				</a>
-			</li>
-
-			<div class="d-flex align-items-center">
-				<ul id="pagination-numbers" class="m-0 d-flex align-items-center p-0" style="list-style:none;">
-					@if (totalStories > 0)
-					{
-						int pageCount = 0;
-						int paginationLimit = MissionPerPageLimit;
-						if (totalStories % paginationLimit != 0)
+					<div class="story-card-banner-image-div position-relative">
+						@if (@currStory.CoverImage != null)
 						{
-							pageCount = (totalStories / paginationLimit) + 1;
+							<img class="position-relative story-banner-image object-fit-cover"
+					 src="@currStory.CoverImage" alt="">
 						}
 						else
 						{
-							pageCount = (totalStories / paginationLimit);
+							<img class="position-relative story-banner-image object-fit-cover"
+					 src="~/images/404-Page-image.png" alt="">
 						}
+						<div class="position-absolute bottom-0 bg-transparent w-100 d-flex align-items-center justify-content-center" style="margin-bottom:-22px">
+							<span class="bg-white rounded-5 p-2 shadow-lg z-2">@currStory.Mission?.Theme.Title</span>
+						</div>
+						<div class="image-hover-filter position-absolute top-0 left-0 h-100 w-100">
+							<div class="d-flex align-items-center justify-content-center w-100 h-100">
+								<a asp-controller="StoryListing" asp-action="StoryDetails" asp-route-storyId="@currStory.StoryId" class="p-2 px-4 rounded-5 bg-transparent text-white border border-2 text-decoration-none border-white">
+									View Details
+									<img src="~/images/right-arrow.png" alt="right-arrow">
+								</a>
+							</div>
+						</div>
+					</div>
 
-						for (var i = 1; i <= pageCount; i++)
-						{
-							<li id="page-@i" class="pageCounters page-item me-2 page-link">
-								<span class="text-black" aria-hidden="true"> @i </span>
-							</li>
-						}
-					}
-				</ul>
+					<div class="story-card-details-part container d-flex flex-column justify-content-between" style="height:calc(100% - 200px)">
+
+						<div class="overflow-hidden pt-4">
+							<p class="fs-5 fw-semibold">@currStory.StoryTitle</p>
+							<p style="text-overflow: ellipsis;overflow:hidden;">
+								@if (@currStory.StoryDescription?.Length > 100)
+								{
+									@Html.Raw(currStory.StoryDescription.Remove(100))
+									;
+								}
+								else
+								{
+									@Html.Raw(currStory.StoryDescription)
+									;
+								}
+							</p>
+						</div>
+						<div class="row pb-4">
+							<div class="col-2 d-flex justify-content-center align-items-center">
+								<img class="avtar" src="~/images/volunteer5.png" alt="">
+							</div>
+							<div class="col-10 d-flex justify-content-start align-items-center">
+								<span>
+									@currStory.User?.FirstName @currStory.User?.LastName
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		}
+	</div>
+	@*<!-- Pagination -->*@
+	<div id="pagination" class="container-fluid d-flex align-items-center justify-content-center py-5">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li id="double-prev-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Previous">
+						<span aria-hidden="true">&lt;&lt;</span>
+					</a>
+				</li>
+				<li id="prev-button" class="page-item  me-2">
+					<a class="page-link text-dark" href="#" aria-label="Previous">
+						<span aria-hidden="true">&lt;</span>
+					</a>
+				</li>
 
-			<li id="next-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Next">
-					<span aria-hidden="true">&gt;</span>
-				</a>
-			</li>
-			<li id="double-next-button" class="page-item me-2">
-				<a class="page-link text-dark" href="#" aria-label="Next">
-					<span aria-hidden="true">&gt;&gt;</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-</div>
+				<div class="d-flex align-items-center">
+					<ul id="pagination-numbers" class="m-0 d-flex align-items-center p-0" style="list-style:none;">
+						@if (totalStories > 0)
+						{
+							int pageCount = 0;
+							int paginationLimit = MissionPerPageLimit;
+							if (totalStories % paginationLimit != 0)
+							{
+								pageCount = (totalStories / paginationLimit) + 1;
+							}
+							else
+							{
+								pageCount = (totalStories / paginationLimit);
+							}
+
+							for (var i = 1; i <= pageCount; i++)
+							{
+								<li id="page-@i" class="pageCounters page-item me-2 page-link">
+									<span class="text-black" aria-hidden="true"> @i </span>
+								</li>
+							}
+						}
+					</ul>
+				</div>
+
+				<li id="next-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Next">
+						<span aria-hidden="true">&gt;</span>
+					</a>
+				</li>
+				<li id="double-next-button" class="page-item me-2">
+					<a class="page-link text-dark" href="#" aria-label="Next">
+						<span aria-hidden="true">&gt;&gt;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+}
+else
+{
+	<div class="d-flex align-items-center justify-content-center">
+		<h2>No Stories Found</h2>
+	</div>
+}

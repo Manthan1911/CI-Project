@@ -130,5 +130,10 @@ namespace CI_Project.Repository.Repository
 			_db.MissionInvites.Add(obj);
 			_db.SaveChanges();
 		}
+
+		public List<MissionInvite> getListOfSentInvitesOfUser(long userId, long missionId)
+		{
+			return _db.MissionInvites.Where(mi => mi.MissionId == missionId && mi.FromUserId == userId).ToList();
+		}
 	}
 }

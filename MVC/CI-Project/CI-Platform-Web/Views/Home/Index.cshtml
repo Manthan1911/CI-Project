@@ -2,6 +2,8 @@
 
 @{
 	ViewData["Title"] = "Home Page";
+	var userId = Context.Session.GetString("UserId");
+	var fullName = Context.Session.GetString("FullName");
 }
 
 @section Styles {
@@ -67,6 +69,7 @@
 						</div>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile" asp-route-userId="@userId">Add Profile</a></li>
 						<li><a class="dropdown-item" href="#">logout</a></li>
 					</ul>
 				</div>

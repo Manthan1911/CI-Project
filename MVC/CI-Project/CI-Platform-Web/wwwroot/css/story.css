@@ -194,6 +194,19 @@ footer {
         opacity: 1;
     }
 
+/*----------------- share story ----------------------*/
+.border-color-grey {
+    border: 2px solid var(--border-color) !important;
+}
+
+.border-dashed-grey {
+    border: 2px dashed var(--border-color) !important;
+}
+
+.drag-hover {
+    border: 2px dashed black !important;
+}
+
 @media only screen and (max-width: 576px) {
     #header-sidebar {
         position: absolute;
@@ -237,6 +250,59 @@ footer {
             justify-content: space-between !important;
         }
 }
+/*------------------------ Story Details ------------------------------*/
+.small-images-div::-webkit-scrollbar {
+    display: none !important;
+}
+
+#carouselLeftShiftArrow {
+    position: absolute;
+    background-color: #0000008f;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#carouselRightShiftArrow {
+    position: absolute;
+    background-color: #0000008f;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    #carouselLeftShiftArrow:hover, #carouselRightShiftArrow:hover {
+        cursor: pointer;
+    }
+
+.small-images-div > img:not(:last-child) {
+    padding-right: 5px;
+}
+
+.small-images-div > img:hover {
+    cursor: pointer;
+}
+
+#skillModal{
+    min-height:600px !important;
+}
+
+#listOfSkills::-webkit-scrollbar{
+    display:none !important;
+}
+
+#listOfSelectedSkills::-webkit-scrollbar {
+    display: none !important;
+}
+
 
 @media only screen and (max-width: 768px) {
     #mission-card-grid-div {

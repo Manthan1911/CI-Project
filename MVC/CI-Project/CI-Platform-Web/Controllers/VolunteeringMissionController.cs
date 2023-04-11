@@ -185,19 +185,19 @@ namespace CI_Platform_Web.Controllers
 
 		public IActionResult getAllUsers(long missionId ,long userId)
 		{
-			List<User> users = _userRepository.getAllUsers().ToList();
+			List<User> users = _userRepository.getAllToRecommendMission().ToList();
 			List<UserModel> userVm = new();
 			foreach (var user in users)
 			{
-				userVm.Add(convertToUserModel(user));
+				userVm.Add(convertToUserModel(user,missionId));
 			}
 			ViewBag.missionId = missionId;
 			ViewBag.userId = userId;	
 
-			return PartialView("_RecommentToCoWorkers",userVm);
+			return PartialView("_RecommentToCoWorkers",userVm.Where(u => u.UserId != userId).ToList());
 		}
 
-		private UserModel convertToUserModel(User user)
+		private UserModel convertToUserModel(User user,long missionId)
 		{
 			UserModel userVm = new()
 			{
@@ -213,7 +213,7 @@ namespace CI_Platform_Web.Controllers
 
 		public void addToMissionInvite(long[] userEmailList ,long missionId,long userId) 
 		{
-			User? currentUser = _userRepository.getAllUsers().Where(u => u.UserId == userId).FirstOrDefault();
+			User? currentUser = _userRepository.getAllUsers().FirstOrDefault(u => u.UserId == userId);
 			
 			var url = Url.Action("Index", "VolunteeringMission", new { id = missionId }, "https");
 			string htmlMessage = $"<p style='text-align:center;font-size:2rem'>Your co-worker {currentUser?.FirstName} has recommended a mission to you.</p><p style='text-align:center;font-size:1.5rem'>Click on the link below check mission out</p><hr/>{url}";
@@ -248,7 +248,7 @@ namespace CI_Platform_Web.Controllers
 						using (var client = new SmtpClient())
 						{
 							client.Connect("smtp.gmail.com", 587, false);
-							client.Authenticate("naruto.shipud2015@gmail.com", "");
+							client.Authenticate("naruto.shipud2015@gmail.com", "yrxlcdynfxlqwsbx");
 							client.Send(message);
 							client.Disconnect(true);
 						}

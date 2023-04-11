@@ -147,7 +147,8 @@ namespace CI_Platform_Web.Controllers
 				CoverImage = getMissionCoverImageUrl(mission.MissionMedia),
 				isMissionFavourite = mission.FavouriteMissions.Any(fm => fm.MissionId == mission.MissionId && fm.UserId == userId) ? 1 : 0,
 				totalSeats=mission.TotalSeats,
-				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count()
+				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count(),
+				isMissionApplied = mission.MissionApplications.Any(ma => ma.MissionId == mission.MissionId && ma.UserId == userId) ? 1 : 0,
 			};
 			if (missionModel.countOfRatingsByPeople != 0)
 			{

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {}
+    "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {}
   },
   "projects": {
-    "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+    "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
+        "projectUniqueName": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
         "projectName": "CI-Project.Entities",
-        "projectPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
+        "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
         "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\obj\\",
+        "outputPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",

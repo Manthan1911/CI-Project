@@ -9,7 +9,7 @@
       "CI-Platform-Web/1.0.0": {
         "dependencies": {
           "CI-Project.Entities": "1.0.0",
-          "CI-Project.Repository": "1.0.0",
+          "CI-Project.Services": "1.0.0",
           "MailKit": "3.5.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "7.0.3",
@@ -761,6 +761,15 @@
         "runtime": {
           "CI-Project.Repository.dll": {}
         }
+      },
+      "CI-Project.Services/1.0.0": {
+        "dependencies": {
+          "CI-Project.Entities": "1.0.0",
+          "CI-Project.Repository": "1.0.0"
+        },
+        "runtime": {
+          "CI-Project.Services.dll": {}
+        }
       }
     }
   },
@@ -1280,6 +1289,11 @@
       "sha512": ""
     },
     "CI-Project.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CI-Project.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

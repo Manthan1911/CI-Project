@@ -1,19 +1,22 @@
 ﻿using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
+using CI_Project.Services.Interface;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace CI_Platform_Web.Controllers
 {
 	public class UserProfileController : Controller
 	{
-		public readonly IUserRepository _userRepository;
-		public readonly IUserProfileRepository _userProfileRepository;
+		private readonly IUnitOfService _unitOfService;
+		private readonly IWebHostEnvironment _webHostEnvironment;
 
-		public UserProfileController(IUserRepository userRepository, IUserProfileRepository userProfileRepository)
+		public UserProfileController(IUnitOfService unitOfService, IWebHostEnvironment webHostEnvironment)
 		{
-			_userRepository = userRepository;
-			_userProfileRepository = userProfileRepository;
+			_unitOfService = unitOfService;
+			_webHostEnvironment = webHostEnvironment;
 		}
 
 		public IActionResult Index(long? userId)
@@ -24,49 +27,23 @@ namespace CI_Platform_Web.Controllers
 				return RedirectToAction("Login", "Authentication");
 			}
 
-			User user = _userProfileRepository.GetUser(userId);
-			UserProfileModel userProfileModel;
-			if (user != null)
+			UserProfileModel userProfileModel = new();
+			if (userId != null && userId > 0)
 			{
-
-				userProfileModel = new UserProfileModel()
-				{
-					UserId = user.UserId,
-					EmailId = user.Email,
-					FirstName = user.FirstName,
-					LastName = user.LastName,
-					PhoneNo = user.PhoneNumber,
-					Title = user.Title,
-					Department = user.Department,
-					EmployeeId = user.EmployeeId,
-					MyProfile = user.ProfileText,
-					WhyIVolunteer = user.WhyIVolunteer,
-					LinkedIn = user.LinkedInUrl,
-					CountryId = user.CountryId,
-					CityId = user.CityId,
-					Availability = user.Availability,
-				};
-				userProfileModel.Cities = _userProfileRepository.getCityList();
-				userProfileModel.Countries = _userProfileRepository.getCountryList();
-				userProfileModel.Skills = _userProfileRepository.getSkillList();
-				userProfileModel.UserSkills = _userProfileRepository.getListOfUserSkill(userProfileModel.UserId);
+				userProfileModel = _unitOfService.UserProfile.GetUserProfileById(userId);
+				return View(userProfileModel);
 			}
-			else
-			{
-				userProfileModel = new();
-			}
-
-			return View(userProfileModel);
+			return RedirectToAction("PageNotFound", "Authentication");
 		}
 
 		[HttpPost]
-		public IActionResult Index(UserProfileModel userProfileModel, int[] skills,IFormFile profileImage)
+		public IActionResult Index(UserProfileModel userProfileModel, int[] skills, IFormFile profileImage)
 		{
 			if (userProfileModel != null)
 			{
 				try
 				{
-					User user = _userProfileRepository.GetUser(userProfileModel.UserId);
+					User user = _unitOfService.UserProfile.GetUserById(userProfileModel.UserId);
 
 					user.UserId = userProfileModel.UserId;
 					user.FirstName = userProfileModel.FirstName?.Trim();
@@ -83,45 +60,87 @@ namespace CI_Platform_Web.Controllers
 					user.Availability = userProfileModel.Availability;
 					user.UpdatedAt = DateTime.Now;
 
-					var isUserUpdated = _userProfileRepository.updateUser(user);
-
-					if (isUserUpdated < 0)
-					{
-						throw new Exception("Some Error occured while Updating User");
-					}
 
 					if (skills.Length > 0)
 					{
-						List<UserSkill> userSkills = _userProfileRepository.getListOfUserSkill(userProfileModel.UserId);
-						var areUserSkillsDeleted = _userProfileRepository.deleteAllSkillsOfUser(userSkills);
-						if (areUserSkillsDeleted < 0)
-						{
-							throw new Exception("Some Error occured while deleting User's skills");
-						}
-
-						foreach (var currSkill in  skills)
-						{
-							UserSkill userSkill = new UserSkill()
-							{
-								UserId = userProfileModel.UserId,
-								SkillId = currSkill,
-								CreatedAt= DateTime.Now,
-							};
-
-							var isSkillAdded = _userProfileRepository.saveUserSkill(userSkill);
-							if (isSkillAdded < 0)
-							{
-								throw new Exception("Some Error occured while saving User's skill");
-							}
-						}
+						_unitOfService.UserProfile.DeleteAllSkillsOfUser(userProfileModel.UserId);
+						_unitOfService.UserProfile.SaveUserSkill(skills, userProfileModel.UserId);
 					}
+
+					if (profileImage.Length > 0 && profileImage.Length! > 1)
+					{
+						string wwwRootPath = _webHostEnvironment.WebRootPath;
+
+						string fileName = Guid.NewGuid().ToString();
+						var uploads = Path.Combine(wwwRootPath, @"images\profile_images");
+						var extension = Path.GetExtension(profileImage?.FileName);
+
+						using (var fileStrems = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+						{
+							profileImage?.CopyTo(fileStrems);
+						}
+
+						if (userProfileModel.Avtar != null)
+						{
+
+							System.IO.File.Delete(Path.Combine(wwwRootPath, userProfileModel.Avtar.TrimStart('\\')));
+
+						}
+
+						user.Avatar = @"\images\profile_images\" + fileName + extension;
+
+					}
+					_unitOfService.UserProfile.UpdateUser(user);
 				}
 				catch (Exception ex)
 				{
 					Console.WriteLine(ex.Message.ToString());
 				}
 			}
-			return RedirectToAction("Index","Home");
+			return RedirectToAction("Index", "Home", new { profileSuccess = "true" });
 		}
+
+		[HttpGet]
+		public IActionResult GetChangePasswordModal()
+		{
+			ChangePasswordModel changePasswordModel = new();
+			return PartialView("_ChangePassword", changePasswordModel);
+		}
+
+
+		[HttpPost]
+		public IActionResult ChangePassword(ChangePasswordModel changePasswordModel)
+		{
+			if (!ModelState.IsValid)
+			{
+				return	RedirectToAction("Index","UserProfile",new { userId = changePasswordModel.UserId });
+			}
+			try
+			{
+				User user = _unitOfService.UserProfile.GetUserById(changePasswordModel.UserId);
+
+				var isOldPasswordValid = _unitOfService.Password.Decode(user.Password).Equals(changePasswordModel.OldPassword) ? true : false;
+				if (!isOldPasswordValid)
+				{
+					return NoContent();
+				}
+
+				string encodedPassword;
+				if (changePasswordModel.NewPassword != null)
+				{
+					encodedPassword = _unitOfService.Password.Encode(changePasswordModel.NewPassword);
+					_unitOfService.UserProfile.UpdateUserPassword(user, encodedPassword);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			return Ok(200);
+		}
+
+
+		
 	}
 }

@@ -1,0 +1,17 @@
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Services.deps.json
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Services.dll
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Services.pdb
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Entities.dll
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Repository.dll
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Entities.pdb
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\bin\Debug\net6.0\CI-Project.Repository.pdb
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.csproj.AssemblyReference.cache
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.GeneratedMSBuildEditorConfig.editorconfig
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.AssemblyInfoInputs.cache
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.AssemblyInfo.cs
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.csproj.CoreCompileInputs.cache
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.csproj.CopyComplete
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.dll
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\refint\CI-Project.Services.dll
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\CI-Project.Services.pdb
+W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Services\obj\Debug\net6.0\ref\CI-Project.Services.dll

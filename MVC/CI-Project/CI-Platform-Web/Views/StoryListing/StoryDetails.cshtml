@@ -13,69 +13,8 @@
 <main class="position-relative">
 	<header id="header" class="border-2 border-bottom ci-page-header bg-white w-100 z-3"
 			style="background-color: transparent;min-width: max-content;">
-		<div id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
-			 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
-			<div class="ci-page-header-left-div d-flex ">
-				<div class="p-2 h-100 d-sm-none">
-					<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
-						<img src="~/images/list.png" alt="">
-					</button>
-					<button id="search-button" class="d-none"></button>
-				</div>
-				<a asp-action="Index" asp-controller="Home">
-					<img id="logo" class=" mx-2" src="~/images/logo.png" alt="">
-				</a>
-				<div id="header-sidebar" class=" d-sm-flex flex-row align-items-center justify-content-center">
-					<div id="close-btn-div" class="p-2">
-						<button id="header-sidebar-close"
-								class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
-							<img src="~/images/cancel1.png" alt="">
-						</button>
-					</div>
-					<div id="stories-div" class="p-2">
-						<a asp-action="Index" asp-controller="StoryListing" class="text-decoration-none text-black mx-2">
-							Stories
-						</a>
-					</div>
-
-					<div id="policy-div" class="dropdown mx-2">
-						<button class="bg-transparent border-0 p-0 dropdown-toggle" type="button"
-								data-bs-toggle="dropdown" aria-expanded="false">
-							Policy
-							<img class="mx-1" src="~/images/drop-down.png" alt="">
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else here</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="ci-page-header-profile-div p-1 mx-1 d-flex" style="min-width: max-content;">
-
-				<div class="dropdown mx-2 px-sm-0 px-2">
-					<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
-							id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						<div href="">
-							<img class="ci-page-header-profile-img mx-1"
-								 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
-								 src="~/images/user-img.png" alt="user-img">
-						</div>
-						<div class="d-md-block d-none">
-							<span class="ci-page-header-profile-name mx-1 py-1">
-								@fullName
-							</span>
-							<img src="~/images/drop-down.png" alt="">
-						</div>
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile">Add Profile</a></li>
-						<li><a class="dropdown-item" href="#">logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<partial name="_Navbar"></partial>
+		
 
 	</header>
 
@@ -193,14 +132,8 @@
 	</div>
 
 
-	<footer id="footer" class=" bg-white">
-		<div class="mx-auto h-100 w-100 d-flex align-items-center " style="max-width:var(--max-width)">
-			<a href="./privacy.html" class="text-decoration-none text-dark p-2">
-				Privacy
-				Policy
-			</a>
-		</div>
-	</footer>
+
+	<partial name="_Footer"></partial>
 </main>
 
 @section Scripts{

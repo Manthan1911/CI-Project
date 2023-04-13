@@ -23,8 +23,9 @@ namespace CI_Platform_Web.Controllers
 			_cIProjectDbContext = cIProjectDbContext;
 		}
 
-		public IActionResult Index()
+		public IActionResult Index(string? profileSuccess)
 		{
+			ViewBag.ProfileSuccess = profileSuccess;
 			var userEmailId = HttpContext.Session.GetString("UserEmail");
 			if (userEmailId == null)
 			{

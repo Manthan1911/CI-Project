@@ -23,10 +23,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CI-Project.Entities\CI-Project.Entities.csproj" />
-    <ProjectReference Include="..\CI-Project.Repository\CI-Project.Repository.csproj" />
+    <ProjectReference Include="..\CI-Project.Services\CI-Project.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\profile_images\" />
     <Folder Include="wwwroot\images\storyimages\" />
   </ItemGroup>
 

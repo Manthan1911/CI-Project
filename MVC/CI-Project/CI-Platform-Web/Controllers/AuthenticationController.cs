@@ -4,6 +4,7 @@ using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MailKit.Net.Smtp;
+using CI_Project.Services.Interface;
 
 namespace CI_Platform_Web.Controllers
 {
@@ -11,14 +12,14 @@ namespace CI_Platform_Web.Controllers
 	{
 		private readonly IUserRepository _userRepository;
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private readonly IPassword _password;
+		private readonly IUnitOfService _unitOfService;
 
 
-		public AuthenticationController(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor, IPassword password)
+		public AuthenticationController(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor,IUnitOfService unitOfService)
 		{
 			_userRepository = userRepository;
 			_httpContextAccessor = httpContextAccessor;
-			_password = password;
+			_unitOfService = unitOfService;
 		}
 
 		public IActionResult Index()
@@ -44,7 +45,10 @@ namespace CI_Platform_Web.Controllers
 
 			if (isEmailValid)
 			{
-				var isUserValid = _userRepository.validateUser(loginModelObj.EmailId, loginModelObj.Password);
+				var decryptedPasswordOfFoundUser = _unitOfService.Password.Decode(user.Password);
+
+				var isUserValid =  decryptedPasswordOfFoundUser.Equals(loginModelObj.Password);
+
 				if (!isUserValid)
 				{
 					ModelState.AddModelError("Password", "Password didn't match... Please try again");
@@ -144,7 +148,7 @@ namespace CI_Platform_Web.Controllers
 					user.LastName = registerationModel.LastName;
 					user.PhoneNumber = long.Parse(registerationModel.PhoneNo);
 					user.Email = registerationModel.EmailId;
-					user.Password = _password.Encode(registerationModel.Password);
+					user.Password = _unitOfService.Password.Encode(registerationModel.Password);
 					user.CreatedAt = DateTime.Now;
 					var IsUserAdded = _userRepository.addUser(user);
 				}
@@ -208,7 +212,7 @@ namespace CI_Platform_Web.Controllers
 				var resetObj = _userRepository.findUserByToken(token);
 				var user = _userRepository.findUser(resetObj.Email);
 
-				if (resetPasswordModel.NewPassword.Equals(_password.Decode(user.Password)))
+				if (resetPasswordModel.NewPassword.Equals(_unitOfService.Password.Decode(user.Password)))
 				{
 					ModelState.AddModelError("NewPassword", "You cannot set your OldPassword as NewPassword");
 				}
@@ -216,7 +220,8 @@ namespace CI_Platform_Web.Controllers
 				{
 					try
 					{
-						user.Password = _password.Encode(resetPasswordModel.NewPassword);
+						user.Password = _unitOfService.Password.Encode(resetPasswordModel.NewPassword);
+						user.Password = _unitOfService.Password.Encode(resetPasswordModel.NewPassword);
 						var IsPasswordUpdated = _userRepository.updatePassword(user);
 						if (!IsPasswordUpdated)
 						{
@@ -237,5 +242,20 @@ namespace CI_Platform_Web.Controllers
 			}
 			return View(resetPasswordModel);
 		}
+
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Login", "Authentication");
+		}
+
+		[HttpGet]
+		public IActionResult PageNotFound()
+		{
+
+			return View();
+		}
 	}
+
+
 }

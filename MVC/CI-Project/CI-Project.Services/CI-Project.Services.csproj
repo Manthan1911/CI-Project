@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>CI_Project.Services</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CI-Project.Entities\CI-Project.Entities.csproj" />
+    <ProjectReference Include="..\CI-Project.Repository\CI-Project.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

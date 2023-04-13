@@ -42,6 +42,9 @@ namespace CI_Project.Entities.ViewModels
 		public string? MyProfile { get; set; }
 
 
+		public string? Avtar { get; set; }
+
+
 		public string? WhyIVolunteer { get; set; }
 
 		public string? LinkedIn { get; set; }

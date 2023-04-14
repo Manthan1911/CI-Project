@@ -1265,20 +1265,6 @@
         "runtime": {
           "bin/placeholder/CI-Project.Repository.dll": {}
         }
-      },
-      "CI-Project.Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "CI-Project.Entities": "1.0.0",
-          "CI-Project.Repository": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/CI-Project.Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CI-Project.Services.dll": {}
-        }
       }
     }
   },
@@ -3747,17 +3733,12 @@
       "type": "project",
       "path": "../CI-Project.Repository/CI-Project.Repository.csproj",
       "msbuildProject": "../CI-Project.Repository/CI-Project.Repository.csproj"
-    },
-    "CI-Project.Services/1.0.0": {
-      "type": "project",
-      "path": "../CI-Project.Services/CI-Project.Services.csproj",
-      "msbuildProject": "../CI-Project.Services/CI-Project.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "CI-Project.Entities >= 1.0.0",
-      "CI-Project.Services >= 1.0.0",
+      "CI-Project.Repository >= 1.0.0",
       "MailKit >= 3.5.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
@@ -3771,11 +3752,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\CI-Platform-Web.csproj",
+      "projectUniqueName": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\CI-Platform-Web.csproj",
       "projectName": "CI-Platform-Web",
-      "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\CI-Platform-Web.csproj",
+      "projectPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\CI-Platform-Web.csproj",
       "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-      "outputPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\",
+      "outputPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3792,11 +3773,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
-              "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
+            "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+              "projectPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
             },
-            "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj": {
-              "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj"
+            "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj": {
+              "projectPath": "W:\\CI_Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj"
             }
           }
         }

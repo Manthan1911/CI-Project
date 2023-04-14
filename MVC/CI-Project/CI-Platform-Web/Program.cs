@@ -2,26 +2,19 @@ using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
-using CI_Project.Services;
-using CI_Project.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddDbContext<CIProjectDbContext>();
-builder.Services.AddScoped<IUnitOfService,UnitOfService>();
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<IPassword, Password>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
-builder.Services.AddScoped<IVolunteeringMissionRepository, VolunteeringMissionRepository>();
+builder.Services.AddScoped<IVolunteeringMissionRepository,VolunteeringMissionRepository>();
 builder.Services.AddScoped<IStoryRepository, StoryRepository>();
-
-
-
-
+builder.Services.AddScoped<IUserProfileRepository,UserProfileRepository>();
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>

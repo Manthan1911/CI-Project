@@ -7,10 +7,16 @@ namespace CI_Project.Repository.Repository
 	public class UserRepository : Repository<User>, IUserRepository
 	{
 		private readonly CIProjectDbContext _db;
+		private readonly IPassword _pasword;
 
+<<<<<<< HEAD
 		public UserRepository(CIProjectDbContext db):base(db)
+=======
+		public UserRepository(CIProjectDbContext db, IPassword pasword)
+>>>>>>> parent of 2895922 (change user password completed)
 		{
 			_db = db;
+			_pasword = pasword;
 		}
 
 		public bool addUser(User user)
@@ -85,9 +91,8 @@ namespace CI_Project.Repository.Repository
 		public bool validateUser(string email, string password)
 		{
 			var user = findUser(email);
-			//var DecryptedPassword = _pasword.Decode(user.Password);
-			//return _db.Users.Any(u => u.Email.Equals(email) && DecryptedPassword.Equals(password));
-			return false;
+			var DecryptedPassword = _pasword.Decode(user.Password);
+			return _db.Users.Any(u => u.Email.Equals(email) && DecryptedPassword.Equals(password));
 		}
 
 		public List<Story> getAllStoriesOfCurrentUser(long userId)

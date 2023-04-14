@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CI_Project.Repository
-build_property.ProjectDir = w:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Repository\
+build_property.ProjectDir = w:\CI-Test\CI-Project\MVC\CI-Project\CI-Project.Repository\

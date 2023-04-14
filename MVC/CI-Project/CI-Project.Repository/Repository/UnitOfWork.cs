@@ -15,6 +15,7 @@ namespace CI_Project.Repository.Repository
 			Story= new StoryRepository(_db);
 			UserProfile=new UserProfileRepository(_db);
 			VolunteeringMission = new VolunteeringMissionRepository(Home,_db);
+			VolunteeringTimesheet = new VolunteeringTimesheetRepository(_db);
 		}
 
 		public IHomeRepository Home { get; }
@@ -26,5 +27,6 @@ namespace CI_Project.Repository.Repository
 		public IUserRepository User { get; }
 
 		public IVolunteeringMissionRepository VolunteeringMission { get; }
+		public IVolunteeringTimesheetRepository VolunteeringTimesheet { get; }
 	}
 }

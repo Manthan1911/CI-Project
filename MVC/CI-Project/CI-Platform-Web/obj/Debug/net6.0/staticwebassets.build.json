@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WROO0S0O8CPWl+qvT4JKym31Uex0SG+bUIRob9dunw8=",
+  "Hash": "KtBBHSTceuZ7zThln1KDx18JqNAGq1QAV2HZ+205Fnk=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CI-Platform-Web\\wwwroot",
       "Source": "CI-Platform-Web",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CI-Platform-Web.styles.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CI-Platform-Web.styles.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Computed",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "CI-Platform-Web.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CI-Platform-Web.styles.css"
+      "OriginalItemSpec": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CI-Platform-Web.styles.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Computed",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "CI-Platform-Web.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css"
+      "OriginalItemSpec": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\bootstrap.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\bootstrap.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\landingPage.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\landingPage.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/landingPage.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\landingPage.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/story.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\story.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "css/volunteeringMission.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\volunteeringMission.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\404-Page-image.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\404-Page-image.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/404-Page-image.png",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\images\\404-Page-image.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\achieved.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\achieved.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/achieved.png",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\images\\achieved.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/add.png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\images\\add.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/add1.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\images\\add1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Already-volunteered.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Already-volunteered.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Already-volunteered.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Already-volunteered.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Animal-welfare-&-save-birds-campaign.png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Animal-welfare-&-save-birds-campaign.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Animal-welfare-&-save-birds-campaign-1.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\arrow.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\arrow.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/arrow.png",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\images\\arrow.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/bell.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bell.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell-big.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell-big.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/bell-big.png",
       "AssetKind": "All",
@@ -340,10 +340,27 @@
       "OriginalItemSpec": "wwwroot\\images\\bell-big.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin (1).png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/bin (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bin (1).png"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/bin.png",
       "AssetKind": "All",
@@ -357,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bin.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\calender.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\calender.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/calender.png",
       "AssetKind": "All",
@@ -374,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\images\\calender.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/cancel.png",
       "AssetKind": "All",
@@ -391,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cancel.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/cancel1.png",
       "AssetKind": "All",
@@ -408,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cancel1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\checked.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\checked.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/checked.png",
       "AssetKind": "All",
@@ -425,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\images\\checked.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cross.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cross.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/cross.png",
       "AssetKind": "All",
@@ -442,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cross.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "AssetKind": "All",
@@ -459,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "AssetKind": "All",
@@ -476,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "AssetKind": "All",
@@ -493,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "AssetKind": "All",
@@ -510,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "AssetKind": "All",
@@ -527,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "AssetKind": "All",
@@ -544,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "AssetKind": "All",
@@ -561,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\deadline.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\deadline.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/deadline.png",
       "AssetKind": "All",
@@ -578,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\images\\deadline.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\doc.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\doc.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/doc.png",
       "AssetKind": "All",
@@ -595,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\images\\doc.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\down.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\down.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/down.png",
       "AssetKind": "All",
@@ -612,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\images\\down.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drag-and-drop.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drag-and-drop.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/drag-and-drop.png",
       "AssetKind": "All",
@@ -629,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\images\\drag-and-drop.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drop-down.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drop-down.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/drop-down.png",
       "AssetKind": "All",
@@ -646,10 +663,44 @@
       "OriginalItemSpec": "wwwroot\\images\\drop-down.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/editing.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\editing.png"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing@2x.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/editing@2x.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\editing@2x.png"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "AssetKind": "All",
@@ -663,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "AssetKind": "All",
@@ -680,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "AssetKind": "All",
@@ -697,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\eye.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\eye.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/eye.png",
       "AssetKind": "All",
@@ -714,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\images\\eye.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\facebook.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\facebook.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/facebook.png",
       "AssetKind": "All",
@@ -731,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\images\\facebook.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\filter.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\filter.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/filter.png",
       "AssetKind": "All",
@@ -748,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\images\\filter.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\gift.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\gift.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/gift.png",
       "AssetKind": "All",
@@ -765,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\images\\gift.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\graph.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\graph.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/graph.png",
       "AssetKind": "All",
@@ -782,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\images\\graph.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\grid.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\grid.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/grid.png",
       "AssetKind": "All",
@@ -799,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\images\\grid.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability.png",
       "AssetKind": "All",
@@ -816,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "AssetKind": "All",
@@ -833,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "AssetKind": "All",
@@ -850,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "AssetKind": "All",
@@ -867,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "AssetKind": "All",
@@ -884,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "AssetKind": "All",
@@ -901,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "AssetKind": "All",
@@ -918,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/heart.png",
       "AssetKind": "All",
@@ -935,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\images\\heart.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/heart1.png",
       "AssetKind": "All",
@@ -952,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\images\\heart1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\hours.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\hours.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/hours.png",
       "AssetKind": "All",
@@ -969,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\images\\hours.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/image.png",
       "AssetKind": "All",
@@ -986,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/image1.png",
       "AssetKind": "All",
@@ -1003,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/image2.png",
       "AssetKind": "All",
@@ -1020,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img.png",
       "AssetKind": "All",
@@ -1037,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img1.png",
       "AssetKind": "All",
@@ -1054,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img11.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img11.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img11.png",
       "AssetKind": "All",
@@ -1071,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img11.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img2.png",
       "AssetKind": "All",
@@ -1088,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img22.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img22.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img22.png",
       "AssetKind": "All",
@@ -1105,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img22.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img3.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img3.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img3.png",
       "AssetKind": "All",
@@ -1122,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img3.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img33.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img33.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/img33.png",
       "AssetKind": "All",
@@ -1139,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img33.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\info.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\info.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/info.png",
       "AssetKind": "All",
@@ -1156,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\images\\info.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/left.png",
       "AssetKind": "All",
@@ -1173,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\images\\left.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/left1.png",
       "AssetKind": "All",
@@ -1190,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\images\\left1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\linkedin.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\linkedin.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/linkedin.png",
       "AssetKind": "All",
@@ -1207,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\images\\linkedin.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\list.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\list.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/list.png",
       "AssetKind": "All",
@@ -1224,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\images\\list.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\logo.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\logo.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/logo.png",
       "AssetKind": "All",
@@ -1241,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/mission.png",
       "AssetKind": "All",
@@ -1258,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\images\\mission.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/my-story.png",
       "AssetKind": "All",
@@ -1275,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\images\\my-story.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\new-message.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\new-message.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/new-message.png",
       "AssetKind": "All",
@@ -1292,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\images\\new-message.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\next.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\next.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/next.png",
       "AssetKind": "All",
@@ -1309,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\images\\next.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Nourish-the-Children-in--African-country.png",
       "AssetKind": "All",
@@ -1326,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Nourish-the-Children-in--African-country.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Nourish-the-Children-in--African-country-1.png",
       "AssetKind": "All",
@@ -1343,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Open-Volunteering-Requests.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Open-Volunteering-Requests.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Open-Volunteering-Requests.png",
       "AssetKind": "All",
@@ -1360,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Open-Volunteering-Requests.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\organization.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\organization.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/organization.png",
       "AssetKind": "All",
@@ -1377,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\images\\organization.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pdf.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pdf.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/pdf.png",
       "AssetKind": "All",
@@ -1394,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pdf.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/pin.png",
       "AssetKind": "All",
@@ -1411,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pin.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/pin1.png",
       "AssetKind": "All",
@@ -1428,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pin1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Plantation-and-Afforestation-programme.png",
       "AssetKind": "All",
@@ -1445,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Plantation-and-Afforestation-programme.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Plantation-and-Afforestation-programme-1.png",
       "AssetKind": "All",
@@ -1462,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Plantation-and-Afforestation-programme-1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/previous.png",
       "AssetKind": "All",
@@ -1479,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\images\\previous.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/profile_images/b83e749f-b503-4f05-861a-a8c408a4dc26.png",
       "AssetKind": "All",
@@ -1496,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/red-heart.png",
       "AssetKind": "All",
@@ -1513,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\images\\red-heart.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/right.png",
       "AssetKind": "All",
@@ -1530,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/right-arrow.png",
       "AssetKind": "All",
@@ -1547,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/right-arrow1.png",
       "AssetKind": "All",
@@ -1564,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/right-arrow2.png",
       "AssetKind": "All",
@@ -1581,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-white.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-white.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/right-white.png",
       "AssetKind": "All",
@@ -1598,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-white.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\search.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\search.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/search.png",
       "AssetKind": "All",
@@ -1615,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\images\\search.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Seats-left.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Seats-left.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Seats-left.png",
       "AssetKind": "All",
@@ -1632,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Seats-left.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\selected-star.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\selected-star.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/selected-star.png",
       "AssetKind": "All",
@@ -1649,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\images\\selected-star.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\settings.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\settings.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/settings.png",
       "AssetKind": "All",
@@ -1666,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\images\\settings.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/star.png",
       "AssetKind": "All",
@@ -1683,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star-empty.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star-empty.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/star-empty.png",
       "AssetKind": "All",
@@ -1700,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star-empty.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/06b11081-1137-4ba7-8c51-30060b81f14a.png",
       "AssetKind": "All",
@@ -1717,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/1634fe3c-272b-4219-954a-d41ab254cf26.png",
       "AssetKind": "All",
@@ -1734,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/1877729a-870c-46f6-bbd2-588694d8bbe3.png",
       "AssetKind": "All",
@@ -1751,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/3134e7bf-652d-496e-acc0-59fbed2e777c.png",
       "AssetKind": "All",
@@ -1768,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/4781559b-a181-40c0-b9bd-712aa3993870.png",
       "AssetKind": "All",
@@ -1785,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/481ab106-c56b-4e3f-a208-0c8454a29c7f.png",
       "AssetKind": "All",
@@ -1802,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/4bec23fe-d485-4d82-bd38-05c773131774.png",
       "AssetKind": "All",
@@ -1819,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/5b107c80-7aff-4a37-b495-ae05ae5d6be7.png",
       "AssetKind": "All",
@@ -1836,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/9476b932-6b0c-41f8-8498-133bc582b883.png",
       "AssetKind": "All",
@@ -1853,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
       "AssetKind": "All",
@@ -1870,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/9fda474e-b468-4099-961e-08ff9daec481.png",
       "AssetKind": "All",
@@ -1887,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/b3438bfa-567c-434c-98ba-25042cc8a98c.png",
       "AssetKind": "All",
@@ -1904,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/bf228106-dd8c-44b5-809a-ead23cbd75e1.png",
       "AssetKind": "All",
@@ -1921,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/c192566f-cdd5-4b35-b227-f5a5376fe868.png",
       "AssetKind": "All",
@@ -1938,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/d0187757-0445-4da4-9db5-011847201d53.png",
       "AssetKind": "All",
@@ -1955,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/e472ff6f-6c32-44ec-80cb-c733020201da.png",
       "AssetKind": "All",
@@ -1972,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/e9f32d0a-277a-4215-9731-8e4ca5db41ea.png",
       "AssetKind": "All",
@@ -1989,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/eab78612-42c3-4449-80f9-694e910d9d99.png",
       "AssetKind": "All",
@@ -2006,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/ec807c9d-3ad8-4794-ab44-9db61bb6d885.png",
       "AssetKind": "All",
@@ -2023,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/storyimages/fee0576a-ae58-4959-ba14-a76307a2f07d.png",
       "AssetKind": "All",
@@ -2040,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\twitter.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\twitter.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/twitter.png",
       "AssetKind": "All",
@@ -2057,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\images\\twitter.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\up.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\up.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/up.png",
       "AssetKind": "All",
@@ -2074,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\images\\up.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/user.png",
       "AssetKind": "All",
@@ -2091,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/user1.png",
       "AssetKind": "All",
@@ -2108,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/user-img.png",
       "AssetKind": "All",
@@ -2125,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user-img.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img-large.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img-large.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/user-img-large.png",
       "AssetKind": "All",
@@ -2142,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user-img-large.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer1.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer1.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer1.png",
       "AssetKind": "All",
@@ -2159,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer1.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer2.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer2.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer2.png",
       "AssetKind": "All",
@@ -2176,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer2.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer3.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer3.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer3.png",
       "AssetKind": "All",
@@ -2193,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer3.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer4.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer4.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer4.png",
       "AssetKind": "All",
@@ -2210,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer4.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer5.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer5.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer5.png",
       "AssetKind": "All",
@@ -2227,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer5.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer6.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer6.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer6.png",
       "AssetKind": "All",
@@ -2244,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer6.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer7.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer7.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer7.png",
       "AssetKind": "All",
@@ -2261,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer7.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer8.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer8.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer8.png",
       "AssetKind": "All",
@@ -2278,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer8.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer9.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer9.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/volunteer9.png",
       "AssetKind": "All",
@@ -2295,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer9.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Volunteering-Rank.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Volunteering-Rank.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Volunteering-Rank.png",
       "AssetKind": "All",
@@ -2312,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Volunteering-Rank.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Voted-Missions.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Voted-Missions.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/Voted-Missions.png",
       "AssetKind": "All",
@@ -2329,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Voted-Missions.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\web.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\web.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/web.png",
       "AssetKind": "All",
@@ -2346,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\images\\web.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\xlsx.png",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\xlsx.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "images/xlsx.png",
       "AssetKind": "All",
@@ -2363,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2380,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\carouselImageChanger.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\carouselImageChanger.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/carouselImageChanger.js",
       "AssetKind": "All",
@@ -2397,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\js\\carouselImageChanger.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\custom.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\custom.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/custom.js",
       "AssetKind": "All",
@@ -2414,10 +2465,10 @@
       "OriginalItemSpec": "wwwroot\\js\\custom.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\filterMissionSidebar.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\filterMissionSidebar.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/filterMissionSidebar.js",
       "AssetKind": "All",
@@ -2431,10 +2482,10 @@
       "OriginalItemSpec": "wwwroot\\js\\filterMissionSidebar.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/gridList.js",
       "AssetKind": "All",
@@ -2448,10 +2499,10 @@
       "OriginalItemSpec": "wwwroot\\js\\gridList.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/headerSidebar.js",
       "AssetKind": "All",
@@ -2465,10 +2516,10 @@
       "OriginalItemSpec": "wwwroot\\js\\headerSidebar.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/pagination.js",
       "AssetKind": "All",
@@ -2482,10 +2533,10 @@
       "OriginalItemSpec": "wwwroot\\js\\pagination.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/scrolable.js",
       "AssetKind": "All",
@@ -2499,10 +2550,10 @@
       "OriginalItemSpec": "wwwroot\\js\\scrolable.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/searchMission.js",
       "AssetKind": "All",
@@ -2516,10 +2567,10 @@
       "OriginalItemSpec": "wwwroot\\js\\searchMission.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -2533,10 +2584,27 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\tiny.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\timesheet.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/timesheet.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\timesheet.js"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\tiny.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/tiny.js",
       "AssetKind": "All",
@@ -2550,10 +2618,10 @@
       "OriginalItemSpec": "wwwroot\\js\\tiny.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\volunteeringInfo.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\volunteeringInfo.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "js/volunteeringInfo.js",
       "AssetKind": "All",
@@ -2567,10 +2635,10 @@
       "OriginalItemSpec": "wwwroot\\js\\volunteeringInfo.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -2584,10 +2652,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -2601,10 +2669,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -2618,10 +2686,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -2635,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -2652,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -2669,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -2686,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -2703,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -2720,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -2737,10 +2805,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -2754,10 +2822,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -2771,10 +2839,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -2788,10 +2856,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -2805,10 +2873,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -2822,10 +2890,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -2839,10 +2907,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -2856,10 +2924,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -2873,10 +2941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -2890,10 +2958,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -2907,10 +2975,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -2924,10 +2992,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -2941,10 +3009,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -2958,10 +3026,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -2975,10 +3043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -2992,10 +3060,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -3009,10 +3077,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -3026,10 +3094,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -3043,10 +3111,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -3060,10 +3128,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -3077,10 +3145,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -3094,10 +3162,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -3111,10 +3179,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -3128,10 +3196,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -3145,10 +3213,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -3162,10 +3230,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -3179,10 +3247,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -3196,10 +3264,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -3213,10 +3281,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -3230,10 +3298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -3247,10 +3315,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -3264,10 +3332,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -3281,10 +3349,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -3298,10 +3366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -3315,10 +3383,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -3332,10 +3400,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -3349,10 +3417,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -3366,10 +3434,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -3383,10 +3451,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -3400,10 +3468,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -3417,10 +3485,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -3434,10 +3502,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -3451,10 +3519,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -3468,10 +3536,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -3485,10 +3553,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -3502,10 +3570,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -3519,10 +3587,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "ContentRoot": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

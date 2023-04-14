@@ -8,6 +8,7 @@
 		public IUserProfileService UserProfile { get; }
 		public IVolunteeringMissionService VolunteeringMission { get; }
 
+		public IVolunteeringTimesheetService VolunteeringTimesheet { get; }
 		public IPasswordService Password { get; }
 	}
 }

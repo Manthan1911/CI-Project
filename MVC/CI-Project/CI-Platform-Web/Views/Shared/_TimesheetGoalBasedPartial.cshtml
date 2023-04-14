@@ -1,0 +1,75 @@
+﻿@model List<CI_Project.Entities.ViewModels.MissionTimesheetGoalModel>
+
+<style>
+
+	.ts-table {
+		height: 300px;
+	}
+
+	th,
+	td {
+		padding: 0 0.5rem;
+		border-bottom: none !important;
+	}
+
+	th {
+		padding-bottom: 0.5rem;
+	}
+
+	td {
+		font-size: 15px;
+		padding-top: 0.25rem !important;
+		padding-bottom: 0.25rem !important;
+	}
+
+</style>
+
+<div class="flex-basis-100 border shadow-sm p-3 py-md-4">
+	<div class="d-flex justify-content-between align-items-center mb-3">
+		<div class="fw-light">Volunteering Goals</div>
+		<button class="btn border border-2 border-warning d-flex gap-2 px-3" id="openGoalModal">
+			<span class="fw-bold">+</span> Add
+		</button>
+	</div>
+
+	<div class="ts-table table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Mission</th>
+					<th>Date</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody class="fw-light">
+				@if (Model.Count() == 0)
+				{
+					<tr>
+						<td colspan="100%">
+							<div class="text-center">No entries found.</div>
+						</td>
+					</tr>
+				}
+				@foreach (var currTimesheetData in Model)
+				{
+					<tr>
+						<td>@currTimesheetData.MissionName</td>
+						<td>@currTimesheetData.DateVolunteered?.ToString("d")</td>
+						<td>@currTimesheetData.Action</td>
+						@if (currTimesheetData.ApprovalStatus == "PENDING")
+						{
+							<td>
+								<div class="d-flex gap-2">
+									<img src="~/images/editing.png" class="editGoal cursor-pointer" alt="edit"
+								 height="20px" width="20px" data-id="@currTimesheetData.TimesheetId">
+									<img src="~/images/bin.png" class="deleteGoal cursor-pointer" alt="bin" height="20px" width="20px"
+								 data-id="@currTimesheetData.TimesheetId">
+								</div>
+							</td>
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

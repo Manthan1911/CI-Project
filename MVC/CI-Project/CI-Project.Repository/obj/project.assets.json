@@ -3730,11 +3730,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
+      "projectUniqueName": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
       "projectName": "CI-Project.Repository",
-      "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
+      "projectPath": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
       "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-      "outputPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\obj\\",
+      "outputPath": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Project.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3751,8 +3751,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
-              "projectPath": "W:\\CI_Project\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
+            "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+              "projectPath": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
             }
           }
         }

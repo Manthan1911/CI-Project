@@ -56,7 +56,8 @@
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 				<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile" asp-route-userId="@userId">Add Profile</a></li>
-				<li><a class="dropdown-item" asp-action="Logout" asp-controller="Authentication">logout</a></li>
+				<li><a class="dropdown-item" asp-action="Index" asp-controller="VolunteeringTimesheet" asp-route-userId="@userId">Volunteering Timesheet</a></li>
+				<li><a class="dropdown-item" asp-action="Logout" asp-controller="Authentication" >logout</a></li>
 			</ul>
 		</div>
 	</div>

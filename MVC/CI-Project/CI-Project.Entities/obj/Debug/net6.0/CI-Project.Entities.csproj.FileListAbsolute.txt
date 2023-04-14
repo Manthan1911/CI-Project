@@ -40,3 +40,17 @@ W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\ref
 W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.pdb
 W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.genruntimeconfig.cache
 W:\CI_Project\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\ref\CI-Project.Entities.dll
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.deps.json
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.runtimeconfig.json
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.dll
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.pdb
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.csproj.AssemblyReference.cache
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.GeneratedMSBuildEditorConfig.editorconfig
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.AssemblyInfoInputs.cache
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.AssemblyInfo.cs
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.csproj.CoreCompileInputs.cache
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.dll
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\refint\CI-Project.Entities.dll
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.pdb
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.genruntimeconfig.cache
+W:\CI_Project_Final2\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\ref\CI-Project.Entities.dll

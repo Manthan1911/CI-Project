@@ -16,6 +16,7 @@ namespace CI_Project.Services
 			UserProfile = new UserProfileService(_unitOfWork);
 			VolunteeringMission = new VolunteeringMissionService(_unitOfWork);
 			Password = new PasswordService(_unitOfWork);
+			VolunteeringTimesheet = new VolunteeringTimesheetService(_unitOfWork);
 		}
 
 		public IHomeService Home { get; }
@@ -23,8 +24,8 @@ namespace CI_Project.Services
 		public IUserService User { get; }
 		public IUserProfileService UserProfile { get; }
 		public IVolunteeringMissionService VolunteeringMission { get; }
-
 		public IPasswordService Password { get; }
+		public IVolunteeringTimesheetService VolunteeringTimesheet { get; }
 
 	}
 }

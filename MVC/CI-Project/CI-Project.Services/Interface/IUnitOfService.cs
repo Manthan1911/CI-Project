@@ -7,7 +7,7 @@
 		public IUserService User { get; }
 		public IUserProfileService UserProfile { get; }
 		public IVolunteeringMissionService VolunteeringMission { get; }
-
 		public IPasswordService Password { get; }
+		public IVolunteeringTimesheetService VolunteeringTimesheet { get;}
 	}
 }

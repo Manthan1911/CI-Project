@@ -12,5 +12,8 @@
 		IUserProfileRepository UserProfile { get; }
 		
 		IVolunteeringMissionRepository VolunteeringMission { get; }
+
+		IVolunteeringTimesheetRepository VolunteeringTimesheet { get; }
+		int Save();
 	}
 }

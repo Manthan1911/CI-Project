@@ -1,0 +1,53 @@
+﻿@model List<CI_Project.Entities.ViewModels.MissionTimesheetTimeModel>
+
+<div class="flex-basis-100 border shadow-sm p-3 py-md-4">
+	<div class="d-flex justify-content-between align-items-center mb-3">
+		<div class="fw-light">Volunteering Hours</div>
+		<button class="btn button d-flex gap-2 px-3" id="openHourModal">
+			<span class="fw-bold">+</span> Add
+		</button>
+	</div>
+	<div class="ts-table table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Mission</th>
+					<th>Date</th>
+					<th>Hours</th>
+					<th>Minutes</th>
+				</tr>
+			</thead>
+			<tbody class="fw-light">
+				@if (timeSheet.Count() == 0)
+				{
+					<tr>
+						<td colspan="100%">
+							<div class="text-center">No entries found.</div>
+						</td>
+					</tr>
+				}
+				@foreach (var time in timeSheet)
+				{
+					<tr>
+						<td>@time.MissionName</td>
+						<td>@time.DateVolunteered?.ToString("d")</td>
+						<td>@time.TimeVolunteered.Value.Hours h</td>
+						<td>@time.TimeVolunteered.Value.Minutes min</td>
+						@if (time.ApprovalStatus == "PENDING")
+						{
+							<td>
+								<div class="d-flex gap-2">
+									<img src="/images/static/editing.png" class="editHour cursor-pointer" alt="edit" height="20px" width="20px"
+								 data-id="@time.TimesheetId">
+									<img src="/images/static/bin.png" class="deleteHour cursor-pointer" alt="bin" height="20px" width="20px"
+								 data-id="@time.TimesheetId">
+
+								</div>
+							</td>
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

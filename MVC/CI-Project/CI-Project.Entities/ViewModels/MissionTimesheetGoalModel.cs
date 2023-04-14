@@ -24,6 +24,6 @@ namespace CI_Project.Entities.ViewModels
 
 		public string? ApprovalStatus { get; set; }
 
-		public List<MissionModel>? MissionVM { get; set; }
+		public List<MissionModel>? GoalBasedMissions { get; set; }
 	}
 }

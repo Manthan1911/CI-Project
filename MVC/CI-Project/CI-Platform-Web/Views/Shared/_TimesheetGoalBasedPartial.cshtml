@@ -1,0 +1,51 @@
+﻿@model CI_Project.Entities.ViewModels.MissionTimesheetGoalModel
+
+<div class="flex-basis-100 border shadow-sm p-3 py-md-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="fw-light">Volunteering Goals</div>
+        <button class="btn button d-flex gap-2 px-3" id="openGoalModal">
+            <span class="fw-bold">+</span> Add
+        </button>
+    </div>
+
+    <div class="ts-table table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mission</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="fw-light">
+                @if (goalSheet.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="100%">
+                            <div class="text-center">No entries found.</div>
+                        </td>
+                    </tr>
+                }
+                @foreach (var goal in goalSheet)
+                {
+                    <tr>
+                        <td>@goal.MissionName</td>
+                        <td>@goal.DateVolunteered?.ToString("d")</td>
+                        <td>@goal.Action</td>
+                        @if (goal.ApprovalStatus == ApprovalStatus.PENDING)
+                        {
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <img src="/images/static/editing.png" class="editGoal cursor-pointer" alt="edit"
+                                 height="20px" width="20px" data-id="@goal.TimesheetId">
+                                    <img src="/images/static/bin.png" class="deleteGoal cursor-pointer" alt="bin" height="20px" width="20px"
+                                 data-id="@goal.TimesheetId">
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -255,7 +255,7 @@ namespace CI_Platform_Web.Controllers
 					}
 					catch (Exception ex)
 					{
-
+						Console.WriteLine(ex.ToString());	
 					}
 
 				}

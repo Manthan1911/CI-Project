@@ -1,0 +1,68 @@
+﻿@model CI_Project.Entities.ViewModels.UserProfileModel
+@{
+	ViewData["Title"] = "Volunteering Mission Timesheet Page";
+	var userId = Context.Session.GetString("UserId");
+	var fullName = Context.Session.GetString("FullName");
+
+}
+
+@section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+	<style>
+		.ts-table {
+			height: 300px;
+		}
+
+		th,
+		td {
+			padding: 0 0.5rem;
+			border-bottom: none !important;
+		}
+
+		th {
+			padding-bottom: 0.5rem;
+		}
+
+		td {
+			font-size: 15px;
+			padding-top: 0.25rem !important;
+			padding-bottom: 0.25rem !important;
+		}
+	</style>
+}
+
+<input hidden id="userId" value="@userId"/>
+
+<main class="position-relative">
+	<header id="header" class="border-2 border-bottom ci-page-header bg-white w-100 z-3"
+			style="background-color: transparent;min-width: max-content;">
+		<partial name="_Navbar"></partial>
+
+
+	</header>
+
+	<div id="scrollable-area" class="overflow-y-scroll">
+
+		<div class="container " style="max-width:var(--max-width);">
+			<p class="top-titles color-darkgray fw-light">Volunteering Timesheet</p>
+			<section class="d-flex flex-column flex-lg-row gap-3">
+				<div id="timeBasedPartialDiv">
+
+				</div>
+				<div id="goalBasedPartialDiv">
+
+				</div>
+			</section>
+		</div>
+
+	</div>
+
+	<partial name="_Footer"></partial>
+</main>
+
+@section Scripts{
+	<script src="~/js/timesheet.js"></script>
+	<script src="~/js/tiny.js"></script>
+	<script src="~/js/headerSidebar.js"></script>
+	<script src="~/js/scrolable.js"></script>
+}

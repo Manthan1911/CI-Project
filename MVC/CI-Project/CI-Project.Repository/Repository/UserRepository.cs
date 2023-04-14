@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CI_Project.Repository.Repository
 {
-	public class UserRepository : IUserRepository
+	public class UserRepository : Repository<User>, IUserRepository
 	{
 		private readonly CIProjectDbContext _db;
 
-		public UserRepository(CIProjectDbContext db)
+		public UserRepository(CIProjectDbContext db):base(db)
 		{
 			_db = db;
 		}

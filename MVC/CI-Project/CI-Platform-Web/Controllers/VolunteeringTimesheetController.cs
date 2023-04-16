@@ -40,5 +40,39 @@ namespace CI_Platform_Web.Controllers
             List<MissionTimesheetGoalModel> missionTimesheetGoalVm = _unitOfService.VolunteeringTimesheet.GetAllGoalData(userId);
             return PartialView("_TimesheetGoalBasedPartial", missionTimesheetGoalVm);
         }
-    }
+
+        public IActionResult GetAddTimeModalPartial(long userId)
+        {
+            MissionTimesheetTimeModel missionTimesheetTimeModel = new();
+            missionTimesheetTimeModel.Missions = _unitOfService.VolunteeringTimesheet.GetMissionList(userId);
+            return PartialView("_AddTimeModal",missionTimesheetTimeModel);
+        }
+
+		public IActionResult GetAddGoalModalPartial(long userId)
+		{
+            MissionTimesheetGoalModel missionTimesheetGoalModel = new();
+			return PartialView("_AddGoalModal", missionTimesheetGoalModel);
+		}
+
+        [HttpPost]
+        public IActionResult SaveTimeData(MissionTimesheetTimeModel missionTimesheetTimeModel)
+        {
+            try
+            {
+				var isDateValid = _unitOfService.VolunteeringTimesheet.IsDateValidToSaveTimesheetEntry(DateTime.Now, missionTimesheetTimeModel.MissionId);
+
+				if (!isDateValid)
+				{
+					return NoContent();
+				}
+
+				_unitOfService.VolunteeringTimesheet.SaveTimeData(missionTimesheetTimeModel);
+			}
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return Ok(200);
+		}
+	}
 }

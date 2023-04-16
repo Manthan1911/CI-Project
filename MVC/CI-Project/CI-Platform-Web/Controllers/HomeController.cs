@@ -103,9 +103,10 @@ namespace CI_Platform_Web.Controllers
 					missionVmList.Add(convertDataModelToMissionModel(currMisssion, gridListModel.userId));
 				}
 
-				ViewBag.totalMissions = missionVmList.Count;
+				gridListModel.missionModels= missionVmList;
+				ViewBag.totalMissions = gridListModel.missionModels.Count;
 				ViewBag.paginationLimit = pageSize;
-				return PartialView("_GridViewListViewPartial", missionVmList.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
+				return PartialView("_GridViewListViewPartial", gridListModel.missionModels.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
 			}
 
 			foreach (var currMisssion in missions)

@@ -1,0 +1,38 @@
+﻿@model CI_Project.Entities.ViewModels.MissionTimesheetGoalModel
+
+<div id="addGoalModal" class="modal" tabindex="-1">
+	<div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header border-bottom-0">
+				<h5 class="modal-title">Please input below Volunteering Goal</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container px-2 mb-2">
+					<div class="d-flex flex-column mb-3">
+						<label>Mission</label>
+						<select class="px-2 py-1 rounded-3  border border-2 ">
+							<option></option>
+						</select>
+					</div>
+					<div class="d-flex flex-column mb-3">
+						<label>Action</label>
+						<input class="px-2 py-1 rounded-3 border border-2 w-100" type="number" placeholder="Enter Actions" />
+					</div>
+					<div class="d-flex flex-column mb-3">
+						<label>Date Volunteered</label>
+						<input class="px-2 py-1 rounded-3 border border-2 " type="date" placeholder="Select Date" />
+					</div>
+					<div class="d-flex flex-column mb-3">
+						<label>Message</label>
+						<textarea class="px-2 py-1 rounded-3 border border-2 " placeholder="Enter your message"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer border-top-0 d-flex justify-content-end">
+				<button id="" type="button" class="bg-transparent border border-2 border-danger text-danger rounded-pill py-2 px-3" data-bs-dismiss="modal">Cancel</button>
+				<button id="" type="button" class="bg-transparent border border-2 border-warning text-warning rounded-pill py-2 px-3">Save</button>
+			</div>
+		</div>
+	</div>
+</div>

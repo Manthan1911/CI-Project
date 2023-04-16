@@ -1,0 +1,21 @@
+﻿html{
+    scroll-behavior:smooth !important;
+}
+.heading-1{
+    font-size:1.8rem;
+}
+
+.font-16{
+    font-size:1rem;
+}
+
+.font-bold{
+    font-weight:600;
+}
+
+.links-div > a:hover{
+    font-weight : 500;
+    cursor:pointer;
+    padding:4px;
+    border-bottom:2px solid black !important;
+}

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\landingPage.css"
     },
     {
+      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\privacypolicy.css",
+      "PackagePath": "staticwebassets\\css\\privacypolicy.css"
+    },
+    {
       "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

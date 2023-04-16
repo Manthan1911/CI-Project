@@ -16,20 +16,19 @@
 	<header id="header" class="border-2 border-bottom ci-page-header bg-white w-100 z-3"
 			style="background-color: transparent;min-width: max-content;">
 		<partial name="_Navbar"></partial>
-
-
 	</header>
 
 	<div id="scrollable-area" class="overflow-y-scroll">
 
-		<div class="container " style="max-width:var(--max-width);">
-			<p class="top-titles color-darkgray fw-light">Volunteering Timesheet</p>
-			<section class="d-flex flex-column flex-lg-row gap-3">
-				<div id="timeBasedPartialDiv" style="flex-basis:100;">
+		<div class="container" style="max-width:var(--max-width);">
+			<p class="row">Volunteering Timesheet</p>
+			<div class="row">
+				<div id="timeBasedPartialDiv" class="col-xl-6">
 				</div>
-				<div id="goalBasedPartialDiv" style="flex-basis:100;">
+				<div id="goalBasedPartialDiv" class="col-xl-6">
 				</div>
-			</section>
+				<div id="openAnyModal"></div>
+			</div>
 		</div>
 
 	</div>

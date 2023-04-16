@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CI_Project.Entities.DataModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace CI_Project.Entities.ViewModels
 {
@@ -8,11 +9,11 @@ namespace CI_Project.Entities.ViewModels
 		public long TimesheetId { get; set; }
 
 		[Required]
-		public long? MissionId { get; set; }
+		public long MissionId { get; set; }
 
 		public string? MissionName { get; set; }
 
-		public long? UserId { get; set; }
+		public long UserId { get; set; }
 
 		[Required]
 		public DateTime? DateVolunteered { get; set; }
@@ -20,12 +21,12 @@ namespace CI_Project.Entities.ViewModels
 		[Required]
 		[Range(0, 23)]
 		[RegularExpression("([0-9]+)", ErrorMessage = "Invalid Hours")]
-		public int? Hours { get; set; }
+		public int Hours { get; set; }
 
 		[Required]
 		[Range(0, 59)]
 		[RegularExpression("([0-9]+)", ErrorMessage = "Invalid Minutes")]
-		public int? Minutes { get; set; }
+		public int Minutes { get; set; }
 
 		[Required]
 		[Display(Name = "Message")]
@@ -33,6 +34,6 @@ namespace CI_Project.Entities.ViewModels
 		public string? Notes { get; set; }
 		public string? ApprovalStatus { get; set; }
 
-		public List<MissionModel>? MissionVM { get; set; }
+		public List<Mission>? Missions { get; set; }
 	}
 }

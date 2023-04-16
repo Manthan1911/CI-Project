@@ -74,7 +74,9 @@ main {
 #scrollable-area::-webkit-scrollbar {
     display: none;
 }
-
+.cursor-pointer{
+    cursor:pointer;
+}
 footer {
     bottom: 0;
     left: 0;

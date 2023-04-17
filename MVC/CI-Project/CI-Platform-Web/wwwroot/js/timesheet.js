@@ -17,6 +17,8 @@ function callTimeBasedPartial(userId) {
             $('#timeBasedPartialDiv').html(data);
             openTimeBasedModal(userId);
             addListenerToTimeBasedEditButton(userId);
+            addListenerToDeleteTimesheetButton(userId);
+
         },
         error: function (error) {
             alert("time model not loaded!");
@@ -35,6 +37,8 @@ function callGoalBasedPartial(userId) {
             $('#goalBasedPartialDiv').html("");
             $('#goalBasedPartialDiv').html(data);
             openGoalBasedModal(userId);
+            addListenerToGoalBasedEditButton(userId);
+            addListenerToDeleteTimesheetButton(userId);
 
         },
         error: function (error) {
@@ -193,7 +197,7 @@ function addListenerToTimeBasedEditButton(userId) {
 
             $.ajax({
                 url: "/VolunteeringTimesheet/GetTimeBasedEditPartial",
-                method: "PUT",
+                method: "GET",
                 dataType: "html",
                 data: { "userId": userId, "timesheetId": timesheetId },
                 success: (data, _, status) => {
@@ -229,6 +233,52 @@ function addListenerToTimeBasedEditButton(userId) {
     });
 }
 
+function addListenerToGoalBasedEditButton(userId) {
+    let goalBasedEditButtons = document.querySelectorAll(".editGoal");
+
+    goalBasedEditButtons.forEach((editButton) => {
+        editButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            let timesheetId = editButton.getAttribute('data-id');
+
+            $.ajax({
+                url: "/VolunteeringTimesheet/GetGoalBasedEditPartial",
+                method: "GET",
+                dataType: "html",
+                data: { "userId": userId, "timesheetId": timesheetId },
+                success: (data, _, status) => {
+
+                    if (status.status == 204) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Data Not found to edit!',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        return;
+                    }
+
+                    $('#openAnyModal').html("");
+                    $('#openAnyModal').html(data);
+                    $('#editGoalModal').modal('show');
+                    editGoalData();
+                },
+                error: (error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'problem loading edit partial',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                }
+            });
+
+        });
+    });
+}
+
 function editTimeData() {
     $('#editTimeDataForm').on('submit', (e) => {
         console.log("submit");
@@ -238,7 +288,7 @@ function editTimeData() {
             let formData = form.serialize();
             $.ajax({
                 url: "/VolunteeringTimesheet/EditTimeData",
-                method: "POST",
+                method: "PUT",
                 dataType: "html",
                 data: formData,
                 success: function (data, _, status) {
@@ -279,6 +329,121 @@ function editTimeData() {
     });
 }
 
+function editGoalData() {
+    $('#editGoalDataForm').on('submit', (e) => {
+        console.log("submit");
+        e.preventDefault();
+        let form = $('#editGoalDataForm');
+        if (isFormValid(form)) {
+            let formData = form.serialize();
+            $.ajax({
+                url: "/VolunteeringTimesheet/EditGoalData",
+                method: "PUT",
+                dataType: "html",
+                data: formData,
+                success: function (data, _, status) {
+
+                    if (status.status == 204) {
+                        $('#editGoalFormDateVolunteered').text("Your date should be between mission's start and end date!");
+                        return;
+                    }
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Timesheet data Edited Successfully!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                    $('#editGoalModal').modal('hide');
+
+                    callGoalBasedPartial(userId);
+
+
+                },
+                error: function (error) {
+                    alert("Error in Editing TimeData!");
+                }
+            });
+        }
+        else {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'form not valid!',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+    });
+}
+
+function addListenerToDeleteTimesheetButton(userId) {
+    let deleteButtons = document.querySelectorAll('.deleteTimesheetDataBtn');
+    console.log(deleteButtons);
+    deleteButtons.forEach((deleteButton) => {
+        deleteButton.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let timesheetId = deleteButton.getAttribute('data-id');
+            console.log("timesheet id : " + timesheetId);
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "/VolunteeringTimesheet/DeleteTimeData",
+                        method: "GET",
+                        dataType: "html",
+                        data: { "timesheetId": timesheetId },
+                        success: (data, _, status) => {
+
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Data Not found to delete!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Data deleted successfully!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                            callTimeBasedPartial(userId);
+                            callGoalBasedPartial(userId);
+
+                        },
+                        error: (error) => {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'problem loading edit partial',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                        }
+                    });
+                }
+            })
+            
+        });
+    })
+}
 
 
 const isFormValid = (form) => {

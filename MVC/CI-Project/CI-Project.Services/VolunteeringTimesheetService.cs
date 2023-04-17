@@ -1,5 +1,6 @@
 ﻿using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
+using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
 using CI_Project.Services.Interface;
 
@@ -62,6 +63,7 @@ namespace CI_Project.Services
 		{
 			return new MissionTimesheetGoalModel()
 			{
+				TimesheetId = timesheetData.TimesheetId,
 				MissionId = timesheetData.MissionId,
 				MissionName = timesheetData.Mission.Title,
 				UserId = timesheetData.UserId,
@@ -140,6 +142,37 @@ namespace CI_Project.Services
 			timesheetObj.Time = new TimeSpan((int)missionTimesheetTimeModel.Hours,(int)missionTimesheetTimeModel.Minutes,0);
 
 			_unitOfWork.VolunteeringTimesheet.Update(timesheetObj);
+			_unitOfWork.Save();
+		}
+
+		public void EditGoalData(MissionTimesheetGoalModel missionTimesheetGoalModel)
+		{
+			Timesheet timesheetObj = _unitOfWork.VolunteeringTimesheet.GetAllWithInclude().FirstOrDefault(timesheet => timesheet.TimesheetId == missionTimesheetGoalModel.TimesheetId);
+			timesheetObj.MissionId = (long)missionTimesheetGoalModel.MissionId;
+			timesheetObj.DateVolunteered = (DateTime)missionTimesheetGoalModel.DateVolunteered;
+			timesheetObj.Notes= missionTimesheetGoalModel.Notes;
+			timesheetObj.UpdatedAt= DateTime.Now;
+			timesheetObj.Action = missionTimesheetGoalModel.Action;
+
+			_unitOfWork.VolunteeringTimesheet.Update(timesheetObj);
+			_unitOfWork.Save();
+		}
+
+		public MissionTimesheetGoalModel GetParticularGoalBasedData(long timesheetId)
+		{
+			Timesheet timesheetObj = _unitOfWork.VolunteeringTimesheet.GetAllWithInclude().FirstOrDefault(timesheet => timesheet.TimesheetId == timesheetId);
+			return ConvertToGoalModel(timesheetObj);
+		}
+
+		public Timesheet GetTimesheetData(long timesheetId)
+		{
+			return _unitOfWork.VolunteeringTimesheet.GetFirstOrDefault(timesheet => timesheet.TimesheetId == timesheetId);
+		}
+
+		public void DeleteTimesheetData(long timesheetId)
+		{
+			Timesheet timesheetObj = GetTimesheetData(timesheetId);
+			_unitOfWork.VolunteeringTimesheet.Delete(timesheetObj);
 			_unitOfWork.Save();
 		}
 	}

@@ -121,5 +121,49 @@ namespace CI_Platform_Web.Controllers
 			}
 			return Ok(200);
 		}
+
+		public IActionResult GetGoalBasedEditPartial(long userId, long timesheetId)
+		{
+			MissionTimesheetGoalModel? goalObj = _unitOfService.VolunteeringTimesheet.GetParticularGoalBasedData(timesheetId);
+			goalObj.Missions = _unitOfService.VolunteeringTimesheet.GetMissionList(userId, "goal");
+			if (goalObj == null)
+			{
+				return NoContent();
+			}
+			return PartialView("_EditGoalModal", goalObj);
+		}
+
+		public IActionResult EditGoalData(MissionTimesheetGoalModel missionTimesheetGoalModel)
+		{
+			try
+			{
+				var isDateValid = _unitOfService.VolunteeringTimesheet.IsDateValidToSaveTimesheetEntry((DateTime)missionTimesheetGoalModel.DateVolunteered, missionTimesheetGoalModel.MissionId);
+
+				if (!isDateValid)
+				{
+					return NoContent();
+				}
+
+				_unitOfService.VolunteeringTimesheet.EditGoalData(missionTimesheetGoalModel);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+			return Ok(200);
+		}
+
+		public IActionResult DeleteTimeData(long timesheetId)
+		{
+			try
+			{
+				_unitOfService.VolunteeringTimesheet.DeleteTimesheetData(timesheetId);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+			return Ok(200);
+		}
 	}
 }

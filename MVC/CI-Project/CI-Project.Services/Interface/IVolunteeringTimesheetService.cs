@@ -13,6 +13,9 @@ namespace CI_Project.Services.Interface
         public MissionTimesheetGoalModel ConvertToGoalModel(Timesheet timesheetData);
 		
 		public MissionTimesheetTimeModel GetParticularTimeBasedData(long timesheetId);
+		public MissionTimesheetGoalModel GetParticularGoalBasedData(long timesheetId);
+
+		public Timesheet GetTimesheetData(long timesheetId);
 		public List<Mission> GetMissionList(long userId, string type);
 
 		public bool IsDateValidToSaveTimesheetEntry(DateTime date, long? missionId);
@@ -20,6 +23,9 @@ namespace CI_Project.Services.Interface
 		public void SaveGoalData(MissionTimesheetGoalModel missionTimesheetGoalModel);
 
 		public void EditTimeData(MissionTimesheetTimeModel missionTimesheetTimeModel);
+		public void EditGoalData(MissionTimesheetGoalModel missionTimesheetGoalModel);
+
+		public void DeleteTimesheetData(long timesheetId);
 
 	}
 }

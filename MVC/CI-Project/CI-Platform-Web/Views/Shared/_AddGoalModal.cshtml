@@ -7,32 +7,48 @@
 				<h5 class="modal-title">Please input below Volunteering Goal</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body">
-				<div class="container px-2 mb-2">
-					<div class="d-flex flex-column mb-3">
-						<label>Mission</label>
-						<select class="px-2 py-1 rounded-3  border border-2 ">
-							<option></option>
-						</select>
-					</div>
-					<div class="d-flex flex-column mb-3">
-						<label>Action</label>
-						<input class="px-2 py-1 rounded-3 border border-2 w-100" type="number" placeholder="Enter Actions" />
-					</div>
-					<div class="d-flex flex-column mb-3">
-						<label>Date Volunteered</label>
-						<input class="px-2 py-1 rounded-3 border border-2 " type="date" placeholder="Select Date" />
-					</div>
-					<div class="d-flex flex-column mb-3">
-						<label>Message</label>
-						<textarea class="px-2 py-1 rounded-3 border border-2 " placeholder="Enter your message"></textarea>
+			<form id="addGoalDataForm" method="post">
+
+				<div class="modal-body">
+					<div class="container px-2 mb-2">
+						<input hidden asp-for="UserId" />
+						<div class="d-flex flex-column mb-3">
+							<label>Mission</label>
+							<select asp-for="MissionId" class="px-2 py-1 rounded-3  border border-2 ">
+								<option selected disabled>Select Mission</option>
+								@if (Model.Missions?.Count() > 0)
+								{
+									foreach (var currMission in Model.Missions)
+									{
+										<option value="@currMission.MissionId">@currMission.Title</option>
+									}
+								}
+							</select>
+							<span class="text-danger" asp-validation-for="MissionId"></span>
+						</div>
+						<div class="d-flex flex-column mb-3">
+							<label>Action</label>
+							<input asp-for="Action" class="px-2 py-1 rounded-3 border border-2 w-100" type="number" placeholder="Enter Actions" />
+							<span class="text-danger" asp-validation-for="Action"></span>
+						</div>
+						<div class="d-flex flex-column mb-3">
+							<label>Date Volunteered</label>
+							<input asp-for="DateVolunteered" class="px-2 py-1 rounded-3 border border-2 " type="date" placeholder="Select Date" />
+							<span class="text-danger" asp-validation-for="DateVolunteered"></span>
+						</div>
+						<div class="d-flex flex-column mb-3">
+							<label>Message</label>
+							<textarea asp-for="Notes" class="px-2 py-1 rounded-3 border border-2 " placeholder="Enter your message"></textarea>
+							<span class="text-danger" asp-validation-for="Notes"></span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal-footer border-top-0 d-flex justify-content-end">
-				<button id="" type="button" class="bg-transparent border border-2 border-danger text-danger rounded-pill py-2 px-3" data-bs-dismiss="modal">Cancel</button>
-				<button id="" type="button" class="bg-transparent border border-2 border-warning text-warning rounded-pill py-2 px-3">Save</button>
-			</div>
+				<div class="modal-footer border-top-0 d-flex justify-content-end">
+					<button type="button" class="bg-transparent border border-2 border-danger text-danger rounded-pill py-2 px-3" data-bs-dismiss="modal">Cancel</button>
+					<button type="submit" class="bg-transparent border border-2 border-warning text-warning rounded-pill py-2 px-3">Save</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
+<partial name="_ValidationScriptsPartial"></partial>

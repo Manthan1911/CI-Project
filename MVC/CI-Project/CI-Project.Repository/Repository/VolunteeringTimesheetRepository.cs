@@ -20,10 +20,10 @@ namespace CI_Project.Repository.Repository
             return table.Include(t => t.User).Include(t => t.Mission).ToList();
         }
 
-        public List<Mission> GetAllAppliedMissionsOfUser(long userId)
+        public List<Mission> GetAllAppliedMissionsOfUser(long userId,string type)
         {
             var listOfAppliedMissionId = _db.MissionApplications.Where(ma => ma.UserId == userId).Select(ma => ma.MissionId).ToArray();
-            List<Mission> appliedMissionList = _db.Missions.Where(m => listOfAppliedMissionId.Contains(m.MissionId)).ToList();
+            List<Mission> appliedMissionList = _db.Missions.Where(m => listOfAppliedMissionId.Contains(m.MissionId) && m.MissionType.ToLower().Equals(type)).ToList();
             return appliedMissionList;
         }
 
@@ -32,10 +32,5 @@ namespace CI_Project.Repository.Repository
             return _db.Missions.FirstOrDefault(m => m.MissionId == missionId);
         }
 
-        public void SaveTimeData(Timesheet timesheetObj)
-        {
-            _db.Timesheets.Add(timesheetObj);
-            _db.SaveChanges();
-        }
-    }
+     }
 }

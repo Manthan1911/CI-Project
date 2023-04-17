@@ -2,13 +2,11 @@
 
 namespace CI_Project.Repository.Repository.Interface
 {
-    public interface IVolunteeringTimesheetRepository
+    public interface IVolunteeringTimesheetRepository:IRepository<Timesheet>
     {
         public List<Timesheet> GetAllWithInclude();
-        public List<Mission> GetAllAppliedMissionsOfUser(long userId);
-
-        public Mission? GetMission(long? missionId);
-        public void SaveTimeData(Timesheet timesheetObj);
+        public List<Mission> GetAllAppliedMissionsOfUser(long userId, string type);
+		public Mission? GetMission(long? missionId);
 
 	}
 }

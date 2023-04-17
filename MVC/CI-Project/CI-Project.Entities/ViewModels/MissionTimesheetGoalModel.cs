@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CI_Project.Entities.DataModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace CI_Project.Entities.ViewModels
 {
@@ -15,7 +16,6 @@ namespace CI_Project.Entities.ViewModels
 		[Required]
 		public DateTime? DateVolunteered { get; set; }
 
-		[Required]
 		[StringLength(80)]
 		public string? Notes { get; set; }
 
@@ -25,6 +25,7 @@ namespace CI_Project.Entities.ViewModels
 
 		public string? ApprovalStatus { get; set; }
 
-		public List<MissionModel>? MissionVM { get; set; }
+		public List<Mission>? Missions { get; set; }
+		public List<Timesheet>? TimesheetData{ get; set; }
 	}
 }

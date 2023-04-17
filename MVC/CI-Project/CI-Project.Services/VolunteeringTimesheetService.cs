@@ -31,21 +31,18 @@ namespace CI_Project.Services
 		public MissionTimesheetTimeModel ConvertToTimeModel(Timesheet timesheetData)
 		{
 			MissionTimesheetTimeModel mts = new MissionTimesheetTimeModel()
-
 			{
 				MissionId = timesheetData.MissionId,
 				MissionName = timesheetData.Mission.Title,
+				DateVolunteered = timesheetData.DateVolunteered,
 				UserId = timesheetData.UserId,
 				Notes = timesheetData?.Notes,
-				DateVolunteered = timesheetData?.DateVolunteered,
 				ApprovalStatus = timesheetData?.Status,
+				Minutes = timesheetData.Time.Value.Minutes,
+				Hours = timesheetData.Time.Value.Hours,
+				TimesheetId=timesheetData.TimesheetId,
 			};
 
-			if (timesheetData?.Time != null)
-			{
-				mts.Hours = timesheetData.Time.Value.Hours;
-				mts.Minutes = timesheetData.Time.Value.Minutes;
-			}
 			return mts;
 		}
 
@@ -75,9 +72,9 @@ namespace CI_Project.Services
 			};
 		}
 
-		public List<Mission> GetMissionList(long userId)
+		public List<Mission> GetMissionList(long userId,string type)
 		{
-			List<Mission> listOfAppliedMissionsOfUser = _unitOfWork.VolunteeringTimesheet.GetAllAppliedMissionsOfUser(userId);
+			List<Mission> listOfAppliedMissionsOfUser = _unitOfWork.VolunteeringTimesheet.GetAllAppliedMissionsOfUser(userId,type);
 			return listOfAppliedMissionsOfUser;
 		}
 
@@ -100,14 +97,50 @@ namespace CI_Project.Services
 			{
 				UserId = missionTimesheetTimeModel.UserId,
 				MissionId = missionTimesheetTimeModel.MissionId,
-				Time = new TimeSpan(missionTimesheetTimeModel.Hours, missionTimesheetTimeModel.Minutes, 0),
-				//DateVolunteered = missionTimesheetTimeModel.DateVolunteered,
+				Time = new TimeSpan((int)missionTimesheetTimeModel.Hours, (int)missionTimesheetTimeModel.Minutes, 0),
+				DateVolunteered = (DateTime)missionTimesheetTimeModel.DateVolunteered,
 				Notes = missionTimesheetTimeModel.Notes,
 				Status = "PENDING",
 				CreatedAt = DateTime.Now,
 			};
 
-			_unitOfWork.VolunteeringTimesheet.SaveTimeData(timesheetObj);
+			_unitOfWork.VolunteeringTimesheet.Insert(timesheetObj);
+			_unitOfWork.Save();
+		}
+
+		public void SaveGoalData(MissionTimesheetGoalModel missionTimesheetGoalModel)
+		{
+			Timesheet goalObj = new()
+			{
+				UserId=(long)missionTimesheetGoalModel.UserId,
+				MissionId=(long)missionTimesheetGoalModel.MissionId,
+				Action= missionTimesheetGoalModel.Action,
+				DateVolunteered=(DateTime)missionTimesheetGoalModel.DateVolunteered,
+				Notes=missionTimesheetGoalModel.Notes,
+				Status="PENDING",
+				CreatedAt = DateTime.Now,
+			};
+			_unitOfWork.VolunteeringTimesheet.Insert(goalObj);
+			_unitOfWork.Save();
+		}
+
+		public MissionTimesheetTimeModel GetParticularTimeBasedData(long timesheetId)
+		{
+			Timesheet timesheetObj = _unitOfWork.VolunteeringTimesheet.GetAllWithInclude().FirstOrDefault(timesheet => timesheet.TimesheetId == timesheetId);
+			return ConvertToTimeModel(timesheetObj);
+		}
+
+		public void EditTimeData(MissionTimesheetTimeModel missionTimesheetTimeModel)
+		{
+			Timesheet timesheetObj = _unitOfWork.VolunteeringTimesheet.GetAllWithInclude().FirstOrDefault(timesheet => timesheet.TimesheetId == missionTimesheetTimeModel.TimesheetId);
+			timesheetObj.MissionId = missionTimesheetTimeModel.MissionId;
+			timesheetObj.DateVolunteered = (DateTime)missionTimesheetTimeModel.DateVolunteered;
+			timesheetObj.Notes= missionTimesheetTimeModel.Notes;
+			timesheetObj.UpdatedAt= DateTime.Now;
+			timesheetObj.Time = new TimeSpan((int)missionTimesheetTimeModel.Hours,(int)missionTimesheetTimeModel.Minutes,0);
+
+			_unitOfWork.VolunteeringTimesheet.Update(timesheetObj);
+			_unitOfWork.Save();
 		}
 	}
 }

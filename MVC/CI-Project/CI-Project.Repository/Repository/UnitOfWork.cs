@@ -28,5 +28,10 @@ namespace CI_Project.Repository.Repository
 
 		public IVolunteeringMissionRepository VolunteeringMission { get; }
 		public IVolunteeringTimesheetRepository VolunteeringTimesheet { get; }
+
+		public void Save()
+		{
+			_db.SaveChanges();	
+		}
 	}
 }

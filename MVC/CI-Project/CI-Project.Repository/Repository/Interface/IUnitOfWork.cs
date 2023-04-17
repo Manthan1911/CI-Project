@@ -14,5 +14,7 @@
 		IVolunteeringMissionRepository VolunteeringMission { get; }
 
 		IVolunteeringTimesheetRepository VolunteeringTimesheet { get;}
+
+		void Save();
 	}
 }

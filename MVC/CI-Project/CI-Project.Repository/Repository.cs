@@ -39,5 +39,6 @@ namespace CI_Project.Repository.Repository
             table.Update(entity);
         }
 
+
     }
 }

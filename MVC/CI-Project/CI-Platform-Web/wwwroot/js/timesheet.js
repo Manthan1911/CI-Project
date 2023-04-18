@@ -157,6 +157,11 @@ function saveAddGoalData(userId) {
                 data: formData,
                 success: function (data, _, status) {
 
+                    if (status.status == 204) {
+                        $('#addGoalDateVolunteered').text("Your date should be between mission's start and end date!");
+                        return;
+                    }
+
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -216,7 +221,7 @@ function addListenerToTimeBasedEditButton(userId) {
                     $('#openAnyModal').html("");
                     $('#openAnyModal').html(data);
                     $('#editTimeModal').modal('show');
-                    editTimeData();
+                    editTimeData(userId);
                 },
                 error: (error) => {
                     Swal.fire({
@@ -262,7 +267,7 @@ function addListenerToGoalBasedEditButton(userId) {
                     $('#openAnyModal').html("");
                     $('#openAnyModal').html(data);
                     $('#editGoalModal').modal('show');
-                    editGoalData();
+                    editGoalData(userId);
                 },
                 error: (error) => {
                     Swal.fire({
@@ -279,7 +284,7 @@ function addListenerToGoalBasedEditButton(userId) {
     });
 }
 
-function editTimeData() {
+function editTimeData(userId) {
     $('#editTimeDataForm').on('submit', (e) => {
         console.log("submit");
         e.preventDefault();
@@ -329,7 +334,7 @@ function editTimeData() {
     });
 }
 
-function editGoalData() {
+function editGoalData(userId) {
     $('#editGoalDataForm').on('submit', (e) => {
         console.log("submit");
         e.preventDefault();

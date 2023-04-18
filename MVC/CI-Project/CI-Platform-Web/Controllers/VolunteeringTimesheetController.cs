@@ -81,6 +81,12 @@ namespace CI_Platform_Web.Controllers
 		{
 			try
 			{
+				var isDateValid = _unitOfService.VolunteeringTimesheet.IsDateValidToSaveTimesheetEntry((DateTime)missionTimesheetGoalModel.DateVolunteered, missionTimesheetGoalModel.MissionId);
+
+				if (!isDateValid)
+				{
+					return NoContent();
+				}
 				_unitOfService.VolunteeringTimesheet.SaveGoalData(missionTimesheetGoalModel);
 			}
 			catch (Exception ex)
@@ -90,7 +96,7 @@ namespace CI_Platform_Web.Controllers
 			return Ok(200);
 		}
 
-		// ------------------- Edit Time Mission -------------------
+		// -------------------(Time Based) Edit Timesheet-------------------
         public IActionResult GetTimeBasedEditPartial(long userId,long timesheetId)
         {
             MissionTimesheetTimeModel? timeObj = _unitOfService.VolunteeringTimesheet.GetParticularTimeBasedData(timesheetId);
@@ -122,6 +128,7 @@ namespace CI_Platform_Web.Controllers
 			return Ok(200);
 		}
 
+		// -------------------(Goal Based) Edit Timesheet-------------------
 		public IActionResult GetGoalBasedEditPartial(long userId, long timesheetId)
 		{
 			MissionTimesheetGoalModel? goalObj = _unitOfService.VolunteeringTimesheet.GetParticularGoalBasedData(timesheetId);
@@ -153,6 +160,8 @@ namespace CI_Platform_Web.Controllers
 			return Ok(200);
 		}
 
+
+		// ------------------- Delete Timesheet-------------------
 		public IActionResult DeleteTimeData(long timesheetId)
 		{
 			try

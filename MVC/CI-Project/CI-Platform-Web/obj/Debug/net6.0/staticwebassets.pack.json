@@ -1,847 +1,851 @@
 {
   "Files": [
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-Platform-Web.bundle.scp.css",
       "PackagePath": "staticwebassets\\CI-Platform-Web.bundle.scp.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\landingPage.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\landingPage.css",
       "PackagePath": "staticwebassets\\css\\landingPage.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\privacypolicy.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\privacypolicy.css",
       "PackagePath": "staticwebassets\\css\\privacypolicy.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\story.css",
       "PackagePath": "staticwebassets\\css\\story.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\volunteeringMission.css",
       "PackagePath": "staticwebassets\\css\\volunteeringMission.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\404-Page-image.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\404-Page-image.png",
       "PackagePath": "staticwebassets\\images\\404-Page-image.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Already-volunteered.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Already-volunteered.png",
       "PackagePath": "staticwebassets\\images\\Already-volunteered.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png",
       "PackagePath": "staticwebassets\\images\\Animal-welfare-&-save-birds-campaign-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Animal-welfare-&-save-birds-campaign.png",
       "PackagePath": "staticwebassets\\images\\Animal-welfare-&-save-birds-campaign.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "PackagePath": "staticwebassets\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "PackagePath": "staticwebassets\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "PackagePath": "staticwebassets\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "PackagePath": "staticwebassets\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
       "PackagePath": "staticwebassets\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
       "PackagePath": "staticwebassets\\images\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
       "PackagePath": "staticwebassets\\images\\Nourish-the-Children-in--African-country.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Open-Volunteering-Requests.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Open-Volunteering-Requests.png",
       "PackagePath": "staticwebassets\\images\\Open-Volunteering-Requests.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
       "PackagePath": "staticwebassets\\images\\Plantation-and-Afforestation-programme-1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
       "PackagePath": "staticwebassets\\images\\Plantation-and-Afforestation-programme.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Seats-left.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Seats-left.png",
       "PackagePath": "staticwebassets\\images\\Seats-left.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Volunteering-Rank.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Volunteering-Rank.png",
       "PackagePath": "staticwebassets\\images\\Volunteering-Rank.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Voted-Missions.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\Voted-Missions.png",
       "PackagePath": "staticwebassets\\images\\Voted-Missions.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\achieved.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\achieved.png",
       "PackagePath": "staticwebassets\\images\\achieved.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add.png",
       "PackagePath": "staticwebassets\\images\\add.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\add1.png",
       "PackagePath": "staticwebassets\\images\\add1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\arrow.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\arrow.png",
       "PackagePath": "staticwebassets\\images\\arrow.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell-big.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell-big.png",
       "PackagePath": "staticwebassets\\images\\bell-big.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bell.png",
       "PackagePath": "staticwebassets\\images\\bell.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin (1).png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin (1).png",
       "PackagePath": "staticwebassets\\images\\bin (1).png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bin.png",
       "PackagePath": "staticwebassets\\images\\bin.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\calender.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\calender.png",
       "PackagePath": "staticwebassets\\images\\calender.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel.png",
       "PackagePath": "staticwebassets\\images\\cancel.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel1.png",
       "PackagePath": "staticwebassets\\images\\cancel1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\checked.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\checked.png",
       "PackagePath": "staticwebassets\\images\\checked.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cross.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cross.png",
       "PackagePath": "staticwebassets\\images\\cross.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\deadline.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\deadline.png",
       "PackagePath": "staticwebassets\\images\\deadline.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\doc.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\doc.png",
       "PackagePath": "staticwebassets\\images\\doc.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\down.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\down.png",
       "PackagePath": "staticwebassets\\images\\down.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drag-and-drop.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drag-and-drop.png",
       "PackagePath": "staticwebassets\\images\\drag-and-drop.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drop-down.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\drop-down.png",
       "PackagePath": "staticwebassets\\images\\drop-down.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing.png",
       "PackagePath": "staticwebassets\\images\\editing.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing@2x.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\editing@2x.png",
       "PackagePath": "staticwebassets\\images\\editing@2x.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\eye.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\eye.png",
       "PackagePath": "staticwebassets\\images\\eye.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\facebook.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\facebook.png",
       "PackagePath": "staticwebassets\\images\\facebook.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\filter.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\filter.png",
       "PackagePath": "staticwebassets\\images\\filter.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\gift.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\gift.png",
       "PackagePath": "staticwebassets\\images\\gift.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\graph.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\graph.png",
       "PackagePath": "staticwebassets\\images\\graph.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\grid.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\grid.png",
       "PackagePath": "staticwebassets\\images\\grid.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart.png",
       "PackagePath": "staticwebassets\\images\\heart.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\heart1.png",
       "PackagePath": "staticwebassets\\images\\heart1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\hours.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\hours.png",
       "PackagePath": "staticwebassets\\images\\hours.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image.png",
       "PackagePath": "staticwebassets\\images\\image.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image1.png",
       "PackagePath": "staticwebassets\\images\\image1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image2.png",
       "PackagePath": "staticwebassets\\images\\image2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img.png",
       "PackagePath": "staticwebassets\\images\\img.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img1.png",
       "PackagePath": "staticwebassets\\images\\img1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img11.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img11.png",
       "PackagePath": "staticwebassets\\images\\img11.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img2.png",
       "PackagePath": "staticwebassets\\images\\img2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img22.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img22.png",
       "PackagePath": "staticwebassets\\images\\img22.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img3.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img3.png",
       "PackagePath": "staticwebassets\\images\\img3.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img33.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\img33.png",
       "PackagePath": "staticwebassets\\images\\img33.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\info.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\info.png",
       "PackagePath": "staticwebassets\\images\\info.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left.png",
       "PackagePath": "staticwebassets\\images\\left.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\left1.png",
       "PackagePath": "staticwebassets\\images\\left1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\linkedin.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\linkedin.png",
       "PackagePath": "staticwebassets\\images\\linkedin.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\list.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\list.png",
       "PackagePath": "staticwebassets\\images\\list.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\logo.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission.png",
       "PackagePath": "staticwebassets\\images\\mission.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
       "PackagePath": "staticwebassets\\images\\my-story.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\new-message.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\new-message.png",
       "PackagePath": "staticwebassets\\images\\new-message.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\next.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\next.png",
       "PackagePath": "staticwebassets\\images\\next.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\organization.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\organization.png",
       "PackagePath": "staticwebassets\\images\\organization.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pdf.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pdf.png",
       "PackagePath": "staticwebassets\\images\\pdf.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin.png",
       "PackagePath": "staticwebassets\\images\\pin.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin1.png",
       "PackagePath": "staticwebassets\\images\\pin1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
       "PackagePath": "staticwebassets\\images\\previous.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
       "PackagePath": "staticwebassets\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
       "PackagePath": "staticwebassets\\images\\red-heart.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",
       "PackagePath": "staticwebassets\\images\\right-arrow.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow1.png",
       "PackagePath": "staticwebassets\\images\\right-arrow1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow2.png",
       "PackagePath": "staticwebassets\\images\\right-arrow2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-white.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-white.png",
       "PackagePath": "staticwebassets\\images\\right-white.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right.png",
       "PackagePath": "staticwebassets\\images\\right.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\search.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\search.png",
       "PackagePath": "staticwebassets\\images\\search.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\selected-star.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\selected-star.png",
       "PackagePath": "staticwebassets\\images\\selected-star.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\settings.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\settings.png",
       "PackagePath": "staticwebassets\\images\\settings.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star-empty.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star-empty.png",
       "PackagePath": "staticwebassets\\images\\star-empty.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\star.png",
       "PackagePath": "staticwebassets\\images\\star.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\1634fe3c-272b-4219-954a-d41ab254cf26.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\4781559b-a181-40c0-b9bd-712aa3993870.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\5b107c80-7aff-4a37-b495-ae05ae5d6be7.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\bf228106-dd8c-44b5-809a-ead23cbd75e1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\c192566f-cdd5-4b35-b227-f5a5376fe868.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\d0187757-0445-4da4-9db5-011847201d53.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\e472ff6f-6c32-44ec-80cb-c733020201da.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\e9f32d0a-277a-4215-9731-8e4ca5db41ea.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\eab78612-42c3-4449-80f9-694e910d9d99.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\ec807c9d-3ad8-4794-ab44-9db61bb6d885.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\twitter.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\twitter.png",
       "PackagePath": "staticwebassets\\images\\twitter.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\up.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\up.png",
       "PackagePath": "staticwebassets\\images\\up.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img-large.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img-large.png",
       "PackagePath": "staticwebassets\\images\\user-img-large.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user-img.png",
       "PackagePath": "staticwebassets\\images\\user-img.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user.png",
       "PackagePath": "staticwebassets\\images\\user.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\user1.png",
       "PackagePath": "staticwebassets\\images\\user1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer1.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer1.png",
       "PackagePath": "staticwebassets\\images\\volunteer1.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer2.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer2.png",
       "PackagePath": "staticwebassets\\images\\volunteer2.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer3.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer3.png",
       "PackagePath": "staticwebassets\\images\\volunteer3.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer4.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer4.png",
       "PackagePath": "staticwebassets\\images\\volunteer4.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer5.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer5.png",
       "PackagePath": "staticwebassets\\images\\volunteer5.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer6.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer6.png",
       "PackagePath": "staticwebassets\\images\\volunteer6.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer7.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer7.png",
       "PackagePath": "staticwebassets\\images\\volunteer7.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer8.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer8.png",
       "PackagePath": "staticwebassets\\images\\volunteer8.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer9.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\volunteer9.png",
       "PackagePath": "staticwebassets\\images\\volunteer9.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\web.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\web.png",
       "PackagePath": "staticwebassets\\images\\web.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\xlsx.png",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\xlsx.png",
       "PackagePath": "staticwebassets\\images\\xlsx.png"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\carouselImageChanger.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\carouselImageChanger.js",
       "PackagePath": "staticwebassets\\js\\carouselImageChanger.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\custom.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\contactUs.js",
+      "PackagePath": "staticwebassets\\js\\contactUs.js"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\filterMissionSidebar.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\filterMissionSidebar.js",
       "PackagePath": "staticwebassets\\js\\filterMissionSidebar.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\gridList.js",
       "PackagePath": "staticwebassets\\js\\gridList.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\headerSidebar.js",
       "PackagePath": "staticwebassets\\js\\headerSidebar.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\pagination.js",
       "PackagePath": "staticwebassets\\js\\pagination.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\scrolable.js",
       "PackagePath": "staticwebassets\\js\\scrolable.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\searchMission.js",
       "PackagePath": "staticwebassets\\js\\searchMission.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\timesheet.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\timesheet.js",
       "PackagePath": "staticwebassets\\js\\timesheet.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\tiny.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\tiny.js",
       "PackagePath": "staticwebassets\\js\\tiny.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\volunteeringInfo.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\volunteeringInfo.js",
       "PackagePath": "staticwebassets\\js\\volunteeringInfo.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "W:\\CI_Project_Final2\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

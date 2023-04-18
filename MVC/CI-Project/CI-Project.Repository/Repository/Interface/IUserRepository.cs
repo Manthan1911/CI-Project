@@ -1,4 +1,5 @@
 ﻿using CI_Project.Entities.DataModels;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CI_Project.Repository.Repository.Interface
 {
@@ -28,6 +29,8 @@ namespace CI_Project.Repository.Repository.Interface
 		public List<Story> getAllStoriesOfCurrentUser(long userId);
 
         public IEnumerable<User> getAllToRecommendMission();
+
+        public void saveContactUsData(ContactU conatactUsObj);
 
 	}
 }

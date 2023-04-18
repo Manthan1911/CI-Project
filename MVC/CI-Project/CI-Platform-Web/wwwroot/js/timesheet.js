@@ -1,9 +1,7 @@
-﻿$(document).ready((e) => {
-    let userId = $('#userId').val();
+﻿let userId = $('#userId').val();
 
-    callTimeBasedPartial(userId);
-    callGoalBasedPartial(userId);
-});
+callTimeBasedPartial(userId);
+callGoalBasedPartial(userId);
 
 function callTimeBasedPartial(userId) {
     $.ajax({
@@ -445,19 +443,9 @@ function addListenerToDeleteTimesheetButton(userId) {
                     });
                 }
             })
-            
+
         });
     })
-}
-
-
-const isFormValid = (form) => {
-
-    if (!form.valid()) {
-        return false;
-    }
-    return true;
-
 }
 
 

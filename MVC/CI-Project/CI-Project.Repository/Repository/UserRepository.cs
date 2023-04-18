@@ -94,5 +94,11 @@ namespace CI_Project.Repository.Repository
 		{
 			return _db.Stories.Where(s => s.UserId == userId).ToList();
 		}
+
+		public void saveContactUsData(ContactU conatactUsObj)
+		{
+			_db.ContactUs.Add(conatactUsObj);
+			_db.SaveChanges();
+		}
 	}
 }

@@ -25,6 +25,8 @@ public partial class CIProjectDbContext : DbContext
 
     public virtual DbSet<Comment> Comments { get; set; }
 
+    public virtual DbSet<ContactU> ContactUs { get; set; }
+
     public virtual DbSet<Country> Countries { get; set; }
 
     public virtual DbSet<FavouriteMission> FavouriteMissions { get; set; }
@@ -214,6 +216,34 @@ public partial class CIProjectDbContext : DbContext
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__comment__user_id__1DB06A4F");
+        });
+
+        modelBuilder.Entity<ContactU>(entity =>
+        {
+            entity.HasKey(e => e.ContactUsId).HasName("PK__contact___2DE2876E0B3ED49E");
+
+            entity.ToTable("contact_us");
+
+            entity.Property(e => e.ContactUsId).HasColumnName("contact_us_id");
+            entity.Property(e => e.Message)
+                .HasColumnType("text")
+                .HasColumnName("message");
+            entity.Property(e => e.Reply)
+                .HasColumnType("text")
+                .HasColumnName("reply");
+            entity.Property(e => e.Status)
+                .HasDefaultValueSql("('0')")
+                .HasColumnName("status");
+            entity.Property(e => e.Subject)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("subject");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.ContactUs)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__contact_u__user___40F9A68C");
         });
 
         modelBuilder.Entity<Country>(entity =>
@@ -750,7 +780,7 @@ public partial class CIProjectDbContext : DbContext
 
         modelBuilder.Entity<Timesheet>(entity =>
         {
-            entity.HasKey(e => e.TimesheetId).HasName("PK__timeshee__7BBF5068FA8E3532");
+            entity.HasKey(e => e.TimesheetId).HasName("PK__timeshee__7BBF5068BD565292");
 
             entity.ToTable("timesheet");
 
@@ -783,12 +813,12 @@ public partial class CIProjectDbContext : DbContext
             entity.HasOne(d => d.Mission).WithMany(p => p.Timesheets)
                 .HasForeignKey(d => d.MissionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_mission_timesheet");
+                .HasConstraintName("FK__timesheet__missi__44CA3770");
 
             entity.HasOne(d => d.User).WithMany(p => p.Timesheets)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_user_timesheet");
+                .HasConstraintName("FK__timesheet__user___43D61337");
         });
 
         modelBuilder.Entity<User>(entity =>

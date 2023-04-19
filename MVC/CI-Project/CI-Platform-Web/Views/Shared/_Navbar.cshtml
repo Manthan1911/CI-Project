@@ -1,6 +1,8 @@
 ﻿@{
 	var userId = Context.Session.GetString("UserId");
 	var fullName = Context.Session.GetString("FullName");
+	var Avtar = Context.Session.GetString("Avtar") == null ? "~/images/user-img.png" : Context.Session.GetString("Avtar");
+	var id = 1;
 }
 <nav id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
 	 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
@@ -48,7 +50,7 @@
 				<div href="">
 					<img class="ci-page-header-profile-img mx-1"
 						 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
-						 src="~/images/user-img.png" alt="user-img">
+						 src="@Avtar" alt="user-img">
 				</div>
 				<div class="d-md-block d-none">
 					<span class="ci-page-header-profile-name mx-1 py-1">

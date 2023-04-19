@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CI-Platform-Web.bundle.scp.css"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
@@ -185,6 +189,22 @@
       "PackagePath": "staticwebassets\\images\\bin.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bookmark-star-fill.svg",
+      "PackagePath": "staticwebassets\\images\\bookmark-star-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bookmark-star-white.svg",
+      "PackagePath": "staticwebassets\\images\\bookmark-star-white.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bullseye-fill.svg",
+      "PackagePath": "staticwebassets\\images\\bullseye-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\bullseye-white.svg",
+      "PackagePath": "staticwebassets\\images\\bullseye-white.svg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\calender.png",
       "PackagePath": "staticwebassets\\images\\calender.png"
     },
@@ -195,6 +215,18 @@
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\cancel1.png",
       "PackagePath": "staticwebassets\\images\\cancel1.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\chat-dots-fill.svg",
+      "PackagePath": "staticwebassets\\images\\chat-dots-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\chat-dots-white.svg",
+      "PackagePath": "staticwebassets\\images\\chat-dots-white.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\check-circle.svg",
+      "PackagePath": "staticwebassets\\images\\check-circle.svg"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\checked.png",
@@ -241,6 +273,14 @@
       "PackagePath": "staticwebassets\\images\\facebook.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\file-earmark-text-fill.svg",
+      "PackagePath": "staticwebassets\\images\\file-earmark-text-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\file-earmark-text-white.svg",
+      "PackagePath": "staticwebassets\\images\\file-earmark-text-white.svg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\filter.png",
       "PackagePath": "staticwebassets\\images\\filter.png"
     },
@@ -267,6 +307,14 @@
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\hours.png",
       "PackagePath": "staticwebassets\\images\\hours.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image-fill.svg",
+      "PackagePath": "staticwebassets\\images\\image-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image-white.svg",
+      "PackagePath": "staticwebassets\\images\\image-white.svg"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\image.png",
@@ -357,6 +405,14 @@
       "PackagePath": "staticwebassets\\images\\pdf.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\person-fill.svg",
+      "PackagePath": "staticwebassets\\images\\person-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\person-white.svg",
+      "PackagePath": "staticwebassets\\images\\person-white.svg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\pin.png",
       "PackagePath": "staticwebassets\\images\\pin.png"
     },
@@ -373,8 +429,24 @@
       "PackagePath": "staticwebassets\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\efb6e5b2-83dc-440f-9012-6ab68736aa6b.png",
+      "PackagePath": "staticwebassets\\images\\profile_images\\efb6e5b2-83dc-440f-9012-6ab68736aa6b.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\puzzle-fill.svg",
+      "PackagePath": "staticwebassets\\images\\puzzle-fill.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\puzzle-white.svg",
+      "PackagePath": "staticwebassets\\images\\puzzle-white.svg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\red-heart.png",
       "PackagePath": "staticwebassets\\images\\red-heart.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\restore.svg",
+      "PackagePath": "staticwebassets\\images\\restore.svg"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\right-arrow.png",
@@ -429,6 +501,10 @@
       "PackagePath": "staticwebassets\\images\\storyimages\\1877729a-870c-46f6-bbd2-588694d8bbe3.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1da8305e-2e86-4665-83e1-be58b0d60ce1.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\1da8305e-2e86-4665-83e1-be58b0d60ce1.png"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png"
     },
@@ -453,12 +529,24 @@
       "PackagePath": "staticwebassets\\images\\storyimages\\9476b932-6b0c-41f8-8498-133bc582b883.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\98129a23-f399-4658-bbf2-41c78285a933.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\98129a23-f399-4658-bbf2-41c78285a933.png"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\984a7b1f-5219-4e18-9af5-716f44aabdb9.png"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\9fda474e-b468-4099-961e-08ff9daec481.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\a01e1c4e-a064-4b35-bc0c-d52d095edeb6.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\a01e1c4e-a064-4b35-bc0c-d52d095edeb6.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b119a9c0-1f2f-48a8-93d7-d55e19cd595a.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\b119a9c0-1f2f-48a8-93d7-d55e19cd595a.png"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b3438bfa-567c-434c-98ba-25042cc8a98c.png",
@@ -495,6 +583,18 @@
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\svgs-defs.svg",
+      "PackagePath": "staticwebassets\\images\\svgs-defs.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\ticket-white.svg",
+      "PackagePath": "staticwebassets\\images\\ticket-white.svg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\tools-white.svg",
+      "PackagePath": "staticwebassets\\images\\tools-white.svg"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\twitter.png",
@@ -561,8 +661,16 @@
       "PackagePath": "staticwebassets\\images\\web.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\x-circle.svg",
+      "PackagePath": "staticwebassets\\images\\x-circle.svg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\xlsx.png",
       "PackagePath": "staticwebassets\\images\\xlsx.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\admin.js",
+      "PackagePath": "staticwebassets\\js\\admin.js"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",

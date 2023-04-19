@@ -1,0 +1,100 @@
+﻿:root {
+    --light-orange: #f88634;
+    --dark-gray: #414141;
+    --blue: #2b64b1;
+    --transition: all 0.3s ease-out;
+}
+
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    position: absolute;
+    transform: translateX(-100%);
+    z-index: 4;
+    background-color: var(--light-orange);
+    transition: 0.2s all linear;
+}
+
+@media(min-width: 1400px) {
+    .sidebar {
+        width: 330px;
+    }
+}
+
+@media(min-width: 992px) {
+    .sidebar {
+        position: static;
+        transform: translateX(0);
+        width: 300px;
+    }
+
+    .overlay {
+        display: none;
+    }
+}
+
+.sidebar-open {
+    transform: translateX(0);
+    transition: 0.3s all linear;
+}
+
+[data-item]:hover {
+    border: 1px solid white;
+    background-color: white;
+    color: var(--light-orange) !important;
+}
+
+.active-sidebar-item {
+    background-color: white;
+    color: var(--light-orange) !important;
+}
+
+.icon-fill-orange {
+    fill: var(--light-orange) !important;
+}
+
+
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.overlay {
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 3;
+}
+
+.adminSearchContainer {
+    max-width: 28rem !important;
+}
+
+.icon {
+    height: 16px;
+    width: 16px;
+    fill: white;
+}
+
+[data-item]:hover .icon {
+    fill: var(--light-orange) !important;
+}
+
+.heading-2 {
+    font-size: 2rem;
+}
+
+.btn-outline-warning:hover {
+    color: white !important;
+}
+
+.search-input {
+    width: 60%;
+    background-image: url('../images/search.png');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left : 40px !important;
+}
+
+.search-input:focus{
+    border-color:yellow !important;
+}

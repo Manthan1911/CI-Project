@@ -1,0 +1,132 @@
+﻿@model List<CI_Project.Entities.ViewModels.UserModel>
+<style>
+	/*table {
+			width: 100%;
+			white-space: nowrap;
+			overflow-x: auto;
+		}*/
+
+	th {
+		font-weight: 500;
+		font-size: 1.25rem !important;
+		padding: 1rem 1rem !important;
+		background-color: #edeff6 !important;
+	}
+
+	.table thead > tr > th {
+		border-bottom-color: #ced4da !important;
+	}
+
+	.table tbody > tr > td {
+		padding-left: 1rem !important;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+
+</style>
+
+
+<div>
+	<div class="border-bottom border-2">
+		<span class="heading-2 text-decoration-underline" style="text-underline-offset:10px;">User</span>
+	</div>
+	<div class="container p-0 m-0 mt-4">
+		<div class="row">
+			<div class="col-9">
+				<div class=" h-100">
+					<input type="text" placeholder="search" class="h-100 search-input rounded-3 border border-2" />
+				</div>
+			</div>
+			<div class="col-3 d-flex justify-content-end">
+				<button id="addUserBtn" class="btn btn-outline-warning btn-lg border-warning rounded-pill" style="min-width:max-content;">
+					<span class="mx-2">+</span>
+					<span class="mx-2">Add</span>
+				</button>
+			</div>
+		</div>
+		<table class="table mt-5">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Employee Id</th>
+					<th>Department</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@if (Model.Count() == 0)
+				{
+					<tr>
+						<td colspan="100%">
+							<div class="text-center">No entries found.</div>
+						</td>
+					</tr>
+				}
+				else
+				{
+					foreach (var currUser in Model)
+					{
+						<tr>
+							<td>@currUser.FirstName</td>
+							<td>@currUser.LastName</td>
+							<td>@currUser.EmailId</td>
+							@if (@currUser.EmployeeId != null)
+							{
+								<td>
+									@currUser.EmployeeId
+								</td>
+							}
+							else
+							{
+								<td>-</td>
+							}
+							<td>
+								@if (@currUser.Department != null)
+								{
+									<span>@currUser.Department</span>
+								}
+								else
+								{
+									<span>-</span>
+								}
+							</td>
+							<td>
+								@if (@currUser.Status == true)
+								{
+									<span class="text-warning fw-semibold">Active</span>
+								}
+								else
+								{
+									<span class="text-danger fw-semibold">InActive</span>
+								}
+							</td>
+							<td>
+								@*----------- Active User --------*@
+								@if (currUser.Status == true)
+								{
+									<div class="d-flex gap-2">
+										<img src="~/images/editing.png"
+								 class="editUserBtn cursor-pointer" alt="edit" height="20px" width="20px" data-userId="@currUser.UserId">
+										<img src="~/images/bin.png"
+								 class="deleteUserBtn cursor-pointer" alt="bin" height="20px" width="20px" data-userId="@currUser.UserId">
+									</div>
+								}
+								else
+								{
+									<div class="d-flex gap-2">
+										<img src="~/images/restore.svg" class="restoreUserBtn cursor-pointer" alt="bin" height="20px" width="20px"
+								 data-restoreUserId="@currUser.UserId">
+									</div>
+								}
+							</td>
+						</tr>
+					}
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+

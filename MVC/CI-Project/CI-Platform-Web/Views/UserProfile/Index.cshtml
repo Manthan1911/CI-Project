@@ -27,7 +27,7 @@
 				<div class="user-profile-image-div col-lg-3 col-12">
 					<div class="border border-1 d-flex flex-column align-items-center justify-content-center m-4 p-5">
 						<div id="profile-img-div">
-							<img src="~/images/user-img-large.png" class="rounded-circle object-fit-cover" style="height:150px;width:150px;" />
+							<img src="@Model.Avtar" class="rounded-circle object-fit-cover" style="height:150px;width:150px;" />
 						</div>
 						<div class="fw-semibold fs-5" style="min-width:max-content;">@Model.FirstName @Model.LastName</div>
 
@@ -415,7 +415,7 @@
 
 		function submitChangePasswordForm() {
 			let formData = $('#changePasswordForm').serialize();
-			if (isFormValid()) {
+			if (isUserProfileFormValid()) {
 				$.ajax({
 					url: "/UserProfile/ChangePassword",
 					method: "POST",
@@ -446,7 +446,7 @@
 			}
 		}
 
-		const isFormValid = () => {
+		let isUserProfileFormValid = () => {
 
 			if (!$('#changePasswordForm').valid()) {
 				return false;

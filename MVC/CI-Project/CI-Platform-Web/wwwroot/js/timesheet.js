@@ -96,7 +96,7 @@ function saveAddTimeData(userId) {
         console.log("submit");
         e.preventDefault();
         let form = $('#addTimeDataForm');
-        if (isFormValid(form)) {
+        if (isTimesheetFormValid(form)) {
             let formData = form.serialize();
             $.ajax({
                 url: "/VolunteeringTimesheet/SaveTimeData",
@@ -146,7 +146,7 @@ function saveAddGoalData(userId) {
         console.log("goal form submit");
         e.preventDefault();
         let form = $('#addGoalDataForm');
-        if (isFormValid(form)) {
+        if (isTimesheetFormValid(form)) {
             let formData = form.serialize();
             $.ajax({
                 url: "/VolunteeringTimesheet/SaveGoalData",
@@ -287,7 +287,7 @@ function editTimeData(userId) {
         console.log("submit");
         e.preventDefault();
         let form = $('#editTimeDataForm');
-        if (isFormValid(form)) {
+        if (isTimesheetFormValid(form)) {
             let formData = form.serialize();
             $.ajax({
                 url: "/VolunteeringTimesheet/EditTimeData",
@@ -337,7 +337,7 @@ function editGoalData(userId) {
         console.log("submit");
         e.preventDefault();
         let form = $('#editGoalDataForm');
-        if (isFormValid(form)) {
+        if (isTimesheetFormValid(form)) {
             let formData = form.serialize();
             $.ajax({
                 url: "/VolunteeringTimesheet/EditGoalData",
@@ -448,6 +448,14 @@ function addListenerToDeleteTimesheetButton(userId) {
     })
 }
 
+let isTimesheetFormValid = (form) => {
+
+    if (!form.valid()) {
+        return false;
+    }
+    return true;
+
+}
 
 
     //Swal.fire({

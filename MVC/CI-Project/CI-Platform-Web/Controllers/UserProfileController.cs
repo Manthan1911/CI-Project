@@ -67,30 +67,35 @@ namespace CI_Platform_Web.Controllers
 						_unitOfService.UserProfile.SaveUserSkill(skills, userProfileModel.UserId);
 					}
 
-					if (profileImage.Length > 0 && profileImage.Length! > 1)
+					if (profileImage!=null)
 					{
-						string wwwRootPath = _webHostEnvironment.WebRootPath;
-
-						string fileName = Guid.NewGuid().ToString();
-						var uploads = Path.Combine(wwwRootPath, @"images\profile_images");
-						var extension = Path.GetExtension(profileImage?.FileName);
-
-						using (var fileStrems = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+						if (profileImage.Length > 0 && profileImage.Length! > 1)
 						{
-							profileImage?.CopyTo(fileStrems);
+							string wwwRootPath = _webHostEnvironment.WebRootPath;
+
+							string fileName = Guid.NewGuid().ToString();
+							var uploads = Path.Combine(wwwRootPath, @"images\profile_images");
+							var extension = Path.GetExtension(profileImage?.FileName);
+
+							using (var fileStrems = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+							{
+								profileImage?.CopyTo(fileStrems);
+							}
+
+							if (userProfileModel.Avtar != null)
+							{
+
+								System.IO.File.Delete(Path.Combine(wwwRootPath, userProfileModel.Avtar.TrimStart('\\')));
+
+							}
+
+							user.Avatar = @"\images\profile_images\" + fileName + extension;
+
 						}
-
-						if (userProfileModel.Avtar != null)
-						{
-
-							System.IO.File.Delete(Path.Combine(wwwRootPath, userProfileModel.Avtar.TrimStart('\\')));
-
-						}
-
-						user.Avatar = @"\images\profile_images\" + fileName + extension;
-
 					}
 					_unitOfService.UserProfile.UpdateUser(user);
+					HttpContext.Session.SetString("Avtar", user.Avatar?.ToString());
+
 				}
 				catch (Exception ex)
 				{

@@ -8,15 +8,18 @@ namespace CI_Project.Entities.ViewModels
 		public long UserId { get; set; }
 
 		public string? EmailId { get; set; }
+		
 		[Required]
-
 		public string? FirstName { get; set; }
 
 		[Required]
 		public string? LastName { get; set; }
 
 		[Required]
-		public string? PhoneNo { get; set; }
+		public long? PhoneNo { get; set; }
+
+		[Required]
+		public string? Password { get; set; }
 
 		public string? EmployeeId { get; set; }
 
@@ -33,7 +36,10 @@ namespace CI_Project.Entities.ViewModels
 
 		public long? CountryId { get; set; } 
 
-		public long? CityId { get; set; } 
+		public long? CityId { get; set; }
+		
+		[Required]
+		public bool? Status { get; set; }
 
 		public virtual ICollection<MissionInvite>? missionInvitesTo { get; set; }
 

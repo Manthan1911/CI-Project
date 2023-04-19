@@ -20,7 +20,10 @@ namespace CI_Project.Repository.Repository.Interface
 
         public Boolean updatePassword(User user);
 
+        public void updateUser(User user);
         public Boolean addUser(User user);
+        public void deleteUser(User user);
+
 
         public void addResetPasswordToken(PasswordReset passwordResetObj);
 

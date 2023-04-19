@@ -15,7 +15,7 @@ namespace CI_Platform_Web.Controllers
 		private readonly IUnitOfService _unitOfService;
 
 
-		public AuthenticationController(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor,IUnitOfService unitOfService)
+		public AuthenticationController(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor, IUnitOfService unitOfService)
 		{
 			_userRepository = userRepository;
 			_httpContextAccessor = httpContextAccessor;
@@ -47,7 +47,7 @@ namespace CI_Platform_Web.Controllers
 			{
 				var decryptedPasswordOfFoundUser = _unitOfService.Password.Decode(user.Password);
 
-				var isUserValid =  decryptedPasswordOfFoundUser.Equals(loginModelObj.Password);
+				var isUserValid = decryptedPasswordOfFoundUser.Equals(loginModelObj.Password);
 
 				if (!isUserValid)
 				{
@@ -65,6 +65,7 @@ namespace CI_Platform_Web.Controllers
 				HttpContext.Session.SetString("UserEmail", loginModelObj.EmailId);
 				HttpContext.Session.SetString("UserId", userId.ToString());
 				HttpContext.Session.SetString("FullName", fullName);
+				HttpContext.Session.SetString("Avtar", user.Avatar?.ToString());
 				return RedirectToAction("Index", "Home");
 			}
 			else

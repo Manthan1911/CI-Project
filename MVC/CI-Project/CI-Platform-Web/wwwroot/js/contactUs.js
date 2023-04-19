@@ -26,7 +26,7 @@ function addListnerToSubmitCntactUsForm() {
         e.preventDefault();
 
         let form = $('#contactUsForm');
-        if (isFormValid(form)) {
+        if (isContactUsFormValid(form)) {
             let formData = form.serialize();
             $.ajax({
                 url: "/FooterPages/SaveContactUsDat",
@@ -80,7 +80,7 @@ function addListnerToSubmitCntactUsForm() {
 }
 
 
-const isFormValid = (form) => {
+let isContactUsFormValid = (form) => {
 
     if (!form.valid()) {
         return false;

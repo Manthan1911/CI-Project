@@ -100,5 +100,17 @@ namespace CI_Project.Repository.Repository
 			_db.ContactUs.Add(conatactUsObj);
 			_db.SaveChanges();
 		}
+
+		public void deleteUser(User user)
+		{
+			_db.Users.Remove(user);
+			 _db.SaveChanges();
+		}
+
+		public void updateUser(User user)
+		{
+			_db.Users.Update(user);
+			_db.SaveChanges();
+		}
 	}
 }

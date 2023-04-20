@@ -30,6 +30,8 @@ function updateCurrentDateTime() {
 updateCurrentDateTime();
 setInterval(updateCurrentDateTime, 1000);
 
+
+
 // ----------------- fixing height of adminPagePartialContainer ----------------
 setHeight();
 function setHeight() {
@@ -64,6 +66,7 @@ sidebarTabs.forEach((tab) => {
 
 });
 
+//-------------------- User --------------------
 function ajaxCallForUserPartial() {
 
     $.ajax({
@@ -71,11 +74,11 @@ function ajaxCallForUserPartial() {
         method: "GET",
         dataType: "html",
         success: (data) => {
-            $('#adminPagePartialContainer').html("");
             $('#adminPagePartialContainer').html(data);
             callAddUserPartial();
             deleteUserFromAdmin();
             restoreUserFromAdmin();
+            editUserFromAdmin();
         },
         error: (error) => {
             Swal.fire({
@@ -102,7 +105,6 @@ function ajaxCallForAddUserPartial() {
         method: "GET",
         dataType: "html",
         success: (data) => {
-            $('#adminPagePartialContainer').html("");
             $('#adminPagePartialContainer').html(data);
 
             $('#addUserForm').on("submit", (e) => {
@@ -232,11 +234,11 @@ function deleteUserFromAdmin() {
                             return;
                         }
                     });
-                   
+
                 }
             })
 
-            
+
         })
     });
 }
@@ -308,6 +310,110 @@ function restoreUserFromAdmin() {
         })
     });
 }
+
+function ajaxCallForEditUserPartial(userId) {
+    $.ajax({
+        url: "/Admin/GetEditUserPartial",
+        method: "GET",
+        dataType: "html",
+        data: { "userId": userId },
+        success: (data) => {
+            $('#adminPagePartialContainer').html(data);
+
+            $('#editUserForm').on("submit", (e) => {
+                e.preventDefault();
+                let form = $('#editUserForm');
+                if (isAdminFormValid(form)) {
+                    let formData = form.serialize();
+                    console.log(formData);
+                    $.ajax({
+                        url: "/Admin/EditUser",
+                        method: "POST",
+                        dataType: "html",
+                        data: formData,
+                        success: (data, _, status) => {
+
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Saving Edited User!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User Edited successfully!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                            ajaxCallForUserPartial();
+
+                        },
+                        error: (error) => {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'problem Saving Edited User!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                            return;
+                        }
+                    });
+
+                }
+           
+
+            
+
+            });
+
+            $('#editUserCancelBtn').on('click', (e) => {
+                e.preventDefault();
+                ajaxCallForUserPartial();
+            })
+
+        },
+        error: (error) => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'problem loading editUser partial!',
+                showConfirmButton: false,
+                timer: 3000
+            })
+
+        }
+    });
+}
+
+function editUserFromAdmin() {
+
+    let editUserBtns = document.querySelectorAll(".editUserBtn");
+
+    editUserBtns.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let userId = button.getAttribute("data-userId");
+            ajaxCallForEditUserPartial(userId);
+
+        });
+    });
+}
+
+
+//--------------------
+
+
+
+//--------------------
 
 let isAdminFormValid = (form) => {
     if (!form.valid()) {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dSM7k+GdlK3+TiouIxKzKUYfzoUBAWHjM7DAsUi4RY8=",
+  "Hash": "fw0C+47R6wnhWcwTukcHWO7kZT5BrctAempO65vVwaI=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -1766,6 +1766,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Plantation-and-Afforestation-programme-1.png"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\preloader.gif",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/preloader.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\preloader.gif"
     },
     {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",

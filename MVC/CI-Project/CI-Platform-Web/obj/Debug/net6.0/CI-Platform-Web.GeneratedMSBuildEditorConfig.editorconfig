@@ -96,6 +96,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0VGltZU1vZGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_EditUserPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0VXNlclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

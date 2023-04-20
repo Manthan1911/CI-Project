@@ -112,5 +112,7 @@ namespace CI_Project.Repository.Repository
 			_db.Users.Update(user);
 			_db.SaveChanges();
 		}
-	}
+
+       
+    }
 }

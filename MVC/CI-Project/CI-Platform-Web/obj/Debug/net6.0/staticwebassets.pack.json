@@ -421,6 +421,10 @@
       "PackagePath": "staticwebassets\\images\\pin1.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\preloader.gif",
+      "PackagePath": "staticwebassets\\images\\preloader.gif"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\previous.png",
       "PackagePath": "staticwebassets\\images\\previous.png"
     },

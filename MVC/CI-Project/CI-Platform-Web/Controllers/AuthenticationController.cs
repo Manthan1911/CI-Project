@@ -40,6 +40,12 @@ namespace CI_Platform_Web.Controllers
 			var isEmailValid = _userRepository.validateEmail(loginModelObj.EmailId);
 			var user = _userRepository.findUser(loginModelObj.EmailId);
 
+			if (user.Status == false)
+			{
+				ViewBag.userStatus = "inactive";
+				return View();
+			}
+
 			var userId = user.UserId;
 			var fullName = user.FirstName + " " + user.LastName;
 
@@ -65,7 +71,10 @@ namespace CI_Platform_Web.Controllers
 				HttpContext.Session.SetString("UserEmail", loginModelObj.EmailId);
 				HttpContext.Session.SetString("UserId", userId.ToString());
 				HttpContext.Session.SetString("FullName", fullName);
-				HttpContext.Session.SetString("Avtar", user.Avatar?.ToString());
+				if (user.Avatar!=null)
+				{
+                    HttpContext.Session.SetString("Avtar", user.Avatar?.ToString());
+                }
 				return RedirectToAction("Index", "Home");
 			}
 			else

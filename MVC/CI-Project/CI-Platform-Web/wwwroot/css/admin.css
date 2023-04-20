@@ -15,13 +15,18 @@
     transition: 0.2s all linear;
 }
 
+.min-width-max-content{
+    min-width:max-content !important;
+}
+
+
 @media(min-width: 1400px) {
     .sidebar {
         width: 330px;
     }
 }
 
-@media(min-width: 992px) {
+@media(min-width: 1200px) {
     .sidebar {
         position: static;
         transform: translateX(0);
@@ -88,7 +93,7 @@
 }
 
 .search-input {
-    width: 60%;
+    width: 100%;
     background-image: url('../images/search.png');
     background-position: 10px center;
     background-repeat: no-repeat;

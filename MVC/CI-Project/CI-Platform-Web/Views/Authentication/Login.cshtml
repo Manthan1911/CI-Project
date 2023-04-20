@@ -1,6 +1,7 @@
 ﻿@model CI_Project.Entities.ViewModels.LoginModel
 @{
     ViewData["Title"] = "Login Page";
+    var userStatus = ViewBag.userStatus;
 }
 
 @section Styles {
@@ -8,6 +9,10 @@
 }
 
 <div class="loginPage-main-div d-flex">
+    @if (userStatus != null)
+    {
+        <input hidden id="letUserLogin" value="false"/>
+    }
     @Html.Partial("_authenticationCarousel")
     <div class="loginPage-form-div d-flex flex-column align-items-center justify-content-center">
         <form asp-action="Login" class="d-flex flex-column flex-grow-1 justify-content-center w-75">
@@ -40,3 +45,18 @@
         <a class="mb-5 text-black" href="">Privacy Policy</a>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        let letUserLogin = document.getElementById("letUserLogin").value;
+        if (letUserLogin == "false") {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Sorry you cant login!',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+    </script>
+}

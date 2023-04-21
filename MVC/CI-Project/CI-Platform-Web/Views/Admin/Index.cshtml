@@ -10,7 +10,7 @@
 }
 <main class="d-lg-flex">
 	<div class="overlay position-absolute d-none"></div>
-	<aside class="sidebar px-4 py-3 text-white d-flex flex-column gap-1 overflow-auto">
+	<aside class="sidebar px-4 py-3 text-white d-flex flex-column gap-1 overflow-auto flex-shrink-0">
 		<div class="d-flex justify-content-between mb-2">
 			<span class="min-width-max-content sidebar-item-text">NAVIGATION</span>
 			<button type="button" class="btn-close d-lg-none bg-white" aria-label="Close"></button>
@@ -103,9 +103,7 @@
 			</div>
 		</nav>
 		<section class="py-4 px-3 overflow-y-auto" id="adminPagePartialContainer">
-			<div id="loader" class="d-flex align-items-center justify-content-center h-100 w-100">
-				<img src="~/images/preloader.gif"/>
-			</div>
+			
 		</section>
 	</div>
 </main>
@@ -113,4 +111,5 @@
 
 @section Scripts{
 	<script src="~/js/admin.js"></script>
+	<script src="~/js/tiny.js"></script>
 }

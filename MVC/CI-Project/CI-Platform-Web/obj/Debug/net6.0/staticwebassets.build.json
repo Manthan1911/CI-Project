@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fw0C+47R6wnhWcwTukcHWO7kZT5BrctAempO65vVwaI=",
+  "Hash": "KuHygb+VyNLa1jTTeCIOsGg0P+aj1mBD1pE55bRIVUk=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -2939,6 +2939,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\carouselImageChanger.js"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\cmsTiny.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/cmsTiny.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cmsTiny.js"
     },
     {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\contactUs.js",

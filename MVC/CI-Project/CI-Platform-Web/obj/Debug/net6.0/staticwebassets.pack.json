@@ -685,6 +685,10 @@
       "PackagePath": "staticwebassets\\js\\carouselImageChanger.js"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\cmsTiny.js",
+      "PackagePath": "staticwebassets\\js\\cmsTiny.js"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\contactUs.js",
       "PackagePath": "staticwebassets\\js\\contactUs.js"
     },

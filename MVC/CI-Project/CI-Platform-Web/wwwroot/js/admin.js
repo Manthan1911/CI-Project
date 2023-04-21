@@ -1,11 +1,18 @@
 ﻿//---------------- loaders or spinners ----------
-$(document).ajaxStart(function () {
-    $('#loader').show();
-});
+//$(document).ajaxStart(function () {
+//    setTimeout(() => {
+//        let preloader = `<div id="loader" class="d-flex align-items-center justify-content-center h-100 w-100">
+//			</div>`;
+//        $('#loader').append('<img src="~/images/preloader.gif"/>');
+//        $('#adminPagePartialContainer').html("");
+//        $('#adminPagePartialContainer').html(preloader);
+//        $('#loader').show();
+//    },3000);
+//});
 
-$(document).ajaxStop(function () {
-    $('#loader').hide();
-});
+//$(document).ajaxStop(function () {
+//    $('#loader').hide();
+//});
 
 
 //---------------- aside bar --------------
@@ -42,24 +49,40 @@ function setHeight() {
 
 
 // ------------------ click on sidebar item ----------------
-ajaxCallForUserPartial();
+
+let url = "/Admin/GetUserPartial";
+let tabToOpen = "user";
+
+//ajaxCallForAdminPartial(url,tabToOpen);
+
 const sidebarTabs = document.querySelectorAll("[data-item]");
 sidebarTabs.forEach((tab) => {
 
     tab.addEventListener("click", (e) => {
         e.preventDefault();
+        tinymce.remove("textarea#tiny");
 
         tab.classList.add("active-sidebar-item");
         tab.children[0].classList.add("icon-fill-orange");
         console.log(tab.classList);
-        let tabToOpen = tab.getAttribute("data-item");
+        tabToOpen = tab.getAttribute("data-item");
 
         switch (tabToOpen) {
             case "user":
-                ajaxCallForUserPartial();
+                url = "/Admin/GetUserPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
+            case "cms":
+                url = "/Admin/GetCmsPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
+            case "skill":
+                url = "/Admin/GetSkillPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
                 break;
             default:
-                ajaxCallForUserPartial();
+                url = "/Admin/GetUserPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
                 break;
         }
     });
@@ -67,18 +90,33 @@ sidebarTabs.forEach((tab) => {
 });
 
 //-------------------- User --------------------
-function ajaxCallForUserPartial() {
 
+function ajaxCallForAdminPartial(url, tabToOpen) {
+    tinymce.remove("textarea#tiny");
     $.ajax({
-        url: "/Admin/GetUserPartial",
+        url: url,
         method: "GET",
         dataType: "html",
         success: (data) => {
             $('#adminPagePartialContainer').html(data);
-            callAddUserPartial();
-            deleteUserFromAdmin();
-            restoreUserFromAdmin();
-            editUserFromAdmin();
+
+            switch (tabToOpen) {
+                case "user":
+                    callAddUserPartial();
+                    deleteUserFromAdmin();
+                    restoreUserFromAdmin();
+                    editUserFromAdmin();
+                    break;
+                case "cms":
+                    callAddCmsPartial();
+                    callEditCmsPartial();
+                    deleteCmsPageFromAdmin();
+                    restoreCmsPageFromAdmin();
+                    break;
+                default:
+
+                    break;
+            }
         },
         error: (error) => {
             Swal.fire({
@@ -139,7 +177,7 @@ function ajaxCallForAddUserPartial() {
                                 timer: 3000
                             })
 
-                            ajaxCallForUserPartial();
+                            ajaxCallForAdminPartial(url, tabToOpen);
 
                         },
                         error: (error) => {
@@ -159,7 +197,7 @@ function ajaxCallForAddUserPartial() {
 
             $('#addUserCancelBtn').on('click', (e) => {
                 e.preventDefault();
-                ajaxCallForUserPartial();
+                ajaxCallForAdminPartial(url, tabToOpen);
             })
         },
         error: (error) => {
@@ -220,7 +258,7 @@ function deleteUserFromAdmin() {
                                 timer: 3000
                             })
 
-                            ajaxCallForUserPartial();
+                            ajaxCallForAdminPartial(url, tabToOpen);
 
                         },
                         error: (error) => {
@@ -288,7 +326,7 @@ function restoreUserFromAdmin() {
                                 timer: 3000
                             })
 
-                            ajaxCallForUserPartial();
+                            ajaxCallForAdminPartial(url, tabToOpen);
 
                         },
                         error: (error) => {
@@ -352,7 +390,7 @@ function ajaxCallForEditUserPartial(userId) {
                                 timer: 3000
                             })
 
-                            ajaxCallForUserPartial();
+                            ajaxCallForAdminPartial(url, tabToOpen);
 
                         },
                         error: (error) => {
@@ -368,15 +406,15 @@ function ajaxCallForEditUserPartial(userId) {
                     });
 
                 }
-           
 
-            
+
+
 
             });
 
             $('#editUserCancelBtn').on('click', (e) => {
                 e.preventDefault();
-                ajaxCallForUserPartial();
+                ajaxCallForAdminPartial(url, tabToOpen);
             })
 
         },
@@ -409,15 +447,325 @@ function editUserFromAdmin() {
 }
 
 
-//--------------------
+//-------------------- CMS --------------------
 
 
+const callAddCmsPartial = () => {
+    $('#addCmsBtn').on('click', (e) => {
+        e.preventDefault();
+        $.ajax({
+            url: "/Admin/GetAddCmsPartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html(data);
+                $.getScript("/js/cmsTiny.js");
+                $('#addCmsForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addCmsForm');
+                    if (isAdminFormValid(form)) {
 
-//--------------------
+                        let title = $("#cmsTitle").val();
+                        let description = tinymce.get("tiny").getContent();
+                        let slug = $("#cmsSlug").val();
+                        let status = $("#cmsStatus").val();
 
-let isAdminFormValid = (form) => {
-    if (!form.valid()) {
-        return false;
+                        const cmsModel = {
+                            title: title,
+                            description: description,
+                            slug: slug,
+                            status: status,
+                        };
+
+                        console.log(cmsModel);
+
+                        $.ajax({
+                            url: "/Admin/AddCmsPage",
+                            method: "POST",
+                            data: cmsModel,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Cms Page Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding Cms Page!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addCmsCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add CMS partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+        
+    });
+};
+
+const callEditCmsPartial = () => {
+    let editCmsPageBtns = document.querySelectorAll(".editCmsBtn");
+    editCmsPageBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(btn);
+            let cmsPageId = btn.getAttribute("data-editCmsPageId");
+            console.log(cmsPageId);
+            
+            $.ajax({
+                url: "/Admin/GetEditCmsPartial",
+                method: "GET",
+                data: { "cmsPageId": cmsPageId }, 
+                success: (data) => {
+                    $('#adminPagePartialContainer').html("");
+                    $('#adminPagePartialContainer').html(data);
+
+                    $.getScript("/js/cmsTiny.js");
+
+                    $('#editCmsForm').on("submit", (e) => {
+                        e.preventDefault();
+                        let form = $('#editCmsForm');
+                        if (isAdminFormValid(form)) {
+
+                            let id = $("#cmsPageId").val();
+                            let title = $("#cmsTitle").val();
+                            let description = tinymce.get("tiny").getContent();
+                            let slug = $("#cmsSlug").val();
+                            let status = $("#cmsStatus").val();
+
+                            const cmsModel = {
+                                id: id,
+                                title: title,
+                                description: description,
+                                slug: slug,
+                                status: status,
+                            };
+
+                            console.log(cmsModel);
+
+                            $.ajax({
+                                url: "/Admin/EditCmsPage",
+                                method: "POST",
+                                data: cmsModel,
+                                success: (data, _, status) => {
+
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Cms Page Added successfully!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+
+                                    ajaxCallForAdminPartial(url, tabToOpen);
+
+                                },
+                                error: (error) => {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'Error Adding Cms Page!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                    return;
+                                }
+                            });
+                        }
+                    });
+
+                    $("#editCmsCancelBtn").on("click", (e) => {
+                        e.preventDefault();
+
+                        ajaxCallForAdminPartial(url, tabToOpen);
+
+                    });
+                },
+                error: (error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'problem loading Edit CMS partial!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                }
+
+            });
+
+        });
+    });
+};
+
+const deleteCmsPageFromAdmin = () => {
+    let deleteCmsPageBtns = document.querySelectorAll(".deleteCmsBtn");
+    deleteCmsPageBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let cmsPageId = btn.getAttribute("data-editCmsPageId");
+
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Soft Delete',
+                denyButtonText: `Delete`,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                denyButtonColor: '#d33',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/SoftDeleteCmsPage",
+                        method: "POST",
+                        data: { "cmsPageId": cmsPageId },
+                        success: function (data) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Soft Deleted CMS Page!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Soft Deleting CMS Page!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                } else if (result.isDenied) {
+                    $.ajax({
+                        url: "/Admin/HardDeleteCmsPage",
+                        method: "DELETE",
+                        data: { "cmsPageId": cmsPageId },
+                        success: function (data) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Deleted CMS Page!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Hard Deleting CMS Page!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+
+        });
+    });
+};
+
+const restoreCmsPageFromAdmin = () => {
+    let restoreCmsPageBtns = document.querySelectorAll(".restoreCmsBtn");
+    restoreCmsPageBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure you want to restore this CMS page?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, restore it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let cmsPageId = btn.getAttribute("data-editCmsPageId");
+                    $.ajax({
+                        url: "/Admin/RestoreCmsPage",
+                        method: "DELETE",
+                        data: { "cmsPageId": cmsPageId },
+                        success: function (data) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Restored CMS page successfully!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Restoring CMS Page!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+           
+        });
+    });
+};
+
+//-------------------- CMS --------------------
+
+    //--------------------
+
+    let isAdminFormValid = (form) => {
+        if (!form.valid()) {
+            return false;
+        }
+        return true;
     }
-    return true;
-}

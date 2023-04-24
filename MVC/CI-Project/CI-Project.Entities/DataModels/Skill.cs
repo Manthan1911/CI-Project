@@ -17,7 +17,7 @@ public partial class Skill
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
+    public virtual ICollection<MissionSkills> MissionSkills { get; } = new List<MissionSkills>();
 
     public virtual ICollection<UserSkill> UserSkills { get; } = new List<UserSkill>();
 }

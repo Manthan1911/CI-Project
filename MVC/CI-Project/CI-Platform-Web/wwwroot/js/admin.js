@@ -1,18 +1,14 @@
 ﻿//---------------- loaders or spinners ----------
-//$(document).ajaxStart(function () {
-//    setTimeout(() => {
-//        let preloader = `<div id="loader" class="d-flex align-items-center justify-content-center h-100 w-100">
-//			</div>`;
-//        $('#loader').append('<img src="~/images/preloader.gif"/>');
-//        $('#adminPagePartialContainer').html("");
-//        $('#adminPagePartialContainer').html(preloader);
-//        $('#loader').show();
-//    },3000);
-//});
+$(document).ajaxStart(function () {
+    $("#loader").removeClass("d-none");
+    setHeight(loader);
+    $('#adminPagePartialContainer').addClass('d-none');
+});
 
-//$(document).ajaxStop(function () {
-//    $('#loader').hide();
-//});
+$(document).ajaxStop(function () {
+    $("#loader").addClass("d-none");
+    $('#adminPagePartialContainer').removeClass('d-none');
+});
 
 
 //---------------- aside bar --------------
@@ -40,11 +36,11 @@ setInterval(updateCurrentDateTime, 1000);
 
 
 // ----------------- fixing height of adminPagePartialContainer ----------------
-setHeight();
-function setHeight() {
+setHeight(adminPagePartialContainer);
+function setHeight(element) {
     let navbarHeight = adminPageNavbar.offsetHeight;
     let partialContainerHeight = `calc(100% - ${navbarHeight}px)`;
-    adminPagePartialContainer.style.height = partialContainerHeight;
+    element.style.height = partialContainerHeight;
 }
 
 
@@ -53,19 +49,34 @@ function setHeight() {
 let url = "/Admin/GetUserPartial";
 let tabToOpen = "user";
 
-//ajaxCallForAdminPartial(url,tabToOpen);
 
 const sidebarTabs = document.querySelectorAll("[data-item]");
+
+//-------------------- 
+const handleSidebarClassOnClick = (tabToAddActiveClass) => {
+    sidebarTabs.forEach((currTab) => {
+        let tabName = currTab.getAttribute("data-item");
+        if (tabName == tabToAddActiveClass) {
+            currTab.classList.add("active-sidebar-item");
+            currTab.children[0].classList.add("icon-fill-orange");
+        }
+        else {
+            currTab.classList.remove("active-sidebar-item");
+            currTab.children[0].classList.remove("icon-fill-orange");
+        }
+    });
+}
+
+$('#defaultTab').click();
 sidebarTabs.forEach((tab) => {
 
     tab.addEventListener("click", (e) => {
         e.preventDefault();
         tinymce.remove("textarea#tiny");
 
-        tab.classList.add("active-sidebar-item");
-        tab.children[0].classList.add("icon-fill-orange");
-        console.log(tab.classList);
         tabToOpen = tab.getAttribute("data-item");
+
+        handleSidebarClassOnClick(tabToOpen);
 
         switch (tabToOpen) {
             case "user":
@@ -77,7 +88,15 @@ sidebarTabs.forEach((tab) => {
                 ajaxCallForAdminPartial(url, tabToOpen);
                 break;
             case "skill":
-                url = "/Admin/GetSkillPartial";
+                url = "/Admin/GetSkillsPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
+            case "application":
+                url = "/Admin/GetMissionApplicationsPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
+            case "theme":
+                url = "/Admin/GetMissionThemePartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
                 break;
             default:
@@ -113,8 +132,24 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
                     deleteCmsPageFromAdmin();
                     restoreCmsPageFromAdmin();
                     break;
+                case "skill":
+                    callAddSkillPartial();
+                    callEditSkillPartial();
+                    deleteSkillFromAdmin();
+                    restoreSkillFromAdmin();
+                    break;
+                case "application":
+                    acceptMissionApplication();
+                    declineMissionApplication();
+                    break;
+                case "theme":
+                    callAddThemePartial();
+                    callEditThemePartial();
+                    deleteThemeFromAdmin();
+                    restoreThemeFromAdmin();
+                    break;
                 default:
-
+                    callAddUserPartial();
                     break;
             }
         },
@@ -526,7 +561,7 @@ const callAddCmsPartial = () => {
             }
         });
 
-        
+
     });
 };
 
@@ -538,11 +573,11 @@ const callEditCmsPartial = () => {
             console.log(btn);
             let cmsPageId = btn.getAttribute("data-editCmsPageId");
             console.log(cmsPageId);
-            
+
             $.ajax({
                 url: "/Admin/GetEditCmsPartial",
                 method: "GET",
-                data: { "cmsPageId": cmsPageId }, 
+                data: { "cmsPageId": cmsPageId },
                 success: (data) => {
                     $('#adminPagePartialContainer').html("");
                     $('#adminPagePartialContainer').html(data);
@@ -727,7 +762,7 @@ const restoreCmsPageFromAdmin = () => {
                     let cmsPageId = btn.getAttribute("data-editCmsPageId");
                     $.ajax({
                         url: "/Admin/RestoreCmsPage",
-                        method: "DELETE",
+                        method: "POST",
                         data: { "cmsPageId": cmsPageId },
                         success: function (data) {
 
@@ -754,18 +789,713 @@ const restoreCmsPageFromAdmin = () => {
                     });
                 }
             })
-           
+
         });
     });
 };
 
-//-------------------- CMS --------------------
+//-------------------- Skill --------------------
 
-    //--------------------
+const callAddSkillPartial = () => {
+    $('#addSkillBtn').on("click", (e) => {
+        e.preventDefault();
 
-    let isAdminFormValid = (form) => {
-        if (!form.valid()) {
-            return false;
-        }
-        return true;
+        $.ajax({
+            url: "/Admin/GetAddSkillsPartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html(data);
+
+                $('#addSkillForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addSkillForm');
+                    if (isAdminFormValid(form)) {
+
+                        let formData = form.serialize();
+
+                        $.ajax({
+                            url: "/Admin/AddSkill",
+                            method: "POST",
+                            data: formData,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Skill Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding Skill!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addSkillCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add Skill partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+};
+
+const callEditSkillPartial = () => {
+    let editSkillBtns = document.querySelectorAll(".editSkillBtn");
+    editSkillBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let skillId = btn.getAttribute("data-skillId");
+            console.log(skillId);
+
+            $.ajax({
+                url: "/Admin/GetEditSkillsPartial",
+                method: "GET",
+                data: { "skillId": skillId },
+                success: (data) => {
+                    $('#adminPagePartialContainer').html("");
+                    $('#adminPagePartialContainer').html(data);
+
+                    $('#editSkillForm').on("submit", (e) => {
+                        e.preventDefault();
+                        let form = $('#editSkillForm');
+                        if (isAdminFormValid(form)) {
+
+                            let formData = form.serialize();
+
+                            $.ajax({
+                                url: "/Admin/EditSkill",
+                                method: "POST",
+                                data: formData,
+                                success: (data, _, status) => {
+
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Skill Edited successfully!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+
+                                    ajaxCallForAdminPartial(url, tabToOpen);
+
+                                },
+                                error: (error) => {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'Error Editing Skill!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                    return;
+                                }
+                            });
+                        }
+                    });
+
+                    $("#editSkillCancelBtn").on("click", (e) => {
+                        e.preventDefault();
+
+                        ajaxCallForAdminPartial(url, tabToOpen);
+
+                    });
+                },
+                error: (error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'problem loading Edit CMS partial!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                }
+
+            });
+
+        });
+    });
+};
+
+const deleteSkillFromAdmin = () => {
+    let deleteSkillBtns = document.querySelectorAll(".deleteSkillBtn");
+    deleteSkillBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let skillId = btn.getAttribute("data-skillId");
+
+            Swal.fire({
+                title: 'Do you want to really want to delete this skill?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Soft Delete',
+                denyButtonText: `Delete`,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                denyButtonColor: '#d33',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/SoftDeleteSkill",
+                        method: "POST",
+                        data: { "skillId": skillId },
+                        success: function (data, _, status) {
+
+
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Skill can\'t be soft deleted as it is already in use!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Soft Deleted Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Soft Deleting Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                } else if (result.isDenied) {
+                    $.ajax({
+                        url: "/Admin/HardDeleteSkill",
+                        method: "DELETE",
+                        data: { "skillId": skillId },
+                        success: function (data, _, status) {
+                            console.log(data)
+                            console.log(status)
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Skill can\'t be deleted as it is already in use!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: data,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Hard Deleting Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+
+        });
+    });
+};
+
+const restoreSkillFromAdmin = () => {
+
+    let restoreSkillBtns = document.querySelectorAll(".restoreSkillBtn");
+    restoreSkillBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure you want to restore this Skill?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, restore it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let skillId = btn.getAttribute("data-skillId");
+                    $.ajax({
+                        url: "/Admin/RestoreSkill",
+                        method: "POST",
+                        data: { "skillId": skillId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Restored Skill successfully!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Restoring Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+
+        });
+    });
+
+}
+
+//-------------------- Mission Application --------------------
+
+const acceptMissionApplication = () => {
+    let approveBtns = document.querySelectorAll('.approveMissionApplicationBtn');
+    approveBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let missionApplicationId = btn.getAttribute("data-missionApplicationId");
+
+            $.ajax({
+                url: "/Admin/ApproveMissionApplication",
+                method: "POST",
+                data: { "missionApplicationId": missionApplicationId },
+                success: (data, _, status) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                }
+                ,
+                error: (error, _, status) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Error Approving Application request !',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+            });
+
+        });
+    });
+}
+
+const declineMissionApplication = () => {
+    let declineBtns = document.querySelectorAll('.declineMissionApplicationBtn');
+    declineBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let missionApplicationId = btn.getAttribute("data-missionApplicationId");
+
+            $.ajax({
+                url: "/Admin/DeclineMissionApplication",
+                method: "POST",
+                data: { "missionApplicationId": missionApplicationId },
+                success: (data, _, status) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                }
+                ,
+                error: (error, _, status) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Error Declining Application request!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+            });
+
+        });
+    });
+}
+
+
+//-------------------- Mission Theeme ----------------------
+
+const callAddThemePartial = () => {
+    $('#addThemeBtn').on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/Admin/GetAddMissionThemePartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html(data);
+
+                $('#addThemeForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addThemeForm');
+                    if (isAdminFormValid(form)) {
+
+                        let formData = form.serialize();
+
+                        $.ajax({
+                            url: "/Admin/AddTheme",
+                            method: "POST",
+                            data: formData,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Theme Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding theme!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addThemeCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add Theme partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+}
+
+const callEditThemePartial = () => {
+    let editThemeBtns = document.querySelectorAll(".editThemeBtn");
+    editThemeBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let themeId = btn.getAttribute("data-missionThemeId");
+
+            $.ajax({
+                url: "/Admin/GetEditMissionThemePartial",
+                method: "GET",
+                data: { "themeId": themeId },
+                success: (data) => {
+                    $('#adminPagePartialContainer').html("");
+                    $('#adminPagePartialContainer').html(data);
+
+                    $('#editThemeForm').on("submit", (e) => {
+                        e.preventDefault();
+                        let form = $('#editThemeForm');
+                        if (isAdminFormValid(form)) {
+
+                            let formData = form.serialize();
+
+                            $.ajax({
+                                url: "/Admin/EditMissionTheme",
+                                method: "POST",
+                                data: formData,
+                                success: (data, _, status) => {
+
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Theme Edited successfully!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+
+                                    ajaxCallForAdminPartial(url, tabToOpen);
+
+                                },
+                                error: (error) => {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'Error Editing Theme!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                    return;
+                                }
+                            });
+                        }
+                    });
+
+                    $("#editThemeCancelBtn").on("click", (e) => {
+                        e.preventDefault();
+
+                        ajaxCallForAdminPartial(url, tabToOpen);
+
+                    });
+                },
+                error: (error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'problem loading Edit Theme!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+
+                }
+
+            });
+
+        });
+    });
+};
+
+const deleteThemeFromAdmin = () => {
+    let deleteThemeBtns = document.querySelectorAll(".deleteThemeBtn");
+    deleteThemeBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let themeId = btn.getAttribute("data-missionThemeId");
+            Swal.fire({
+                title: 'Do you want to really want to delete this theme?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Soft Delete',
+                denyButtonText: `Delete`,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                denyButtonColor: '#d33',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/SoftDeleteMissionTheme",
+                        method: "POST",
+                        data: { "themeId": themeId },
+                        success: function (data, _, status) {
+
+
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Theme can\'t be soft deleted as it is already in use!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Soft Deleted Theme!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Soft Deleting Theme!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                } else if (result.isDenied) {
+                    $.ajax({
+                        url: "/Admin/HardDeleteMissionTheme",
+                        method: "DELETE",
+                        data: { "themeId": themeId },
+                        success: function (data, _, status) {
+                            console.log(data)
+                            console.log(status)
+                            if (status.status == 204) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Theme can\'t be deleted as it is already in use!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+
+                                return;
+                            }
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: data,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Hard Deleting theme!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+
+        });
+    });
+};
+
+const restoreThemeFromAdmin = () => {
+    let restoreThemeBtns = document.querySelectorAll(".restoreThemeBtn");
+    restoreThemeBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure you want to restore this Theme?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, restore it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let themeId = btn.getAttribute("data-missionThemeId");
+                    $.ajax({
+                        url: "/Admin/RestoreMissionTheme",
+                        method: "POST",
+                        data: { "themeId": themeId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Restored Theme successfully!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Restoring Theme!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+                }
+            })
+
+        });
+    });
+}
+
+//--------------------
+
+let isAdminFormValid = (form) => {
+    if (!form.valid()) {
+        return false;
     }
+    return true;
+}

@@ -1,0 +1,92 @@
+﻿@model List<CI_Project.Entities.ViewModels.MissionApplicationModel>
+<style>
+	.table-overflow {
+		width: 100%;
+		white-space: nowrap;
+		overflow-x: auto;
+	}
+
+	th {
+		font-weight: 500;
+		font-size: 1.25rem !important;
+		padding: 1rem 1rem !important;
+		background-color: #edeff6 !important;
+	}
+
+	.table thead > tr > th {
+		border-bottom-color: #ced4da !important;
+	}
+
+	.table tbody > tr > td {
+		padding-left: 1rem !important;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+
+</style>
+
+
+<div>
+	<div class="border-bottom border-2">
+		<span class="heading-2 text-decoration-underline" style="text-underline-offset:10px;">Mission Application</span>
+	</div>
+	<div class="p-0 m-0 mt-4">
+		<div class="row">
+			<div class="col-5">
+				<div class=" h-100">
+					<input type="text" placeholder="search" class="h-100 search-input rounded-3 border border-2 p-3" />
+				</div>
+			</div>
+		</div>
+		<div class="table-overflow">
+			<table class="table mt-5 ">
+				<thead>
+					<tr>
+						<th>Mission Title</th>
+						<th>Mission Id</th>
+						<th>User Id</th>
+						<th>User Name</th>
+						<th>Applied Date</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (Model.Where(missionApplication => missionApplication.ApprovalStatus.Equals("PENDING")).Count() <= 0)
+					{
+						<tr>
+							<td colspan="100%">
+								<div class="text-center">No entries found.</div>
+							</td>
+						</tr>
+					}
+					else
+					{
+						foreach (var currApplication in Model)
+						{
+							@if (currApplication.ApprovalStatus.Equals("PENDING"))
+							{
+								<tr>
+									<td>@currApplication.MissionTitle</td>
+									<td>@currApplication.MissionId</td>
+									<td>@currApplication.UserId</td>
+									<td>@currApplication.UserName</td>
+									<td>@currApplication.AppliedAt.ToString("d")</td>
+									<td>
+										<div class="d-flex gap-2">
+											<img src="~/images/check-circle.svg"
+									 class="approveMissionApplicationBtn cursor-pointer" alt="approve" height="20px" width="20px" data-missionApplicationId="@currApplication.MissionApplicationId">
+
+											<img src="~/images/x-circle.svg"
+									 class="declineMissionApplicationBtn cursor-pointer" alt="decline" height="20px" width="20px" data-missionApplicationId="@currApplication.MissionApplicationId">
+										</div>
+									</td>
+								</tr>
+							}
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

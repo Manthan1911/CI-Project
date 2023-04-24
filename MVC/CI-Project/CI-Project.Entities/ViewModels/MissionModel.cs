@@ -53,7 +53,7 @@ namespace CI_Project.Entities.ViewModels
         public virtual ICollection<MissionMedium> MissionMedia { get; set; } = new List<MissionMedium>();
 
         public virtual ICollection<MissionRating> MissionRatings { get; set; } = new List<MissionRating>();
-        public virtual ICollection<MissionSkill> MissionSkills { get; set; } = new List<MissionSkill>();
+        public virtual ICollection<MissionSkills> MissionSkills { get; set; } = new List<MissionSkills>();
 
 
         public virtual MissionTheme Theme { get; set; } = null!;

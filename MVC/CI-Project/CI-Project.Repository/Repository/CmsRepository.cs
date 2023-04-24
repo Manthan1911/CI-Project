@@ -34,8 +34,6 @@ namespace CI_Project.Repository.Repository
 			return _db.CmsPages.ToList();
 		}
 
-
-
 		public void updateCmsPage(CmsPage cmsPage)
 		{
 			_db.Update(cmsPage);

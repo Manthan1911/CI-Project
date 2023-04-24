@@ -19,6 +19,11 @@ builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IVolunteeringMissionRepository, VolunteeringMissionRepository>();
 builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 builder.Services.AddScoped<ICmsRepository, CmsRepository>();
+builder.Services.AddScoped<ISkillsRepository, SkillRepository>();
+builder.Services.AddScoped<IMissionsSkills, MissionsSkills>();
+builder.Services.AddScoped<IUsersSkill, UsersSkill>();
+builder.Services.AddScoped<IMissionApplication, MissionApplications>();
+builder.Services.AddScoped<IMissionThemeRepository, MissionThemeRepository>();
 
 
 

@@ -61,7 +61,7 @@ public partial class Mission
 
     public virtual ICollection<MissionRating> MissionRatings { get; } = new List<MissionRating>();
 
-    public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
+    public virtual ICollection<MissionSkills> MissionSkills { get; } = new List<MissionSkills>();
 
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
 

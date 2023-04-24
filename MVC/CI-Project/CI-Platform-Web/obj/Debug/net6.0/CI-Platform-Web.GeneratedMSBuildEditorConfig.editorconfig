@@ -64,6 +64,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRHb2FsTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AddMissionThemePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRNaXNzaW9uVGhlbWVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AddSkillPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRTa2lsbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AddTimeModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRUaW1lTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +82,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AdminCmsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkNtc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AdminMissionApplicationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbk1pc3Npb25BcHBsaWNhdGlvblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AdminMissionThemePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbk1pc3Npb25UaGVtZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AdminSkillPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblNraWxsUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_AdminUserPartial.cshtml]
@@ -102,6 +122,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_EditGoalModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0R29hbE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_EditMissionThemePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0TWlzc2lvblRoZW1lUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_EditSkillPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FZGl0U2tpbGxQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [W:/CI_Project_Final3/MVC/CI-Project/CI-Platform-Web/Views/Shared/_EditTimeModal.cshtml]

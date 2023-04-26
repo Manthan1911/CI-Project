@@ -99,6 +99,10 @@ sidebarTabs.forEach((tab) => {
                 url = "/Admin/GetMissionThemePartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
                 break;
+            case "mission":
+                url = "/Admin/GetMissionPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
             default:
                 url = "/Admin/GetUserPartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
@@ -147,6 +151,10 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
                     callEditThemePartial();
                     deleteThemeFromAdmin();
                     restoreThemeFromAdmin();
+                    break;
+                case "mission":
+                    callAddTimeMissionPartial();
+                    callAddGoalMissionPartial();
                     break;
                 default:
                     callAddUserPartial();
@@ -258,12 +266,12 @@ function deleteUserFromAdmin() {
             let userId = btn.getAttribute('data-userId');
 
             Swal.fire({
-                title: 'Are you sure you want to delete this user?',
+                title: 'Are you sure you want to Deactivate this user?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Deactivate'
             }).then((result) => {
                 if (result.isConfirmed) {
 
@@ -278,7 +286,7 @@ function deleteUserFromAdmin() {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'error',
-                                    title: 'Error Deleting User!',
+                                    title: 'Error Deactivating User!',
                                     showConfirmButton: false,
                                     timer: 3000
                                 })
@@ -288,7 +296,7 @@ function deleteUserFromAdmin() {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'User deleted successfully!',
+                                title: 'User Deactivated successfully!',
                                 showConfirmButton: false,
                                 timer: 3000
                             })
@@ -300,7 +308,7 @@ function deleteUserFromAdmin() {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: '404 or 500 problem deleting user!',
+                                title: '404 or 500 problem Deactivating user!',
                                 showConfirmButton: false,
                                 timer: 3000
                             })
@@ -672,7 +680,7 @@ const deleteCmsPageFromAdmin = () => {
                 title: 'Do you want to save the changes?',
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Soft Delete',
+                confirmButtonText: 'Deactivate',
                 denyButtonText: `Delete`,
                 confirmButtonColor: '#5cb85c',
                 cancelButtonColor: '#3085d6',
@@ -690,7 +698,7 @@ const deleteCmsPageFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'Soft Deleted CMS Page!',
+                                title: 'Deactivated CMS Page!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -701,7 +709,7 @@ const deleteCmsPageFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Error Soft Deleting CMS Page!',
+                                title: 'Error Deactivating CMS Page!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -954,7 +962,7 @@ const deleteSkillFromAdmin = () => {
                 title: 'Do you want to really want to delete this skill?',
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Soft Delete',
+                confirmButtonText: 'Deactivate',
                 denyButtonText: `Delete`,
                 confirmButtonColor: '#5cb85c',
                 cancelButtonColor: '#3085d6',
@@ -974,7 +982,7 @@ const deleteSkillFromAdmin = () => {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'error',
-                                    title: 'Skill can\'t be soft deleted as it is already in use!',
+                                    title: 'Skill can\'t be Deactivated as it is already in use!',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -985,7 +993,7 @@ const deleteSkillFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'Soft Deleted Skill!',
+                                title: 'Deactivated Skill!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -996,7 +1004,7 @@ const deleteSkillFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Error Soft Deleting Skill!',
+                                title: 'Error Deactivating Skill!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -1039,7 +1047,7 @@ const deleteSkillFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Error Hard Deleting Skill!',
+                                title: 'Error Deleting Skill!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -1173,7 +1181,7 @@ const declineMissionApplication = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: 'Error Declining Application request!',
+                        title: 'Error Declining Mission Application request!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -1343,7 +1351,7 @@ const deleteThemeFromAdmin = () => {
                 title: 'Do you want to really want to delete this theme?',
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Soft Delete',
+                confirmButtonText: 'Deactivate',
                 denyButtonText: `Delete`,
                 confirmButtonColor: '#5cb85c',
                 cancelButtonColor: '#3085d6',
@@ -1363,7 +1371,7 @@ const deleteThemeFromAdmin = () => {
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'error',
-                                    title: 'Theme can\'t be soft deleted as it is already in use!',
+                                    title: 'Theme can\'t be Deactivated as it is already in use!',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -1374,7 +1382,7 @@ const deleteThemeFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'Soft Deleted Theme!',
+                                title: 'Deactivated Theme!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -1385,7 +1393,7 @@ const deleteThemeFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Error Soft Deleting Theme!',
+                                title: 'Error Deactivating Theme!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -1428,7 +1436,7 @@ const deleteThemeFromAdmin = () => {
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Error Hard Deleting theme!',
+                                title: 'Error Deleting theme!',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -1491,11 +1499,417 @@ const restoreThemeFromAdmin = () => {
     });
 }
 
+//-------------------- Mission Theeme ----------------------
+const changeCityListAccordingToCountry = () => {
+    let countryDropdown = document.getElementById('countryDropdown');
+    let cityDropdown = document.getElementById('cityDropdown');
+
+    countryDropdown.addEventListener("change", (e) => {
+        e.preventDefault();
+
+        let countryId = countryDropdown.value;
+        let cityList = cityDropdown.children;
+
+        for (let i = 0; i < cityList.length; i++) {
+            cityList[i].classList.remove("d-none");
+        }
+
+        for (let i = 0; i < cityList.length; i++) {
+            let cityId = cityList[i].getAttribute("data-countryId");
+            if (cityId != countryId) {
+                cityList[i].classList.add("d-none");
+            }
+        }
+
+    });
+
+};
+
+const callAddTimeMissionPartial = () => {
+    $('#addTimeBtn').on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/Admin/GetTimeMissionPartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html(data);
+                $.getScript("/js/cmsTiny.js");
+                changeCityListAccordingToCountry();
+
+                $('#addTimeMissionForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addTimeMissionForm');
+
+                    saveFilesArrToInput();
+
+                    if (isAdminFormValid(form) && AreAdminMissionFormTimeFieldsValid()) {
+
+                        const formData = new FormData(form[0]);
+                        console.log(formData);
+                        formData.set("Description", tinymce.get('tiny').getContent());
+
+                        $.ajax({
+                            url: "/Admin/AddTimeMission",
+                            method: "POST",
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Time Mission Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding Time Mission!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addTimeMissionCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+
+                adminPreviewImage();
+                previewDocuments();
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add Time Mission partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+}
+
+const callAddGoalMissionPartial = () => {
+    $('#addGoalBtn').on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/Admin/GetGoalMissionPartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html("");
+                $('#adminPagePartialContainer').html(data);
+                $.getScript("/js/cmsTiny.js");
+
+                $('#addGoalMissionForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addGoalMissionForm');
+
+                    saveFilesArrToInput();
+
+                    if (isAdminFormValid(form) && AreAdminMissionFormTimeFieldsValid()) {
+
+                        const formData = new FormData(form[0]);
+                        console.log(formData);
+                        formData.set("Description", tinymce.get('tiny').getContent());
+
+                        $.ajax({
+                            url: "/Admin/AddGoalMission",
+                            method: "POST",
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Goal Mission Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding Goal Mission!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addGoalMissionCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+
+                adminPreviewImage();
+                previewDocuments();
+                changeCityListAccordingToCountry();
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add Goal Mission partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+}
+
 //--------------------
 
 let isAdminFormValid = (form) => {
     if (!form.valid()) {
         return false;
     }
+    return true;
+}
+
+// -------------------------------------
+let filesArr = [];
+let dragDiv;
+let inputFile;
+let imagePreviewDiv;
+let documentsInput;
+let selectedDocuments;
+
+function adminPreviewImage() {
+
+    filesArr = [];
+    dragDiv = document.getElementById('dragDiv');
+    inputFile = document.getElementById('inputFile');
+    imagePreviewDiv = document.getElementById('imagePreviewDiv');
+    //let isStoryDraft = document.getElementById('isStoryDraft').value;
+
+    console.log(dragDiv);
+    console.log(inputFile);
+    console.log(imagePreviewDiv);
+
+    dragDiv.addEventListener("click", () => {
+        inputFile.click();
+    });
+
+    dragDiv.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dragDiv.classList.add("drag-hover");
+    });
+
+    dragDiv.addEventListener("drop", (e) => {
+        e.preventDefault();
+        let droppedImages = e.dataTransfer.files;
+        addImageToArray(droppedImages);
+    });
+
+    inputFile.addEventListener("change", () => {
+        let chosenFiles = inputFile.files;
+        addImageToArray(chosenFiles);
+    });
+
+    dragDiv.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        dragDiv.classList.remove("drag-hover");
+    });
+
+    const addImageToArray = (images) => {
+        console.log(images);
+        if (images.length == 0) return;
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].type.split("/")[0] != 'image') continue;
+            if (!filesArr.some(e => e.name == images[i].name)) {
+                filesArr.push(images[i])
+                previewImage(URL.createObjectURL(images[i]), i);
+            }
+        }
+        document.querySelectorAll('.remove-from-preview').forEach((element) => {
+            element.addEventListener("click", (e) => {
+                filesArr.splice($(element).data('index'), 1);
+                element.parentNode.remove();
+                resetData();
+                console.log(filesArr);
+            });
+        });
+    }
+
+    const previewImage = (src, i) => {
+        let crossImg = "/images/cross.png";
+        imagePreviewDiv.innerHTML += `
+    <div class="position-relative d-inline-block m-1">
+        <img src="${src}" class="object-fit-cover" style="height:100px;width:130px;" alt="prevImg" />
+        <button data-index="${i}" class="remove-from-preview position-absolute top-0 end-0 d-flex align-items-center border-0 bg-dark p-0 m-0">
+            <img src="${crossImg}" class=" bg-dark p-1 m-0" />
+        </button>
+    </div>
+    `;
+    }
+
+    function resetData() {
+        Array.from(document.querySelectorAll(`.remove-from-preview`)).forEach((element, i) => {
+            element.setAttribute("data-index", i);
+        })
+    }
+
+
+}
+
+function saveFilesArrToInput() {
+    let myFiles = new DataTransfer();
+    filesArr.forEach(imageFile => myFiles.items.add(imageFile));
+    inputFile.files = myFiles.files;
+}
+
+function previewDocuments() {
+    documentsInput = document.querySelector("#DocumentsInput");
+    selectedDocuments = document.querySelector(".selected-documents");
+    documentsInput.addEventListener("change", () => {
+        selectedDocuments.innerHTML = '';
+        const documents = documentsInput.files;
+        for (let i = 0; i < documentsInput.files.length; i++) {
+            selectedDocuments.innerHTML += `<a target="_blank" href="${URL.createObjectURL(documents[i])}"
+                       class="btn border border-dark rounded-pill p-2 d-flex align-items-center gap-2 text-15">${documents[i].name}</a>`
+        }
+    })
+}
+
+// --------------------------------------------------
+//if (isStoryDraft == 1) {
+//    Array.from(document.querySelectorAll('[data-imgurl]')).forEach((image, index) => {
+//        //console.log("index : " + index);
+//        const fileName = image.value;
+//        console.log(fileName);
+//        const url = $(image).data("path");
+//        console.log(url);
+//        const type = $(image).data("type");
+//        console.log(type);
+//        return fetch(url)
+//            .then(response => response.arrayBuffer())
+//            .then(buffer => {
+//                const myFile = new File([buffer], fileName, { type: `image/${type.slice(1)}` });
+//                addImageToArray([myFile]);
+//            });
+//    });
+//}
+//let shareStoryForm = document.getElementById('shareStoryForm');
+//shareStoryForm.addEventListener('submit', (e) => {
+//    e.preventDefault();
+//    saveFilesArrToInput();
+//    let submitVal = document.getElementById('action');
+//    submitVal.value = e.submitter.getAttribute("value");
+//    console.log("submit" + submitVal.value);
+//    shareStoryForm.submit();
+//});
+
+
+function AreAdminMissionFormTimeFieldsValid() {
+    let currentDate = new Date();
+    let missionStartDate = document.getElementById("missionStartDate").value;
+    let missionEndDate = document.getElementById("missionEndDate").value;
+    let missionRegisterationDeadlineDate = document.getElementById("missionRegisterationDeadlineDate").value;
+    let images = document.getElementById('inputFile').files;
+    let skills = document.getElementById('missionSkills');
+    let selectedSkills = Array.from(skills.selectedOptions).map(option => option.value);
+
+
+    debugger;
+    console.log(images);
+
+    debugger;
+
+
+    if (missionStartDate < currentDate) {
+        debugger;
+
+        document.getElementById('startDateValidationSpan').innerHTML = "Start Date must be After today's date";
+        return false;
+    }
+    else {
+        document.getElementById('startDateValidationSpan').innerHTML = "";
+    }
+
+
+    if (missionEndDate.trim() !== "") {
+
+        if (missionStartDate > missionEndDate) {
+            document.getElementById('startDateValidationSpan').innerHTML = "Start Date must be Before Mission's End date";
+            return false;
+        }
+        else {
+            document.getElementById('startDateValidationSpan').innerHTML = "";
+        }
+
+        if (missionRegisterationDeadlineDate > missionEndDate) {
+            document.getElementById('registerationDeadlineValidationSpan').innerHTML = "Registeration Deadline Date mustnot be After Mission's End date";
+            return false;
+        }
+        else {
+            document.getElementById('registerationDeadlineValidationSpan').innerHTML = "";
+        }
+    }
+    else {
+        document.getElementById('startDateValidationSpan').innerHTML = "";
+        document.getElementById('registerationDeadlineValidationSpan').innerHTML = "";
+    }
+
+    if (missionRegisterationDeadlineDate.trim() !== "") {
+        if (missionRegisterationDeadlineDate < currentDate) {
+            document.getElementById('registerationDeadlineValidationSpan').innerHTML = "Registeration Deadline Date must be After CurrentDate date";
+            return false;
+        }
+        else {
+            document.getElementById('registerationDeadlineValidationSpan').innerHTML = "";
+        }
+    }
+    else {
+        document.getElementById('registerationDeadlineValidationSpan').innerHTML = "";
+    }
+
+
+    if (images.length <= 0) {
+        document.getElementById('imageValidationSpan').innerHTML = "Please upload atleast one mission image";
+        return false;
+    }
+    else {
+        document.getElementById('imageValidationSpan').innerHTML = "";
+    }
+
+
+    if (selectedSkills.length <= 0) {
+        debugger;
+        document.getElementById('skillError').innerHTML = "Please select atleast one mission skill";
+        return false;
+    }
+    else {
+        document.getElementById('skillError').innerHTML = "";
+    }
+
     return true;
 }

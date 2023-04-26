@@ -24,6 +24,10 @@ builder.Services.AddScoped<IMissionsSkills, MissionsSkills>();
 builder.Services.AddScoped<IUsersSkill, UsersSkill>();
 builder.Services.AddScoped<IMissionApplication, MissionApplications>();
 builder.Services.AddScoped<IMissionThemeRepository, MissionThemeRepository>();
+builder.Services.AddScoped<IMissionRepository, MissionRepository>();
+builder.Services.AddScoped<IMissionMediaRepository, MissionMediaRepository>();
+builder.Services.AddScoped<IMissionDocument, MissionDocumentRepository>();
+builder.Services.AddScoped<IGoalMissionRepository,GoalMissionRepositor>();
 
 
 

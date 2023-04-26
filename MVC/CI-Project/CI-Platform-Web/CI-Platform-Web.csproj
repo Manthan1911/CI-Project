@@ -27,8 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\mission_images\" />
     <Folder Include="wwwroot\images\profile_images\" />
     <Folder Include="wwwroot\images\storyimages\" />
+    <Folder Include="wwwroot\mission_documents\" />
   </ItemGroup>
 
 </Project>

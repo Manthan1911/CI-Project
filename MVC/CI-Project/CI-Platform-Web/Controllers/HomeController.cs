@@ -12,15 +12,17 @@ namespace CI_Platform_Web.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		private readonly IHomeRepository _homeRepository;
+		private readonly IMissionMediaRepository _missionMediaRepository;
 		private readonly IUserRepository _userRepository;
 		private readonly CIProjectDbContext _cIProjectDbContext;
 
-		public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
+		public HomeController(ILogger<HomeController> logger,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
 		{
 			_logger = logger;
 			_homeRepository = homeRepository;
 			_userRepository = userRepository;
 			_cIProjectDbContext = cIProjectDbContext;
+			_missionMediaRepository = missionMediaRepository;
 		}
 
 		public IActionResult Index(string? profileSuccess)
@@ -80,7 +82,7 @@ namespace CI_Platform_Web.Controllers
 			sortBy = String.IsNullOrEmpty(sortBy) ? "Newest" : sortBy;
 			pageNo = pageNo <= 0 ? 1 : pageNo;
 
-			List<Mission> missions = _homeRepository.getAllMissions();
+			List<Mission> missions = _homeRepository.getAllMissions().Where(mission => mission.Status == true).ToList();
 			List<MissionModel> missionVmList = new();
 			GridListModel gridListModel = new GridListModel();
 			string? currentUserEmail = HttpContext.Session.GetString("UserEmail");
@@ -106,7 +108,9 @@ namespace CI_Platform_Web.Controllers
 				gridListModel.missionModels= missionVmList;
 				ViewBag.totalMissions = gridListModel.missionModels.Count;
 				ViewBag.paginationLimit = pageSize;
-				return PartialView("_GridViewListViewPartial", gridListModel.missionModels.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList());
+
+				gridListModel.missionModels.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList();
+				return PartialView("_GridViewListViewPartial", gridListModel);
 			}
 
 			foreach (var currMisssion in missions)
@@ -121,7 +125,7 @@ namespace CI_Platform_Web.Controllers
 			return PartialView("_GridViewListViewPartial", gridListModel);
 		}
 
-		public static MissionModel convertDataModelToMissionModel(Mission mission,long userId)
+		public MissionModel convertDataModelToMissionModel(Mission mission,long userId)
 		{
 			MissionModel missionModel = new MissionModel
 			{
@@ -134,8 +138,8 @@ namespace CI_Platform_Web.Controllers
 				Availability = mission.Availability,
 				ShortDescription = mission.ShortDescription,
 				Description = mission.Description,
-				StartDate = mission.StartDate.ToString().Remove(10),
-				EndDate = mission.EndDate.ToString().Remove(10),
+				StartDate = mission.StartDate,
+				EndDate = mission.EndDate,
 				OrganizationName = mission.OrganizationName,
 				OrganizationDetails = mission.OrganizationDetail,
 				MissionType = mission.MissionType,
@@ -146,7 +150,7 @@ namespace CI_Platform_Web.Controllers
 				MissionRatings = mission.MissionRatings,
 				countOfRatingsByPeople = mission.MissionRatings.Select(m => m.MissionId == mission.MissionId).Count(),
 				sumOfRating = mission.MissionRatings.Where(m => m.MissionId == mission.MissionId).Sum(m => m.Rating),
-				CoverImage = getMissionCoverImageUrl(mission.MissionMedia),
+				CoverImage = getMissionCoverImageUrl(mission.MissionId),
 				isMissionFavourite = mission.FavouriteMissions.Any(fm => fm.MissionId == mission.MissionId && fm.UserId == userId) ? 1 : 0,
 				totalSeats=mission.TotalSeats,
 				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count(),
@@ -159,9 +163,9 @@ namespace CI_Platform_Web.Controllers
 			return missionModel;
 		}
 
-        private static string? getMissionCoverImageUrl(ICollection<MissionMedium> missionMedia)
+        public string? getMissionCoverImageUrl(long missionId)
         {
-			var media =  missionMedia.FirstOrDefault(m => m.Default == true);
+			var media =  _missionMediaRepository.GetAllMissionMedia().FirstOrDefault(missionMedia => missionMedia.MissionId == missionId);
             string? missionCoverImageUrl = media?.MediaPath + media?.MediaName + media?.MediaType;
 			return missionCoverImageUrl;
         }

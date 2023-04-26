@@ -13,7 +13,13 @@ namespace CI_Project.Repository.Repository
 			_db= db;
 		}
 
-		public List<MissionSkills> GetAllMissionSkills()
+        public void AddMissionSkill(MissionSkills missionSkill)
+        {
+			_db.MissionSkills.Add(missionSkill);
+			_db.SaveChanges();
+        }
+
+        public List<MissionSkills> GetAllMissionSkills()
 		{
 			return _db.MissionSkills.ToList();
 		}

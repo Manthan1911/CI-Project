@@ -385,6 +385,46 @@
       "PackagePath": "staticwebassets\\images\\mission.png"
     },
     {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\21c214d1-be5c-45b2-9ce3-4187522405bd.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\21c214d1-be5c-45b2-9ce3-4187522405bd.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\2b9d6c55-772c-4d7e-a4b8-25c935251e63.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\2b9d6c55-772c-4d7e-a4b8-25c935251e63.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\2e363403-7ab8-4909-a9b5-abbc6c60329a.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\2e363403-7ab8-4909-a9b5-abbc6c60329a.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\316f788f-6481-43e3-875e-fa3a79041c6f.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\316f788f-6481-43e3-875e-fa3a79041c6f.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\356326d2-0911-4ec3-beb8-6ccdfa764850.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\356326d2-0911-4ec3-beb8-6ccdfa764850.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\70802fe9-3933-417f-9649-eb3f564d6f84.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\70802fe9-3933-417f-9649-eb3f564d6f84.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9149b2b9-5f27-414a-a67b-87339085a73e.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\9149b2b9-5f27-414a-a67b-87339085a73e.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\f5d8f5b5-1cb1-42a9-a0b1-dec713cc8396.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\f5d8f5b5-1cb1-42a9-a0b1-dec713cc8396.jpg"
+    },
+    {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
       "PackagePath": "staticwebassets\\images\\my-story.png"
     },
@@ -429,12 +469,12 @@
       "PackagePath": "staticwebassets\\images\\previous.png"
     },
     {
-      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
-      "PackagePath": "staticwebassets\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png"
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\899dab53-eaf1-4579-ae29-78b2589ee1da.png",
+      "PackagePath": "staticwebassets\\images\\profile_images\\899dab53-eaf1-4579-ae29-78b2589ee1da.png"
     },
     {
-      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\efb6e5b2-83dc-440f-9012-6ab68736aa6b.png",
-      "PackagePath": "staticwebassets\\images\\profile_images\\efb6e5b2-83dc-440f-9012-6ab68736aa6b.png"
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png",
+      "PackagePath": "staticwebassets\\images\\profile_images\\b83e749f-b503-4f05-861a-a8c408a4dc26.png"
     },
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\puzzle-fill.svg",
@@ -963,6 +1003,14 @@
     {
       "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf",
+      "PackagePath": "staticwebassets\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf"
+    },
+    {
+      "Id": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\b2b80918-83e6-4d61-862d-6e5d65afdc05.pdf",
+      "PackagePath": "staticwebassets\\mission_documents\\b2b80918-83e6-4d61-862d-6e5d65afdc05.pdf"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CI-Platform-Web.Microsoft.AspNetCore.StaticWebAssets.props",

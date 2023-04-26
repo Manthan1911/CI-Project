@@ -1,0 +1,150 @@
+﻿@model CI_Project.Entities.ViewModels.TimeMissionModel
+
+<form id="addTimeMissionForm" enctype="multipart/form-data">
+	<div class="border border-2">
+		<div class="py-2 px-4 bg-light fs-4 border-bottom border-2">Add Time Mission</div>
+		<div class="d-grid gap-3 p-4 color-darkgray">
+			<div>
+				<label asp-for="Title" class="form-label"></label>
+				<input type="text" placeholder="Enter title" class="form-control" asp-for="Title">
+				<span class=" text-danger" asp-validation-for="Title"></span>
+			</div>
+			<div>
+				<label asp-for="ShortDescription" class="form-label"></label>
+				<input type="text" class="form-control" placeholder="Enter short description" asp-for="ShortDescription">
+				<span class=" text-danger" asp-validation-for="ShortDescription"></span>
+			</div>
+			<div>
+				<label asp-for="Description" class="form-label"></label>
+				<textarea id="tiny" asp-for="Description"></textarea>
+				<span id="descriptionError" class=" text-danger"></span>
+			</div>
+			<div>
+				<label asp-for="OrganizationName" class="form-label"></label>
+				<input type="text" class="form-control" placeholder="Enter organization's name" asp-for="OrganizationName">
+				<span class=" text-danger" asp-validation-for="OrganizationName" placeholder="Enter organization name"></span>
+			</div>
+			<div>
+				<label class="form-label" asp-for="OrganizationDetails"></label>
+				<textarea rows="4" type="text" asp-for="OrganizationDetails" placeholder="Enter organization description..."
+						  class="form-control"></textarea>
+			</div>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div class="col">
+					<label class="form-label">Select Mission Country</label>
+					<select class="form-select" asp-for="MissionCountry" id="countryDropdown">
+						<option value="0" disabled selected>Select mission country</option>
+						@foreach (var country in Model.Countrys)
+						{
+							<option value="@country.CountryId">@country.Name</option>
+						}
+					</select>
+					<span class="text-danger " asp-validation-for="MissionCountry"></span>
+				</div>
+				<div class="col">
+					<label class="form-label">Select Mission City</label>
+					<select class="form-select" asp-for="MissionCity" id="cityDropdown">
+						<option value="0" disabled selected>Select mission city</option>
+						@foreach (var city in Model.Cities)
+						{
+							<option data-countryId="@city.CountryId" value="@city.CityId">@city.Name</option>
+						}
+					</select>
+					<span class="text-danger " asp-validation-for="MissionCity"></span>
+				</div>
+			</div>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div class="col">
+					<label class="form-label">Select Mission Theme</label>
+					<select class="form-select" asp-for="MissionThemeId">
+						<option value="0" disabled selected>Select mission theme</option>
+						@foreach (var theme in Model.Themes)
+						{
+							<option value="@theme.MissionThemeId">@theme.Title</option>
+						}
+					</select>
+					<span class="text-danger " asp-validation-for="MissionThemeId"></span>
+				</div>
+				<div class="col">
+					<label class="form-label">Availability</label>
+					<select class="form-select" asp-for=Availability>
+						<option disabled selected>Select mission availability</option>
+						<option value="daily">Daily</option>
+						<option value="weekly">Weekly</option>
+						<option value="week-end only">Week-end Only</option>
+						<option value="monthly">Monthly</option>
+					</select>
+					<span class="text-danger " asp-validation-for="Availability"></span>
+				</div>
+			</div>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div>
+					<label asp-for="StartDate"></label>
+					<input id="missionStartDate" type="date" class="form-control" asp-for="StartDate" placeholder="Select date">
+					<span class="text-danger" asp-validation-for="StartDate"></span>
+					<span class="text-danger" id="startDateValidationSpan"></span>
+				</div>
+				<div>
+					<label asp-for="EndDate"></label>
+					<input id="missionEndDate" type="date" class="form-control" asp-for="EndDate" placeholder="Select date">
+					<span class="text-danger " asp-validation-for="EndDate"></span>
+					<span class="text-danger " id="endDateValidationSpan"></span>
+				</div>
+			</div>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div>
+					<label asp-for="TotalSeats"></label>
+					<input type="text" class="form-control" asp-for="TotalSeats" placeholder="enter total seats">
+				</div>
+				<div>
+					<label asp-for="RegistrationDeadline"></label>
+					<input id="missionRegisterationDeadlineDate" type="date" class="form-control" asp-for="RegistrationDeadline" placeholder="Select date">
+					<span class="text-danger" asp-validation-for="RegistrationDeadline"></span>
+					<span class="text-danger" id="registerationDeadlineValidationSpan"></span>
+				</div>
+			</div>
+			<div>
+				<label for="inputFile">Mission Images</label>
+				<div id="dragDiv" class="dragarea d-flex flex-column align-items-center justify-content-center border border-secondary border-dashed py-4 cursor-pointer" style="border:dashed !important;">
+					<img src="~/images/drag-and-drop.png" alt="drag" />
+					<input type="file" id="inputFile" asp-for="Images" multiple hidden accept=".png, .jpg, .jpeg" />
+				</div>
+				<div id="imagePreviewDiv" class="d-flex gap-2 gap-md-3 flex-wrap mt-2"></div>
+				<span id="imageValidationSpan" class="text-danger "></span>
+			</div>
+			<div>
+				<label for="DocumentsInput">Mission Documents</label>
+				<input type="file" class="form-control" id="DocumentsInput" multiple accept=".doc, .pdf, .docx, .xls, .xlsx" asp-for="Documents" />
+				<div class="selected-documents d-flex gap-3 flex-wrap mt-2"></div>
+			</div>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div>
+					<label asp-for="IsActive" class="form-label"></label>
+					<select asp-for="IsActive" class="form-select">
+						<option selected disabled>Select status</option>
+						<option value="true">Active</option>
+						<option value="false">Not Active</option>
+					</select>
+					<span class=" text-danger" asp-validation-for="IsActive"></span>
+				</div>
+				<div>
+					<label class="form-label">Mission Skills</label>
+					<select id="missionSkills" asp-for="SelectedSkills" multiple class="form-select">
+						@foreach (var skill in Model.Skills)
+						{
+							<option value="@skill.SkillId">@skill.SkillName</option>
+						}
+					</select>
+					<span class=" text-danger" id="skillError"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-end mt-4">
+		<button type="button" id="addTimeMissionCancelBtn" class="btn btn-outline-danger btn-lg rounded-pill me-3">
+			Cancel
+		</button>
+		<button type="submit" class="btn btn-outline-warning btn-lg rounded-pill">Save</button>
+	</div>
+</form>
+<partial name="_ValidationScriptsPartial"></partial>

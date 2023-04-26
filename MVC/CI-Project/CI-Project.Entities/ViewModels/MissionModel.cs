@@ -19,9 +19,9 @@ namespace CI_Project.Entities.ViewModels
         public string? Description { get; set; }
 
 
-        public string StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
-        public string EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public string MissionType { get; set; } = null!;
 

@@ -56,6 +56,8 @@ namespace CI_Project.Entities.ViewModels
 		[Required]
 		[Display(Name = "Status")]
 		public bool? IsActive { get; set; }
+		public bool? FetchMissionImages { get; set; }
+		public bool? FetchMissionDocuments { get; set; }
 
 		public List<City> Cities { get; set; } = new();
 		public List<Country> Countrys { get; set; } = new();

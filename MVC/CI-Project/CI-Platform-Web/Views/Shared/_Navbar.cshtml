@@ -1,8 +1,7 @@
 ﻿@{
 	var userId = Context.Session.GetString("UserId");
 	var fullName = Context.Session.GetString("FullName");
-	var Avtar = Context.Session.GetString("Avtar") == null ? "~/images/user-img.png" : Context.Session.GetString("Avtar");
-	var id = 1;
+	var Avtar = Context.Session.GetString("Avtar") == null ? "/images/404-Page-image.png" : Context.Session.GetString("Avtar");
 }
 <nav id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
 	 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">

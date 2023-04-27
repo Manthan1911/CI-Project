@@ -6,5 +6,6 @@ namespace CI_Project.Repository.Repository.Interface
     {
         public List<MissionDocument> GetAllMissionDocumentsd();
         public void AddMissionDocument(MissionDocument missionDocumentObj);
+        public void DeleteAllMissionDocumentsByMissionId(long missionId);
     }
 }

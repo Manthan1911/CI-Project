@@ -188,11 +188,11 @@
 			Array.from(document.querySelectorAll('[data-imgurl]')).forEach((image, index) => {
 				//console.log("index : " + index);
 				const fileName = image.value;
-				console.log(fileName);
+				//console.log(fileName);
 				const url = $(image).data("path");
-				console.log(url);
+				//console.log(url);
 				const type = $(image).data("type");
-				console.log(type);
+				//console.log(type);
 				return fetch(url)
 					.then(response => response.arrayBuffer())
 					.then(buffer => {

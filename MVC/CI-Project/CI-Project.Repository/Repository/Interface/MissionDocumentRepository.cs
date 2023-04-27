@@ -17,7 +17,15 @@ namespace CI_Project.Repository.Repository.Interface
             _db.SaveChanges();
         }
 
-        public List<MissionDocument> GetAllMissionDocumentsd()
+		public void DeleteAllMissionDocumentsByMissionId(long missionId)
+		{
+            List<MissionDocument> missionDocuments = _db.MissionDocuments.Where(missionDocument => missionDocument.MissionId == missionId).ToList();
+
+            _db.RemoveRange(missionDocuments);
+            _db.SaveChanges();
+		}
+
+		public List<MissionDocument> GetAllMissionDocumentsd()
         {
             return _db.MissionDocuments.ToList();
         }

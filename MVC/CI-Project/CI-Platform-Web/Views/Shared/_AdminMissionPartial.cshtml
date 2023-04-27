@@ -91,26 +91,21 @@
 								</td>
 								<td>
 									@*----------- Active CMS --------*@
-									@if (currMission.Status == true)
-									{
-										<div class="d-flex gap-2">
-											<img src="~/images/editing.png"
-									 class="editMissionBtn cursor-pointer" alt="edit" height="20px" width="20px" data-missionId="@currMission.MissionId">
+									<div class="d-flex gap-2">
+										<img src="~/images/editing.png"
+									 class="editMissionBtn cursor-pointer" alt="edit" height="20px" width="20px" data-missionType="@currMission.MissionType" data-missionId="@currMission.MissionId">
 
+										@if (currMission.Status == true)
+										{
 											<img src="~/images/bin.png"
-									 class="deleteMissionBtn cursor-pointer" alt="bin" height="20px" width="20px" data-missionId="@currMission.MissionId">
-										</div>
-									}
-									else
-									{
-										<div class="d-flex gap-2">
-											<img src="~/images/editing.png"
-									 class="editMissionBtn cursor-pointer" alt="edit" height="20px" width="20px" data-missionId="@currMission.MissionId">
-
-											<img src="~/images/restore.svg" class="restoreMissionBtn cursor-pointer" alt="bin" height="20px" width="20px"
-									 data-missionId="@currMission.MissionId">
-										</div>
-									}
+											class="deleteMissionBtn cursor-pointer" alt="bin" height="20px" width="20px" data-missionId="@currMission.MissionId">
+										}
+										else
+										{
+											<img src="~/images/restore.svg" class="restoreMissionBtn cursor-pointer" alt="restore" height="20px" width="20px"
+											data-missionId="@currMission.MissionId">
+										}
+									</div>
 								</td>
 							</tr>
 						}

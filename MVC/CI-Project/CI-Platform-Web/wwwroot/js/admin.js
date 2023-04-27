@@ -155,6 +155,7 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
                 case "mission":
                     callAddTimeMissionPartial();
                     callAddGoalMissionPartial();
+                    callEditMissionPartial();
                     break;
                 default:
                     callAddUserPartial();
@@ -1193,7 +1194,7 @@ const declineMissionApplication = () => {
 }
 
 
-//-------------------- Mission Theeme ----------------------
+//-------------------- Mission Theme ----------------------
 
 const callAddThemePartial = () => {
     $('#addThemeBtn').on("click", (e) => {
@@ -1499,7 +1500,7 @@ const restoreThemeFromAdmin = () => {
     });
 }
 
-//-------------------- Mission Theeme ----------------------
+//-------------------- Mission ----------------------
 const changeCityListAccordingToCountry = () => {
     let countryDropdown = document.getElementById('countryDropdown');
     let cityDropdown = document.getElementById('cityDropdown');
@@ -1603,7 +1604,7 @@ const callAddTimeMissionPartial = () => {
         });
 
     });
-}
+};
 
 const callAddGoalMissionPartial = () => {
     $('#addGoalBtn').on("click", (e) => {
@@ -1686,6 +1687,110 @@ const callAddGoalMissionPartial = () => {
     });
 }
 
+const callEditMissionPartial = () => {
+    let editMissionButtons = document.querySelectorAll('.editMissionBtn');
+    editMissionButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+
+
+            const missionType = button.getAttribute("data-missionType");
+            const missionId = button.getAttribute("data-missionId");
+
+            switch (missionType) {
+                case "time":
+                    $.ajax({
+                        url: "/Admin/GetEditTimeMissionPartial",
+                        method: "PUT",
+                        data: { "missionId": missionId },
+                        success: function (data) {
+                            $('#adminPagePartialContainer').html(data);
+                            documents = [];
+
+                            $.getScript("/js/cmsTiny.js");
+
+                            $('#editTimeMissionForm').on('submit', (e) => {
+                                e.preventDefault();
+
+                                debugger;
+                                saveFilesArrToInput();
+                                debugger;
+
+                                let form = $('#editTimeMissionForm');
+
+                                if (isAdminFormValid(form) && AreAdminMissionFormTimeFieldsValid()) {
+
+                                    const formData = new FormData(form[0]);
+                                    console.log(formData);
+                                    formData.set("Description", tinymce.get('tiny').getContent());
+
+                                    $.ajax({
+                                        url: "/Admin/EditTimeMission",
+                                        method: "PUT",
+                                        processData: false,
+                                        contentType: false,
+                                        data: formData,
+                                        success: (data, _, status) => {
+
+                                            Swal.fire({
+                                                position: 'top-end',
+                                                icon: 'success',
+                                                title: 'Time Mission Edited successfully!',
+                                                showConfirmButton: false,
+                                                timer: 3000
+                                            })
+
+                                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                                        },
+                                        error: (error) => {
+                                            Swal.fire({
+                                                position: 'top-end',
+                                                icon: 'error',
+                                                title: 'Error Editing Time Mission!',
+                                                showConfirmButton: false,
+                                                timer: 3000
+                                            })
+                                            return;
+                                        }
+                                    });
+                                }
+                            });
+
+                            $("#editTimeMissionCancelBtn").on("click", (e) => {
+                                e.preventDefault();
+                                ajaxCallForAdminPartial(url, tabToOpen);
+                            });
+
+
+                            adminPreviewImage();
+                            previewDocuments();
+                            changeCityListAccordingToCountry();
+                            initDocumentsOnEdit();
+                        },
+                        error: function (error) {
+
+                        }
+                    });
+                    break;
+                case "goal":
+                    $.ajax({
+                        url: "/Admin/GetEditGoalMissionPartial",
+                        method: "PUT",
+                        data: { "missionId": missionId },
+                        success: function (data) {
+                            $('#adminPagePartialContainer').html(data);
+                            $.getScript("/js/cmsTiny.js");
+                        },
+                        error: function (error) {
+
+                        }
+                    });
+                    break;
+            }
+        });
+    });
+};
 //--------------------
 
 let isAdminFormValid = (form) => {
@@ -1702,6 +1807,7 @@ let inputFile;
 let imagePreviewDiv;
 let documentsInput;
 let selectedDocuments;
+let documents=[];
 
 function adminPreviewImage() {
 
@@ -1709,11 +1815,6 @@ function adminPreviewImage() {
     dragDiv = document.getElementById('dragDiv');
     inputFile = document.getElementById('inputFile');
     imagePreviewDiv = document.getElementById('imagePreviewDiv');
-    //let isStoryDraft = document.getElementById('isStoryDraft').value;
-
-    console.log(dragDiv);
-    console.log(inputFile);
-    console.log(imagePreviewDiv);
 
     dragDiv.addEventListener("click", () => {
         inputFile.click();
@@ -1741,7 +1842,6 @@ function adminPreviewImage() {
     });
 
     const addImageToArray = (images) => {
-        console.log(images);
         if (images.length == 0) return;
         for (let i = 0; i < images.length; i++) {
             if (images[i].type.split("/")[0] != 'image') continue;
@@ -1755,7 +1855,6 @@ function adminPreviewImage() {
                 filesArr.splice($(element).data('index'), 1);
                 element.parentNode.remove();
                 resetData();
-                console.log(filesArr);
             });
         });
     }
@@ -1778,13 +1877,67 @@ function adminPreviewImage() {
         })
     }
 
+    let fetchMissionImages = document.getElementById('fetchMissionImages');
+
+    if (fetchMissionImages != null) {
+        if (fetchMissionImages.value == 1) {
+            Array.from(document.querySelectorAll('[data-imgurl]')).forEach((image) => {
+                const fileName = image.value;
+                //console.log(fileName);
+                const url = $(image).data("path");
+                //console.log(url);
+                const type = $(image).data("type");
+                //console.log(type);
+                return fetch(url)
+                    .then(response => response.arrayBuffer())
+                    .then(buffer => {
+                        const myFile = new File([buffer], fileName, { type: `image/${type.slice(1)}` });
+                        addImageToArray([myFile]);
+                        saveFilesArrToInput();
+                    });
+            });
+        }
+    }
 
 }
 
 function saveFilesArrToInput() {
+
     let myFiles = new DataTransfer();
-    filesArr.forEach(imageFile => myFiles.items.add(imageFile));
+    filesArr.forEach((imageFile) => {
+        myFiles.items.add(imageFile);
+    });
     inputFile.files = myFiles.files;
+}
+
+async function initDocumentsOnEdit() {
+    const docImages = Array.from(document.querySelectorAll('[data-doc]'));
+    documentsInput = document.querySelector("#DocumentsInput");
+    selectedDocuments = document.querySelector(".selected-documents");
+
+    for (const image of docImages) {
+        const fileName = image.value;
+        const url = $(image).data("doc");
+        const type = $(image).data("type");
+        //const title = $(image).data("title");
+
+        const response = await fetch(url);
+        const buffer = await response.arrayBuffer();
+        const myFile = new File([buffer], fileName, { type: `image/${type.slice(1)}` });
+        documents.push(myFile);
+        //titles.push(title);
+    }
+
+    let myFiles = new DataTransfer();
+    documents.forEach((document) => {
+        myFiles.items.add(document);
+    });
+    documentsInput.files = myFiles.files;
+
+    documents.forEach((doc) => {
+        selectedDocuments.innerHTML += `<a target="_blank" href="${URL.createObjectURL(doc)}"
+                       class="btn border border-dark rounded-pill p-2 d-flex align-items-center gap-2 text-15">${doc.name}</a>`
+    });
 }
 
 function previewDocuments() {
@@ -1801,23 +1954,7 @@ function previewDocuments() {
 }
 
 // --------------------------------------------------
-//if (isStoryDraft == 1) {
-//    Array.from(document.querySelectorAll('[data-imgurl]')).forEach((image, index) => {
-//        //console.log("index : " + index);
-//        const fileName = image.value;
-//        console.log(fileName);
-//        const url = $(image).data("path");
-//        console.log(url);
-//        const type = $(image).data("type");
-//        console.log(type);
-//        return fetch(url)
-//            .then(response => response.arrayBuffer())
-//            .then(buffer => {
-//                const myFile = new File([buffer], fileName, { type: `image/${type.slice(1)}` });
-//                addImageToArray([myFile]);
-//            });
-//    });
-//}
+
 //let shareStoryForm = document.getElementById('shareStoryForm');
 //shareStoryForm.addEventListener('submit', (e) => {
 //    e.preventDefault();
@@ -1894,6 +2031,7 @@ function AreAdminMissionFormTimeFieldsValid() {
 
 
     if (images.length <= 0) {
+        debugger;
         document.getElementById('imageValidationSpan').innerHTML = "Please upload atleast one mission image";
         return false;
     }

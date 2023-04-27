@@ -19,7 +19,13 @@ namespace CI_Project.Repository.Repository
 			_db.SaveChanges();
         }
 
-        public List<MissionSkills> GetAllMissionSkills()
+		public void DeleteListOfMissionSkills(List<MissionSkills> missionSkills)
+		{
+			_db.MissionSkills.RemoveRange(missionSkills);
+			_db.SaveChanges();	
+		}
+
+		public List<MissionSkills> GetAllMissionSkills()
 		{
 			return _db.MissionSkills.ToList();
 		}

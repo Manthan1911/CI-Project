@@ -7,5 +7,7 @@ namespace CI_Project.Repository.Repository.Interface
 		public List<MissionSkills> GetAllMissionSkills();
 
 		public void AddMissionSkill(MissionSkills missionSkill);
+
+		public void DeleteListOfMissionSkills(List<MissionSkills> missionSkills);
 	}
 }

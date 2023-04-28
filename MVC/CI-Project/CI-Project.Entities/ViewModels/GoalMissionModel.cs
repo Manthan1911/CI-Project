@@ -55,6 +55,9 @@ namespace CI_Project.Entities.ViewModels
 
 		[Required]
 		public bool? IsActive { get; set; }
+		public bool? FetchMissionImages { get; set; }
+		public bool? FetchMissionDocuments { get; set; }
+
 		public DateTimeOffset CreatedAt { get; set; }
 
 		public DateTimeOffset? UpdatedAt { get; set; }

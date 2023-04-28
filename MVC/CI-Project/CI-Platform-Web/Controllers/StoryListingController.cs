@@ -1,4 +1,5 @@
-﻿using CI_Project.Entities.DataModels;
+﻿using CI_Platform_Web.Utilities;
+using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
@@ -9,6 +10,7 @@ using MimeKit;
 
 namespace CI_Platform_Web.Controllers
 {
+	[Authenticate]
 	public class StoryListingController : Controller
 	{
 		private readonly IStoryRepository _storyRepository;

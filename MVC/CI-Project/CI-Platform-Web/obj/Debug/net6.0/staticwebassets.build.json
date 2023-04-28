@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZzwqjmCNLm0aN/6WaLiMO6V3KcoI4zoIzGTZEk5C+qE=",
+  "Hash": "RDMKSxH5O1tTcabsJVcjYpJhlpHkYbXtT4TKsnUN5CE=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -1683,6 +1683,23 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\38d08cc4-0ca2-4a69-868d-e9c719a68c28.png"
     },
     {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\4b7f68b6-6f4f-45cc-9651-a3c3a1144459.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/4b7f68b6-6f4f-45cc-9651-a3c3a1144459.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\4b7f68b6-6f4f-45cc-9651-a3c3a1144459.jpg"
+    },
+    {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\58c2ff7d-ef54-4b41-bb24-fb962f75dc0f.jpg",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -1749,6 +1766,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\7afb489b-46d8-4b97-972d-e07db121f6bf.png"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\7ca5d56d-09fe-4776-88c1-e84e235f9d40.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/7ca5d56d-09fe-4776-88c1-e84e235f9d40.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\7ca5d56d-09fe-4776-88c1-e84e235f9d40.jpg"
     },
     {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\8aa71f33-48d3-4c87-af31-2cf5999a71f0.png",
@@ -1834,23 +1868,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png"
-    },
-    {
-      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\b2330465-c4f7-4d33-83c0-f45bda5fd9a5.jpg",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/b2330465-c4f7-4d33-83c0-f45bda5fd9a5.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\b2330465-c4f7-4d33-83c0-f45bda5fd9a5.jpg"
     },
     {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\dd2d6e10-2947-47b2-81df-298750723ca8.png",
@@ -3264,6 +3281,23 @@
       "OriginalItemSpec": "wwwroot\\js\\admin.js"
     },
     {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\adminPagination.js",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "js/adminPagination.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\adminPagination.js"
+    },
+    {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\js\\bootstrap.bundle.min.js",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -4505,6 +4539,23 @@
       "OriginalItemSpec": "wwwroot\\mission_documents\\0684f840-786d-4714-87d6-4738d69a6f02.pdf"
     },
     {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\5b835c48-0042-4650-9fc5-0dd88fb77108.pdf",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "mission_documents/5b835c48-0042-4650-9fc5-0dd88fb77108.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mission_documents\\5b835c48-0042-4650-9fc5-0dd88fb77108.pdf"
+    },
+    {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -4537,6 +4588,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mission_documents\\6ea605fa-55cc-45a5-813a-b8f6568b8223.pdf"
+    },
+    {
+      "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\77a9a66c-d5f9-4175-83a2-cab0e7dde86a.pdf",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "mission_documents/77a9a66c-d5f9-4175-83a2-cab0e7dde86a.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mission_documents\\77a9a66c-d5f9-4175-83a2-cab0e7dde86a.pdf"
     },
     {
       "Identity": "W:\\CI_Project_Final3\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\b2b80918-83e6-4d61-862d-6e5d65afdc05.pdf",

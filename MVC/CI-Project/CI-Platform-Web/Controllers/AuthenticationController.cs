@@ -37,6 +37,26 @@ namespace CI_Platform_Web.Controllers
 		[HttpPost]
 		public IActionResult Login(LoginModel loginModelObj)
 		{
+			var isUserAdmin = _userRepository.IsUserAdmin(loginModelObj.EmailId);
+
+			if(isUserAdmin)
+			{
+				var adminUser = _userRepository.GetAllAdmin().FirstOrDefault(admin => admin.Email.Equals(loginModelObj.EmailId));
+				if(loginModelObj.Password.Equals(adminUser?.Password))
+				{
+                    HttpContext.Session.SetString("IsAdmin", "true");
+                    HttpContext.Session.SetString("adminEmail", loginModelObj.EmailId);
+                    HttpContext.Session.SetString("adminId",adminUser.AdminId.ToString());
+                    HttpContext.Session.SetString("adminFullName", adminUser.FirstName+" "+adminUser.LastName);
+
+                    return RedirectToAction("Index", "Admin");
+				}
+				else
+				{
+                    return RedirectToAction("Index", "Home");
+                }
+			}
+
 			var isEmailValid = _userRepository.validateEmail(loginModelObj.EmailId);
 			var user = _userRepository.findUser(loginModelObj.EmailId);
 

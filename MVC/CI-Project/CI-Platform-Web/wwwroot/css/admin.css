@@ -15,8 +15,8 @@
     transition: 0.2s all linear;
 }
 
-.min-width-max-content{
-    min-width:max-content !important;
+.min-width-max-content {
+    min-width: max-content !important;
 }
 
 
@@ -80,6 +80,25 @@
     fill: white;
 }
 
+.c-pagination-item > button {
+    border-radius: 3px;
+    font-weight: 300;
+    transition: all 0.6 ease;
+}
+
+    .c-pagination-item > button:hover {
+        font-weight: 400 !important;
+        background-color: var(--light-orange) !important;
+        color: white;
+    }
+
+.c-pagination-item .active {
+    color: white;
+    font-weight: 400;
+    background-color: var(--light-orange) !important;
+}
+
+
 [data-item]:hover .icon {
     fill: var(--light-orange) !important;
 }
@@ -97,9 +116,9 @@
     background-image: url('../images/search.png');
     background-position: 10px center;
     background-repeat: no-repeat;
-    padding-left : 40px !important;
+    padding-left: 40px !important;
 }
 
-.search-input:focus{
-    border-color:yellow !important;
-}
+    .search-input:focus {
+        border-color: yellow !important;
+    }

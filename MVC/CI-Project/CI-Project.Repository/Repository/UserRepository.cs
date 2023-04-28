@@ -79,7 +79,9 @@ namespace CI_Project.Repository.Repository
 
 		public bool validateEmail(string email)
 		{
-			return _db.Users.Any(u => u.Email.Equals(email));
+			var isEmailFound = _db.Users.Any(u => u.Email.Equals(email));
+
+            return isEmailFound;
 		}
 
 		public bool validateUser(string email, string password)
@@ -113,6 +115,14 @@ namespace CI_Project.Repository.Repository
 			_db.SaveChanges();
 		}
 
-       
+        public bool IsUserAdmin(string email)
+        {
+			return _db.Admins.FirstOrDefault(admin => admin.Email.Equals(email)) != null;
+        }
+
+        public List<Admin> GetAllAdmin()
+        {
+			return _db.Admins.ToList();
+        }
     }
 }

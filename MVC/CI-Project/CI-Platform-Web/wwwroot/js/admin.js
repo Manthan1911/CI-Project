@@ -123,6 +123,10 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
         success: (data) => {
             $('#adminPagePartialContainer').html(data);
 
+            debugger;
+            createPagination(5);
+            debugger;
+
             switch (tabToOpen) {
                 case "user":
                     callAddUserPartial();
@@ -156,6 +160,8 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
                     callAddTimeMissionPartial();
                     callAddGoalMissionPartial();
                     callEditMissionPartial();
+                    deactivateMission();
+                    activateMission();
                     break;
                 default:
                     callAddUserPartial();
@@ -189,12 +195,23 @@ function ajaxCallForAddUserPartial() {
         success: (data) => {
             $('#adminPagePartialContainer').html(data);
 
+
             $('#addUserForm').on("submit", (e) => {
                 e.preventDefault();
                 let form = $('#addUserForm');
+
                 if (isAdminFormValid(form)) {
                     let formData = $("#addUserForm").serialize();
                     console.log(formData);
+                    
+                    debugger;
+                    let isEmailUnique = checkIsEmailAlreadyUsed(EmailId.value);
+                    debugger;
+                    if (isEmailUnique) {
+                        sweetAlertError("Email already taken !");
+                        return;
+                    }
+                    debugger;
                     $.ajax({
                         url: "/Admin/SaveUser",
                         method: "POST",
@@ -244,7 +261,7 @@ function ajaxCallForAddUserPartial() {
                 ajaxCallForAdminPartial(url, tabToOpen);
             })
         },
-        error: (error) => {
+        error: (error, _, status) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
@@ -256,6 +273,24 @@ function ajaxCallForAddUserPartial() {
         }
     });
 }
+
+
+function checkIsEmailAlreadyUsed(email) {
+    let isEmailAlreadyUsed = false;
+    $.ajax({
+        url: '/Admin/checkIsEmailAlreadyUsed',
+        async: false,
+        data: { "email": email },
+        success: (result) => {
+            console.log(result);
+            isEmailAlreadyUsed = result;
+            debugger;
+        },
+        error: (error) => { sweetAlertError("cannot checkUserEmail"); return; }
+    });
+    return isEmailAlreadyUsed;
+}
+
 
 function deleteUserFromAdmin() {
 
@@ -1701,7 +1736,7 @@ const callEditMissionPartial = () => {
                 case "time":
                     $.ajax({
                         url: "/Admin/GetEditTimeMissionPartial",
-                        method: "PUT",
+                        method: "GET",
                         data: { "missionId": missionId },
                         success: function (data) {
                             $('#adminPagePartialContainer').html(data);
@@ -1776,11 +1811,71 @@ const callEditMissionPartial = () => {
                 case "goal":
                     $.ajax({
                         url: "/Admin/GetEditGoalMissionPartial",
-                        method: "PUT",
+                        method: "GET",
                         data: { "missionId": missionId },
                         success: function (data) {
                             $('#adminPagePartialContainer').html(data);
+                            documents = [];
+
                             $.getScript("/js/cmsTiny.js");
+
+                            $('#editGoalMissionForm').on('submit', (e) => {
+                                e.preventDefault();
+
+                                debugger;
+                                saveFilesArrToInput();
+                                debugger;
+
+                                let form = $('#editGoalMissionForm');
+
+                                if (isAdminFormValid(form) && AreAdminMissionFormTimeFieldsValid()) {
+
+                                    const formData = new FormData(form[0]);
+                                    formData.set("Description", tinymce.get('tiny').getContent());
+
+                                    $.ajax({
+                                        url: "/Admin/EditGoalMission",
+                                        method: "PUT",
+                                        processData: false,
+                                        contentType: false,
+                                        data: formData,
+                                        success: (data, _, status) => {
+
+                                            Swal.fire({
+                                                position: 'top-end',
+                                                icon: 'success',
+                                                title: 'Goal Mission Edited successfully!',
+                                                showConfirmButton: false,
+                                                timer: 3000
+                                            })
+
+                                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                                        },
+                                        error: (error) => {
+                                            Swal.fire({
+                                                position: 'top-end',
+                                                icon: 'error',
+                                                title: 'Error Editing Goal Mission!',
+                                                showConfirmButton: false,
+                                                timer: 3000
+                                            })
+                                            return;
+                                        }
+                                    });
+                                }
+                            });
+
+                            $("#editGoalMissionCancelBtn").on("click", (e) => {
+                                e.preventDefault();
+                                ajaxCallForAdminPartial(url, tabToOpen);
+                            });
+
+
+                            adminPreviewImage();
+                            previewDocuments();
+                            changeCityListAccordingToCountry();
+                            initDocumentsOnEdit();
                         },
                         error: function (error) {
 
@@ -1791,7 +1886,132 @@ const callEditMissionPartial = () => {
         });
     });
 };
-//--------------------
+
+const deactivateMission = () => {
+    const deleteMissionBtns = document.querySelectorAll(".deleteMissionBtn");
+
+    deleteMissionBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const missionId = btn.getAttribute("data-missionId");
+
+
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Deactivate'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/SoftDeleteMission",
+                        method: "POST",
+                        data: { "missionId": missionId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Deactivated Mission!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Deactivating Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+
+}
+
+const activateMission = () => {
+    const restoreMissionBtns = document.querySelectorAll(".restoreMissionBtn");
+
+    restoreMissionBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const missionId = btn.getAttribute("data-missionId");
+
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Activate'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/RestoreMission",
+                        method: "POST",
+                        data: { "missionId": missionId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Restored Mission!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Restoring Skill!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+
+}
+
+//-------------------- Story ------------------------
+const sweetAlertError = (message) => {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 3000
+    })
+}
 
 let isAdminFormValid = (form) => {
     if (!form.valid()) {
@@ -1807,7 +2027,7 @@ let inputFile;
 let imagePreviewDiv;
 let documentsInput;
 let selectedDocuments;
-let documents=[];
+let documents = [];
 
 function adminPreviewImage() {
 

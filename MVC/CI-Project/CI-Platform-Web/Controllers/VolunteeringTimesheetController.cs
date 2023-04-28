@@ -1,10 +1,12 @@
-﻿using CI_Project.Entities.DataModels;
+﻿using CI_Platform_Web.Utilities;
+using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CI_Platform_Web.Controllers
 {
+	[Authenticate]
     public class VolunteeringTimesheetController : Controller
     {
         private readonly IUnitOfService _unitOfService;

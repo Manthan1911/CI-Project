@@ -10,6 +10,9 @@ namespace CI_Project.Repository.Repository.Interface
         public Boolean validateEmail(string email);
         public Boolean validateUser(string email,string password );
 
+        public Boolean IsUserAdmin(string email);
+        public List<Admin> GetAllAdmin();
+
         public User findUser(string email);
 
         public User findUser(int? id);

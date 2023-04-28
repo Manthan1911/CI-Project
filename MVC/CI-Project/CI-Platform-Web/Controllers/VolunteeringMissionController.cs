@@ -1,4 +1,5 @@
-﻿using CI_Project.Entities.DataModels;
+﻿using CI_Platform_Web.Utilities;
+using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
@@ -18,6 +19,7 @@ namespace CI_Platform_Web.Controllers
         REJECTED,
         PENDING,
     }
+    [Authenticate]
     public class VolunteeringMissionController : Controller
     {
         public readonly IHomeRepository _homeRepository;

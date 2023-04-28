@@ -1,12 +1,15 @@
-﻿using CI_Project.Entities.DataModels;
+﻿using CI_Platform_Web.Utilities;
+using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
 using CI_Project.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Asn1.CryptoPro;
 using System.Collections.Generic;
 
 namespace CI_Platform_Web.Controllers
 {
+	[Authentication]
 	public class Admin : Controller
 	{
 		private readonly IGoalMissionRepository _goalMissionRepository;
@@ -77,6 +80,7 @@ namespace CI_Platform_Web.Controllers
 
 			try
 			{
+
 				User user = new User()
 				{
 					FirstName = userVm.FirstName,
@@ -935,7 +939,6 @@ namespace CI_Platform_Web.Controllers
 			return PartialView("_EditTimeMissionPartial", timeMissionVm);
 		}
 
-
 		public IActionResult EditTimeMission(TimeMissionModel timeMissionVm)
 		{
 			try
@@ -1016,7 +1019,69 @@ namespace CI_Platform_Web.Controllers
 			return NoContent();
 		}
 
-		public IActionResult EditGoalMission(GoalMissionModel goalMissionVm)
+        public IActionResult GetEditGoalMissionPartial(long missionId)
+        {
+            Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
+            GoalMissionModel goalMissionVm = new();
+
+            try
+            {
+                if (mission != null)
+                {
+
+                    goalMissionVm.MissionId = mission.MissionId;
+                    goalMissionVm.MissionCity = mission.CityId;
+                    goalMissionVm.MissionCountry = mission.CountryId;
+                    goalMissionVm.MissionThemeId = mission.ThemeId;
+                    goalMissionVm.StartDate = mission.StartDate;
+                    goalMissionVm.EndDate = mission.EndDate;
+                    goalMissionVm.Title = mission.Title;
+                    goalMissionVm.ShortDescription = mission.ShortDescription;
+                    goalMissionVm.Description = mission.Description;
+                    goalMissionVm.OrganizationName = mission.OrganizationName;
+                    goalMissionVm.OrganizationDetails = mission.OrganizationDetail;
+                    goalMissionVm.Availability = mission.Availability;
+                    goalMissionVm.TotalSeats = mission.TotalSeats;
+                    goalMissionVm.IsActive = mission.Status;
+                    goalMissionVm.Skills = _skillRepository.getAllSkills().ToList();
+                    goalMissionVm.Countries = _homeRepository.getAllCountries();
+                    goalMissionVm.Cities = _homeRepository.getAllCities();
+                    goalMissionVm.Themes = _missionThemeRepository.GetAllThemes().Where(theme => theme.Status == 1).ToList();
+                    goalMissionVm.Skills = _skillRepository.getAllSkills().Where(skill => skill.Status == 1).ToList();
+                    goalMissionVm.MissionSkill = _missionsSkills.GetAllMissionSkills().Where(skill => skill.MissionId == missionId).ToList();
+                    goalMissionVm.MissionMedia = _missionMediaRepository.GetAllMissionMedia().Where(missionMedia => missionMedia.MissionId == missionId).ToList();
+                    goalMissionVm.MissionDocument = _missionDocument.GetAllMissionDocumentsd().Where(missionDoc => missionDoc.MissionId == missionId).ToList();
+
+					GoalMission? goalMissionObj = _goalMissionRepository.GetAllGoalMissionWithInclude().FirstOrDefault(goalMission => goalMission.MissionId == goalMissionVm.MissionId);
+
+					if (goalMissionObj != null)
+					{
+						goalMissionVm.GoalObjective = goalMissionObj.GoalObjectiveText;
+						goalMissionVm.GoalValue = goalMissionObj.GoalValue;
+					}
+
+                    if (goalMissionVm.MissionMedia.Count() > 0)
+                    {
+                        goalMissionVm.FetchMissionImages = true;
+                    }
+
+                    if (goalMissionVm.MissionDocument.Count() > 0)
+                    {
+                        goalMissionVm.FetchMissionDocuments = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(500);
+            }
+
+            return PartialView("_EditGoalMissionPartial", goalMissionVm);
+        }
+
+        public IActionResult EditGoalMission(GoalMissionModel goalMissionVm)
 		{
 			try
 			{
@@ -1036,7 +1101,7 @@ namespace CI_Platform_Web.Controllers
 					mission.Description = goalMissionVm.Description;
 					mission.StartDate = goalMissionVm.StartDate;
 					mission.EndDate = goalMissionVm.EndDate;
-					mission.MissionType = ("time").ToLower();
+					mission.MissionType = ("goal").ToLower();
 					mission.Status = goalMissionVm.IsActive ?? false;
 					mission.OrganizationName = goalMissionVm.OrganizationName;
 					mission.OrganizationDetail = goalMissionVm.OrganizationDetails;
@@ -1070,6 +1135,7 @@ namespace CI_Platform_Web.Controllers
 					AddMissionSkillToDatabase(goalMissionVm.SelectedSkills, currentMissionId);
 				}
 
+				
 				// ------------------------ Images ------------------------
 
 				List<MissionMedium>? missionMedia = _missionMediaRepository.GetAllMissionMedia().Where(missionMedia => missionMedia.MissionId == currentMissionId).ToList();
@@ -1106,6 +1172,47 @@ namespace CI_Platform_Web.Controllers
 			return NoContent();
 		}
 
+		public IActionResult SoftDeleteMission(long missionId)
+		{
+			try
+			{
+				Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
+				if(mission != null)
+				{
+					mission.Status = false;
+					mission.DeletedAt = DateTime.Now;
+					_missionRepository.UpdateMission(mission);
+				}
+			}
+			catch(Exception ex) 
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult RestoreMission(long missionId)
+		{
+            try
+            {
+                Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
+                if (mission != null)
+                {
+                    mission.Status = true;
+                    mission.DeletedAt = null;
+                    _missionRepository.UpdateMission(mission);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(500);
+            }
+            return NoContent();
+        }
 
 		public MissionModel ConvertMissionToMissionModel(Mission missionObj)
 		{
@@ -1216,5 +1323,10 @@ namespace CI_Platform_Web.Controllers
 			}
 		}
 
-	}
+		public bool CheckIsEmailAlreadyUsed(string email)
+		{
+			return _userRepository.validateEmail(email);
+		}
+
+    }
 }

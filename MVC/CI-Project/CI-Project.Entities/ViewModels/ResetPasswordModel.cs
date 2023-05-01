@@ -13,5 +13,7 @@ namespace CI_Project.Entities.ViewModels
         public string ConfirmPassword { get; set; }
 
         public string token { get; set; }
+
+        public List<BannerModel>? BannerImages { get; set; }
     }
 }

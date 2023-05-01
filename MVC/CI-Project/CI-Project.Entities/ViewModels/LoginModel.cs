@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CI_Project.Entities.DataModels;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace CI_Project.Entities.ViewModels
@@ -13,6 +14,8 @@ namespace CI_Project.Entities.ViewModels
         [Required]
         [MinLength(8, ErrorMessage = "Please enter password of min 8 length")]
         public string Password { get; set; }
+
+        public List<BannerModel>? BannerImages { get; set; }
 
     }
 }

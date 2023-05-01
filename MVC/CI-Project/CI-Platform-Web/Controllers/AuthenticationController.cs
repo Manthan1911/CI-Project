@@ -13,30 +13,36 @@ namespace CI_Platform_Web.Controllers
 		private readonly IUserRepository _userRepository;
 		private readonly IHttpContextAccessor _httpContextAccessor;
 		private readonly IUnitOfService _unitOfService;
+		private readonly IBannerRepository _bannerRepository;
 
 
-		public AuthenticationController(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor, IUnitOfService unitOfService)
+		public AuthenticationController(IUserRepository userRepository,IBannerRepository bannerRepository, IHttpContextAccessor httpContextAccessor, IUnitOfService unitOfService)
 		{
 			_userRepository = userRepository;
 			_httpContextAccessor = httpContextAccessor;
 			_unitOfService = unitOfService;
+			_bannerRepository= bannerRepository;
 		}
 
 		public IActionResult Index()
 		{
-
 			return View();
 		}
 
 		// GET:Login
 		public IActionResult Login()
 		{
-			return View();
+			LoginModel loginModel = new();
+
+			loginModel.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
+			return View(loginModel);
 		}
 
 		[HttpPost]
 		public IActionResult Login(LoginModel loginModelObj)
 		{
+			loginModelObj.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
+
 			var isUserAdmin = _userRepository.IsUserAdmin(loginModelObj.EmailId);
 
 			if(isUserAdmin)
@@ -53,7 +59,7 @@ namespace CI_Platform_Web.Controllers
 				}
 				else
 				{
-                    return RedirectToAction("Index", "Home");
+                    return View(loginModelObj);
                 }
 			}
 
@@ -63,7 +69,7 @@ namespace CI_Platform_Web.Controllers
 			if (user.Status == false)
 			{
 				ViewBag.userStatus = "inactive";
-				return View();
+				return View(loginModelObj);
 			}
 
 			var userId = user.UserId;
@@ -99,18 +105,23 @@ namespace CI_Platform_Web.Controllers
 			}
 			else
 			{
-				return View();
+				return View(loginModelObj);
 			}
 		}
 
 		public IActionResult ForgotPassword()
 		{
-			return View();
+			ForgotPasswordModel forgotPasswordModel = new();
+
+			forgotPasswordModel.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
+			return View(forgotPasswordModel);
 		}
 
 		[HttpPost]
 		public IActionResult ForgotPassword(ForgotPasswordModel forgotPasswordModelObj)
 		{
+			forgotPasswordModelObj.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
+
 			var isEmailValid = _userRepository.validateEmail(forgotPasswordModelObj.EmailId);
 
 			if (!isEmailValid)
@@ -142,27 +153,31 @@ namespace CI_Platform_Web.Controllers
 				using (var client = new SmtpClient())
 				{
 					client.Connect("smtp.gmail.com", 587, false);
-					client.Authenticate("coder5255@gmail.com", "icxemzbfyycvvzpd");
+					client.Authenticate("coder5255@gmail.com", "");
 					client.Send(message);
 					client.Disconnect(true);
 				}
 
-				return View();
+				return View(forgotPasswordModelObj);
 			}
 			else
 			{
-				return View();
+				return View(forgotPasswordModelObj);
 			}
 		}
 
 		public IActionResult Registration()
 		{
-			return View();
+			RegisterationModel registerationModel = new();
+			registerationModel.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
+
+			return View(registerationModel);
 		}
 
 		[HttpPost]
 		public IActionResult Registration(RegisterationModel registerationModel)
 		{
+			registerationModel.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
 			var IsUserAlreadyRegistered = _userRepository.validateEmail(registerationModel.EmailId);
 
 			if (IsUserAlreadyRegistered)
@@ -194,14 +209,16 @@ namespace CI_Platform_Web.Controllers
 			}
 			else
 			{
-				return View();
+				return View(registerationModel);
 			}
 		}
 
 		public IActionResult ResetPassword(string token)
 		{
-			PasswordReset resetObj;
+			ResetPasswordModel resetPassword = new ResetPasswordModel();
+			resetPassword.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
 
+			PasswordReset resetObj;
 
 			try
 			{
@@ -214,7 +231,7 @@ namespace CI_Platform_Web.Controllers
 			}
 			catch (Exception)
 			{
-				return View("ForgotPassword");
+				return View(resetPassword);
 			}
 
 			TimeSpan remainingTime = (TimeSpan)(DateTime.Now - resetObj.CreatedAt);
@@ -227,7 +244,6 @@ namespace CI_Platform_Web.Controllers
 				return RedirectToAction("Login");
 			}
 
-			ResetPasswordModel resetPassword = new ResetPasswordModel();
 			resetPassword.token = token;
 			return View(resetPassword);
 		}
@@ -235,6 +251,7 @@ namespace CI_Platform_Web.Controllers
 		[HttpPost]
 		public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
 		{
+			resetPasswordModel.BannerImages = _bannerRepository.GetBannerModelList().OrderBy(banner => banner.SortOrder).ToList();
 
 			if (resetPasswordModel.NewPassword.Equals(resetPasswordModel.ConfirmPassword))
 			{

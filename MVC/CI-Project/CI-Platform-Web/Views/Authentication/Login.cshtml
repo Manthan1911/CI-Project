@@ -13,7 +13,9 @@
     {
         <input hidden id="letUserLogin" value="false"/>
     }
-    @Html.Partial("_authenticationCarousel")
+    
+    @Html.Partial("_authenticationCarousel",Model.BannerImages)
+
     <div class="loginPage-form-div d-flex flex-column align-items-center justify-content-center">
         <form asp-action="Login" class="d-flex flex-column flex-grow-1 justify-content-center w-75">
             <div class="d-flex flex-column mb-4">

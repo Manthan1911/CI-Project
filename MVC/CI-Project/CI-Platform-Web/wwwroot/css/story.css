@@ -74,9 +74,11 @@ main {
 #scrollable-area::-webkit-scrollbar {
     display: none;
 }
-.cursor-pointer{
-    cursor:pointer;
+
+.cursor-pointer {
+    cursor: pointer;
 }
+
 footer {
     bottom: 0;
     left: 0;
@@ -251,6 +253,10 @@ footer {
             padding-left: 17px !important;
             justify-content: space-between !important;
         }
+
+    .story-user-details-div {
+        max-height: none !important;
+    }
 }
 /*------------------------ Story Details ------------------------------*/
 .small-images-div::-webkit-scrollbar {
@@ -293,18 +299,35 @@ footer {
     cursor: pointer;
 }
 
-#skillModal{
-    min-height:600px !important;
+#skillModal {
+    min-height: 600px !important;
 }
 
-#listOfSkills::-webkit-scrollbar{
-    display:none !important;
+#listOfSkills::-webkit-scrollbar {
+    display: none !important;
 }
 
 #listOfSelectedSkills::-webkit-scrollbar {
     display: none !important;
 }
 
+.c-btn-primary {
+    transition: background-color box-shadow 0.5s ease;
+}
+
+    .c-btn-primary:hover {
+        background-color: rgba(108, 117, 125, 0.10) !important;
+        box-shadow: 0 0 0 0.25rem rgba(108, 117, 125,0.25) !important;
+    }
+
+.c-btn-warning {
+    transition: box-shadow background-color 0.5s ease;
+}
+
+    .c-btn-warning:hover {
+        background-color: rgba(255, 193, 7, 0.05) !important;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7,0.25) !important;
+    }
 
 @media only screen and (max-width: 768px) {
     #mission-card-grid-div {

@@ -15,9 +15,11 @@
 }
 
 @section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
 	<link rel="Stylesheet" href="@Href("~/css/volunteeringMission.css")" />
 }
 <main class="position-relative">
+	<input hidden id="totalVolunteers" value="@Model.MissionModel.totalVolunteers"/>
 	<header id="header" class="ci-page-header bg-white w-100 z-3"
 			style="background-color: transparent;min-width: max-content;">
 		<partial name="_Navbar"></partial>
@@ -27,69 +29,57 @@
 	<div id="scrollable-area" class="overflow-y-scroll ">
 		<div id="main-container" class="container mt-4 mb-2 mb-sm-4">
 
-			<div id="volunteer-mission-apply " class="row d-flex flex-column flex-lg-row">
+			<div id="volunteer-mission-apply" class="row d-flex flex-column flex-lg-row">
 				<div id="volunteer-mission-apply-mission-photos" class="col-12 col-lg-6">
-					<img id="carousal-preview-image"
-						 src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
-						 class="w-100 object-fit-contain volunteer-main-image" alt="" style="height:calc(100% - 120px);">
-					<!-- carousel -->
-					<div id="carouselExampleControls" class="carousel slide border border-2 border-primary w-100 my-1"
-						 style="height: 120px;" data-bs-interval="false">
-						<div class="carousel-inner h-100 w-100">
-							<div class="carousel-item active h-100 w-100">
-								<div class="d-flex h-100 w-100">
-									<div class="h-100 w-100">
-										<img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/img1.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/img11.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item h-100 w-100">
-								<div class="d-flex h-100 w-100">
-									<div class="h-100 w-100">
-										<img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/img1.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-									<div class="h-100 w-100">
-										<img src="~/images/img11.png"
-											 class="carousal-images-from-slider d-block w-100 h-100 px-1" alt="..." />
-									</div>
-								</div>
-							</div>
+	
+					<div class="new-carousel col-lg-6 col-12 p-0 w-100">
 
+						<div id="carousel-new" class="w-100 p-0 " style="height:600px;">
+
+							@if (Model.MissionModel.MissionMedia?.Count() <= 1)
+							{
+								<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
+
+								@if (Model.MissionModel?.MissionMedia?.Count() == 1)
+								{
+									<div class="p-2 w-100 h-100">
+										<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel.CoverImage" />
+									</div>
+								}
+								@if (Model.MissionModel?.MissionMedia?.Count() == 0)
+								{
+									<div class="p-2 w-100 h-100">
+										<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images/404-Page-image.png" />
+									</div>
+								}
+
+							}
+							else
+							{
+								<div class="p-2 w-100" style="height:calc(100% - 100px) !important;">
+									<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel?.CoverImage" />
+								</div>
+
+								<div class="d-flex position-relative m-2" style="height:100px !important;">
+									<div id="carouselLeftShiftArrow">
+										<img src="~/images/left1.png" />
+									</div>
+									<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
+										<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()"/>
+										@foreach (var currStoryMedia in Model.MissionModel?.MissionMedia!)
+										{
+											<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.MediaPath@currStoryMedia.MediaName@currStoryMedia.MediaType" />
+										}
+									</div>
+									<div id="carouselRightShiftArrow">
+										<img src="~/images/right-arrow2.png" />
+									</div>
+								</div>
+							}
 
 
 						</div>
-						<button class="carousel-control-prev bg-dark" type="button"
-								data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next bg-dark" type="button"
-								data-bs-target="#carouselExampleControls" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
+
 					</div>
 				</div>
 				<div id="volunteer-mission-apply-details"
@@ -107,7 +97,7 @@
 							<div id="mission-theme"
 							 class="d-flex align-items-center justify-content-center position-absolute w-100 z-1">
 								<p class="bg-white  rounded-5 py-1 px-4 border border-2" style="margin-top:-20px;">
-									From @Model.MissionModel.StartDate To @Model.MissionModel.EndDate
+									From @Model.MissionModel.StartDate?.ToString("d") To @Model.MissionModel.EndDate?.ToString("d")
 								</p>
 							</div>
 							<div id="mission-details-div"
@@ -123,7 +113,7 @@
 								<div id="mission-progress-div" class="d-flex align-items-center justify-content-center p-2 w-50 ">
 									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
 									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">@Model.MissionModel.StartDate</span>
+										<span class="fs-4 fw-semibold">@Model.MissionModel.EndDate?.ToString("d")</span>
 										<span style="min-width: max-content;">Deadline</span>
 									</div>
 								</div>
@@ -150,10 +140,10 @@
 									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
 									<div class="d-flex flex-column px-2 ">
 										<div class="progress ">
-											<div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
+											<div class="progress-bar " style="width:@Model.MissionModel.AvgGoal%" role="progressbar" aria-valuenow="75"
 											 aria-valuemin="0" aria-valuemax="100"></div>
 										</div>
-										<span>8000 achieved</span>
+										<span>@Model.MissionModel.GoalAchieved achieved</span>
 									</div>
 								</div>
 
@@ -257,8 +247,8 @@
 				</div>
 			</div>
 
-			<div id="volunteer-information" class="d-flex flex-lg-row flex-column  pt-3">
-				<div id="volunteer-info-tabs" class=" border-warning p-2  h-100">
+			<div id="volunteer-information" class=" d-flex flex-lg-row flex-column  pt-3 h-100">
+				<div id="volunteer-info-tabs" class=" p-2  h-100">
 					<!-- Tab links -->
 					<div class="tab">
 						<button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Mission')">
@@ -307,9 +297,8 @@
 						</div>
 					</div>
 				</div>
-				<div id="volunteer-recent-info"
-					 class=" border-warning d-flex mx-5 flex-column justify-content-between h-100 ">
-					<div id="volunteer-information-div" class="container border  px-3 py-2">
+				<div id="volunteer-recent-info" class="">
+					<div id="volunteer-information-div" class="border border-2  px-3 py-2" style="width:100% !important;">
 						<div class="p-2 px-0">
 							<span class="hover-underline p-2 px-0 fs-5">
 								Information
@@ -347,14 +336,14 @@
 						</div>
 					</div>
 
-					<div id="recent-volunteers-div" class="border border-1">
+					<div id="recent-volunteers-div" class="border border-1 mt-3">
 						@*Recent Volunteers here*@
 					</div>
 
 				</div>
 			</div>
 
-			<div id="related-missions" class="w-100">
+			<div id="related-missions" class="w-100 mt-5">
 			</div>
 		</div>
 	</div>
@@ -527,23 +516,28 @@
 			let leftShift = document.getElementById("left-shift");
 			let rightShift = document.getElementById("right-shift");
 			let totalVolunteers = +document.getElementById("totalVolunteers").value;
-			console.log("total volunteers : " + totalVolunteers);
-			let maxPage = Math.ceil(totalVolunteers / pageSize);
-			leftShift.addEventListener("click", () => {
-				if (pageNo > 1) {
-					pageNo -= 1;
-					getRecentVolunteers(missionId, pageNo, pageSize);
-				}
-				console.log("pageNo : " + pageNo);
-			});
+			console.log("totalVolunteers : " + totalVolunteers);
+			if(totalVolunteers > 0){
+				console.log("total volunteers : " + totalVolunteers);
+				let maxPage = Math.ceil(totalVolunteers / pageSize);
+				console.log(leftShift);
+				leftShift.addEventListener("click", () => {
+					if (pageNo > 1) {
+						pageNo -= 1;
+						getRecentVolunteers(missionId, pageNo, pageSize);
+					}
+					console.log("pageNo : " + pageNo);
+				});
 
-			rightShift.addEventListener("click", () => {
-				if (pageNo < maxPage) {
-					pageNo += 1;
-					getRecentVolunteers(missionId, pageNo, pageSize);
-				}
-				console.log("pageNo : " + pageNo);
-			});
+				console.log(rightShift);
+				rightShift.addEventListener("click", () => {
+					if (pageNo < maxPage) {
+						pageNo += 1;
+						getRecentVolunteers(missionId, pageNo, pageSize);
+					}
+					console.log("pageNo : " + pageNo);
+				});
+			}
 		}
 
 		function getRecentVolunteers(missionId, pageNo, pageSize) {
@@ -600,4 +594,5 @@
 	<script src="~/js/headerSidebar.js"></script>
 	<script src="~/js/scrolable.js"></script>
 	<script src="~/js/volunteeringInfo.js"></script>
+	<script src="~/js/carouselImageChanger.js"></script>
 }

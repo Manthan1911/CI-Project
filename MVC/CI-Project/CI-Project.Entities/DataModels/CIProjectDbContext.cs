@@ -45,7 +45,7 @@ public partial class CIProjectDbContext : DbContext
 
     public virtual DbSet<MissionRating> MissionRatings { get; set; }
 
-    public virtual DbSet<MissionSkills> MissionSkills { get; set; }
+    public virtual DbSet<MissionSkill> MissionSkills { get; set; }
 
     public virtual DbSet<MissionTheme> MissionThemes { get; set; }
 
@@ -111,14 +111,27 @@ public partial class CIProjectDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnName("created_at");
             entity.Property(e => e.DeletedAt).HasColumnName("deleted_at");
-            entity.Property(e => e.Image)
-                .HasMaxLength(512)
-                .IsUnicode(false)
-                .HasColumnName("image");
-            entity.Property(e => e.SortOrder).HasColumnName("sort_order");
-            entity.Property(e => e.Text)
+            entity.Property(e => e.Description)
                 .HasColumnType("text")
-                .HasColumnName("text");
+                .HasColumnName("description");
+            entity.Property(e => e.MediaName)
+                .HasMaxLength(64)
+                .IsUnicode(false)
+                .HasColumnName("media_name");
+            entity.Property(e => e.MediaPath)
+                .IsUnicode(false)
+                .HasColumnName("media_path");
+            entity.Property(e => e.MediaType)
+                .HasMaxLength(5)
+                .IsUnicode(false)
+                .HasColumnName("media_type");
+            entity.Property(e => e.SortOrder)
+                .HasDefaultValueSql("((0))")
+                .HasColumnName("sort_order");
+            entity.Property(e => e.Title)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("title");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
         });
 
@@ -366,6 +379,9 @@ public partial class CIProjectDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("organization_name");
+            entity.Property(e => e.RegisterationDeadline)
+                .HasColumnType("datetime")
+                .HasColumnName("registeration_deadline");
             entity.Property(e => e.ShortDescription)
                 .HasColumnType("text")
                 .HasColumnName("short_description");
@@ -576,7 +592,7 @@ public partial class CIProjectDbContext : DbContext
                 .HasConstraintName("FK__mission_r__user___787EE5A0");
         });
 
-        modelBuilder.Entity<MissionSkills>(entity =>
+        modelBuilder.Entity<MissionSkill>(entity =>
         {
             entity.HasKey(e => e.MissionSkillId).HasName("PK__mission___8271200842910293");
 
@@ -591,7 +607,7 @@ public partial class CIProjectDbContext : DbContext
             entity.Property(e => e.SkillId).HasColumnName("skill_id");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
 
-            entity.HasOne(d => d.Mission).WithMany(p => p.MissionSkills)
+            entity.HasOne(d => d.Mission).WithMany(p => p.MissionSkill)
                 .HasForeignKey(d => d.MissionId)
                 .HasConstraintName("FK__mission_s__missi__75A278F5");
 

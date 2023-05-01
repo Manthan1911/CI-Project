@@ -27,7 +27,7 @@ namespace CI_Project.Repository.Repository
 				.Include(m => m.MissionMedia)
 				.Include(m => m.FavouriteMissions)
 				.Include(m => m.MissionRatings)
-				.Include(m => m.MissionSkills).ThenInclude(sk => sk.Skill)
+				.Include(m => m.MissionSkill).ThenInclude(sk => sk.Skill)
 				.Include(m => m.Theme)
 				.Include(m => m.City)
 				.Include(m => m.Country)
@@ -97,9 +97,9 @@ namespace CI_Project.Repository.Repository
 		{
 			return _db.MissionApplications
 				.Where(application => application.MissionId == missionId)
+				.Include(application => application.User)
 				.Skip((pageNo - 1) * pageSize)
 				.Take(pageSize)
-				.Include(application => application.User)
 				.ToList();
 		}
 
@@ -117,7 +117,7 @@ namespace CI_Project.Repository.Repository
 				.Include(m => m.MissionMedia)
 				.Include(m => m.FavouriteMissions)
 				.Include(m => m.MissionRatings)
-				.Include(m => m.MissionSkills).ThenInclude(sk => sk.Skill)
+				.Include(m => m.MissionSkill).ThenInclude(sk => sk.Skill)
 				.Include(m => m.Theme)
 				.Include(m => m.City)
 				.Include(m => m.Country)

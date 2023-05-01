@@ -66,6 +66,6 @@ namespace CI_Project.Entities.ViewModels
 		public List<int>? SelectedSkills { get; set; }
 		public List<MissionMedium> MissionMedia { get; set; } = new();
 		public List<MissionDocument> MissionDocuments { get; set; } = new();
-		public List<MissionSkills> MissionSkills { get; set; } = new();
+		public List<MissionSkill> MissionSkills { get; set; } = new();
 	}
 }

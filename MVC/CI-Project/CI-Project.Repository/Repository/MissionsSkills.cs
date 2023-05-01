@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CI_Project.Repository.Repository
 {
-	public class MissionsSkills : IMissionsSkills
+	public class MissionsSkills : IMissionsSkill
 	{
 		private readonly CIProjectDbContext _db;
 
@@ -13,19 +13,19 @@ namespace CI_Project.Repository.Repository
 			_db= db;
 		}
 
-        public void AddMissionSkill(MissionSkills missionSkill)
+        public void AddMissionSkill(MissionSkill missionSkill)
         {
 			_db.MissionSkills.Add(missionSkill);
 			_db.SaveChanges();
         }
 
-		public void DeleteListOfMissionSkills(List<MissionSkills> missionSkills)
+		public void DeleteListOfMissionSkills(List<MissionSkill> missionSkills)
 		{
 			_db.MissionSkills.RemoveRange(missionSkills);
 			_db.SaveChanges();	
 		}
 
-		public List<MissionSkills> GetAllMissionSkills()
+		public List<MissionSkill> GetAllMissionSkills()
 		{
 			return _db.MissionSkills.ToList();
 		}

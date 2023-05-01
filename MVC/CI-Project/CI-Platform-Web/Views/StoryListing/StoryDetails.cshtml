@@ -30,6 +30,8 @@
 
 						@if (Model.Story?.StoryMedia?.Count() <= 1)
 						{
+							<input hidden id="carouselImagesCount" value="@Model.Story?.StoryMedia?.Count()" />
+
 							@if (Model.Story?.StoryMedia?.Count() == 1)
 							{
 								<div class="p-2 w-100 h-100">
@@ -55,6 +57,8 @@
 									<img src="~/images/left1.png" />
 								</div>
 								<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
+									<input hidden id="carouselImagesCount" value="@Model.Story?.StoryMedia?.Count()" />
+
 									@foreach (var currStoryMedia in Model.Story?.StoryMedia!)
 									{
 										<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.Path@currStoryMedia.Type" />
@@ -72,14 +76,19 @@
 				</div>
 
 				@*-------------------- user-details-div ----------------------*@
-				<div class="col-lg-6 col-12  p-4" style="max-height:600px;">
+				<div class="story-user-details-div col-lg-6 col-12  p-4 " style="max-height:600px;">
 
 					@*-------------------- user-details ----------------------*@
 					<div class="d-flex justify-content-between">
 
 						<div id="user-profile-image-div" class="d-flex   h-100">
 							<div style="min-width:max-content;">
-								<img src="~/images/volunteer2.png" class="rounded-circle object-fit-fill" style="height:100px;width:100px;" />
+								@if(Model.Story?.User?.Avatar != null){
+								<img src="@Model.Story?.User?.Avatar" class="rounded-circle object-fit-fill" style="height:100px;width:100px;" />
+								}
+								else{
+									<img src="~/images//404-Page-image.png" class="rounded-circle object-fit-fill" style="height:100px;width:100px;" />
+								}
 								<span class="d-flex align-items-center justify-content-center pt-2">@Model.User?.FirstName @Model.User?.LastName</span>
 							</div>
 						</div>
@@ -99,12 +108,12 @@
 					<input hidden id="userId" value="@userId" />
 					<input hidden id="storyId" value="@Model.Story?.StoryId" />
 					@*-------------------- recommend and open mission buttons ----------------------*@
-					<div class="pt-4 d-flex justify-content-between">
-						<button data-bs-target="#recommend-modal" id="recommend-button" class="bg-transparent text-secondary border border-2 border-secondary py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
+					<div class="pt-4 d-flex flex-sm-row flex-column justify-content-between ">
+						<button data-bs-target="#recommend-modal" id="recommend-button" class="mb-sm-0 mb-2 c-btn-primary bg-transparent btn btn-outline-primary text-secondary border border-2 border-secondary py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
 							<img src="~/images/add1.png" />
 							<span style="min-width:max-content;">Recommend to a Co-Worker</span>
 						</button>
-						<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@Model.Story?.MissionId" class="bg-transparent text-decoration-none text-warning border border-2 border-warning py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
+						<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@Model.Story?.MissionId" class="c-btn-warning bg-transparent text-decoration-none text-warning border border-2 border-warning py-2 px-3 rounded-pill d-flex justify-content-center align-items-center gap-3">
 							<span style="min-width:max-content;"> Open Mission </span>
 							<img src="~/images/right-arrow.png" />
 						</a>

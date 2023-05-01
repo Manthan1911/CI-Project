@@ -71,6 +71,15 @@
 								</div>
 							</td>
 						}
+						@if (currTimesheetData.ApprovalStatus == "APPROVED")
+						{
+							<td>
+								<div class="d-flex gap-2">
+									<img src="~/images/check-mark.svg" class="deleteTimesheetDataBtn" alt="bin" height="20px" width="20px"
+								 data-id="@currTimesheetData.TimesheetId">
+								</div>
+							</td>
+						}
 					</tr>
 				}
 			</tbody>

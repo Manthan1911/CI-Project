@@ -13,6 +13,12 @@ namespace CI_Project.Repository.Repository
 			_db = db;
 		}
 
+		public void AddMissionApplication(MissionApplication missionApplication)
+		{
+			_db.Add(missionApplication);
+			_db.SaveChanges();
+		}
+
 		public List<MissionApplication> GetAllMissionApplicationsWithInclude()
 		{
 			return _db.MissionApplications

@@ -1,0 +1,35 @@
+﻿@model CI_Project.Entities.ViewModels.BannerModel
+
+<div class="border-bottom border-2">
+	<span class="heading-2 text-decoration-underline" style="text-underline-offset:10px;">Add Banner</span>
+</div>
+
+<form id="addBannerForm" class="mt-4 px-3">
+	<div class="row">
+		<label class="p-0 m-0">Title</label>
+		<input asp-for="Title" type="text" class="p-2 rounded-3 border border-2" />
+		<span class="text-danger" asp-validation-for="Title"></span>
+	</div>
+	<div class="row mt-3">
+		<label class="p-0 m-0">Description</label>
+		<textarea class="w-100" style="height:100px;" asp-for="Description"></textarea>
+		<span class="text-danger" asp-validation-for="Description"></span>
+	</div>
+	<div class="row mt-3">
+		<label class="p-0 m-0">Sort Order</label>
+		<input asp-for="SortOrder" type="number" class="p-2 rounded-3 border border-2" />
+		<span class="text-danger" asp-validation-for="SortOrder"></span>
+	</div>
+	<div class="row mt-3">
+		<label for="inputFile">Image</label>
+		<input type="file" id="imageInput" class="form-control" asp-for="BannerImage" accept=".png, .jpg, .jpeg" />
+		<div id="singleImagePreviewDiv" class="selected-images d-flex gap-2 gap-md-3 flex-wrap mt-2"></div>
+		<span id="imageValidationSpan" asp-validation-for="BannerImage" class="text-danger"></span>
+	</div>
+	<div class="d-flex align-items-center justify-content-end mt-4">
+		<button type="button" id="addBannerCancelBtn" class="btn btn-outline-danger btn-lg rounded-pill me-3">Cancel</button>
+		<button type="submit" class="btn btn-outline-warning btn-lg rounded-pill">Save</button>
+	</div>
+</form>
+
+<partial name="_ValidationScriptsPartial"></partial>

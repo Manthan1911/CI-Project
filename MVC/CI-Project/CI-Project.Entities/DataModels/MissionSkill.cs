@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CI_Project.Entities.DataModels;
 
-public partial class MissionSkills
+public partial class MissionSkill
 {
     public long MissionSkillId { get; set; }
 

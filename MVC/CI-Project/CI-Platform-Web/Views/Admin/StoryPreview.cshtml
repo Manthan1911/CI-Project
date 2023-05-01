@@ -1,0 +1,121 @@
+﻿@model CI_Project.Entities.ViewModels.StoryModel
+@*@{
+	ViewData["Title"] = "Story Details Page";
+	var userId = Context.Session.GetString("UserId");
+	var fullName = Context.Session.GetString("FullName");
+}*@
+
+@section Styles {
+	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+}
+
+
+
+
+<div id="scrollable-area" class="overflow-y-scroll">
+	<div class="container" style="max-width:var(--max-width)">
+		@*-------------------- Row-1 ----------------------*@
+		<div class="row">
+
+			@*-------------------- carousel ----------------------*@
+			<div class="new-carousel col-lg-6 col-12 p-0">
+
+				<div class="w-100 p-0 " style="height:600px;">
+
+					@if (Model.StoryMedia?.Count() <= 1)
+					{
+						@if (Model.StoryMedia?.Count() == 1)
+						{
+							<div class="p-2 w-100 h-100">
+								<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.CoverImage" />
+							</div>
+						}
+						@if (Model.StoryMedia?.Count() == 0)
+						{
+							<div class="p-2 w-100 h-100">
+								<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images//404-Page-image.png" />
+							</div>
+						}
+					}
+					else
+					{
+						<div class="p-2 w-100" style="height:calc(100% - 100px) !important;">
+							<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.CoverImage" />
+						</div>
+
+						<div class="d-flex position-relative m-2" style="height:100px !important;">
+							<div id="carouselLeftShiftArrow">
+								<img src="~/images/left1.png" />
+							</div>
+							<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
+								@foreach (var currStoryMedia in Model.StoryMedia!)
+								{
+									<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.Path@currStoryMedia.Type" />
+								}
+							</div>
+							<div id="carouselRightShiftArrow">
+								<img src="~/images/right-arrow2.png" />
+							</div>
+						</div>
+					}
+
+
+				</div>
+
+			</div>
+
+			@*-------------------- user-details-div ----------------------*@
+			<div class="story-user-details-div col-lg-6 col-12  p-4 " style="max-height:600px;">
+
+				@*-------------------- user-details ----------------------*@
+				<div class="d-flex justify-content-between">
+
+					<div id="user-profile-image-div" class="d-flex   h-100">
+						<div style="min-width:max-content;">
+							<img src="~/images/volunteer2.png" class="rounded-circle object-fit-fill" style="height:100px;width:100px;" />
+							<span class="d-flex align-items-center justify-content-center pt-2">@Model.User?.FirstName @Model.User?.LastName</span>
+						</div>
+					</div>
+					<div class="d-flex align-items-end justify-content-end w-100">
+						<span class="border border-2  px-3 d-flex align-items-center justify-content-center rounded-pill">
+							<img src="~/images/eye.png" class="me-2" style="height:15px;width:30px;" />
+							<span class="text-secondary" style="color:var(--border-color);min-width:max-content;">@Model.Views Views</span>
+						</span>
+					</div>
+
+				</div>
+
+				@*-------------------- why i volunteer ----------------------*@
+				<div class="pt-4">
+					@Html.Raw(Model.User?.WhyIVolunteer)
+				</div>
+				<input hidden id="storyId" value="@Model.StoryId" />
+
+			</div>
+		</div>
+
+		@*-------------------- Row-2 ----------------------*@
+		<div class="row pt-4">
+			<div class="py-2 border-2 border-bottom">
+				<span class="story-details-title p-0 m-0 fs-3  text-decoration-underline" style="text-underline-offset:17px;text-decoration-thickness:5px;">
+					@Html.Raw(Model.StoryTitle)
+				</span>
+			</div>
+			<div class="story-details-description">
+				@Html.Raw(Model.StoryDescription)
+			</div>
+
+		</div>
+
+
+		<div class="border-top">
+			<a id="return-btn" asp-action="Index" asp-controller="Admin" asp-route-redirectToStory="true" class="m-3 btn btn-outline-danger btn-lg rounded-pill">Return</a>
+		</div>
+
+	</div>
+</div>
+
+
+@section Scripts{
+	<script src="~/js/carouselImageChanger.js"></script>
+}

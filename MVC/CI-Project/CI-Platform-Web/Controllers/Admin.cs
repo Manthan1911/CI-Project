@@ -4,14 +4,16 @@ using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
 using CI_Project.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Asn1.CryptoPro;
-using System.Collections.Generic;
+using System.Reflection;
+
 
 namespace CI_Platform_Web.Controllers
 {
 	[Authentication]
 	public class Admin : Controller
 	{
+		private readonly IBannerRepository _bannerRepository;
+		private readonly IStoryRepository _storyRepository;
 		private readonly IGoalMissionRepository _goalMissionRepository;
 		private readonly IMissionDocument _missionDocument;
 		private readonly IMissionMediaRepository _missionMediaRepository;
@@ -21,15 +23,17 @@ namespace CI_Platform_Web.Controllers
 		private readonly IMissionThemeRepository _missionThemeRepository;
 		private readonly IUsersSkill _usersSkill;
 		private readonly IMissionApplication _missionsApplication;
-		private readonly IMissionsSkills _missionsSkills;
+		private readonly IMissionsSkill _missionsSkills;
 		private readonly IUserRepository _userRepository;
 		private readonly IUnitOfService _unitOfService;
 		private readonly ICmsRepository _cmsRepository;
 		private readonly ISkillsRepository _skillRepository;
 		private readonly IWebHostEnvironment _webHostEnvironment;
 
-		public Admin(IWebHostEnvironment webHostEnvironment, IGoalMissionRepository goalMissionRepository, IMissionDocument missionDocument, IMissionMediaRepository missionMediaRepository, IMissionRepository missionRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IMissionThemeRepository missionThemeRepository, IMissionApplication missionApplication, IUsersSkill usersSkill, IMissionsSkills missionsSkills, IUserRepository userRepository, IUnitOfService unitOfService, ICmsRepository cmsRepository, ISkillsRepository skillRepository)
+		public Admin(IWebHostEnvironment webHostEnvironment, IBannerRepository bannerRepository, IStoryRepository storyRepository, IGoalMissionRepository goalMissionRepository, IMissionDocument missionDocument, IMissionMediaRepository missionMediaRepository, IMissionRepository missionRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IMissionThemeRepository missionThemeRepository, IMissionApplication missionApplication, IUsersSkill usersSkill, IMissionsSkill missionsSkills, IUserRepository userRepository, IUnitOfService unitOfService, ICmsRepository cmsRepository, ISkillsRepository skillRepository)
 		{
+			_bannerRepository = bannerRepository;
+			_storyRepository = storyRepository;
 			_goalMissionRepository = goalMissionRepository;
 			_missionMediaRepository = missionMediaRepository;
 			_webHostEnvironment = webHostEnvironment;
@@ -48,13 +52,135 @@ namespace CI_Platform_Web.Controllers
 
 		}
 
-		public IActionResult Index()
+		public IActionResult Index(string? redirectToStory)
 		{
+			if (redirectToStory != null && redirectToStory.Equals("true"))
+			{
+				ViewBag.redirectToStory = true;
+			}
 			return View();
 		}
 
+		//------------------ Searching ---------------------------
+		public IActionResult GetSearchedUserPartial(string searchInput)
+		{
+			List<User> users = _userRepository.getAllUsers().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				users = users.Where(user => user.FirstName.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<UserModel> usersVm = new List<UserModel>();
+			users.ForEach((user) =>
+			{
+				usersVm.Add(ConvertUserToUserModel(user));
+			});
+
+			return PartialView("_AdminUserPartial", usersVm);
+		}
+
+		public IActionResult GetSearchedCmsPartial(string searchInput)
+		{
+			List<CmsPage> cms = _cmsRepository.GetAll().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				cms = cms.Where(cms => cms.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<CmsModel> cmsVm = new List<CmsModel>();
+			cms.ForEach((cmsPage) =>
+			{
+				cmsVm.Add(convertCmsPageToCmsPageVm(cmsPage));
+			});
+
+			return PartialView("_AdminCmsPartial", cmsVm);
+		}
+		public IActionResult GetSearchedMissionPartial(string searchInput)
+		{
+			List<Mission> missions = _missionRepository.GetAllMissionsWithInclude().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				missions = missions.Where(mission => mission.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<MissionModel> missionVm = new List<MissionModel>();
+			missions.ForEach((mission) =>
+			{
+				missionVm.Add(ConvertMissionToMissionModel(mission));
+			});
+
+			return PartialView("_AdminMissionPartial", missionVm);
+		}
+		public IActionResult GetSearchedMissionThemePartial(string searchInput)
+		{
+			List<MissionTheme> missionThemes = _missionThemeRepository.GetAllThemes().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				missionThemes = missionThemes.Where(missionTheme => missionTheme.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<ThemeModel> missionThemeVm = new List<ThemeModel>();
+			missionThemes.ForEach((missionTheme) =>
+			{
+				missionThemeVm.Add(ConvertMissionThemeToMissionThemeModel(missionTheme));
+			});
+
+			return PartialView("_AdminMissionThemePartial", missionThemeVm);
+		}
+
+		public IActionResult GetSearchedMissionApplicationPartial(string searchInput)
+		{
+			List<MissionApplication> missionApplications = _missionsApplication.GetAllMissionApplicationsWithInclude().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				missionApplications = missionApplications.Where(missionApplication => missionApplication.Mission.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<MissionApplicationModel> missionApplicationVm = new List<MissionApplicationModel>();
+			missionApplications.ForEach((missionApplication) =>
+			{
+				missionApplicationVm.Add(ConvertMissionToMissionApplicationVm(missionApplication));
+			});
+
+			return PartialView("_AdminMissionApplicationPartial", missionApplicationVm);
+		}
+
+		public IActionResult GetSearchedSkillPartial(string searchInput)
+		{
+			List<Skill> skills = _skillRepository.getAllSkills().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				skills = skills.Where(skill => skill.SkillName.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<SkillModel> skillVm = new List<SkillModel>();
+			skills.ForEach((skill) =>
+			{
+				skillVm.Add(ConvertSkillToSkillModel(skill));
+			});
+
+			return PartialView("_AdminSkillPartial", skillVm);
+		}
+
+		public IActionResult GetSearchedBannerPartial(string searchInput)
+		{
+			List<Banner> banners = _bannerRepository.GetAllBanner().ToList();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				banners = banners.Where(banner => banner.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<BannerModel> bannerVm = new List<BannerModel>();
+			banners.ForEach((banner) =>
+			{
+				bannerVm.Add(ConvertBannerToBannerModel(banner));
+			});
+
+			return PartialView("_AdminBannerPartial", bannerVm);
+		}
 
 		// ----------------- User -------------------
+
 		public IActionResult GetUserPartial()
 		{
 			var usersList = _userRepository.getAllUsers();
@@ -782,13 +908,13 @@ namespace CI_Platform_Web.Controllers
 
 				if (timeMissionVm.SelectedSkills != null && timeMissionVm.SelectedSkills.Count() > 0)
 				{
-					AddMissionSkillToDatabase(timeMissionVm.SelectedSkills, currentMissionId); 
+					AddMissionSkillToDatabase(timeMissionVm.SelectedSkills, currentMissionId);
 				}
 
 				if (timeMissionVm.Images != null && timeMissionVm.Images.Count() > 0)
 				{
 
-					CopyMissionImagesToWwwRootAndSaveToDatabase(timeMissionVm.Images,currentMissionId);
+					CopyMissionImagesToWwwRootAndSaveToDatabase(timeMissionVm.Images, currentMissionId);
 				}
 
 				if (timeMissionVm.Documents != null && timeMissionVm.Documents.Count() > 0)
@@ -805,11 +931,11 @@ namespace CI_Platform_Web.Controllers
 			return NoContent();
 		}
 
-		private void AddMissionSkillToDatabase(List<int> selectedSkills,long currentMissionId)
+		private void AddMissionSkillToDatabase(List<int> selectedSkills, long currentMissionId)
 		{
 			selectedSkills.ForEach((skillId) =>
 			{
-				MissionSkills missionSkill = new()
+				MissionSkill missionSkill = new()
 				{
 					SkillId = skillId,
 					MissionId = currentMissionId,
@@ -863,7 +989,7 @@ namespace CI_Platform_Web.Controllers
 
 				if (goalMissionVm.SelectedSkills != null && goalMissionVm.SelectedSkills.Count() > 0)
 				{
-					AddMissionSkillToDatabase(goalMissionVm.SelectedSkills , currentMissionId);
+					AddMissionSkillToDatabase(goalMissionVm.SelectedSkills, currentMissionId);
 				}
 
 				if (goalMissionVm.Images != null && goalMissionVm.Images.Count() > 0)
@@ -873,7 +999,7 @@ namespace CI_Platform_Web.Controllers
 
 				if (goalMissionVm.Documents != null && goalMissionVm.Documents.Count() > 0)
 				{
-					CopyMissionDocumentToWwwRootAndSaveToDatabase(goalMissionVm.Documents,currentMissionId);
+					CopyMissionDocumentToWwwRootAndSaveToDatabase(goalMissionVm.Documents, currentMissionId);
 				}
 			}
 			catch (Exception ex)
@@ -966,14 +1092,14 @@ namespace CI_Platform_Web.Controllers
 					mission.TotalSeats = timeMissionVm.TotalSeats;
 					mission.Availability = timeMissionVm.Availability;
 					mission.CreatedAt = DateTime.Now;
-				
+
 					_missionRepository.UpdateMission(mission);
 				}
 
 
 				// ------------------------ Skill ------------------------
 
-				List<MissionSkills>? missionSkills = _missionsSkills.GetAllMissionSkills().Where(missionSkill => missionSkill.MissionId == currentMissionId).ToList();
+				List<MissionSkill>? missionSkills = _missionsSkills.GetAllMissionSkills().Where(missionSkill => missionSkill.MissionId == currentMissionId).ToList();
 				if (missionSkills != null && missionSkills.Count > 0)
 				{
 					_missionsSkills.DeleteListOfMissionSkills(missionSkills);
@@ -1019,38 +1145,38 @@ namespace CI_Platform_Web.Controllers
 			return NoContent();
 		}
 
-        public IActionResult GetEditGoalMissionPartial(long missionId)
-        {
-            Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
-            GoalMissionModel goalMissionVm = new();
+		public IActionResult GetEditGoalMissionPartial(long missionId)
+		{
+			Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
+			GoalMissionModel goalMissionVm = new();
 
-            try
-            {
-                if (mission != null)
-                {
+			try
+			{
+				if (mission != null)
+				{
 
-                    goalMissionVm.MissionId = mission.MissionId;
-                    goalMissionVm.MissionCity = mission.CityId;
-                    goalMissionVm.MissionCountry = mission.CountryId;
-                    goalMissionVm.MissionThemeId = mission.ThemeId;
-                    goalMissionVm.StartDate = mission.StartDate;
-                    goalMissionVm.EndDate = mission.EndDate;
-                    goalMissionVm.Title = mission.Title;
-                    goalMissionVm.ShortDescription = mission.ShortDescription;
-                    goalMissionVm.Description = mission.Description;
-                    goalMissionVm.OrganizationName = mission.OrganizationName;
-                    goalMissionVm.OrganizationDetails = mission.OrganizationDetail;
-                    goalMissionVm.Availability = mission.Availability;
-                    goalMissionVm.TotalSeats = mission.TotalSeats;
-                    goalMissionVm.IsActive = mission.Status;
-                    goalMissionVm.Skills = _skillRepository.getAllSkills().ToList();
-                    goalMissionVm.Countries = _homeRepository.getAllCountries();
-                    goalMissionVm.Cities = _homeRepository.getAllCities();
-                    goalMissionVm.Themes = _missionThemeRepository.GetAllThemes().Where(theme => theme.Status == 1).ToList();
-                    goalMissionVm.Skills = _skillRepository.getAllSkills().Where(skill => skill.Status == 1).ToList();
-                    goalMissionVm.MissionSkill = _missionsSkills.GetAllMissionSkills().Where(skill => skill.MissionId == missionId).ToList();
-                    goalMissionVm.MissionMedia = _missionMediaRepository.GetAllMissionMedia().Where(missionMedia => missionMedia.MissionId == missionId).ToList();
-                    goalMissionVm.MissionDocument = _missionDocument.GetAllMissionDocumentsd().Where(missionDoc => missionDoc.MissionId == missionId).ToList();
+					goalMissionVm.MissionId = mission.MissionId;
+					goalMissionVm.MissionCity = mission.CityId;
+					goalMissionVm.MissionCountry = mission.CountryId;
+					goalMissionVm.MissionThemeId = mission.ThemeId;
+					goalMissionVm.StartDate = mission.StartDate;
+					goalMissionVm.EndDate = mission.EndDate;
+					goalMissionVm.Title = mission.Title;
+					goalMissionVm.ShortDescription = mission.ShortDescription;
+					goalMissionVm.Description = mission.Description;
+					goalMissionVm.OrganizationName = mission.OrganizationName;
+					goalMissionVm.OrganizationDetails = mission.OrganizationDetail;
+					goalMissionVm.Availability = mission.Availability;
+					goalMissionVm.TotalSeats = mission.TotalSeats;
+					goalMissionVm.IsActive = mission.Status;
+					goalMissionVm.Skills = _skillRepository.getAllSkills().ToList();
+					goalMissionVm.Countries = _homeRepository.getAllCountries();
+					goalMissionVm.Cities = _homeRepository.getAllCities();
+					goalMissionVm.Themes = _missionThemeRepository.GetAllThemes().Where(theme => theme.Status == 1).ToList();
+					goalMissionVm.Skills = _skillRepository.getAllSkills().Where(skill => skill.Status == 1).ToList();
+					goalMissionVm.MissionSkill = _missionsSkills.GetAllMissionSkills().Where(skill => skill.MissionId == missionId).ToList();
+					goalMissionVm.MissionMedia = _missionMediaRepository.GetAllMissionMedia().Where(missionMedia => missionMedia.MissionId == missionId).ToList();
+					goalMissionVm.MissionDocument = _missionDocument.GetAllMissionDocumentsd().Where(missionDoc => missionDoc.MissionId == missionId).ToList();
 
 					GoalMission? goalMissionObj = _goalMissionRepository.GetAllGoalMissionWithInclude().FirstOrDefault(goalMission => goalMission.MissionId == goalMissionVm.MissionId);
 
@@ -1060,28 +1186,28 @@ namespace CI_Platform_Web.Controllers
 						goalMissionVm.GoalValue = goalMissionObj.GoalValue;
 					}
 
-                    if (goalMissionVm.MissionMedia.Count() > 0)
-                    {
-                        goalMissionVm.FetchMissionImages = true;
-                    }
+					if (goalMissionVm.MissionMedia.Count() > 0)
+					{
+						goalMissionVm.FetchMissionImages = true;
+					}
 
-                    if (goalMissionVm.MissionDocument.Count() > 0)
-                    {
-                        goalMissionVm.FetchMissionDocuments = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                return StatusCode(500);
-            }
+					if (goalMissionVm.MissionDocument.Count() > 0)
+					{
+						goalMissionVm.FetchMissionDocuments = true;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
 
-            return PartialView("_EditGoalMissionPartial", goalMissionVm);
-        }
+			return PartialView("_EditGoalMissionPartial", goalMissionVm);
+		}
 
-        public IActionResult EditGoalMission(GoalMissionModel goalMissionVm)
+		public IActionResult EditGoalMission(GoalMissionModel goalMissionVm)
 		{
 			try
 			{
@@ -1125,7 +1251,7 @@ namespace CI_Platform_Web.Controllers
 
 				// ------------------------ Skill ------------------------
 
-				List<MissionSkills>? missionSkills = _missionsSkills.GetAllMissionSkills().Where(missionSkill => missionSkill.MissionId == currentMissionId).ToList();
+				List<MissionSkill>? missionSkills = _missionsSkills.GetAllMissionSkills().Where(missionSkill => missionSkill.MissionId == currentMissionId).ToList();
 				if (missionSkills != null && missionSkills.Count > 0)
 				{
 					_missionsSkills.DeleteListOfMissionSkills(missionSkills);
@@ -1135,7 +1261,7 @@ namespace CI_Platform_Web.Controllers
 					AddMissionSkillToDatabase(goalMissionVm.SelectedSkills, currentMissionId);
 				}
 
-				
+
 				// ------------------------ Images ------------------------
 
 				List<MissionMedium>? missionMedia = _missionMediaRepository.GetAllMissionMedia().Where(missionMedia => missionMedia.MissionId == currentMissionId).ToList();
@@ -1177,14 +1303,14 @@ namespace CI_Platform_Web.Controllers
 			try
 			{
 				Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
-				if(mission != null)
+				if (mission != null)
 				{
 					mission.Status = false;
 					mission.DeletedAt = DateTime.Now;
 					_missionRepository.UpdateMission(mission);
 				}
 			}
-			catch(Exception ex) 
+			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 				Console.WriteLine(ex.StackTrace);
@@ -1195,24 +1321,24 @@ namespace CI_Platform_Web.Controllers
 
 		public IActionResult RestoreMission(long missionId)
 		{
-            try
-            {
-                Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
-                if (mission != null)
-                {
-                    mission.Status = true;
-                    mission.DeletedAt = null;
-                    _missionRepository.UpdateMission(mission);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                return StatusCode(500);
-            }
-            return NoContent();
-        }
+			try
+			{
+				Mission? mission = _missionRepository.GetAllMissionsWithInclude().FirstOrDefault(mission => mission.MissionId == missionId);
+				if (mission != null)
+				{
+					mission.Status = true;
+					mission.DeletedAt = null;
+					_missionRepository.UpdateMission(mission);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
 
 		public MissionModel ConvertMissionToMissionModel(Mission missionObj)
 		{
@@ -1231,7 +1357,7 @@ namespace CI_Platform_Web.Controllers
 
 		}
 
-		private void CopyMissionDocumentToWwwRootAndSaveToDatabase(List<IFormFile> documents,long currentMissionId)
+		private void CopyMissionDocumentToWwwRootAndSaveToDatabase(List<IFormFile> documents, long currentMissionId)
 		{
 			foreach (var document in documents)
 			{
@@ -1328,5 +1454,300 @@ namespace CI_Platform_Web.Controllers
 			return _userRepository.validateEmail(email);
 		}
 
-    }
+		// -------------------------- Story -------------------------- 
+
+		public IActionResult GetStoryPartial()
+		{
+			//.Where(story => story.Status.Equals(("PENDING").ToUpper())).ToList()
+			List<Story> listOfStories = _storyRepository.getAllStories();
+			List<StoryModel> listOfStoriesVm = new List<StoryModel>();
+			listOfStories.ForEach((story) =>
+			{
+				listOfStoriesVm.Add(ConvertStoryToStoryModel(story));
+			});
+			return PartialView("_AdminStoryPartial", listOfStoriesVm);
+		}
+
+		public IActionResult GetSearchedStoryPartial(string searchInput)
+		{
+			//.Where(story => story.Status.Equals(("PENDING").ToUpper()
+			List<Story> listOfStories = _storyRepository.getAllStories();
+
+			if (!String.IsNullOrEmpty(searchInput))
+			{
+				listOfStories = listOfStories.Where(story => story.Title.ToLower().Contains(searchInput.ToLower())).ToList();
+			}
+			List<StoryModel> listOfStoriesVm = new List<StoryModel>();
+			listOfStories.ForEach((story) =>
+			{
+				listOfStoriesVm.Add(ConvertStoryToStoryModel(story));
+			});
+
+			return PartialView("_AdminStoryPartial", listOfStoriesVm);
+		}
+
+		public IActionResult StoryPreview(long storyId)
+		{
+			Story? story = _storyRepository.getStory(storyId);
+			StoryModel storyVm = new();
+			if (story != null)
+			{
+				storyVm = ConvertStoryToStoryModel(story);
+			}
+			return View(storyVm);
+		}
+
+		public IActionResult ApproveStory(long storyId)
+		{
+			try
+			{
+				Story? story = _storyRepository.getStory(storyId);
+				if (story != null)
+				{
+					story.Status = ("Approved").ToUpper();
+					story.PublishedAt = DateTime.Now;
+					_storyRepository.updateStory(story);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult DeclineStory(long storyId)
+		{
+			try
+			{
+				Story? story = _storyRepository.getStory(storyId);
+				if (story != null)
+				{
+					story.Status = ("Declined").ToUpper();
+					story.PublishedAt = DateTime.Now;
+					_storyRepository.updateStory(story);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult DeleteStory(long storyId)
+		{
+			try
+			{
+				Story? story = _storyRepository.getStory(storyId);
+				if (story != null)
+				{
+					List<StoryMedium> storyMedia = _storyRepository.getAllMediaOfStory(storyId);
+					_storyRepository.DeleteAllStoryInvite(storyId);
+					_storyRepository.deleteAllMediaOfStory(storyMedia);
+					_storyRepository.deleteStory(story);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		private StoryModel ConvertStoryToStoryModel(Story story)
+		{
+			StoryModel storyVm = new()
+			{
+				StoryId = story.StoryId,
+				Status = story.Status,
+				UserId = story.UserId,
+				MissionId = story.MissionId,
+				StoryTitle = story.Title,
+				StoryDescription = story.Description,
+				User = _userRepository.findUser(story.UserId),
+				Mission = story.Mission,
+				StoryMedia = _storyRepository.getAllMediaOfStory(story.StoryId),
+				CoverImage = _storyRepository.getAllMediaOfStory(story.StoryId).First().Path + _storyRepository.getAllMediaOfStory(story.StoryId).First().Type,
+			};
+			return storyVm;
+		}
+
+		//------------------------ Banner ------------------------------
+		public IActionResult GetBannerPartial()
+		{
+			List<Banner> banners = _bannerRepository.GetAllBanner();
+			List<BannerModel> bannerVm = new();
+			banners.ForEach((banner) =>
+			{
+				bannerVm.Add(ConvertBannerToBannerModel(banner));
+			});
+			return PartialView("_AdminBannerPartial", bannerVm);
+		}
+
+		public IActionResult GetAddBannerPartial()
+		{
+			BannerModel bannerVm = new();
+			return PartialView("_AddBannerPartial", bannerVm);
+		}
+
+		[HttpPost]
+		public IActionResult SaveBanner(BannerModel bannerVm)
+		{
+			try
+			{
+				string wwwRootPath = _webHostEnvironment.WebRootPath;
+				string fileName = Guid.NewGuid().ToString();
+				var uploads = Path.Combine(wwwRootPath, @"images\banner_images");
+				var extension = Path.GetExtension(bannerVm.BannerImage.FileName);
+				var path = Path.Combine(uploads, fileName + extension);
+
+				Banner banner = new()
+				{
+					MediaName = fileName,
+					MediaPath = @"\images\banner_images\",
+					MediaType = extension,
+					Title = bannerVm.Title,
+					Description = bannerVm.Description,
+					SortOrder = bannerVm.SortOrder,
+					CreatedAt = DateTime.Now,
+				};
+				_bannerRepository.AddBanner(banner);
+
+				using (var fileStrems = new FileStream(path, FileMode.Create))
+				{
+					bannerVm.BannerImage.CopyTo(fileStrems);
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult GetEditBannerPartial(long bannerId)
+		{
+
+			Banner? banner = _bannerRepository.GetBannerById(bannerId);
+
+			BannerModel bannerVm = new();
+
+			if (banner != null)
+			{
+				bannerVm = ConvertBannerToBannerModel(banner);
+			}
+
+			return PartialView("_EditBannerPartial", bannerVm);
+		}
+
+		[HttpPost]
+		public IActionResult EditBanner(BannerModel bannerVm)
+		{
+			try
+			{
+
+				Banner? banner = _bannerRepository.GetBannerById(bannerVm.BannerId);
+				if (banner != null)
+				{
+					var image = bannerVm.BannerImage;
+					if (!banner.MediaName.Equals(image.FileName))
+					{
+						DeleteBannerImagesFromWebRoot(banner);
+						string wwwRootPath = _webHostEnvironment.WebRootPath;
+						string fileName = Guid.NewGuid().ToString();
+						var uploads = Path.Combine(wwwRootPath, @"images\banner_images");
+						var extension = Path.GetExtension(image.FileName);
+
+						using (var fileStrems = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+						{
+							image.CopyTo(fileStrems);
+						}
+
+
+						banner.MediaName = fileName;
+						banner.MediaType = extension;
+					}
+
+					banner.Description = bannerVm.Description;
+					banner.Title = bannerVm.Title;
+					banner.SortOrder = bannerVm.SortOrder;
+					banner.UpdatedAt = DateTime.Now;
+
+					_bannerRepository.UpdateBanner(banner);
+				}
+
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult DeleteBanner(long bannerId)
+		{
+			try
+			{
+				Banner? banner = _bannerRepository.GetBannerById(bannerId);
+				if (banner != null)
+				{
+					DeleteBannerImagesFromWebRoot(banner);
+					_bannerRepository.DeleteBanner(banner);
+				}
+				else
+				{
+					return StatusCode(500);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public BannerModel ConvertBannerToBannerModel(Banner banner)
+		{
+			BannerModel bannerVm = new()
+			{
+				BannerId = banner.BannerId,
+				MediaName = banner.MediaName,
+				MediaPath = banner.MediaPath,
+				MediaType = banner.MediaType,
+				Title = banner.Title,
+				Description = banner.Description,
+				SortOrder = banner.SortOrder,
+			};
+			return bannerVm;
+		}
+
+		private void DeleteBannerImagesFromWebRoot(Banner banner)
+		{
+			if (banner != null)
+			{
+				string wwwRootPath = _webHostEnvironment.WebRootPath;
+				var path = $@"{wwwRootPath}\images\banner_images";
+				var fileName = banner.MediaName;
+				var fileType = banner.MediaType;
+				var url = Path.Combine(path, fileName + fileType);
+				System.IO.File.Delete(url);
+			}
+		}
+
+	}
 }

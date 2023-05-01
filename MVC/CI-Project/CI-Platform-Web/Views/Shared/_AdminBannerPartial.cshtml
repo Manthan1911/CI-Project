@@ -1,0 +1,96 @@
+﻿@model List<CI_Project.Entities.ViewModels.BannerModel>
+<style>
+	.table-overflow {
+		width: 100%;
+		white-space: nowrap;
+		overflow-x: auto;
+	}
+
+	th {
+		font-weight: 500;
+		font-size: 1.25rem !important;
+		padding: 1rem 1rem !important;
+		background-color: #edeff6 !important;
+	}
+
+	.table thead > tr > th {
+		border-bottom-color: #ced4da !important;
+	}
+
+	.table tbody > tr > td {
+		padding-left: 1rem !important;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+
+</style>
+
+
+<div>
+	<div class="border-bottom border-2">
+		<span class="heading-2 text-decoration-underline" style="text-underline-offset:10px;">Banner</span>
+	</div>
+	<div class="p-0 m-0 mt-4">
+		<div class="row">
+			<div class="col-5">
+				<div class=" h-100">
+					<input id="adminSearch" type="text" placeholder="search" class="h-100 search-input rounded-3 border border-2 p-2" />
+				</div>
+			</div>
+			<div class="col-7 d-flex justify-content-end">
+				<button id="addBannerBtn" class="btn btn-outline-warning btn-lg border-warning rounded-pill" style="min-width:max-content;">
+					<span class="mx-2">+</span>
+					<span class="mx-2">Add</span>
+				</button>
+			</div>
+		</div>
+		<div class="table-overflow">
+			<table class="table mt-5 ">
+				<thead>
+					<tr>
+						<th>Banner Image</th>
+						<th>Title</th>
+						<th>Sort Order</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (Model.Count() == 0)
+					{
+						<tr>
+							<td colspan="100%">
+								<div class="text-center">No entries found.</div>
+							</td>
+						</tr>
+					}
+					else
+					{
+						foreach (var currBanner in Model)
+						{
+							<tr>
+								<td><img src="@currBanner.MediaPath@currBanner.MediaName@currBanner.MediaType" class="object-fit-cover" height="100px" width="100px" /></td>
+								<td>@currBanner.Title</td>
+								<td>@currBanner.SortOrder</td>
+								<td>
+									<div class="d-flex justify-content-start align-items-center gap-2">
+										<img src="~/images/editing.png"
+									 class="editBannerBtn cursor-pointer" alt="edit" height="20px" width="20px" data-bannerId="@currBanner.BannerId">
+										<img src="~/images/bin.png"
+								class="deleteBannerBtn cursor-pointer" alt="delete" height="20px" width="20px" data-bannerId="@currBanner.BannerId">
+								
+									</div>
+								</td>
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="pagination c-pagination-item mt-2 d-flex justify-content-center justify-content-md-end gap-2" id="pagination-container">
+	</div>
+
+</div>
+

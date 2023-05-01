@@ -8,6 +8,7 @@ namespace CI_Project.Repository.Repository.Interface
 		public List<MissionApplication> GetAllMissionApplicationsWithInclude();
 		public MissionApplication GetMissionApplicationById(long missionApplicationId);
 
+		public void AddMissionApplication(MissionApplication missionApplication);
 		public void UpdaateMissionApplication(MissionApplication missionApplication);
 	}
 }

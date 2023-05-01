@@ -23,6 +23,8 @@ public partial class Mission
 
     public DateTime? EndDate { get; set; }
 
+    public DateTime? RegisterationDeadline { get; set; }
+
     public string MissionType { get; set; } = null!;
 
     public bool Status { get; set; }
@@ -61,7 +63,7 @@ public partial class Mission
 
     public virtual ICollection<MissionRating> MissionRatings { get; } = new List<MissionRating>();
 
-    public virtual ICollection<MissionSkills> MissionSkills { get; } = new List<MissionSkills>();
+    public virtual ICollection<MissionSkill> MissionSkill { get; } = new List<MissionSkill>();
 
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
 

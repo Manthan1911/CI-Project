@@ -29,5 +29,7 @@ namespace CI_Project.Repository.Repository.Interface
 		public IEnumerable<User> getAllUsersToRecommendStory();
 		public void addDataToStoryInvite(StoryInvite storyInvite);
 		public void incrementStoryView(long storyId);
+		public List<StoryInvite> GetAllStoryInvites();
+		public void DeleteAllStoryInvite(long storyId);
 	}
 }

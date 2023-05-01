@@ -1,10 +1,9 @@
 ﻿@model CI_Project.Entities.ViewModels.RecentVolunteersModel
 
-@if(Model.recentVolunteersCount > 0){
+@if (Model.recentVolunteersCount > 0)
+{
 	<div id="recent-volunteers" class="p-2">
 		<input type="hidden" id="totalVolunteers" value="@Model.recentVolunteersCount" />
-		<input type="hidden" id="totalVolunteers" value="" />
-		<input type="hidden" id="totalVolunteers" value="" />
 		<div class="container">
 			<div class="border border-1 border-top-0 border-start-0 border-end-0 p-2 px-0 ">
 				<span class="hover-underline p-2 px-0 fs-5">
@@ -17,8 +16,16 @@
 				{
 					<div class="col-4 py-3 d-flex flex-column align-items-center justify-content-center">
 						<div class="border-0 rounded-circle">
-							<img class="rounded-circle recent-volunteer-avtar avtar"
-						 src="~/images/volunteer1.png" alt="">
+							@if (@currVolunteer.User?.Avatar != null)
+							{
+								<img class="rounded-circle recent-volunteer-avtar avtar"
+						 src="@currVolunteer.User.Avatar" alt="">
+							}
+							else
+							{
+								<img class="rounded-circle recent-volunteer-avtar avtar"
+						 src="~/images/404-Page-image.png" alt="">
+							}
 						</div>
 						<div>
 							<span class="recent-volunteer-name">@currVolunteer.User!.FirstName @currVolunteer.User.LastName</span>
@@ -40,7 +47,8 @@
 		</button>
 	</div>
 }
-else{
+else
+{
 	<div class="d-flex align-items-center justify-content-center h-100 w-100">
 		<h3>No recent volunteers</h3>
 	</div>

@@ -16,15 +16,17 @@ namespace CI_Platform_Web.Controllers
 		private readonly IHomeRepository _homeRepository;
 		private readonly IMissionMediaRepository _missionMediaRepository;
 		private readonly IUserRepository _userRepository;
+		private readonly IVolunteeringTimesheetRepository _volunteeringTimesheetRepository;
 		private readonly CIProjectDbContext _cIProjectDbContext;
 
-		public HomeController(ILogger<HomeController> logger,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
+		public HomeController(ILogger<HomeController> logger,IVolunteeringTimesheetRepository volunteeringTimesheetRepository,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
 		{
 			_logger = logger;
 			_homeRepository = homeRepository;
 			_userRepository = userRepository;
 			_cIProjectDbContext = cIProjectDbContext;
 			_missionMediaRepository = missionMediaRepository;
+			_volunteeringTimesheetRepository = volunteeringTimesheetRepository;
 		}
 
 		public IActionResult Index(string? profileSuccess)
@@ -145,7 +147,7 @@ namespace CI_Platform_Web.Controllers
 				OrganizationName = mission.OrganizationName,
 				OrganizationDetails = mission.OrganizationDetail,
 				MissionType = mission.MissionType,
-				MissionSkills = mission.MissionSkills,
+				MissionSkills = mission.MissionSkill,
 				GoalMissions = mission.GoalMissions,
 				GoalMission = mission.GoalMissions.FirstOrDefault(gm => gm.MissionId == mission.MissionId),
 				FavouriteMissions = mission.FavouriteMissions,
@@ -161,6 +163,11 @@ namespace CI_Platform_Web.Controllers
 			if (missionModel.countOfRatingsByPeople != 0)
 			{
 				missionModel.avgRating = ((missionModel.sumOfRating % missionModel.countOfRatingsByPeople) != 0) ? ((missionModel.sumOfRating / missionModel.countOfRatingsByPeople) + 1) : (missionModel.sumOfRating / missionModel.countOfRatingsByPeople);
+			}
+			if (missionModel.MissionType.Equals("goal"))
+			{
+				missionModel.GoalAchieved = (int)_volunteeringTimesheetRepository.GetAllWithInclude().Where(timesheet => timesheet.MissionId == missionModel.MissionId && timesheet.Status.Equals("APPROVED")).Sum( timesheet => timesheet.Action);
+				missionModel.AvgGoal = (( missionModel.GoalAchieved * 100) / (int)missionModel.GoalMission?.GoalValue);
 			}
 			return missionModel;
 		}
@@ -203,7 +210,7 @@ namespace CI_Platform_Web.Controllers
 			}
 			if (skills.Length > 0)
 			{
-				missions = missions.Where(x => skills.Any(s => x.MissionSkills.Any(ms => ms.SkillId == s))).ToList();
+				missions = missions.Where(x => skills.Any(s => x.MissionSkill.Any(ms => ms.SkillId == s))).ToList();
 			}
 			return missions;
 		}

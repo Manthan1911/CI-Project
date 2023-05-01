@@ -2,12 +2,12 @@
 
 namespace CI_Project.Repository.Repository.Interface
 {
-	public interface IMissionsSkills
+	public interface IMissionsSkill
 	{
-		public List<MissionSkills> GetAllMissionSkills();
+		public List<MissionSkill> GetAllMissionSkills();
 
-		public void AddMissionSkill(MissionSkills missionSkill);
+		public void AddMissionSkill(MissionSkill missionSkill);
 
-		public void DeleteListOfMissionSkills(List<MissionSkills> missionSkills);
+		public void DeleteListOfMissionSkills(List<MissionSkill> missionSkills);
 	}
 }

@@ -122,3 +122,8 @@
     .search-input:focus {
         border-color: yellow !important;
     }
+
+
+.text-10{
+    font-size:10px !important;
+}

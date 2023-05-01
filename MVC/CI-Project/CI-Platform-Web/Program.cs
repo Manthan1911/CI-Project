@@ -17,10 +17,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IVolunteeringMissionRepository, VolunteeringMissionRepository>();
+builder.Services.AddScoped<IVolunteeringTimesheetRepository, VolunteeringTimesheetRepository>();
 builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 builder.Services.AddScoped<ICmsRepository, CmsRepository>();
 builder.Services.AddScoped<ISkillsRepository, SkillRepository>();
-builder.Services.AddScoped<IMissionsSkills, MissionsSkills>();
+builder.Services.AddScoped<IMissionsSkill, MissionsSkills>();
 builder.Services.AddScoped<IUsersSkill, UsersSkill>();
 builder.Services.AddScoped<IMissionApplication, MissionApplications>();
 builder.Services.AddScoped<IMissionThemeRepository, MissionThemeRepository>();
@@ -28,8 +29,7 @@ builder.Services.AddScoped<IMissionRepository, MissionRepository>();
 builder.Services.AddScoped<IMissionMediaRepository, MissionMediaRepository>();
 builder.Services.AddScoped<IMissionDocument, MissionDocumentRepository>();
 builder.Services.AddScoped<IGoalMissionRepository,GoalMissionRepositor>();
-
-
+builder.Services.AddScoped<IBannerRepository,BannerRepository>();
 
 
 builder.Services.AddDistributedMemoryCache();

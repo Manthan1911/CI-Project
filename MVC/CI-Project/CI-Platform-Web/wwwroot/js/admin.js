@@ -67,7 +67,14 @@ const handleSidebarClassOnClick = (tabToAddActiveClass) => {
     });
 }
 
-$('#defaultTab').click();
+
+if ($('#redirectToStory').val() == 1) {
+    ajaxCallForAdminPartial("/Admin/GetStoryPartial", "story");
+}
+else {
+    ajaxCallForAdminPartial("/Admin/GetUserPartial", "user");
+}
+
 sidebarTabs.forEach((tab) => {
 
     tab.addEventListener("click", (e) => {
@@ -76,7 +83,6 @@ sidebarTabs.forEach((tab) => {
 
         tabToOpen = tab.getAttribute("data-item");
 
-        handleSidebarClassOnClick(tabToOpen);
 
         switch (tabToOpen) {
             case "user":
@@ -103,6 +109,16 @@ sidebarTabs.forEach((tab) => {
                 url = "/Admin/GetMissionPartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
                 break;
+            case "story":
+                url = "/Admin/GetStoryPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                break;
+            case "banner":
+                //debugger;
+                url = "/Admin/GetBannerPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
+                //debugger;
+                break;
             default:
                 url = "/Admin/GetUserPartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
@@ -116,57 +132,23 @@ sidebarTabs.forEach((tab) => {
 
 function ajaxCallForAdminPartial(url, tabToOpen) {
     tinymce.remove("textarea#tiny");
+    console.log(url);
+    console.log(tabToOpen);
+    //debugger;
     $.ajax({
         url: url,
         method: "GET",
-        dataType: "html",
         success: (data) => {
+            console.log(data);
             $('#adminPagePartialContainer').html(data);
+            //debugger;
 
-            debugger;
             createPagination(5);
-            debugger;
+            handleSidebarClassOnClick(tabToOpen);
 
-            switch (tabToOpen) {
-                case "user":
-                    callAddUserPartial();
-                    deleteUserFromAdmin();
-                    restoreUserFromAdmin();
-                    editUserFromAdmin();
-                    break;
-                case "cms":
-                    callAddCmsPartial();
-                    callEditCmsPartial();
-                    deleteCmsPageFromAdmin();
-                    restoreCmsPageFromAdmin();
-                    break;
-                case "skill":
-                    callAddSkillPartial();
-                    callEditSkillPartial();
-                    deleteSkillFromAdmin();
-                    restoreSkillFromAdmin();
-                    break;
-                case "application":
-                    acceptMissionApplication();
-                    declineMissionApplication();
-                    break;
-                case "theme":
-                    callAddThemePartial();
-                    callEditThemePartial();
-                    deleteThemeFromAdmin();
-                    restoreThemeFromAdmin();
-                    break;
-                case "mission":
-                    callAddTimeMissionPartial();
-                    callAddGoalMissionPartial();
-                    callEditMissionPartial();
-                    deactivateMission();
-                    activateMission();
-                    break;
-                default:
-                    callAddUserPartial();
-                    break;
-            }
+            assignEventsToPartialPage(tabToOpen);
+
+
         },
         error: (error) => {
             Swal.fire({
@@ -179,6 +161,110 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
 
         }
     });
+}
+
+const assignEventsToPartialPage = (tabToOpen) => {
+    switch (tabToOpen) {
+        case "user":
+            searchEvent("/Admin/GetSearchedUserPartial", tabToOpen);
+            callAddUserPartial();
+            deleteUserFromAdmin();
+            restoreUserFromAdmin();
+            editUserFromAdmin();
+            break;
+        case "cms":
+            searchEvent("/Admin/GetSearchedCmsPartial", tabToOpen);
+            callAddCmsPartial();
+            callEditCmsPartial();
+            deleteCmsPageFromAdmin();
+            restoreCmsPageFromAdmin();
+            break;
+        case "skill":
+            searchEvent("/Admin/GetSearchedSkillPartial", tabToOpen);
+            callAddSkillPartial();
+            callEditSkillPartial();
+            deleteSkillFromAdmin();
+            restoreSkillFromAdmin();
+            break;
+        case "application":
+            searchEvent("/Admin/GetSearchedMissionApplicationPartial", tabToOpen);
+            acceptMissionApplication();
+            declineMissionApplication();
+            break;
+        case "theme":
+            searchEvent("/Admin/GetSearchedMissionThemePartial", tabToOpen);
+            callAddThemePartial();
+            callEditThemePartial();
+            deleteThemeFromAdmin();
+            restoreThemeFromAdmin();
+            break;
+        case "mission":
+            searchEvent("/Admin/GetSearchedMissionPartial", tabToOpen);
+            callAddTimeMissionPartial();
+            callAddGoalMissionPartial();
+            callEditMissionPartial();
+            deactivateMission();
+            activateMission();
+            break;
+        case "story":
+            searchEvent("/Admin/GetSearchedStoryPartial", tabToOpen);
+            approveStory();
+            declineStory();
+            break;
+        case "banner":
+            //debugger;
+            searchEvent("/Admin/GetSearchedBannerPartial", tabToOpen);
+            callAddBannerPartial();
+            callEditBannerPartial();
+            break;
+        default:
+            callAddUserPartial();
+            deleteUserFromAdmin();
+            restoreUserFromAdmin();
+            editUserFromAdmin();
+            break;
+    }
+}
+
+const searchBar = debounce((url, query, tabToOpen) => {
+    $.ajax({
+        url: url,
+        method: "GET",
+        data: { "searchInput": query },
+        success: (result) => {
+            //$(".spinner-border").removeClass("opacity-1");
+            //$(".spinner-border").addClass("opacity-0");
+            $('#adminPagePartialContainer').html(result);
+            createPagination(5);
+            $('#adminSearch').val(query);
+            console.log(document.getElementById("adminSearch"));
+            document.getElementById("adminSearch").focus;
+            assignEventsToPartialPage(tabToOpen);
+        },
+        error: error => {
+            console.log(error);
+            sweetAlertError("Something went wrong!");
+        }
+    });
+});
+
+function debounce(cb, delay = 800) {
+    let timeout;
+    return (...arg) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            cb(...arg);
+        }, delay);
+    }
+}
+
+function searchEvent(url, tabToOpen) {
+    $("#adminSearch").on("input", () => {
+        //$(".spinner-border").removeClass("opacity-0");
+        //$(".spinner-border").addClass("opacity-1");
+        const query = $('#adminSearch').val();
+        searchBar(url, query, tabToOpen);
+    })
 }
 
 function callAddUserPartial() {
@@ -203,15 +289,15 @@ function ajaxCallForAddUserPartial() {
                 if (isAdminFormValid(form)) {
                     let formData = $("#addUserForm").serialize();
                     console.log(formData);
-                    
-                    debugger;
+
+                    //debugger;
                     let isEmailUnique = checkIsEmailAlreadyUsed(EmailId.value);
-                    debugger;
+                    //debugger;
                     if (isEmailUnique) {
                         sweetAlertError("Email already taken !");
                         return;
                     }
-                    debugger;
+                    //debugger;
                     $.ajax({
                         url: "/Admin/SaveUser",
                         method: "POST",
@@ -284,7 +370,7 @@ function checkIsEmailAlreadyUsed(email) {
         success: (result) => {
             console.log(result);
             isEmailAlreadyUsed = result;
-            debugger;
+            //debugger;
         },
         error: (error) => { sweetAlertError("cannot checkUserEmail"); return; }
     });
@@ -1747,9 +1833,9 @@ const callEditMissionPartial = () => {
                             $('#editTimeMissionForm').on('submit', (e) => {
                                 e.preventDefault();
 
-                                debugger;
+                                //debugger;
                                 saveFilesArrToInput();
-                                debugger;
+                                //debugger;
 
                                 let form = $('#editTimeMissionForm');
 
@@ -1822,9 +1908,9 @@ const callEditMissionPartial = () => {
                             $('#editGoalMissionForm').on('submit', (e) => {
                                 e.preventDefault();
 
-                                debugger;
+                                //debugger;
                                 saveFilesArrToInput();
-                                debugger;
+                                //debugger;
 
                                 let form = $('#editGoalMissionForm');
 
@@ -2013,6 +2099,273 @@ const sweetAlertError = (message) => {
     })
 }
 
+const approveStory = () => {
+    const approveStoryBtns = document.querySelectorAll(".approveStoryBtn");
+
+    approveStoryBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const storyId = btn.getAttribute("data-storyId");
+
+            Swal.fire({
+                title: 'Are you sure you want to approve this story?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Approve'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/ApproveStory",
+                        method: "POST",
+                        data: { "storyId": storyId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Approved Story!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Approving Story!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+}
+
+const declineStory = () => {
+    const declineStoryBtns = document.querySelectorAll(".declineStoryBtn");
+
+    declineStoryBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const storyId = btn.getAttribute("data-storyId");
+
+            Swal.fire({
+                title: 'Are you sure you want to decline this story?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Decline'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/DeclineStory",
+                        method: "POST",
+                        data: { "storyId": storyId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Story Declined!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Declining Story!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+}
+
+
+//-------------- Banner ------------------
+
+const callAddBannerPartial = () => {
+    $('#addBannerBtn').on("click", (e) => {
+        e.preventDefault();
+
+
+        $.ajax({
+            url: "/Admin/GetAddBannerPartial",
+            method: "GET",
+            success: (data) => {
+                $('#adminPagePartialContainer').html(data);
+
+                $('#addBannerForm').on("submit", (e) => {
+                    e.preventDefault();
+                    let form = $('#addBannerForm');
+
+                    if (isAdminFormValid(form)) {
+
+                        const formData = new FormData(form[0]);
+                        console.log(formData);
+
+                        $.ajax({
+                            url: "/Admin/SaveBanner",
+                            method: "POST",
+                            processData: false,
+                            contentType: false,
+                            data: formData,
+                            success: (data, _, status) => {
+
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Banner Added successfully!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+
+                                ajaxCallForAdminPartial(url, tabToOpen);
+
+                            },
+                            error: (error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Error Adding Banner!',
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                })
+                                return;
+                            }
+                        });
+                    }
+                });
+
+                $("#addBannerCancelBtn").on("click", (e) => {
+                    e.preventDefault();
+                    ajaxCallForAdminPartial(url, tabToOpen);
+                });
+
+                singlePreviewImage();
+            },
+            error: (error) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'problem loading Add Banner partial!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+}
+
+const callEditBannerPartial = () => {
+    let editBannerBtns = document.querySelectorAll(".editBannerBtn");
+    editBannerBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let bannerId = btn.getAttribute("data-bannerId");
+
+            $.ajax({
+                url: "/Admin/GetEditBannerPartial",
+                method: "GET",
+                data: { "bannerId": bannerId },
+                success: (data) => {
+                    $('#adminPagePartialContainer').html(data);
+
+                    $('#editBannerForm').on("submit", (e) => {
+                        e.preventDefault();
+                        let form = $('#editBannerForm');
+
+                        if (isAdminFormValid(form)) {
+
+                            const formData = new FormData(form[0]);
+                            console.log(formData);
+
+                            $.ajax({
+                                url: "/Admin/EditBanner",
+                                method: "POST",
+                                processData: false,
+                                contentType: false,
+                                data: formData,
+                                success: (data, _, status) => {
+
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Banner Edited successfully!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+
+                                    ajaxCallForAdminPartial(url, tabToOpen);
+
+                                },
+                                error: (error) => {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'Error Editing Banner!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                    return;
+                                }
+                            });
+                        }
+                    });
+
+                    $("#editBannerCancelBtn").on("click", (e) => {
+                        e.preventDefault();
+                        ajaxCallForAdminPartial(url, tabToOpen);
+                    });
+
+                    editSinglePreviewImage();
+                },
+                error: (error) => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'problem loading Edit Banner partial!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                }
+            });
+        });
+    });
+}
+
 let isAdminFormValid = (form) => {
     if (!form.valid()) {
         return false;
@@ -2173,6 +2526,73 @@ function previewDocuments() {
     })
 }
 
+const singlePreviewImage = () => {
+    let singleImagePreviewDiv = document.getElementById('singleImagePreviewDiv');
+    let imgInput = document.getElementById('imageInput');
+    let image;
+
+    imgInput.addEventListener("change", (e) => {
+        e.preventDefault();
+        console.log(imgInput.files[0]);
+        image = imgInput.files[0];
+        imagePreview(URL.createObjectURL(image))
+    });
+
+    let imagePreview = (src) => {
+        singleImagePreviewDiv.innerHTML = "";
+        singleImagePreviewDiv.innerHTML += `
+    <div class="position-relative d-inline-block m-1">
+        <img src="${src}" class="object-fit-cover" style="height:100px;width:130px;" alt="prevImg" />
+    </div>
+    `;
+    }
+
+
+
+}
+
+const editSinglePreviewImage = () => {
+    let singleImagePreviewDiv = document.getElementById('singleImagePreviewDiv');
+    let imgInput = document.getElementById('imageInput');
+    let image;
+
+    imgInput.addEventListener("change", (e) => {
+        e.preventDefault();
+        console.log(imgInput.files[0]);
+        image = imgInput.files[0];
+        imagePreview(URL.createObjectURL(image))
+    });
+
+    let imagePreview = (src) => {
+        singleImagePreviewDiv.innerHTML = "";
+        singleImagePreviewDiv.innerHTML += `
+    <div class="position-relative d-inline-block m-1">
+        <img src="${src}" class="object-fit-cover" style="height:100px;width:130px;" alt="prevImg" />
+    </div>
+    `;
+    }
+
+    fetchBannerImage();
+
+    async function fetchBannerImage() {
+        const bannerImage = document.getElementById("preloadedBannerImage");
+        const fileName = $(bannerImage).data("name");
+        const url = $(bannerImage).data("url");
+        const type = $(bannerImage).data("type");
+
+        const response = await fetch(url);
+        const buffer = await response.arrayBuffer();
+        const myFile = new File([buffer], fileName, { type: `image/${type.slice(1)}` });
+        let myFiles = new DataTransfer();
+        myFiles.items.add(myFile);
+        imgInput.files = myFiles.files;
+
+        imagePreview(url);
+
+    }
+
+}
+
 // --------------------------------------------------
 
 //let shareStoryForm = document.getElementById('shareStoryForm');
@@ -2196,14 +2616,11 @@ function AreAdminMissionFormTimeFieldsValid() {
     let selectedSkills = Array.from(skills.selectedOptions).map(option => option.value);
 
 
-    debugger;
     console.log(images);
 
-    debugger;
 
 
     if (missionStartDate < currentDate) {
-        debugger;
 
         document.getElementById('startDateValidationSpan').innerHTML = "Start Date must be After today's date";
         return false;
@@ -2251,7 +2668,6 @@ function AreAdminMissionFormTimeFieldsValid() {
 
 
     if (images.length <= 0) {
-        debugger;
         document.getElementById('imageValidationSpan').innerHTML = "Please upload atleast one mission image";
         return false;
     }
@@ -2261,7 +2677,6 @@ function AreAdminMissionFormTimeFieldsValid() {
 
 
     if (selectedSkills.length <= 0) {
-        debugger;
         document.getElementById('skillError').innerHTML = "Please select atleast one mission skill";
         return false;
     }

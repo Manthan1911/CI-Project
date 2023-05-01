@@ -112,5 +112,17 @@ namespace CI_Project.Repository.Repository
 				_db.SaveChanges();
 			}
 		}
+
+		public List<StoryInvite> GetAllStoryInvites()
+		{
+			return _db.StoryInvites.ToList();
+		}
+
+		public void DeleteAllStoryInvite(long storyId)
+		{
+			List<StoryInvite> invites = GetAllStoryInvites().Where(storyInvite => storyInvite.StoryId == storyId).ToList();
+			_db.StoryInvites.RemoveRange(invites);
+			_db.SaveChanges();	
+		}
 	}
 }

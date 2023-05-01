@@ -61,15 +61,17 @@
 					 src="@currMission.CoverImage" alt="">
 						<div class="position-absolute py-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 w-100 h-75">
 							<div class="d-flex justify-content-between w-100 pe-2">
-								@if(currMission.isMissionApplied == 1){
+
+								@if (currMission.isMissionAppliedByCurrentUser)
+								{
 									<div class="applied-pill p-2 px-4">
 										Applied
 									</div>
+
 								}
 								else
 								{
 									<div>
-
 									</div>
 								}
 								<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
@@ -267,15 +269,10 @@
 
 					<div class="position-absolute py-2 d-flex flex-column align-items-end justify-content-between top-0 end-0 w-100 h-75">
 						<div class="d-flex justify-content-between w-100 pe-2">
-							@if (currMission.isMissionApplied == 1)
+							@if (currMission.isMissionAppliedByCurrentUser)
 							{
 								<div class="applied-pill p-2 px-4">
 									Applied
-								</div>
-							}
-							else
-							{
-								<div>
 								</div>
 							}
 							<div class="d-flex align-items-center bg-dark-opacity rounded-pill p-1">
@@ -284,7 +281,7 @@
 								<span class="pe-2 text-white">@currMission.City.Name</span>
 							</div>
 						</div>
-						
+
 						<div class="pe-2">
 							@if (currMission.isMissionFavourite == 1)
 							{

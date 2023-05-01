@@ -29,7 +29,7 @@ namespace CI_Platform_Web.Controllers
 		public readonly IUserRepository _userRepository;
 		public readonly IVolunteeringMissionRepository _volunteeringMissionRepository;
 		public readonly IMissionApplication _missionApplicationRepository;
-		public VolunteeringMissionController(IMissionMediaRepository missionMediaRepository,IMissionApplication missionApplicationRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IUserRepository userRepository)
+		public VolunteeringMissionController(IMissionMediaRepository missionMediaRepository, IMissionApplication missionApplicationRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IUserRepository userRepository)
 		{
 			_homeRepository = homeRepository;
 			_volunteeringMissionRepository = volunteeringMissionRepository;
@@ -83,7 +83,10 @@ namespace CI_Platform_Web.Controllers
 				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count(),
 				isMissionApplied = mission.MissionApplications.Any(ma => ma.MissionId == mission.MissionId && ma.UserId == userId) ? 1 : 0,
 				MissionMedia = mission.MissionMedia,
-				totalVolunteers = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().Where(missionApplication => missionApplication.MissionId == mission.MissionId  && missionApplication.ApprovalStatus.Equals("APPROVED")).ToList().Count(),
+				totalVolunteers = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().Where(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.ApprovalStatus.Equals("APPROVED")).ToList().Count(),
+				isMissionAppliedByCurrentUser = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("APPROVED")) != null ? true : false,
+				isMissionApplicationPending = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("PENDING")) != null ? true : false,
+				isMissionApplicationDeclined = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("DECLINED")) != null ? true : false,
 			};
 			if (missionModel.countOfRatingsByPeople != 0)
 			{
@@ -317,17 +320,46 @@ namespace CI_Platform_Web.Controllers
 			}
 
 		}
-		public IActionResult ApplyMission(long userId,long missionId)
+		public IActionResult ApplyMission(long userId, long missionId)
 		{
-			MissionApplication missionApplication = new MissionApplication()
+			try
 			{
-				UserId = userId,
-				MissionId = missionId,
-				AppliedAt= DateTime.Now,
-				ApprovalStatus = ("pending").ToUpper(),
-			};
-			_missionApplicationRepository.AddMissionApplication(missionApplication);
-			return View();
+				MissionApplication missionApplication = new MissionApplication()
+				{
+					UserId = userId,
+					MissionId = missionId,
+					AppliedAt = DateTime.Now,
+					ApprovalStatus = ("pending").ToUpper(),
+				};
+				_missionApplicationRepository.AddMissionApplication(missionApplication);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
+		}
+
+		public IActionResult RetriveMissionApplication(long userId, long missionId)
+		{
+			try
+			{
+				MissionApplication? application = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == missionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("PENDING"));
+
+				if (application != null)
+				{
+					_missionApplicationRepository.DeleteMissionApplication(application);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+				return StatusCode(500);
+			}
+			return NoContent();
 		}
 	}
 }

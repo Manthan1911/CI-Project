@@ -37,5 +37,10 @@ namespace CI_Project.Repository.Repository
 			_db.MissionApplications.Update(missionApplication);
 			_db.SaveChanges();
 		}
+		public void DeleteMissionApplication(MissionApplication missionApplication)
+		{
+			_db.MissionApplications.Remove(missionApplication);
+			_db.SaveChanges();
+		}
 	}
 }

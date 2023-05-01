@@ -10,5 +10,6 @@ namespace CI_Project.Repository.Repository.Interface
 
 		public void AddMissionApplication(MissionApplication missionApplication);
 		public void UpdaateMissionApplication(MissionApplication missionApplication);
+		public void DeleteMissionApplication(MissionApplication missionApplication);
 	}
 }

@@ -19,11 +19,11 @@
 	<link rel="Stylesheet" href="@Href("~/css/volunteeringMission.css")" />
 }
 <main class="position-relative">
-	<input hidden id="totalVolunteers" value="@Model.MissionModel.totalVolunteers"/>
+	<input hidden id="totalVolunteers" value="@Model.MissionModel.totalVolunteers" />
 	<header id="header" class="ci-page-header bg-white w-100 z-3"
 			style="background-color: transparent;min-width: max-content;">
 		<partial name="_Navbar"></partial>
-		
+
 	</header>
 
 	<div id="scrollable-area" class="overflow-y-scroll ">
@@ -31,7 +31,7 @@
 
 			<div id="volunteer-mission-apply" class="row d-flex flex-column flex-lg-row">
 				<div id="volunteer-mission-apply-mission-photos" class="col-12 col-lg-6">
-	
+
 					<div class="new-carousel col-lg-6 col-12 p-0 w-100">
 
 						<div id="carousel-new" class="w-100 p-0 " style="height:600px;">
@@ -65,7 +65,7 @@
 										<img src="~/images/left1.png" />
 									</div>
 									<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
-										<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()"/>
+										<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
 										@foreach (var currStoryMedia in Model.MissionModel?.MissionMedia!)
 										{
 											<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.MediaPath@currStoryMedia.MediaName@currStoryMedia.MediaType" />
@@ -238,10 +238,27 @@
 
 					</div>
 					<div id="mission-applyNow-div" class=" d-flex justify-content-center py-2">
-						<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
-							Apply Now
-							<img src="~/images/right-arrow.png" class="mx-2" alt="">
-						</button>
+						@if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
+						{
+							<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+								Apply Now
+								<img src="~/images/right-arrow.png" class="mx-2" alt="">
+							</button>
+						}
+						@if (Model.MissionModel.isMissionApplicationPending)
+						{
+							<button id="retrive-application-button" class="btn btn-outline-danger btn-lg rounded-pill py-3 px-5 d-flex align-items-center">
+								Retrive Application
+							</button>
+						}
+
+						@if (Model.MissionModel.isMissionApplicationDeclined)
+						{
+							<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+								Apply Now
+								<img src="~/images/right-arrow.png" class="mx-2" alt="">
+							</button>
+						}
 					</div>
 
 				</div>
@@ -348,7 +365,7 @@
 		</div>
 	</div>
 
-	
+
 	<partial name="_Footer"></partial>
 </main>
 
@@ -404,7 +421,7 @@
 								url: "/VolunteeringMission/addToMissionInvite",
 								method: "POST",
 								dataType: "html",
-								data: { "userEmailList":userIds , "missionId": missionId, "userId": userId },
+								data: { "userEmailList": userIds, "missionId": missionId, "userId": userId },
 								success: function (data) {
 
 								},
@@ -412,7 +429,7 @@
 									console.log(error);
 								}
 							});
-							
+
 						});
 					},
 					error: function (error) {
@@ -487,7 +504,7 @@
 						url: '/VolunteeringMission/postComment',
 						data: { userId: userId, missionId: missionId, commentText: commentText },
 						success: function (data) {
-							document.getElementById('commentText').value = ""; 
+							document.getElementById('commentText').value = "";
 							getComments(userId, missionId);
 						}
 					});
@@ -497,7 +514,7 @@
 				}
 			});
 		}
-		
+
 		function getComments(userId, missionId) {
 			$.ajax({
 				type: "GET",
@@ -517,7 +534,7 @@
 			let rightShift = document.getElementById("right-shift");
 			let totalVolunteers = +document.getElementById("totalVolunteers").value;
 			console.log("totalVolunteers : " + totalVolunteers);
-			if(totalVolunteers > 0){
+			if (totalVolunteers > 0) {
 				console.log("total volunteers : " + totalVolunteers);
 				let maxPage = Math.ceil(totalVolunteers / pageSize);
 				console.log(leftShift);
@@ -588,7 +605,71 @@
 			});
 		}
 
+		$('#apply-button').on("click", (e) => {
+			e.preventDefault();
 
+			$.ajax({
+				url: "/VolunteeringMission/ApplyMission",
+				method: "POST",
+				data: { "userId": userId, "missionId": missionId },
+				success: function (data) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: 'Applied For Mission!',
+						showConfirmButton: false,
+						timer: 3000
+					}).then(function () {
+						location.reload();
+					});
+
+				},
+				error: function (error) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'error',
+						title: 'Error Applying to Mission!',
+						showConfirmButton: false,
+						timer: 3000
+					})
+
+				}
+			});
+
+		});
+
+		$('#retrive-application-button').on("click", (e) => {
+			e.preventDefault();
+
+			$.ajax({
+				url: "/VolunteeringMission/RetriveMissionApplication",
+				method: "POST",
+				data: { "userId": userId, "missionId": missionId },
+				success: function (data) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: 'Retrived Application For Mission!',
+						showConfirmButton: false,
+						timer: 3000
+					}).then(function () {
+						location.reload();
+					});
+
+				},
+				error: function (error) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'error',
+						title: 'Error Retriving Mission\'s Application!',
+						showConfirmButton: false,
+						timer: 3000
+					})
+
+				}
+			});
+
+		});
 
 	</script>
 	<script src="~/js/headerSidebar.js"></script>

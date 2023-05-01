@@ -18,8 +18,9 @@ namespace CI_Platform_Web.Controllers
 		private readonly IUserRepository _userRepository;
 		private readonly IVolunteeringTimesheetRepository _volunteeringTimesheetRepository;
 		private readonly CIProjectDbContext _cIProjectDbContext;
+		private readonly IMissionApplication _missionApplicationRepository;
 
-		public HomeController(ILogger<HomeController> logger,IVolunteeringTimesheetRepository volunteeringTimesheetRepository,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
+		public HomeController(ILogger<HomeController> logger,IMissionApplication missionApplicationRepository, IVolunteeringTimesheetRepository volunteeringTimesheetRepository,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
 		{
 			_logger = logger;
 			_homeRepository = homeRepository;
@@ -27,6 +28,7 @@ namespace CI_Platform_Web.Controllers
 			_cIProjectDbContext = cIProjectDbContext;
 			_missionMediaRepository = missionMediaRepository;
 			_volunteeringTimesheetRepository = volunteeringTimesheetRepository;
+			_missionApplicationRepository = missionApplicationRepository;
 		}
 
 		public IActionResult Index(string? profileSuccess)
@@ -159,6 +161,7 @@ namespace CI_Platform_Web.Controllers
 				totalSeats=mission.TotalSeats,
 				seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count(),
 				isMissionApplied = mission.MissionApplications.Any(ma => ma.MissionId == mission.MissionId && ma.UserId == userId) ? 1 : 0,
+				isMissionAppliedByCurrentUser = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("APPROVED")) != null ? true : false,
 			};
 			if (missionModel.countOfRatingsByPeople != 0)
 			{

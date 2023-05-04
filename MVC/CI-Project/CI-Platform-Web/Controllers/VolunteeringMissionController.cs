@@ -29,10 +29,13 @@ namespace CI_Platform_Web.Controllers
 		public readonly IUserRepository _userRepository;
 		public readonly IVolunteeringMissionRepository _volunteeringMissionRepository;
 		public readonly IMissionApplication _missionApplicationRepository;
-		public VolunteeringMissionController(IMissionMediaRepository missionMediaRepository, IMissionApplication missionApplicationRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IUserRepository userRepository)
+		public readonly IVolunteeringTimesheetRepository _volunteeringTimesheetRepository;
+
+        public VolunteeringMissionController(IVolunteeringTimesheetRepository volunteeringTimesheetRepository, IMissionMediaRepository missionMediaRepository, IMissionApplication missionApplicationRepository, IHomeRepository homeRepository, IVolunteeringMissionRepository volunteeringMissionRepository, IUserRepository userRepository)
 		{
 			_homeRepository = homeRepository;
-			_volunteeringMissionRepository = volunteeringMissionRepository;
+			_volunteeringTimesheetRepository = volunteeringTimesheetRepository;
+            _volunteeringMissionRepository = volunteeringMissionRepository;
 			_userRepository = userRepository;
 			_missionMediaRepository = missionMediaRepository;
 			_missionApplicationRepository = missionApplicationRepository;
@@ -92,7 +95,12 @@ namespace CI_Platform_Web.Controllers
 			{
 				missionModel.avgRating = ((missionModel.sumOfRating % missionModel.countOfRatingsByPeople) != 0) ? ((missionModel.sumOfRating / missionModel.countOfRatingsByPeople) + 1) : (missionModel.sumOfRating / missionModel.countOfRatingsByPeople);
 			}
-			return missionModel;
+            if (missionModel.MissionType.Equals("goal"))
+            {
+                missionModel.GoalAchieved = (int)_volunteeringTimesheetRepository.GetAllWithInclude().Where(timesheet => timesheet.MissionId == missionModel.MissionId && timesheet.Status.Equals("APPROVED")).Sum(timesheet => timesheet.Action);
+                missionModel.AvgGoal = ((missionModel.GoalAchieved * 100) / (int)missionModel.GoalMission?.GoalValue);
+            }
+            return missionModel;
 		}
 
 		public string? getMissionCoverImageUrl(long missionId)
@@ -296,7 +304,7 @@ namespace CI_Platform_Web.Controllers
 					try
 					{
 						var message = new MimeMessage();
-						message.From.Add(new MailboxAddress("CI-Platform", "coder5255@gmail.com"));
+						message.From.Add(new MailboxAddress("CI-Platform", "patelmanthan2000@gmail.com"));
 						message.To.Add(new MailboxAddress("User", userObj.Email));
 						message.Subject = "CI-Platform Recommended Mission";
 						message.Body = new TextPart("html")
@@ -306,14 +314,15 @@ namespace CI_Platform_Web.Controllers
 						using (var client = new SmtpClient())
 						{
 							client.Connect("smtp.gmail.com", 587, false);
-							client.Authenticate("naruto.shipud2015@gmail.com", "yrxlcdynfxlqwsbx");
+							client.Authenticate("patelmanthan2000@gmail.com", "zwicmcumczjvtjpk");
 							client.Send(message);
 							client.Disconnect(true);
 						}
 					}
 					catch (Exception ex)
 					{
-						Console.WriteLine(ex.ToString());
+						Console.WriteLine(ex.Message);
+						Console.WriteLine(ex.StackTrace);
 					}
 
 				}

@@ -2,3 +2,63 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+const drop = document.querySelector(".cms-dropdown");
+console.log("drop : ");
+console.log(drop);
+if (drop) {
+    $.ajax({
+        url: "/Home/GetCmsList",
+        success: (result) => {
+            for (var cms of result) {
+                drop.innerHTML += `<li><a href="/Home/CmsPage/${cms.cmsPageId}" class="dropdown-item">${cms.title}</a></li>`;
+            }
+        },
+        error: error => {
+            console.log(error);
+        }
+    });
+}
+
+$("#logoutBtn").on("click", (e) => {
+    e.preventDefault()
+
+    Swal.fire({
+        title: 'Do you really want to logout?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, Log out!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                url: "/Authentication/Logout",
+                method: "POST",
+                success: (result) => {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Logged out !',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(() => {
+                        window.location.href = result;
+                    });
+                },
+                error: (error) => {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Error Logging out!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+                });
+
+        }
+    })
+});

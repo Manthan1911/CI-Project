@@ -143,7 +143,7 @@ namespace CI_Platform_Web.Controllers
 
 				_userRepository.addResetPasswordToken(resetPasswordObj);
 				var message = new MimeMessage();
-				message.From.Add(new MailboxAddress("CI-Platform", "gohelumang12@gmail.com"));
+				message.From.Add(new MailboxAddress("CI-Platform", "patelmanthan2000@gmail.com"));
 				message.To.Add(new MailboxAddress("User", forgotPasswordModelObj.EmailId));
 				message.Subject = "CI-Platform RESET PASSWORD";
 				message.Body = new TextPart("html")
@@ -153,10 +153,12 @@ namespace CI_Platform_Web.Controllers
 				using (var client = new SmtpClient())
 				{
 					client.Connect("smtp.gmail.com", 587, false);
-					client.Authenticate("coder5255@gmail.com", "");
+					client.Authenticate("patelmanthan2000@gmail.com", "zwicmcumczjvtjpk");
 					client.Send(message);
 					client.Disconnect(true);
 				}
+
+				TempData["resetMessage"] = "Reset Password Link is sent to your Email Address "+forgotPasswordModelObj.EmailId;
 
 				return View(forgotPasswordModelObj);
 			}
@@ -293,7 +295,7 @@ namespace CI_Platform_Web.Controllers
 		public IActionResult Logout()
 		{
 			HttpContext.Session.Clear();
-			return RedirectToAction("Login", "Authentication");
+			return Json(Url.Action("Login", "Authentication"));
 		}
 
 		[HttpGet]

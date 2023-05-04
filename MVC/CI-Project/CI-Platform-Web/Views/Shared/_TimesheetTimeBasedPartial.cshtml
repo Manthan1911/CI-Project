@@ -23,8 +23,8 @@
 	}
 
 
-	table::-webkit-scrollbar{
-		display:none !important;
+	table::-webkit-scrollbar {
+		display: none !important;
 	}
 </style>
 <div class="flex-basis-100 border shadow-sm p-3 py-md-4">
@@ -75,8 +75,15 @@
 						{
 							<td>
 								<div class="d-flex gap-2">
-									<img src="~/images/check-mark.svg" class="deleteTimesheetDataBtn" alt="bin" height="20px" width="20px"
-								 data-id="@currTimesheetData.TimesheetId">
+									<img src="~/images/check-mark.svg" alt="bin" height="20px" width="20px">
+								</div>
+							</td>
+						}
+						@if (currTimesheetData.ApprovalStatus == "DECLINED")
+						{
+							<td>
+								<div class="d-flex gap-2">
+									<img src="~/images/x-circle.svg" alt="bin" height="20px" width="20px">
 								</div>
 							</td>
 						}

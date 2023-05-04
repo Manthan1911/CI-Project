@@ -14,6 +14,53 @@
 	}
 }
 
+@functions {
+
+	private bool IsMissionRegisterationClosed()
+	{
+		var missionType = @Model.MissionModel.MissionType;
+		var missionStartDate = Model.MissionModel.StartDate;
+		var missionEndDate = Model.MissionModel.EndDate;
+		var missionRegisterationDeadline = Model.MissionModel.RegisterationDeadline;
+		var todaysDate = DateTime.Now;
+		var seatsLeft = Model.MissionModel.seatsLeft;
+
+		if (seatsLeft <= 0)
+		{
+			return true;
+		}
+
+		if (missionType.ToLower().Equals("goal"))
+		{
+			var goalValue = Model.MissionModel.GoalMission?.GoalValue;
+			var goalAchieved = Model.MissionModel.GoalAchieved;
+
+			if (goalAchieved >= goalValue)
+			{
+				return true;
+			}
+		}
+
+		if (missionRegisterationDeadline != null)
+		{
+			if (missionRegisterationDeadline >= todaysDate)
+			{
+				return true;
+			}
+		}
+
+		if (missionEndDate != null)
+		{
+			if (todaysDate >= missionEndDate)
+			{
+				return true;
+			}
+		}
+
+		return true;
+	}
+}
+
 @section Styles {
 	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
 	<link rel="Stylesheet" href="@Href("~/css/volunteeringMission.css")" />
@@ -238,26 +285,29 @@
 
 					</div>
 					<div id="mission-applyNow-div" class=" d-flex justify-content-center py-2">
-						@if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
+						@if (!IsMissionRegisterationClosed())
 						{
-							<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
-								Apply Now
-								<img src="~/images/right-arrow.png" class="mx-2" alt="">
-							</button>
-						}
-						@if (Model.MissionModel.isMissionApplicationPending)
-						{
-							<button id="retrive-application-button" class="btn btn-outline-danger btn-lg rounded-pill py-3 px-5 d-flex align-items-center">
-								Retrive Application
-							</button>
-						}
+							@if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
+							{
+								<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+									Apply Now
+									<img src="~/images/right-arrow.png" class="mx-2" alt="">
+								</button>
+							}
+							@if (Model.MissionModel.isMissionApplicationPending)
+							{
+								<button id="retrive-application-button" class="btn btn-outline-danger btn-lg rounded-pill py-3 px-5 d-flex align-items-center">
+									Retrive Application
+								</button>
+							}
 
-						@if (Model.MissionModel.isMissionApplicationDeclined)
-						{
-							<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
-								Apply Now
-								<img src="~/images/right-arrow.png" class="mx-2" alt="">
-							</button>
+							@if (Model.MissionModel.isMissionApplicationDeclined)
+							{
+								<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+									Apply Now
+									<img src="~/images/right-arrow.png" class="mx-2" alt="">
+								</button>
+							}
 						}
 					</div>
 
@@ -416,6 +466,13 @@
 						$('#send-recommendation').on('click', () => {
 							getCheckedUsersEmail();
 							$('#recommend-modal').modal("hide");
+							Swal.fire({
+								position: 'top-end',
+								icon: 'success',
+								title: 'Mission Recommendation is sent to your colleagues!',
+								showConfirmButton: false,
+								timer: 2000
+							});
 
 							$.ajax({
 								url: "/VolunteeringMission/addToMissionInvite",
@@ -473,7 +530,13 @@
 							document.getElementById("favImg").src = "/images/heart1.png";
 							document.getElementById("favText").innerHTML = "Add To Favourite";
 							isMissionFavourite = 0;
-							alert("mission removed from favourites !");
+							Swal.fire({
+								position: 'top-end',
+								icon: 'success',
+								title: 'Mission removed from favourites!',
+								showConfirmButton: false,
+								timer: 2000
+							});
 						}
 					});
 				}
@@ -486,7 +549,13 @@
 							document.getElementById("favImg").src = "/images/red-heart.png";
 							document.getElementById("favText").innerHTML = "Remove From Favourites";
 							isMissionFavourite = 1;
-							alert("mission added to favourites !");
+							Swal.fire({
+								position: 'top-end',
+								icon: 'success',
+								title: 'Mission added to favourites!',
+								showConfirmButton: false,
+								timer: 2000
+							});
 						}
 					});
 				}

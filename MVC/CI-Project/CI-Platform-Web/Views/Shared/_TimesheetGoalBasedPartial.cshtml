@@ -6,7 +6,7 @@
 		height: 300px;
 	}
 
-	table{
+	table {
 		width: 100%;
 		white-space: nowrap;
 		overflow-x: auto;
@@ -28,8 +28,8 @@
 		padding-bottom: 0.25rem !important;
 	}
 
-	table::-webkit-scrollbar{
-		display:none;
+	table::-webkit-scrollbar {
+		display: none;
 	}
 </style>
 
@@ -80,8 +80,15 @@
 						{
 							<td>
 								<div class="d-flex gap-2">
-									<img src="~/images/check-mark.svg" class="deleteTimesheetDataBtn" alt="bin" height="20px" width="20px"
-								 data-id="@currTimesheetData.TimesheetId">
+									<img src="~/images/check-mark.svg" alt="bin" height="20px" width="20px">
+								</div>
+							</td>
+						}
+						@if (currTimesheetData.ApprovalStatus == "DECLINED")
+						{
+							<td>
+								<div class="d-flex gap-2">
+									<img src="~/images/x-circle.svg" alt="bin" height="20px" width="20px">
 								</div>
 							</td>
 						}

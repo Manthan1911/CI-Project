@@ -2,9 +2,11 @@
 using CI_Platform_Web.Utilities;
 using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
+using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Org.BouncyCastle.Cms;
 using System.Diagnostics;
 
 namespace CI_Platform_Web.Controllers
@@ -19,8 +21,9 @@ namespace CI_Platform_Web.Controllers
 		private readonly IVolunteeringTimesheetRepository _volunteeringTimesheetRepository;
 		private readonly CIProjectDbContext _cIProjectDbContext;
 		private readonly IMissionApplication _missionApplicationRepository;
+		private readonly ICmsRepository _cmsRepository;
 
-		public HomeController(ILogger<HomeController> logger,IMissionApplication missionApplicationRepository, IVolunteeringTimesheetRepository volunteeringTimesheetRepository,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
+		public HomeController(ILogger<HomeController> logger,ICmsRepository cmsRepository,IMissionApplication missionApplicationRepository, IVolunteeringTimesheetRepository volunteeringTimesheetRepository,IMissionMediaRepository missionMediaRepository, IHomeRepository homeRepository, IUserRepository userRepository, CIProjectDbContext cIProjectDbContext)
 		{
 			_logger = logger;
 			_homeRepository = homeRepository;
@@ -29,6 +32,7 @@ namespace CI_Platform_Web.Controllers
 			_missionMediaRepository = missionMediaRepository;
 			_volunteeringTimesheetRepository = volunteeringTimesheetRepository;
 			_missionApplicationRepository = missionApplicationRepository;
+			_cmsRepository = cmsRepository;
 		}
 
 		public IActionResult Index(string? profileSuccess)
@@ -230,5 +234,24 @@ namespace CI_Platform_Web.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
-	}
+
+        public IActionResult GetCmsList()
+		{
+            List<CmsModel> cmsPageVMs = _cmsRepository.GetConvertedAll().ToList();
+            return Json(cmsPageVMs.Select(cms => new { cms.Title, cms.CmsPageId }));
+        }
+
+        public IActionResult CmsPage(long id)
+        {
+            try
+            {
+                CmsModel cms = _cmsRepository.GetConvertedAll().FirstOrDefault(cms => cms.CmsPageId == id);
+                return View("Cms", cms);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { area = "Users" });
+            }
+        }
+    }
 }

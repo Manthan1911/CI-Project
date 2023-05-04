@@ -169,13 +169,22 @@
 						getCheckedUsersId();
 						$('#recommend-modal').modal("hide");
 
+							Swal.fire({
+								position: 'top-end',
+								icon: 'success',
+								title: 'Story Recommendation is sent to your colleagues!',
+								showConfirmButton: false,
+								timer: 2000
+							});
+
+
 						$.ajax({
 							url: "/StoryListing/addDataToStoryInvite",
 							method: "POST",
 							dataType: "html",
 							data: { "userIdList": userIds, "storyId": storyId, "userId": userId },
 							success: function (data) {
-
+								
 							},
 							error: function (error) {
 								console.log(error);

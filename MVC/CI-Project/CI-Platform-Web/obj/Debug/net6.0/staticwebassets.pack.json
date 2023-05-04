@@ -173,10 +173,6 @@
       "PackagePath": "staticwebassets\\images\\arrow.png"
     },
     {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\banner_images\\14c1f850-bbff-4398-888c-18256c9d885e.png",
-      "PackagePath": "staticwebassets\\images\\banner_images\\14c1f850-bbff-4398-888c-18256c9d885e.png"
-    },
-    {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\banner_images\\230ea51b-faef-4fc8-a42a-b811f5858e90.jpg",
       "PackagePath": "staticwebassets\\images\\banner_images\\230ea51b-faef-4fc8-a42a-b811f5858e90.jpg"
     },
@@ -417,6 +413,14 @@
       "PackagePath": "staticwebassets\\images\\mission.png"
     },
     {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\0470a603-5a03-47eb-bede-2a077ade1c4a.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\0470a603-5a03-47eb-bede-2a077ade1c4a.jpg"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\16e49e15-2a15-44b3-a0ce-4fb91d95c302.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\16e49e15-2a15-44b3-a0ce-4fb91d95c302.png"
+    },
+    {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\1b246302-7141-4a90-b223-91ae7482bafc.png",
       "PackagePath": "staticwebassets\\images\\mission_images\\1b246302-7141-4a90-b223-91ae7482bafc.png"
     },
@@ -445,16 +449,8 @@
       "PackagePath": "staticwebassets\\images\\mission_images\\356326d2-0911-4ec3-beb8-6ccdfa764850.jpg"
     },
     {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\37d0539d-6af7-4a67-9690-6d96059421b6.png",
-      "PackagePath": "staticwebassets\\images\\mission_images\\37d0539d-6af7-4a67-9690-6d96059421b6.png"
-    },
-    {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\38d08cc4-0ca2-4a69-868d-e9c719a68c28.png",
       "PackagePath": "staticwebassets\\images\\mission_images\\38d08cc4-0ca2-4a69-868d-e9c719a68c28.png"
-    },
-    {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\4b7f68b6-6f4f-45cc-9651-a3c3a1144459.jpg",
-      "PackagePath": "staticwebassets\\images\\mission_images\\4b7f68b6-6f4f-45cc-9651-a3c3a1144459.jpg"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\58c2ff7d-ef54-4b41-bb24-fb962f75dc0f.jpg",
@@ -473,8 +469,8 @@
       "PackagePath": "staticwebassets\\images\\mission_images\\7afb489b-46d8-4b97-972d-e07db121f6bf.png"
     },
     {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\7ca5d56d-09fe-4776-88c1-e84e235f9d40.jpg",
-      "PackagePath": "staticwebassets\\images\\mission_images\\7ca5d56d-09fe-4776-88c1-e84e235f9d40.jpg"
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\81f6ea2e-5dbe-4b97-80d3-9ae5601e2bfc.jpg",
+      "PackagePath": "staticwebassets\\images\\mission_images\\81f6ea2e-5dbe-4b97-80d3-9ae5601e2bfc.jpg"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\8aa71f33-48d3-4c87-af31-2cf5999a71f0.png",
@@ -483,6 +479,10 @@
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9149b2b9-5f27-414a-a67b-87339085a73e.png",
       "PackagePath": "staticwebassets\\images\\mission_images\\9149b2b9-5f27-414a-a67b-87339085a73e.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg",
@@ -495,6 +495,22 @@
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png",
       "PackagePath": "staticwebassets\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\c0859386-d707-4acc-b01b-0765a4f712e8.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\c0859386-d707-4acc-b01b-0765a4f712e8.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\c9590549-adca-425c-871c-b7dc2a94a294.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\c9590549-adca-425c-871c-b7dc2a94a294.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\cc03dce1-edce-4746-9000-c907aa2db739.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\cc03dce1-edce-4746-9000-c907aa2db739.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\d2aa82e6-bbfc-4ae3-bfea-e3668f0c7586.png",
+      "PackagePath": "staticwebassets\\images\\mission_images\\d2aa82e6-bbfc-4ae3-bfea-e3668f0c7586.png"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\dd2d6e10-2947-47b2-81df-298750723ca8.png",
@@ -631,6 +647,14 @@
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1da8305e-2e86-4665-83e1-be58b0d60ce1.png",
       "PackagePath": "staticwebassets\\images\\storyimages\\1da8305e-2e86-4665-83e1-be58b0d60ce1.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1dc0d720-840f-44df-abd6-6270d0da83ae.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\1dc0d720-840f-44df-abd6-6270d0da83ae.png"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\24fa6b00-1506-4e45-bddc-2bf785e72e46.png",
+      "PackagePath": "staticwebassets\\images\\storyimages\\24fa6b00-1506-4e45-bddc-2bf785e72e46.png"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
@@ -1093,12 +1117,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\0684f840-786d-4714-87d6-4738d69a6f02.pdf",
-      "PackagePath": "staticwebassets\\mission_documents\\0684f840-786d-4714-87d6-4738d69a6f02.pdf"
-    },
-    {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\5b835c48-0042-4650-9fc5-0dd88fb77108.pdf",
-      "PackagePath": "staticwebassets\\mission_documents\\5b835c48-0042-4650-9fc5-0dd88fb77108.pdf"
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\130083b3-94a0-4dbf-8eaf-b88af8cab603.pdf",
+      "PackagePath": "staticwebassets\\mission_documents\\130083b3-94a0-4dbf-8eaf-b88af8cab603.pdf"
     },
     {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf",
@@ -1109,10 +1129,6 @@
       "PackagePath": "staticwebassets\\mission_documents\\6ea605fa-55cc-45a5-813a-b8f6568b8223.pdf"
     },
     {
-      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\77a9a66c-d5f9-4175-83a2-cab0e7dde86a.pdf",
-      "PackagePath": "staticwebassets\\mission_documents\\77a9a66c-d5f9-4175-83a2-cab0e7dde86a.pdf"
-    },
-    {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\b2b80918-83e6-4d61-862d-6e5d65afdc05.pdf",
       "PackagePath": "staticwebassets\\mission_documents\\b2b80918-83e6-4d61-862d-6e5d65afdc05.pdf"
     },
@@ -1121,8 +1137,16 @@
       "PackagePath": "staticwebassets\\mission_documents\\bd71e405-7690-4fda-ba05-8837d128f453.pdf"
     },
     {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\e59d3461-d644-47da-ad8d-0ba37a18670f.pdf",
+      "PackagePath": "staticwebassets\\mission_documents\\e59d3461-d644-47da-ad8d-0ba37a18670f.pdf"
+    },
+    {
       "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\ea4872f7-7e16-43ff-8283-c37ea7ab1053.pdf",
       "PackagePath": "staticwebassets\\mission_documents\\ea4872f7-7e16-43ff-8283-c37ea7ab1053.pdf"
+    },
+    {
+      "Id": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\f24736ce-6735-4e08-abd1-e357695ddc73.pdf",
+      "PackagePath": "staticwebassets\\mission_documents\\f24736ce-6735-4e08-abd1-e357695ddc73.pdf"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CI-Platform-Web.Microsoft.AspNetCore.StaticWebAssets.props",

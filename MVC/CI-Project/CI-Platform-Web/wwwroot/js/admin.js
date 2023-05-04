@@ -114,10 +114,12 @@ sidebarTabs.forEach((tab) => {
                 ajaxCallForAdminPartial(url, tabToOpen);
                 break;
             case "banner":
-                //debugger;
                 url = "/Admin/GetBannerPartial";
                 ajaxCallForAdminPartial(url, tabToOpen);
-                //debugger;
+                break;
+            case "timesheet":
+                url = "/Admin/GetMissionTimesheetPartial";
+                ajaxCallForAdminPartial(url, tabToOpen);
                 break;
             default:
                 url = "/Admin/GetUserPartial";
@@ -134,14 +136,12 @@ function ajaxCallForAdminPartial(url, tabToOpen) {
     tinymce.remove("textarea#tiny");
     console.log(url);
     console.log(tabToOpen);
-    //debugger;
     $.ajax({
         url: url,
         method: "GET",
         success: (data) => {
             console.log(data);
             $('#adminPagePartialContainer').html(data);
-            //debugger;
 
             createPagination(5);
             handleSidebarClassOnClick(tabToOpen);
@@ -216,6 +216,11 @@ const assignEventsToPartialPage = (tabToOpen) => {
             searchEvent("/Admin/GetSearchedBannerPartial", tabToOpen);
             callAddBannerPartial();
             callEditBannerPartial();
+            callDeleteBannerPartial();
+            break;
+        case "timesheet":
+            approveMissionTimesheet(); 
+            declineMissionTimesheet();
             break;
         default:
             callAddUserPartial();
@@ -2366,12 +2371,185 @@ const callEditBannerPartial = () => {
     });
 }
 
+const callDeleteBannerPartial = () => {
+    let deleteBannerBtns = document.querySelectorAll(".deleteBannerBtn");
+    deleteBannerBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let bannerId = btn.getAttribute("data-bannerId");
+
+
+            Swal.fire({
+                title: 'Do you really want to delete this banner?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+
+                    $.ajax({
+                        url: "/Admin/DeleteBanner",
+                        method: "POST",
+                        data: { "bannerId": bannerId },
+                        success: (result) => {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Deleted Banner!',
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+
+                        },
+                        error: (error) => {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Deleting Banner!',
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        }
+                    });
+
+                }
+            });
+
+
+        });
+    });
+}
+
+//----------- FORM Validation --------------------
+const approveMissionTimesheet = () => {
+    const approveMissionTimesheetBtns = document.querySelectorAll(".approveMissionTimesheetBtn");
+
+    approveMissionTimesheetBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const timesheetId = btn.getAttribute("data-missionTimesheetId");
+
+            Swal.fire({
+                title: 'Are you sure you want to approve this timesheet?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Approve'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/ApproveMissionTimesheet",
+                        method: "POST",
+                        data: { "timesheetId": timesheetId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Approved Timesheet!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Approving Timesheet!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+}
+
+const declineMissionTimesheet = () => {
+    const declineMissionTimesheetBtns = document.querySelectorAll(".declineMissionTimesheetBtn");
+
+    declineMissionTimesheetBtns.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const timesheetId = btn.getAttribute("data-missionTimesheetId");
+
+            Swal.fire({
+                title: 'Are you sure you want to decline this timesheet?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Decline'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/Admin/DeclineMissionTimesheet",
+                        method: "POST",
+                        data: { "timesheetId": timesheetId },
+                        success: function (data, _, status) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Timesheet Declined!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+
+                            ajaxCallForAdminPartial(url, tabToOpen);
+                        },
+                        error: function (error) {
+                            SwalMissionTimesheetfire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Error Declining Timesheet!',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
+
+                }
+            })
+
+        });
+
+    });
+}
+
+
+//----------- FORM Validation --------------------
+
 let isAdminFormValid = (form) => {
     if (!form.valid()) {
         return false;
     }
     return true;
 }
+
+
 
 // -------------------------------------
 let filesArr = [];
@@ -2437,7 +2615,7 @@ function adminPreviewImage() {
         imagePreviewDiv.innerHTML += `
     <div class="position-relative d-inline-block m-1">
         <img src="${src}" class="object-fit-cover" style="height:100px;width:130px;" alt="prevImg" />
-        <button data-index="${i}" class="remove-from-preview position-absolute top-0 end-0 d-flex align-items-center border-0 bg-dark p-0 m-0">
+        <button type="button" data-index="${i}" class="remove-from-preview position-absolute top-0 end-0 d-flex align-items-center border-0 bg-dark p-0 m-0">
             <img src="${crossImg}" class=" bg-dark p-1 m-0" />
         </button>
     </div>

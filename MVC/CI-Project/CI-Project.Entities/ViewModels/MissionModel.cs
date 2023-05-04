@@ -38,6 +38,7 @@ namespace CI_Project.Entities.ViewModels
         public DateTime? UpdatedAt { get; set; }
 
         public DateTime? DeletedAt { get; set; }
+        public DateTime? RegisterationDeadline { get; set; }
 
         public virtual City City { get; set; } = null!;
 

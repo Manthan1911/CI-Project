@@ -39,6 +39,7 @@ namespace CI_Project.Entities.ViewModels
 
 		public long? TotalSeats { get; set; }
 
+		[Required]
 		public DateTime? RegistrationDeadline { get; set; }
 
 		[Required]

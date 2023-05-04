@@ -30,6 +30,7 @@ builder.Services.AddScoped<IMissionMediaRepository, MissionMediaRepository>();
 builder.Services.AddScoped<IMissionDocument, MissionDocumentRepository>();
 builder.Services.AddScoped<IGoalMissionRepository,GoalMissionRepositor>();
 builder.Services.AddScoped<IBannerRepository,BannerRepository>();
+builder.Services.AddScoped<ITimesheetRepository,TimesheetRepository>();
 
 
 builder.Services.AddDistributedMemoryCache();

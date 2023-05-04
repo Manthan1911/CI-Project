@@ -31,10 +31,7 @@
 					Policy
 					<img class="mx-1" src="~/images/drop-down.png" alt="">
 				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
-					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				<ul class="dropdown-menu cms-dropdown" aria-labelledby="dropdownMenuButton1">
 				</ul>
 			</div>
 		</div>
@@ -61,7 +58,7 @@
 			<ul class="dropdown-menu font-16" aria-labelledby="dropdownMenuButton1">
 				<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile" asp-route-userId="@userId">Add Profile</a></li>
 				<li><a class="dropdown-item" asp-action="Index" asp-controller="VolunteeringTimesheet" asp-route-userId="@userId">Volunteering Timesheet</a></li>
-				<li><a class="dropdown-item" asp-action="Logout" asp-controller="Authentication" >logout</a></li>
+				<li><a class="dropdown-item" id="logoutBtn" >Logout</a></li>
 			</ul>
 		</div>
 	</div>

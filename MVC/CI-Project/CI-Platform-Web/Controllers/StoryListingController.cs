@@ -354,7 +354,7 @@ namespace CI_Platform_Web.Controllers
 					try
 					{
 						var message = new MimeMessage();
-						message.From.Add(new MailboxAddress("CI-Platform", "coder5255@gmail.com"));
+						message.From.Add(new MailboxAddress("CI-Platform", "patelmanthan2000@gmail.com"));
 						message.To.Add(new MailboxAddress("User", userObj.Email));
 						message.Subject = "CI-Platform Recommended Story";
 						message.Body = new TextPart("html")
@@ -364,7 +364,7 @@ namespace CI_Platform_Web.Controllers
 						using (var client = new SmtpClient())
 						{
 							client.Connect("smtp.gmail.com", 587, false);
-							client.Authenticate("coder5255@gmail.com", "");
+							client.Authenticate("patelmanthan2000@gmail.com", "zwicmcumczjvtjpk");
 							client.Send(message);
 							client.Disconnect(true);
 						}

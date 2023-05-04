@@ -7,6 +7,8 @@ namespace CI_Project.Entities.ViewModels
 	{
 		public long UserId { get; set; }
 
+		[Required]
+		[EmailAddress]
 		public string? EmailId { get; set; }
 		
 		[Required]

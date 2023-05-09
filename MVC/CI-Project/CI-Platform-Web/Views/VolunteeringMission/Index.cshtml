@@ -285,8 +285,6 @@
 
 					</div>
 					<div id="mission-applyNow-div" class=" d-flex justify-content-center py-2">
-						@if (!IsMissionRegisterationClosed())
-						{
 							@if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
 							{
 								<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
@@ -308,7 +306,6 @@
 									<img src="~/images/right-arrow.png" class="mx-2" alt="">
 								</button>
 							}
-						}
 					</div>
 
 				</div>

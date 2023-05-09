@@ -62,6 +62,7 @@ namespace CI_Project.Entities.ViewModels
         public string? CoverImage { get; set; }
 
         public User? user { get; set; }
+        public long? CurrentUserId { get; set; }
 
         public int countOfRatingsByPeople { get; set; }
         

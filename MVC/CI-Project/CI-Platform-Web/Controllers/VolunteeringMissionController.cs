@@ -73,7 +73,7 @@ namespace CI_Platform_Web.Controllers
 				OrganizationName = mission.OrganizationName,
 				OrganizationDetails = mission.OrganizationDetail,
 				MissionType = mission.MissionType,
-				MissionSkills = mission.MissionSkill,
+				MissionSkills = mission.MissionSkills,
 				GoalMissions = mission.GoalMissions,
 				GoalMission = mission.GoalMissions.FirstOrDefault(gm => gm.MissionId == mission.MissionId),
 				FavouriteMissions = mission.FavouriteMissions,
@@ -90,6 +90,7 @@ namespace CI_Platform_Web.Controllers
 				isMissionAppliedByCurrentUser = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("APPROVED")) != null ? true : false,
 				isMissionApplicationPending = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("PENDING")) != null ? true : false,
 				isMissionApplicationDeclined = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("DECLINED")) != null ? true : false,
+				RegisterationDeadline = mission.RegisterationDeadline,
 			};
 			if (missionModel.countOfRatingsByPeople != 0)
 			{

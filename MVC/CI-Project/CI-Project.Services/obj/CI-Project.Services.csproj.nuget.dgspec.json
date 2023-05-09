@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj": {}
+    "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj": {}
   },
   "projects": {
-    "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+    "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
+        "projectUniqueName": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
         "projectName": "CI-Project.Entities",
-        "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
-        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\obj\\",
+        "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj",
+        "packagesPath": "C:\\Users\\pct124\\.nuget\\packages\\",
+        "outputPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pct124\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,6 +57,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -75,8 +84,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,21 +93,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj": {
+    "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
+        "projectUniqueName": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
         "projectName": "CI-Project.Repository",
-        "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
-        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\obj\\",
+        "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj",
+        "packagesPath": "C:\\Users\\pct124\\.nuget\\packages\\",
+        "outputPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pct124\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,8 +126,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
-                "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
+              "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+                "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
               }
             }
           }
@@ -160,8 +173,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -170,21 +182,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj": {
+    "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj",
+        "projectUniqueName": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj",
         "projectName": "CI-Project.Services",
-        "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj",
-        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Services\\obj\\",
+        "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Services\\CI-Project.Services.csproj",
+        "packagesPath": "C:\\Users\\pct124\\.nuget\\packages\\",
+        "outputPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pct124\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,11 +215,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
-                "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
+              "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj": {
+                "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Entities\\CI-Project.Entities.csproj"
               },
-              "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj": {
-                "projectPath": "W:\\CI_Project_Final4\\CI-Project\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj"
+              "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj": {
+                "projectPath": "D:\\Manthan\\MVC\\CI-Project\\CI-Project.Repository\\CI-Project.Repository.csproj"
               }
             }
           }
@@ -222,8 +239,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -232,7 +248,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

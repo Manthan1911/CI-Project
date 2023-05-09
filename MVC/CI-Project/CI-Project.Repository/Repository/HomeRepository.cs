@@ -39,7 +39,7 @@ namespace CI_Project.Repository.Repository
                 .Include(m => m.MissionApplications)
                 .Include(m => m.FavouriteMissions)
                 .Include(m => m.MissionRatings)
-                .Include(m => m.MissionSkill)
+                .Include(m => m.MissionSkills)
                 .Include(m => m.Theme)
                 .Include(m => m.City)
                 .Include(m => m.Country)

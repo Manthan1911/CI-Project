@@ -16,7 +16,7 @@ namespace CI_Project.Repository.Repository.Interface
         public User findUser(string email);
 
         public User findUser(int? id);
-        public User findUser(long? id);
+        public User? findUser(long? id);
 
         public PasswordReset findUserByToken(string token);
 

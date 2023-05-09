@@ -82,3 +82,17 @@ W:\CI_Project_Final4\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net
 W:\CI_Project_Final4\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.pdb
 W:\CI_Project_Final4\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.genruntimeconfig.cache
 W:\CI_Project_Final4\CI-Project\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\ref\CI-Project.Entities.dll
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.deps.json
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.runtimeconfig.json
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.dll
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\ref\CI-Project.Entities.dll
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\bin\Debug\net6.0\CI-Project.Entities.pdb
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.csproj.AssemblyReference.cache
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.AssemblyInfoInputs.cache
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.AssemblyInfo.cs
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.csproj.CoreCompileInputs.cache
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.dll
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\ref\CI-Project.Entities.dll
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.pdb
+D:\Manthan\MVC\CI-Project\CI-Project.Entities\obj\Debug\net6.0\CI-Project.Entities.genruntimeconfig.cache

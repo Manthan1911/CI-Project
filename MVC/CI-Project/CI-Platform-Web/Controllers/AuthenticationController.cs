@@ -66,6 +66,12 @@ namespace CI_Platform_Web.Controllers
 			var isEmailValid = _userRepository.validateEmail(loginModelObj.EmailId);
 			var user = _userRepository.findUser(loginModelObj.EmailId);
 
+			if(user == null)
+            {
+				ModelState.AddModelError("EmailId", "Email not found please try again");
+				return View(loginModelObj);
+			}
+
 			if (user.Status == false)
 			{
 				ViewBag.userStatus = "inactive";

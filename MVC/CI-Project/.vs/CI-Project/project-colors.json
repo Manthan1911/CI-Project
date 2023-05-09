@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4f061720-9915-4343-a45f-cd8c2da323f5": {
+      "ProjectGuid": "4f061720-9915-4343-a45f-cd8c2da323f5",
+      "DisplayName": "CI-Project.Entities",
+      "ColorIndex": 0
+    },
+    "229781f5-ee0f-4065-81a2-5029fece24ed": {
+      "ProjectGuid": "229781f5-ee0f-4065-81a2-5029fece24ed",
+      "DisplayName": "CI-Platform-Web",
+      "ColorIndex": 1
+    },
+    "1b688457-ac9d-406d-a046-437d0d824685": {
+      "ProjectGuid": "1b688457-ac9d-406d-a046-437d0d824685",
+      "DisplayName": "CI-Project.Repository",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

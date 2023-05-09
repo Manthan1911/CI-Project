@@ -41,9 +41,9 @@ namespace CI_Project.Repository.Repository
 			_db.SaveChanges();
 		}
 
-		public User findUser(string email)
+		public User? findUser(string email)
 		{
-			return _db.Users.Where(user => user.Email.Equals(email)).First();
+			return _db.Users.FirstOrDefault(user => user.Email.Equals(email));
 		}
 
 		public User findUser(int? id)

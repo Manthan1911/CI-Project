@@ -38,6 +38,9 @@
 					<li>
 						<a class="dropdown-item" href="#">Highest Available Seats</a>
 					</li>
+					<li>
+						<a class="dropdown-item" href="#">Sort By Deadline</a>
+					</li>
 				</ul>
 			</div>
 
@@ -190,7 +193,7 @@
 										<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
 									</div>
 									<div class="d-flex flex-column ms-2">
-										<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+										<p class="p-0 m-0 fs-5 fw-semibold">@currMission.RegisterationDeadline?.ToString("d")</p>
 										<p class="p-0 m-0 ">Deadline</p>
 									</div>
 								</div>
@@ -384,7 +387,7 @@
 											<img style="height:30px;width:30px;" src="images/deadline.png" alt="">
 										</div>
 										<div class="d-flex flex-column ms-2">
-											<p class="p-0 m-0 fs-5 fw-semibold">09/01/2019</p>
+											<p class="p-0 m-0 fs-5 fw-semibold" style="min-width:max-content;" >@currMission.RegisterationDeadline?.ToString("d")</p>
 											<p class="p-0 m-0 ">Deadline</p>
 										</div>
 									</div>

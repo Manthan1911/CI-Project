@@ -2,11 +2,9 @@
 using CI_Platform_Web.Utilities;
 using CI_Project.Entities.DataModels;
 using CI_Project.Entities.ViewModels;
-using CI_Project.Repository.Repository;
 using CI_Project.Repository.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Org.BouncyCastle.Cms;
 using System.Diagnostics;
 
 namespace CI_Platform_Web.Controllers
@@ -46,8 +44,8 @@ namespace CI_Platform_Web.Controllers
 
             List<Country> countryList = _homeRepository.getAllCountries();
             List<City> cityList = _homeRepository.getAllCities();
-            List<MissionTheme> themeList = _homeRepository.getAllThemes();
-            List<Skill> skillList = _homeRepository.getAllSkills();
+            List<MissionTheme> themeList = _homeRepository.getAllThemes().Where( currTheme => currTheme.Status == 1).ToList();
+            List<Skill> skillList = _homeRepository.getAllSkills().Where(currSkill => currSkill.Status == 1).ToList();
 
             HomeModel model = new HomeModel()
             {
@@ -124,7 +122,7 @@ namespace CI_Platform_Web.Controllers
 
                 });
 
-                missionVmList = sortMissions(sortBy,searchedMissions);
+                missionVmList = sortMissions(sortBy, searchedMissions);
 
                 gridListModel.missionModels = missionVmList;
                 ViewBag.totalMissions = gridListModel.missionModels.Count;
@@ -173,6 +171,7 @@ namespace CI_Platform_Web.Controllers
                 seatsLeft = mission.TotalSeats - mission.MissionApplications.Where(ma => ma.MissionId == mission.MissionId && ma.ApprovalStatus.ToLower().Equals("approved")).Count(),
                 isMissionApplied = mission.MissionApplications.Any(ma => ma.MissionId == mission.MissionId && ma.UserId == userId) ? 1 : 0,
                 isMissionAppliedByCurrentUser = _missionApplicationRepository.GetAllMissionApplicationsWithInclude().FirstOrDefault(missionApplication => missionApplication.MissionId == mission.MissionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("APPROVED")) != null ? true : false,
+                RegisterationDeadline = mission.RegisterationDeadline,
                 CreatedAt = mission.CreatedAt,
             };
             if (missionModel.countOfRatingsByPeople != 0)
@@ -208,8 +207,8 @@ namespace CI_Platform_Web.Controllers
                     return missionVmList.OrderBy(currentMisison => currentMisison.seatsLeft).ToList();
                 case "Highest Available Seats":
                     return missionVmList.OrderByDescending(currentMisison => currentMisison.seatsLeft).ToList();
-                //case "Sort By Deadline":
-                //    return missionVmList.OrderBy(currentMisison => currentMisison.seatsLeft).ToList();
+                case "Sort By Deadline":
+                    return missionVmList.OrderByDescending(currentMisison => currentMisison.RegisterationDeadline).ToList();
                 default:
                     return missionVmList.OrderBy(mission => mission.CreatedAt).ToList();
             }
@@ -221,12 +220,10 @@ namespace CI_Platform_Web.Controllers
             {
                 missions = missions.Where(x => countries.Contains(x.CountryId)).ToList();
             }
-
             if (cities.Length > 0)
             {
                 missions = missions.Where(x => cities.Contains(x.CityId)).ToList();
             }
-
             if (themes.Length > 0)
             {
                 missions = missions.Where(x => themes.Contains(x.ThemeId)).ToList();

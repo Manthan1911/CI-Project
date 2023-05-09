@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kg/KkAKtjpNOh1lx4IZUh7yryLsuLLYT6MKqVYCbdu0=",
+  "Hash": "yoXBDDxPiQQQ+ZpNSq4kImHq+oCUKtUp8EtJ+uXvTXU=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -1751,12 +1751,12 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\295a79ec-64b8-4a97-9b39-20f5fd670bad.png"
     },
     {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\2b9d6c55-772c-4d7e-a4b8-25c935251e63.jpg",
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\2d319237-1a6a-4b16-ab0c-09d0d232a40f.jpg",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/2b9d6c55-772c-4d7e-a4b8-25c935251e63.jpg",
+      "RelativePath": "images/mission_images/2d319237-1a6a-4b16-ab0c-09d0d232a40f.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1765,58 +1765,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\2b9d6c55-772c-4d7e-a4b8-25c935251e63.jpg"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\2e363403-7ab8-4909-a9b5-abbc6c60329a.jpg",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/2e363403-7ab8-4909-a9b5-abbc6c60329a.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\2e363403-7ab8-4909-a9b5-abbc6c60329a.jpg"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\316f788f-6481-43e3-875e-fa3a79041c6f.jpg",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/316f788f-6481-43e3-875e-fa3a79041c6f.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\316f788f-6481-43e3-875e-fa3a79041c6f.jpg"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\356326d2-0911-4ec3-beb8-6ccdfa764850.jpg",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/356326d2-0911-4ec3-beb8-6ccdfa764850.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\356326d2-0911-4ec3-beb8-6ccdfa764850.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\2d319237-1a6a-4b16-ab0c-09d0d232a40f.jpg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\38d08cc4-0ca2-4a69-868d-e9c719a68c28.png",
@@ -1972,6 +1921,40 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\9149b2b9-5f27-414a-a67b-87339085a73e.png"
     },
     {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\99b6ccc7-c3fe-41f0-b4a1-b7e2702e5b69.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/99b6ccc7-c3fe-41f0-b4a1-b7e2702e5b69.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\99b6ccc7-c3fe-41f0-b4a1-b7e2702e5b69.jpg"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9d8161ef-529a-4d42-8a90-764cce4d5e5a.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/9d8161ef-529a-4d42-8a90-764cce4d5e5a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\9d8161ef-529a-4d42-8a90-764cce4d5e5a.jpg"
+    },
+    {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -1987,23 +1970,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\9ed5ffe7-526d-4e8c-b0e5-644888d1eb6b.jpg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\a2146ece-8fd3-444b-b36e-32c063341af0.png",
@@ -2023,6 +1989,23 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\a2146ece-8fd3-444b-b36e-32c063341af0.png"
     },
     {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\a49e6646-1749-44ef-b592-41504e5c9c05.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/a49e6646-1749-44ef-b592-41504e5c9c05.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\a49e6646-1749-44ef-b592-41504e5c9c05.jpg"
+    },
+    {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -2038,6 +2021,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\b07976a6-fa4c-43e0-8aa5-94166c6a0c19.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\c068ac58-1d72-44f3-82aa-01fd80a6c93c.jpg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/c068ac58-1d72-44f3-82aa-01fd80a6c93c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\c068ac58-1d72-44f3-82aa-01fd80a6c93c.jpg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\c0859386-d707-4acc-b01b-0765a4f712e8.png",
@@ -2091,12 +2091,12 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\dd2d6e10-2947-47b2-81df-298750723ca8.png"
     },
     {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\f5d8f5b5-1cb1-42a9-a0b1-dec713cc8396.jpg",
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\e089a3d1-ae62-4098-8b58-b6eb41705087.jpg",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/f5d8f5b5-1cb1-42a9-a0b1-dec713cc8396.jpg",
+      "RelativePath": "images/mission_images/e089a3d1-ae62-4098-8b58-b6eb41705087.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2105,7 +2105,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\f5d8f5b5-1cb1-42a9-a0b1-dec713cc8396.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\e089a3d1-ae62-4098-8b58-b6eb41705087.jpg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\my-story.png",
@@ -4794,12 +4794,12 @@
       "OriginalItemSpec": "wwwroot\\mission_documents\\0594836f-cb26-45a0-accc-8b64333fd5ab.pdf"
     },
     {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf",
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\5e4822d3-13fd-49ba-b873-348d5be61e27.pdf",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
       "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "mission_documents/62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf",
+      "RelativePath": "mission_documents/5e4822d3-13fd-49ba-b873-348d5be61e27.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4808,7 +4808,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\mission_documents\\62dcb9f3-25de-4866-bb18-7b7fe2aac2a6.pdf"
+      "OriginalItemSpec": "wwwroot\\mission_documents\\5e4822d3-13fd-49ba-b873-348d5be61e27.pdf"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\mission_documents\\6ea605fa-55cc-45a5-813a-b8f6568b8223.pdf",

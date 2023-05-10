@@ -368,6 +368,9 @@ public partial class CIProjectDbContext : DbContext
             entity.Property(e => e.EndDate)
                 .HasColumnType("datetime")
                 .HasColumnName("end_date");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValueSql("((1))")
+                .HasColumnName("is_active");
             entity.Property(e => e.MissionType)
                 .HasMaxLength(10)
                 .IsUnicode(false)

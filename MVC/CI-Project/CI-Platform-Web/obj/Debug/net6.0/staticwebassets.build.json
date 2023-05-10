@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yoXBDDxPiQQQ+ZpNSq4kImHq+oCUKtUp8EtJ+uXvTXU=",
+  "Hash": "FLBSnFIEmxlfrtXX6Eb2TZ8eeFuvD2Svq5oVC0szu/4=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -1802,6 +1802,23 @@
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\58c2ff7d-ef54-4b41-bb24-fb962f75dc0f.jpg"
     },
     {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\6471cf30-4095-46b6-9a5f-df55e6b9856b.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/mission_images/6471cf30-4095-46b6-9a5f-df55e6b9856b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mission_images\\6471cf30-4095-46b6-9a5f-df55e6b9856b.png"
+    },
+    {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\70802fe9-3933-417f-9649-eb3f564d6f84.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -1953,23 +1970,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mission_images\\9d8161ef-529a-4d42-8a90-764cce4d5e5a.jpg"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/mission_images/9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mission_images\\9e61d8c3-3a49-4b2c-bdfb-e63c8bb0d7f4.png"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\mission_images\\a2146ece-8fd3-444b-b36e-32c063341af0.png",
@@ -2684,6 +2684,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\star-empty.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\stop-circle.svg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/stop-circle.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\stop-circle.svg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\06b11081-1137-4ba7-8c51-30060b81f14a.png",

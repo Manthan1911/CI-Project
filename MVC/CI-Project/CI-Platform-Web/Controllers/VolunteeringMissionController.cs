@@ -111,6 +111,11 @@ namespace CI_Platform_Web.Controllers
 			return missionCoverImageUrl;
 		}
 
+		public bool IsUserAlreadyVolunteer(long missionId, long userId)
+        {
+			return _missionApplicationRepository.GetAllMissionApplicationsWithInclude().Any(missionApplication => missionApplication.MissionId == missionId && missionApplication.UserId == userId && missionApplication.ApprovalStatus.Equals("APPROVED"));
+        }
+
 		public void postRating(long userId, long missionId, byte rating)
 		{
 

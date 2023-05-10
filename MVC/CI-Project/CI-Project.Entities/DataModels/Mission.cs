@@ -43,6 +43,8 @@ public partial class Mission
 
     public long? TotalSeats { get; set; }
 
+    public bool? IsActive { get; set; }
+
     public virtual City City { get; set; } = null!;
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();

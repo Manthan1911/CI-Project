@@ -1358,6 +1358,7 @@ namespace CI_Platform_Web.Controllers
                 StartDate = missionObj.StartDate,
                 EndDate = missionObj.EndDate,
                 Status = missionObj.Status,
+                IsActive = missionObj.IsActive,
                 RegisterationDeadline = missionObj.RegisterationDeadline,
             };
 

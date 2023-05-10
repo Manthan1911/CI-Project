@@ -1,745 +1,820 @@
 ﻿@model CI_Project.Entities.ViewModels.VolunteeringMissionModel
 
 @{
-	ViewData["Title"] = "Volunteering Mission";
-	var GoalMissionCtx = @Model.MissionModel.GoalMissions.FirstOrDefault(m => m.MissionId == Model.MissionModel.MissionId);
-	var isMissionFavourite = 0;
-	if (Model.user.UserId != 0)
-	{
-		if (Model.MissionModel.FavouriteMissions.Any(favMission => favMission.UserId == Model.user.UserId))
-		{
-			isMissionFavourite = 1;
-		}
+    ViewData["Title"] = "Volunteering Mission";
+    var GoalMissionCtx = @Model.MissionModel.GoalMissions.FirstOrDefault(m => m.MissionId == Model.MissionModel.MissionId);
+    var isMissionFavourite = 0;
+    if (Model.user.UserId != 0)
+    {
+        if (Model.MissionModel.FavouriteMissions.Any(favMission => favMission.UserId == Model.user.UserId))
+        {
+            isMissionFavourite = 1;
+        }
 
-	}
+    }
 }
 
 @functions {
 
-	private bool IsMissionRegisterationClosed()
-	{
-		var missionType = @Model.MissionModel.MissionType;
-		var missionStartDate = Model.MissionModel.StartDate;
-		var missionEndDate = Model.MissionModel.EndDate;
-		var missionRegisterationDeadline = Model.MissionModel.RegisterationDeadline;
-		var todaysDate = DateTime.Now;
-		var seatsLeft = Model.MissionModel.seatsLeft;
+    private bool IsMissionRegisterationClosed()
+    {
+        var missionType = @Model.MissionModel.MissionType;
+        var missionStartDate = Model.MissionModel.StartDate;
+        var missionEndDate = Model.MissionModel.EndDate;
+        var missionRegisterationDeadline = Model.MissionModel.RegisterationDeadline;
+        var todaysDate = DateTime.Now;
+        var seatsLeft = Model.MissionModel.seatsLeft;
 
-		if (seatsLeft <= 0)
-		{
-			return true;
-		}
+        if (seatsLeft <= 0)
+        {
+            return true;
+        }
 
-		if (missionType.ToLower().Equals("goal"))
-		{
-			var goalValue = Model.MissionModel.GoalMission?.GoalValue;
-			var goalAchieved = Model.MissionModel.GoalAchieved;
+        if (missionType.ToLower().Equals("goal"))
+        {
+            var goalValue = Model.MissionModel.GoalMission?.GoalValue;
+            var goalAchieved = Model.MissionModel.GoalAchieved;
 
-			if (goalAchieved >= goalValue)
-			{
-				return true;
-			}
-		}
+            if (goalAchieved >= goalValue)
+            {
+                return true;
+            }
+        }
 
-		if (missionRegisterationDeadline != null)
-		{
-			if (missionRegisterationDeadline >= todaysDate)
-			{
-				return true;
-			}
-		}
+        if (missionRegisterationDeadline != null)
+        {
+            if (missionRegisterationDeadline <= todaysDate)
+            {
+                return true;
+            }
+        }
 
-		if (missionEndDate != null)
-		{
-			if (todaysDate >= missionEndDate)
-			{
-				return true;
-			}
-		}
+        if (missionEndDate != null)
+        {
+            if (todaysDate >= missionEndDate)
+            {
+                return true;
+            }
+        }
 
-		return true;
-	}
+        return true;
+    }
 }
 
 @section Styles {
-	<link rel="Stylesheet" href="@Href("~/css/story.css")" />
-	<link rel="Stylesheet" href="@Href("~/css/volunteeringMission.css")" />
+<link rel="Stylesheet" href="@Href("~/css/story.css")" />
+<link rel="Stylesheet" href="@Href("~/css/volunteeringMission.css")" />
 }
 <main class="position-relative">
-	<input hidden id="totalVolunteers" value="@Model.MissionModel.totalVolunteers" />
-	<header id="header" class="ci-page-header bg-white w-100 z-3"
-			style="background-color: transparent;min-width: max-content;">
-		<partial name="_Navbar"></partial>
+    <input hidden id="totalVolunteers" value="@Model.MissionModel.totalVolunteers" />
+    <header id="header" class="ci-page-header bg-white w-100 z-3"
+            style="background-color: transparent;min-width: max-content;">
+        <partial name="_Navbar"></partial>
 
-	</header>
+    </header>
 
-	<div id="scrollable-area" class="overflow-y-scroll ">
-		<div id="main-container" class="container mt-4 mb-2 mb-sm-4">
+    <div id="scrollable-area" class="overflow-y-scroll ">
+        <div id="main-container" class="container mt-4 mb-2 mb-sm-4">
 
-			<div id="volunteer-mission-apply" class="row d-flex flex-column flex-lg-row">
-				<div id="volunteer-mission-apply-mission-photos" class="col-12 col-lg-6">
+            <div id="volunteer-mission-apply" class="row d-flex flex-column flex-lg-row">
+                <div id="volunteer-mission-apply-mission-photos" class="col-12 col-lg-6">
 
-					<div class="new-carousel col-lg-6 col-12 p-0 w-100">
+                    <div class="new-carousel col-lg-6 col-12 p-0 w-100">
 
-						<div id="carousel-new" class="w-100 p-0 " style="height:600px;">
+                        <div id="carousel-new" class="w-100 p-0 " style="height:600px;">
 
-							@if (Model.MissionModel.MissionMedia?.Count() <= 1)
-							{
-								<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
+                            @if (Model.MissionModel.MissionMedia?.Count() <= 1)
+                            {
+                                <input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
 
-								@if (Model.MissionModel?.MissionMedia?.Count() == 1)
-								{
-									<div class="p-2 w-100 h-100">
-										<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel.CoverImage" />
-									</div>
-								}
-								@if (Model.MissionModel?.MissionMedia?.Count() == 0)
-								{
-									<div class="p-2 w-100 h-100">
-										<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images/404-Page-image.png" />
-									</div>
-								}
+                                @if (Model.MissionModel?.MissionMedia?.Count() == 1)
+                                {
+                                    <div class="p-2 w-100 h-100">
+                                        <img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel.CoverImage" />
+                                    </div>
+                                }
+                                @if (Model.MissionModel?.MissionMedia?.Count() == 0)
+                                {
+                                    <div class="p-2 w-100 h-100">
+                                        <img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="~/images/404-Page-image.png" />
+                                    </div>
+                                }
 
-							}
-							else
-							{
-								<div class="p-2 w-100" style="height:calc(100% - 100px) !important;">
-									<img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel?.CoverImage" />
-								</div>
+                            }
+                            else
+                            {
+                                <div class="p-2 w-100" style="height:calc(100% - 100px) !important;">
+                                    <img id="carousal-preview-image" class="object-fit-cover w-100 h-100" src="@Model.MissionModel?.CoverImage" />
+                                </div>
 
-								<div class="d-flex position-relative m-2" style="height:100px !important;">
-									<div id="carouselLeftShiftArrow">
-										<img src="~/images/left1.png" />
-									</div>
-									<div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
-										<input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
-										@foreach (var currStoryMedia in Model.MissionModel?.MissionMedia!)
-										{
-											<img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.MediaPath@currStoryMedia.MediaName@currStoryMedia.MediaType" />
-										}
-									</div>
-									<div id="carouselRightShiftArrow">
-										<img src="~/images/right-arrow2.png" />
-									</div>
-								</div>
-							}
-
-
-						</div>
-
-					</div>
-				</div>
-				<div id="volunteer-mission-apply-details"
-					 class=" col-12 col-lg-6 d-flex flex-column justify-content-between">
-
-					<div id="mission-title-div" class="px-3">
-						<div id="mission-title" class="fs-2">@Model.MissionModel.Title</div>
-						<div id="mission-description" class="pb-4">
-							@Model.MissionModel.ShortDescription
-						</div>
-					</div>
-					<div class=" position-relative">
-						@if (Model.MissionModel.MissionType.Equals("time"))
-						{
-							<div id="mission-theme"
-							 class="d-flex align-items-center justify-content-center position-absolute w-100 z-1">
-								<p class="bg-white  rounded-5 py-1 px-4 border border-2" style="margin-top:-20px;">
-									From @Model.MissionModel.StartDate?.ToString("d") To @Model.MissionModel.EndDate?.ToString("d")
-								</p>
-							</div>
-							<div id="mission-details-div"
-							 class="border-top d-flex align-items-center justify-content-between position-relative">
-
-								<div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
-									<img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
-									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
-										<span style="min-width: max-content;">Seats Left</span>
-									</div>
-								</div>
-								<div id="mission-progress-div" class="d-flex align-items-center justify-content-center p-2 w-50 ">
-									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
-									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">@Model.MissionModel.EndDate?.ToString("d")</span>
-										<span style="min-width: max-content;">Deadline</span>
-									</div>
-								</div>
-
-							</div>
-						}
-						else
-						{
-							<div id="mission-theme"
-							 class="d-flex align-items-center justify-content-center position-absolute w-100 z-1">
-								<p class="bg-white  rounded-5 py-1 px-4 border border-2" style="margin-top:-20px;">@GoalMissionCtx?.GoalObjectiveText</p>
-							</div>
-							<div id="mission-details-div"
-							 class="border-top d-flex align-items-center justify-content-between position-relative">
-
-								<div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
-									<img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
-									<div class="d-flex justify-content-center flex-column px-2">
-										<span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
-										<span style="min-width: max-content;">Seats Left</span>
-									</div>
-								</div>
-								<div id="mission-progress-div" class="d-flex justify-content-center p-2 w-50 ">
-									<img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
-									<div class="d-flex flex-column px-2 ">
-										<div class="progress ">
-											<div class="progress-bar " style="width:@Model.MissionModel.AvgGoal%" role="progressbar" aria-valuenow="75"
-											 aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-										<span>@Model.MissionModel.GoalAchieved achieved</span>
-									</div>
-								</div>
-
-							</div>
-						}
-
-						@*here*@
-					</div>
-					<div id="mission-favourite-recomend-div"
-						 class="d-flex flex-column flex-sm-row justify-content-sm-around justify-content-center border-top py-4">
-						<div class="d-flex align-items-center justify-content-sm-start justify-content-center pb-sm-0 pb-2">
-							@if (isMissionFavourite == 1)
-							{
-								<button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
-									style="min-width: max-content;">
-									<img id="favImg" class="px-1" src="~/images/red-heart.png" style="height:20px;width:30px;" alt="">
-									<span id="favText">Remove from Favourite</span>
-								</button>
-								<input type="hidden" id="isFavourite" value="@isMissionFavourite" />
-							}
-							else
-							{
-								<button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
-									style="min-width: max-content;">
-									<img id="favImg" class="px-1" src="~/images/heart1.png" style="height:20px;width:30px;" alt="">
-									<span id="favText">Add to Favourite</span>
-								</button>
-								<input type="hidden" id="isFavourite" value="@isMissionFavourite" />
-							}
-						</div>
-						<div class=" d-flex align-items-center justify-content-sm-end justify-content-center">
-							<button data-bs-target="#recommend-modal" id="recommend-button" class="bg-transparent py-2 px-4 rounded-5 d-flex align-items-center "
-									style="min-width: max-content;">
-								<img class="px-1" src="~/images/add1.png" alt="">
-								Recommend to Co-Worker
-							</button>
-						</div>
-						<div id="recommend-partial">
-						</div>
-					</div>
-
-					<div id="mission-related-information-div" class="position-relative border-top py-4 d-flex justify-content-around gap-2 ">
-						<div id="rating" class="position-absolute z-1 d-flex justify-content-center align-items-center w-100" style="margin-top:-45px;">
-							<div class="bg-white rounded-pill ">
-								<input id="star-input-id" type="text" class="rating  d-none" data-size="sm">
-							</div>
-						</div>
-
-						<div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
-							 style="border:1px solid black;">
-							<div>
-								<img src="~/images/pin1.png" class="py" alt="">
-							</div>
-							<div class="d-flex flex-column pe-3">
-								<span>City</span>
-								<span>@Model.MissionModel.City.Name</span>
-							</div>
-						</div>
-
-						<div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
-							 style="border:1px solid black;">
-							<div>
-								<img src="~/images/web.png" class="py" alt="">
-							</div>
-							<div class="d-flex flex-column pt-2 pe-2">
-								<span>Theme</span>
-								<span>@Model.MissionModel.Theme.Title</span>
-							</div>
-						</div>
-
-						<div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
-							 style="border:1px solid black;">
-							<div>
-								<img src="~/images/calender.png" class="py" alt="">
-							</div>
-							<div class="d-flex flex-column">
-								<span>Date</span>
-								<span>Ongoing<br>Opportunity </span>
-							</div>
-						</div>
-
-						<div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
-							 style="border:1px solid black;">
-							<div>
-								<img src="~/images/organization.png" class="py" alt="">
-							</div>
-							<div class="d-flex flex-column pt-3 pe-2">
-								<span>Organization</span>
-								<span>@Model.MissionModel.OrganizationName</span>
-							</div>
-						</div>
-
-					</div>
-					<div id="mission-applyNow-div" class=" d-flex justify-content-center py-2">
-							@if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
-							{
-								<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
-									Apply Now
-									<img src="~/images/right-arrow.png" class="mx-2" alt="">
-								</button>
-							}
-							@if (Model.MissionModel.isMissionApplicationPending)
-							{
-								<button id="retrive-application-button" class="btn btn-outline-danger btn-lg rounded-pill py-3 px-5 d-flex align-items-center">
-									Retrive Application
-								</button>
-							}
-
-							@if (Model.MissionModel.isMissionApplicationDeclined)
-							{
-								<button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
-									Apply Now
-									<img src="~/images/right-arrow.png" class="mx-2" alt="">
-								</button>
-							}
-					</div>
-
-				</div>
-			</div>
-
-			<div id="volunteer-information" class=" d-flex flex-lg-row flex-column  pt-3 h-100">
-				<div id="volunteer-info-tabs" class=" p-2  h-100">
-					<!-- Tab links -->
-					<div class="tab">
-						<button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Mission')">
-							Mission
-						</button>
-						<button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Organization')">
-							Organization
-						</button>
-						<button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Comments')">
-							Comments
-						</button>
-					</div>
-
-					<!-- Tab content -->
-					<div id="Mission" class="tabcontent border-0">
-						<h3>Introduction</h3>
-						@Html.Raw(Model.MissionModel.Description)
-
-						@*<h3>Documents</h3>
-						<div class="">
-						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-						<img src="images/doc.png" class="px-2" alt="">lorem-ipsum.pdf
-						</button>
-						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-						<img src="images/doc.png" class="px-2" alt="">at_vero_eos_accusamus.doc
-						</button>
-						<button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
-						<img src="images/doc.png" class="px-2" alt="">important_doc.xls
-						</button>
-						</div>*@
-					</div>
-
-					<div id="Organization" class="tabcontent border-0 p-0 pt-2">
-						<h3>Organization</h3>
-						@Html.Raw(Model.MissionModel.OrganizationDetails)
-					</div>
-
-					<div id="Comments" class="tabcontent border-0">
-						<textarea id="commentText" class="w-100 rounded-2 p-1" placeholder="Enter your comments.."
-								  rows="4" name=""></textarea>
-						<button id="post-comment-btn" class="warning-btn apply-btn py-2 px-4 my-2 rounded-5 bg-transparent">
-							Post comment
-						</button>
-						<div id="volunteer-comments-div" class="rounded-3">
-							@*comments here*@
-						</div>
-					</div>
-				</div>
-				<div id="volunteer-recent-info" class="">
-					<div id="volunteer-information-div" class="border border-2  px-3 py-2" style="width:100% !important;">
-						<div class="p-2 px-0">
-							<span class="hover-underline p-2 px-0 fs-5">
-								Information
-							</span>
-						</div>
-						<div class="row m-1 p-2">
-							<div class="col-3"><span>skills</span></div>
-							<div id="skillsList" class="col-9">
-								@foreach (var currSkill in Model.MissionModel.MissionSkills)
-								{
-									<span>@currSkill.Skill.SkillName,</span>
-								}
-							</div>
-						</div>
-						<div class="row m-1 p-2">
-							<div class="col-3"><span>Days</span></div>
-							<div class="col-9"><span>@Model.MissionModel.Availability</span></div>
-						</div>
-						<div class="row m-1 p-2">
-							<div class="col-3"> Rating </div>
-							<div class="col-9">
-								@for (var i = 1; i <= 5; i++)
-								{
-									if (i <= Model.MissionModel.avgRating)
-									{
-										<img src="~/images/selected-star.png" alt="selected-star">
-									}
-									else
-									{
-										<img src="~/images/star.png" alt="unselected-star">
-									}
-								}
-								<span>(by @Model.MissionModel.countOfRatingsByPeople volunteers)</span>
-							</div>
-						</div>
-					</div>
-
-					<div id="recent-volunteers-div" class="border border-1 mt-3">
-						@*Recent Volunteers here*@
-					</div>
-
-				</div>
-			</div>
-
-			<div id="related-missions" class="w-100 mt-5">
-			</div>
-		</div>
-	</div>
+                                <div class="d-flex position-relative m-2" style="height:100px !important;">
+                                    <div id="carouselLeftShiftArrow">
+                                        <img src="~/images/left1.png" />
+                                    </div>
+                                    <div class="small-images-div d-flex overflow-y-scroll" style="scroll-behavior:smooth;">
+                                        <input hidden id="carouselImagesCount" value="@Model.MissionModel?.MissionMedia?.Count()" />
+                                        @foreach (var currStoryMedia in Model.MissionModel?.MissionMedia!)
+                                        {
+                                            <img style="min-width:150px;" class="carousal-images-from-slider h-100 object-fit-cover" src="@currStoryMedia.MediaPath@currStoryMedia.MediaName@currStoryMedia.MediaType" />
+                                        }
+                                    </div>
+                                    <div id="carouselRightShiftArrow">
+                                        <img src="~/images/right-arrow2.png" />
+                                    </div>
+                                </div>
+                            }
 
 
-	<partial name="_Footer"></partial>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="volunteer-mission-apply-details"
+                     class=" col-12 col-lg-6 d-flex flex-column justify-content-between">
+
+                    <div id="mission-title-div" class="px-3">
+                        <div id="mission-title" class="fs-2">@Model.MissionModel.Title</div>
+                        <div id="mission-description" class="pb-4">
+                            @Model.MissionModel.ShortDescription
+                        </div>
+                    </div>
+                    <div class=" position-relative">
+                        @if (Model.MissionModel.MissionType.Equals("time"))
+                        {
+                            <div id="mission-theme"
+                             class="d-flex align-items-center justify-content-center position-absolute w-100 z-1">
+                                <p class="bg-white  rounded-5 py-1 px-4 border border-2" style="margin-top:-20px;">
+                                    From @Model.MissionModel.StartDate?.ToString("d") To @Model.MissionModel.EndDate?.ToString("d")
+                                </p>
+                            </div>
+                            <div id="mission-details-div"
+                             class="border-top d-flex align-items-center justify-content-between position-relative">
+
+                                <div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
+                                    <img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
+                                    <div class="d-flex justify-content-center flex-column px-2">
+                                        <span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
+                                        <span style="min-width: max-content;">Seats Left</span>
+                                    </div>
+                                </div>
+                                <div id="mission-progress-div" class="d-flex align-items-center justify-content-center p-2 w-50 ">
+                                    <img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
+                                    <div class="d-flex justify-content-center flex-column px-2">
+                                        <span class="fs-4 fw-semibold">@Model.MissionModel.EndDate?.ToString("d")</span>
+                                        <span style="min-width: max-content;">Deadline</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="mission-theme"
+                             class="d-flex align-items-center justify-content-center position-absolute w-100 z-1">
+                                <p class="bg-white  rounded-5 py-1 px-4 border border-2" style="margin-top:-20px;">@GoalMissionCtx?.GoalObjectiveText</p>
+                            </div>
+                            <div id="mission-details-div"
+                             class="border-top d-flex align-items-center justify-content-between position-relative">
+
+                                <div id="seats-left-div" class="d-flex align-items-center justify-content-center py-2 w-50">
+                                    <img src="~/images/Seats-left.png" alt="" style="height:35px;width:35px;">
+                                    <div class="d-flex justify-content-center flex-column px-2">
+                                        <span class="fs-4 fw-semibold">@Model.MissionModel.seatsLeft</span>
+                                        <span style="min-width: max-content;">Seats Left</span>
+                                    </div>
+                                </div>
+                                <div id="mission-progress-div" class="d-flex justify-content-center p-2 w-50 ">
+                                    <img src="~/images/achieved.png" alt="" style="height:35px;width: 35px;">
+                                    <div class="d-flex flex-column px-2 ">
+                                        <div class="progress ">
+                                            <div class="progress-bar " style="width:@Model.MissionModel.AvgGoal%" role="progressbar" aria-valuenow="75"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span>@Model.MissionModel.GoalAchieved achieved</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                        @*here*@
+                    </div>
+                    <div id="mission-favourite-recomend-div"
+                         class="d-flex flex-column flex-sm-row justify-content-sm-around justify-content-center border-top py-4">
+                        <div class="d-flex align-items-center justify-content-sm-start justify-content-center pb-sm-0 pb-2">
+                            @if (isMissionFavourite == 1)
+                            {
+                                <button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
+                                    style="min-width: max-content;">
+                                    <img id="favImg" class="px-1" src="~/images/red-heart.png" style="height:20px;width:30px;" alt="">
+                                    <span id="favText">Remove from Favourite</span>
+                                </button>
+                                <input type="hidden" id="isFavourite" value="@isMissionFavourite" />
+                            }
+                            else
+                            {
+                                <button id="addToFav" class="bg-transparent py-2 px-4  rounded-5 d-flex align-items-center justify-content-center"
+                                    style="min-width: max-content;">
+                                    <img id="favImg" class="px-1" src="~/images/heart1.png" style="height:20px;width:30px;" alt="">
+                                    <span id="favText">Add to Favourite</span>
+                                </button>
+                                <input type="hidden" id="isFavourite" value="@isMissionFavourite" />
+                            }
+                        </div>
+                        <div class=" d-flex align-items-center justify-content-sm-end justify-content-center">
+                            <button data-bs-target="#recommend-modal" id="recommend-button" class="bg-transparent py-2 px-4 rounded-5 d-flex align-items-center "
+                                    style="min-width: max-content;">
+                                <img class="px-1" src="~/images/add1.png" alt="">
+                                Recommend to Co-Worker
+                            </button>
+                        </div>
+                        <div id="recommend-partial">
+                        </div>
+                    </div>
+
+                    <div id="mission-related-information-div" class="position-relative border-top py-4 d-flex justify-content-around gap-2 ">
+                        <div id="rating" class="position-absolute z-1 d-flex justify-content-center align-items-center w-100" style="margin-top:-45px;">
+                            <div class="bg-white rounded-pill ">
+                                <input id="star-input-id" type="text" class="rating  d-none" data-size="sm">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
+                             style="border:1px solid black;">
+                            <div>
+                                <img src="~/images/pin1.png" class="py" alt="">
+                            </div>
+                            <div class="d-flex flex-column pe-3">
+                                <span>City</span>
+                                <span>@Model.MissionModel.City.Name</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
+                             style="border:1px solid black;">
+                            <div>
+                                <img src="~/images/web.png" class="py" alt="">
+                            </div>
+                            <div class="d-flex flex-column pt-2 pe-2">
+                                <span>Theme</span>
+                                <span>@Model.MissionModel.Theme.Title</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
+                             style="border:1px solid black;">
+                            <div>
+                                <img src="~/images/calender.png" class="py" alt="">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span>Date</span>
+                                <span>Ongoing<br>Opportunity </span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between p-2 rounded-2 w-100"
+                             style="border:1px solid black;">
+                            <div>
+                                <img src="~/images/organization.png" class="py" alt="">
+                            </div>
+                            <div class="d-flex flex-column pt-3 pe-2">
+                                <span>Organization</span>
+                                <span>@Model.MissionModel.OrganizationName</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="mission-applyNow-div" class=" d-flex justify-content-center py-2">
+                        @if (!Model.MissionModel.isMissionAppliedByCurrentUser && !Model.MissionModel.isMissionApplicationPending && !Model.MissionModel.isMissionApplicationDeclined)
+                        {
+                            <button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+                                Apply Now
+                                <img src="~/images/right-arrow.png" class="mx-2" alt="">
+                            </button>
+                        }
+                        @if (Model.MissionModel.isMissionApplicationPending)
+                        {
+                            <button id="retrive-application-button" class="btn btn-outline-danger btn-lg rounded-pill py-3 px-5 d-flex align-items-center">
+                                Retrive Application
+                            </button>
+                        }
+
+                        @if (Model.MissionModel.isMissionApplicationDeclined)
+                        {
+                            <button id="apply-button" class="apply-btn warning-btn bg-transparent rounded-5 py-3 px-5 d-flex align-items-center">
+                                Apply Now
+                                <img src="~/images/right-arrow.png" class="mx-2" alt="">
+                            </button>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="volunteer-information" class=" d-flex flex-lg-row flex-column  pt-3 h-100">
+                <div id="volunteer-info-tabs" class=" p-2  h-100">
+                    <!-- Tab links -->
+                    <div class="tab">
+                        <button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Mission')">
+                            Mission
+                        </button>
+                        <button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Organization')">
+                            Organization
+                        </button>
+                        <button class="tablinks p-2 p-sm-4" onclick="openCity(event, 'Comments')">
+                            Comments
+                        </button>
+                    </div>
+
+                    <!-- Tab content -->
+                    <div id="Mission" class="tabcontent border-0">
+                        <h3>Introduction</h3>
+                        @Html.Raw(Model.MissionModel.Description)
+
+                        @*<h3>Documents</h3>
+                            <div class="">
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                            <img src="images/doc.png" class="px-2" alt="">lorem-ipsum.pdf
+                            </button>
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                            <img src="images/doc.png" class="px-2" alt="">at_vero_eos_accusamus.doc
+                            </button>
+                            <button class="border border-1 rounded-5 px-3 py-2 bg-white mx-2">
+                            <img src="images/doc.png" class="px-2" alt="">important_doc.xls
+                            </button>
+                            </div>*@
+                    </div>
+
+                    <div id="Organization" class="tabcontent border-0 p-0 pt-2">
+                        <h3>Organization</h3>
+                        @Html.Raw(Model.MissionModel.OrganizationDetails)
+                    </div>
+
+                    <div id="Comments" class="tabcontent border-0">
+                        <textarea id="commentText" class="w-100 rounded-2 p-1" placeholder="Enter your comments.."
+                                  rows="4" name=""></textarea>
+                        <button id="post-comment-btn" class="warning-btn apply-btn py-2 px-4 my-2 rounded-5 bg-transparent">
+                            Post comment
+                        </button>
+                        <div id="volunteer-comments-div" class="rounded-3">
+                            @*comments here*@
+                        </div>
+                    </div>
+                </div>
+                <div id="volunteer-recent-info" class="">
+                    <div id="volunteer-information-div" class="border border-2  px-3 py-2" style="width:100% !important;">
+                        <div class="p-2 px-0">
+                            <span class="hover-underline p-2 px-0 fs-5">
+                                Information
+                            </span>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"><span>skills</span></div>
+                            <div id="skillsList" class="col-9">
+                                @foreach (var currSkill in Model.MissionModel.MissionSkills)
+                                {
+                                    <span>@currSkill.Skill.SkillName,</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"><span>Days</span></div>
+                            <div class="col-9"><span>@Model.MissionModel.Availability</span></div>
+                        </div>
+                        <div class="row m-1 p-2">
+                            <div class="col-3"> Rating </div>
+                            <div class="col-9">
+                                @for (var i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Model.MissionModel.avgRating)
+                                    {
+                                        <img src="~/images/selected-star.png" alt="selected-star">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/images/star.png" alt="unselected-star">
+                                    }
+                                }
+                                <span>(by @Model.MissionModel.countOfRatingsByPeople volunteers)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="recent-volunteers-div" class="border border-1 mt-3">
+                        @*Recent Volunteers here*@
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="related-missions" class="w-100 mt-5">
+            </div>
+        </div>
+    </div>
+
+
+    <partial name="_Footer"></partial>
 </main>
 
 @section Scripts{
-	<script>
+<script>
 
-		let userId = @Model.user.UserId;
-		let missionId = @Model.MissionModel.MissionId;
-		let isMissionFavourite = document.getElementById("isFavourite").value;
+    let userId = @Model.user.UserId;
+    let missionId = @Model.MissionModel.MissionId;
+    let isMissionFavourite = document.getElementById("isFavourite").value;
 
-		//let isMissionFavourite = false;
-
-
-		let pageNo = 1;
-		let pageSize = 4;
-		let userIds = [];
-
-		$(document).ready(() => {
-			let starInput = $("#star-input-id");
-			let favouriteBtn = $('#addToFav');
-			addStar(starInput, userId, missionId);
+    //let isMissionFavourite = false;
 
 
-			addToFavourites(favouriteBtn, userId, missionId);
+    let pageNo = 1;
+    let pageSize = 4;
+    let userIds = [];
 
-			let lastSkill = document.getElementById("skillsList").children[document.getElementById("skillsList").children.length - 1];
-			lastSkill.innerHTML = lastSkill.innerHTML.split(',')[0];
-			getComments(userId, missionId);
-
-			getRecentVolunteers(missionId, pageNo, pageSize);
-			postComment(userId, missionId);
-			getAllRelatedMissions();
-
-			// ------------------------ recommend
-			$('#recommend-button').on("click", () => {
-				console.log("recommend");
-
-				$.ajax({
-					url: "/VolunteeringMission/getAllUsers",
-					method: "GET",
-					dataType: "html",
-					data: { "missionId": missionId, "userId": userId },
-					success: function (data) {
-
-						$('#recommend-partial').html(data);
-						$('#recommend-modal').modal("show");
-
-						$('#send-recommendation').on('click', () => {
-							getCheckedUsersEmail();
-							$('#recommend-modal').modal("hide");
-							Swal.fire({
-								position: 'top-end',
-								icon: 'success',
-								title: 'Mission Recommendation is sent to your colleagues!',
-								showConfirmButton: false,
-								timer: 2000
-							});
-
-							$.ajax({
-								url: "/VolunteeringMission/addToMissionInvite",
-								method: "POST",
-								dataType: "html",
-								data: { "userEmailList": userIds, "missionId": missionId, "userId": userId },
-								success: function (data) {
-
-								},
-								error: function (error) {
-									console.log(error);
-								}
-							});
-
-						});
-					},
-					error: function (error) {
-						console.log(error);
-					}
-				});
-			});
-		});
-
-		function getCheckedUsersEmail() {
-			var checkedUsers = document.querySelectorAll('#userChkBox:checked').forEach(val => {
-				var selectedUserId = $(val).val();
-				userIds.push(selectedUserId);
-			})
-		}
-
-		function addStar(starInput, userId, missionId) {
-			$("#rating .rating-stars").on("click", function (event) {
-				var starRating = Math.ceil(parseFloat(starInput.val()));
-				$.ajax({
-					type: "POST",
-					url: '/VolunteeringMission/postRating',
-					data: { userId: userId, missionId: missionId, rating: starRating },
-					success: function (data) {
-						alert("You rated this mission " + starRating + " star !");
-					}
-				});
-			});
-		}
-
-		function addToFavourites(favouriteBtn, userId, missionId) {
-			console.log("add clicked");
-			$('#addToFav').on("click", function (favouriteBtn) {
-				console.log(isMissionFavourite);
-				if (isMissionFavourite == 1) {
-					$.ajax({
-						type: "POST",
-						url: '/VolunteeringMission/removeFromFavourite',
-						data: { userId: userId, missionId: missionId },
-						success: function (data) {
-							document.getElementById("favImg").src = "/images/heart1.png";
-							document.getElementById("favText").innerHTML = "Add To Favourite";
-							isMissionFavourite = 0;
-							Swal.fire({
-								position: 'top-end',
-								icon: 'success',
-								title: 'Mission removed from favourites!',
-								showConfirmButton: false,
-								timer: 2000
-							});
-						}
-					});
-				}
-				else if (isMissionFavourite == 0) {
-					$.ajax({
-						type: "POST",
-						url: '/VolunteeringMission/addToFavourite',
-						data: { userId: userId, missionId: missionId },
-						success: function (data) {
-							document.getElementById("favImg").src = "/images/red-heart.png";
-							document.getElementById("favText").innerHTML = "Remove From Favourites";
-							isMissionFavourite = 1;
-							Swal.fire({
-								position: 'top-end',
-								icon: 'success',
-								title: 'Mission added to favourites!',
-								showConfirmButton: false,
-								timer: 2000
-							});
-						}
-					});
-				}
-			});
-		}
-
-		function postComment(userId, missionId) {
-			$('#post-comment-btn').on("click", () => {
-				console.log("post clicked;");
-				let commentText = $('#commentText').val().trim();
-				console.log("text .. " + commentText);
-				if (commentText != "") {
-					$.ajax({
-						type: "POST",
-						url: '/VolunteeringMission/postComment',
-						data: { userId: userId, missionId: missionId, commentText: commentText },
-						success: function (data) {
-							document.getElementById('commentText').value = "";
-							getComments(userId, missionId);
-						}
-					});
-				}
-				else {
-					alert("comment text is null");
-				}
-			});
-		}
-
-		function getComments(userId, missionId) {
-			$.ajax({
-				type: "GET",
-				url: '/VolunteeringMission/loadAllComments',
-				data: { missionId: missionId },
-				success: function (data) {
-					$('#volunteer-comments-div').html('');
-					$('#volunteer-comments-div').html(data);
-				}
-			});
-		}
-		// ------------------------------------------- Recent Volunteers Pagination ------------------------------------------------
+    $(document).ready(() => {
+        let starInput = $("#star-input-id");
+        let favouriteBtn = $('#addToFav');
+        addStar(starInput, userId, missionId);
 
 
-		function addListnerToRecentVolunteers() {
-			let leftShift = document.getElementById("left-shift");
-			let rightShift = document.getElementById("right-shift");
-			let totalVolunteers = +document.getElementById("totalVolunteers").value;
-			console.log("totalVolunteers : " + totalVolunteers);
-			if (totalVolunteers > 0) {
-				console.log("total volunteers : " + totalVolunteers);
-				let maxPage = Math.ceil(totalVolunteers / pageSize);
-				console.log(leftShift);
-				leftShift.addEventListener("click", () => {
-					if (pageNo > 1) {
-						pageNo -= 1;
-						getRecentVolunteers(missionId, pageNo, pageSize);
-					}
-					console.log("pageNo : " + pageNo);
-				});
+        addToFavourites(favouriteBtn, userId, missionId);
 
-				console.log(rightShift);
-				rightShift.addEventListener("click", () => {
-					if (pageNo < maxPage) {
-						pageNo += 1;
-						getRecentVolunteers(missionId, pageNo, pageSize);
-					}
-					console.log("pageNo : " + pageNo);
-				});
-			}
-		}
+        let lastSkill = document.getElementById("skillsList").children[document.getElementById("skillsList").children.length - 1];
+        lastSkill.innerHTML = lastSkill.innerHTML.split(',')[0];
+        getComments(userId, missionId);
 
-		function getRecentVolunteers(missionId, pageNo, pageSize) {
-			$.ajax({
-				type: "GET",
-				url: '/VolunteeringMission/getRecentVolunteers',
-				data: { missionId: missionId, pageNo: pageNo, pageSize: pageSize },
-				success: function (data) {
-					$('#recent-volunteers-div').html('');
-					$('#recent-volunteers-div').html(data);
+        getRecentVolunteers(missionId, pageNo, pageSize);
+        postComment(userId, missionId);
+        getAllRelatedMissions();
 
-					addListnerToRecentVolunteers();
-				}
-			});
-		}
+        // ------------------------ recommend
+        $('#recommend-button').on("click", () => {
+            console.log("recommend");
 
-		//-------------------------------- Related Missions --------------------------------
-		function getAllRelatedMissions() {
-			$.ajax({
-				type: "GET",
-				url: '/VolunteeringMission/getAllRelatedMissions',
-				data: { "missionId": missionId, "userId": userId },
-				success: function (data) {
-					$('#related-missions').html('');
-					$('#related-missions').html(data);
-					toggleAddToFavouriteButton();
-				}
-			});
-		}
+            $.ajax({
+                url: "/VolunteeringMission/getAllUsers",
+                method: "GET",
+                dataType: "html",
+                data: { "missionId": missionId, "userId": userId },
+                success: function (data) {
 
-		//----------------------------------- ad to fav and remove from fav ----------------------------------------
-		function toggleAddToFavouriteButton() {
-			$('.fav-mission-id').on('click', function () {
-				let missionId = $(this).children(0).attr("data-id");
+                    $('#recommend-partial').html(data);
+                    $('#recommend-modal').modal("show");
 
-				$.ajax({
-					url: "/Home/addOrRemoveFavourite",
-					method: "POST",
-					dataType: "html",
-					data: { "missionId": missionId },
-					success: function (data) {
-						getAllRelatedMissions();
-					},
-					error: function (error) {
-						console.log(error);
-					}
-				});
-			});
-		}
+                    $('#send-recommendation').on('click', () => {
+                        getCheckedUsersEmail();
+                        $('#recommend-modal').modal("hide");
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Mission Recommendation is sent to your colleagues!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
 
-		$('#apply-button').on("click", (e) => {
-			e.preventDefault();
+                        $.ajax({
+                            url: "/VolunteeringMission/addToMissionInvite",
+                            method: "POST",
+                            dataType: "html",
+                            data: { "userEmailList": userIds, "missionId": missionId, "userId": userId },
+                            success: function (data) {
 
-			$.ajax({
-				url: "/VolunteeringMission/ApplyMission",
-				method: "POST",
-				data: { "userId": userId, "missionId": missionId },
-				success: function (data) {
-					Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: 'Applied For Mission!',
-						showConfirmButton: false,
-						timer: 3000
-					}).then(function () {
-						location.reload();
-					});
+                            },
+                            error: function (error) {
+                                console.log(error);
+                            }
+                        });
 
-				},
-				error: function (error) {
-					Swal.fire({
-						position: 'top-end',
-						icon: 'error',
-						title: 'Error Applying to Mission!',
-						showConfirmButton: false,
-						timer: 3000
-					})
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
 
-				}
-			});
+    function getCheckedUsersEmail() {
+        var checkedUsers = document.querySelectorAll('#userChkBox:checked').forEach(val => {
+            var selectedUserId = $(val).val();
+            userIds.push(selectedUserId);
+        })
+    }
 
-		});
+    function addStar(starInput, userId, missionId) {
+        $("#rating .rating-stars").on("click", function (event) {
+            var starRating = Math.ceil(parseFloat(starInput.val()));
 
-		$('#retrive-application-button').on("click", (e) => {
-			e.preventDefault();
+            $.ajax({
+                url:"/VolunteeringMission/IsUserAlreadyVolunteer",
+                method:"GET",
+                data:{"missionId": missionId,"userId": userId},
+                success:(result)=>{
+                    console.log(result);
+                    if(result==true)
+                    {
+                        $.ajax({
+                            type: "POST",
+                            url: '/VolunteeringMission/postRating',
+                            data: { userId: userId, missionId: missionId, rating: starRating },
+                            success: function (data) {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'Thanks for rating ' + starRating + ' stars !',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                            }
+                        });
+                    }
+                    else{
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Please become a volunteer before rating!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                },
+                error:(error)=>{
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Error In checking that IsUserAlreadyVolunteer!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            });
 
-			$.ajax({
-				url: "/VolunteeringMission/RetriveMissionApplication",
-				method: "POST",
-				data: { "userId": userId, "missionId": missionId },
-				success: function (data) {
-					Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: 'Retrived Application For Mission!',
-						showConfirmButton: false,
-						timer: 3000
-					}).then(function () {
-						location.reload();
-					});
 
-				},
-				error: function (error) {
-					Swal.fire({
-						position: 'top-end',
-						icon: 'error',
-						title: 'Error Retriving Mission\'s Application!',
-						showConfirmButton: false,
-						timer: 3000
-					})
+        });
+    }
 
-				}
-			});
+    function addToFavourites(favouriteBtn, userId, missionId) {
+        console.log("add clicked");
+        $('#addToFav').on("click", function (favouriteBtn) {
+            console.log(isMissionFavourite);
+            if (isMissionFavourite == 1) {
+                $.ajax({
+                    type: "POST",
+                    url: '/VolunteeringMission/removeFromFavourite',
+                    data: { userId: userId, missionId: missionId },
+                    success: function (data) {
+                        document.getElementById("favImg").src = "/images/heart1.png";
+                        document.getElementById("favText").innerHTML = "Add To Favourite";
+                        isMissionFavourite = 0;
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Mission removed from favourites!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                });
+            }
+            else if (isMissionFavourite == 0) {
+                $.ajax({
+                    type: "POST",
+                    url: '/VolunteeringMission/addToFavourite',
+                    data: { userId: userId, missionId: missionId },
+                    success: function (data) {
+                        document.getElementById("favImg").src = "/images/red-heart.png";
+                        document.getElementById("favText").innerHTML = "Remove From Favourites";
+                        isMissionFavourite = 1;
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Mission added to favourites!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                });
+            }
+        });
+    }
 
-		});
+    function postComment(userId, missionId) {
+        $('#post-comment-btn').on("click", () => {
+            
+           
 
-	</script>
-	<script src="~/js/headerSidebar.js"></script>
-	<script src="~/js/scrolable.js"></script>
-	<script src="~/js/volunteeringInfo.js"></script>
-	<script src="~/js/carouselImageChanger.js"></script>
+            $.ajax({
+                url:"/VolunteeringMission/IsUserAlreadyVolunteer",
+                method:"GET",
+                data:{"missionId": missionId,"userId": userId},
+                success:(result)=>{
+                    if(result==true)
+                    {
+                        let commentText = $('#commentText').val().trim();
+                        if (commentText != "") {
+                            $.ajax({
+                                type: "POST",
+                                url: '/VolunteeringMission/postComment',
+                                data: { userId: userId, missionId: missionId, commentText: commentText },
+                                success: function (data) {
+                                    document.getElementById('commentText').value = "";
+                                    getComments(userId, missionId);
+                                },
+                                error:(error)=>{
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'Error in Posting Comment!',
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+                                }
+                            });
+                        }
+                    }
+                    else{
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Please become a volunteer before Commenting!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                },
+                error:(error)=>{
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Error In checking that IsUserAlreadyVolunteer!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            });
+
+        });
+    }
+
+    function getComments(userId, missionId) {
+        $.ajax({
+            type: "GET",
+            url: '/VolunteeringMission/loadAllComments',
+            data: { missionId: missionId },
+            success: function (data) {
+                $('#volunteer-comments-div').html('');
+                $('#volunteer-comments-div').html(data);
+            }
+        });
+    }
+    // ------------------------------------------- Recent Volunteers Pagination ------------------------------------------------
+
+
+    function addListnerToRecentVolunteers() {
+        let leftShift = document.getElementById("left-shift");
+        let rightShift = document.getElementById("right-shift");
+        let totalVolunteers = +document.getElementById("totalVolunteers").value;
+        console.log("totalVolunteers : " + totalVolunteers);
+        if (totalVolunteers > 0) {
+            console.log("total volunteers : " + totalVolunteers);
+            let maxPage = Math.ceil(totalVolunteers / pageSize);
+            console.log(leftShift);
+            leftShift.addEventListener("click", () => {
+                if (pageNo > 1) {
+                    pageNo -= 1;
+                    getRecentVolunteers(missionId, pageNo, pageSize);
+                }
+                console.log("pageNo : " + pageNo);
+            });
+
+            console.log(rightShift);
+            rightShift.addEventListener("click", () => {
+                if (pageNo < maxPage) {
+                    pageNo += 1;
+                    getRecentVolunteers(missionId, pageNo, pageSize);
+                }
+                console.log("pageNo : " + pageNo);
+            });
+        }
+    }
+
+    function getRecentVolunteers(missionId, pageNo, pageSize) {
+        $.ajax({
+            type: "GET",
+            url: '/VolunteeringMission/getRecentVolunteers',
+            data: { missionId: missionId, pageNo: pageNo, pageSize: pageSize },
+            success: function (data) {
+                $('#recent-volunteers-div').html('');
+                $('#recent-volunteers-div').html(data);
+
+                addListnerToRecentVolunteers();
+            }
+        });
+    }
+
+    //-------------------------------- Related Missions --------------------------------
+    function getAllRelatedMissions() {
+        $.ajax({
+            type: "GET",
+            url: '/VolunteeringMission/getAllRelatedMissions',
+            data: { "missionId": missionId, "userId": userId },
+            success: function (data) {
+                $('#related-missions').html('');
+                $('#related-missions').html(data);
+                toggleAddToFavouriteButton();
+            }
+        });
+    }
+
+    //----------------------------------- ad to fav and remove from fav ----------------------------------------
+    function toggleAddToFavouriteButton() {
+        $('.fav-mission-id').on('click', function () {
+            let missionId = $(this).children(0).attr("data-id");
+
+            $.ajax({
+                url: "/Home/addOrRemoveFavourite",
+                method: "POST",
+                dataType: "html",
+                data: { "missionId": missionId },
+                success: function (data) {
+                    getAllRelatedMissions();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    }
+
+    $('#apply-button').on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/VolunteeringMission/ApplyMission",
+            method: "POST",
+            data: { "userId": userId, "missionId": missionId },
+            success: function (data) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Applied For Mission!',
+                    showConfirmButton: false,
+                    timer: 3000
+                }).then(function () {
+                    location.reload();
+                });
+
+            },
+            error: function (error) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Error Applying to Mission!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+
+    $('#retrive-application-button').on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/VolunteeringMission/RetriveMissionApplication",
+            method: "POST",
+            data: { "userId": userId, "missionId": missionId },
+            success: function (data) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Retrived Application For Mission!',
+                    showConfirmButton: false,
+                    timer: 3000
+                }).then(function () {
+                    location.reload();
+                });
+
+            },
+            error: function (error) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Error Retriving Mission\'s Application!',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+            }
+        });
+
+    });
+
+</script>
+<script src="~/js/headerSidebar.js"></script>
+<script src="~/js/scrolable.js"></script>
+<script src="~/js/volunteeringInfo.js"></script>
+<script src="~/js/carouselImageChanger.js"></script>
 }

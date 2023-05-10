@@ -27,6 +27,8 @@ namespace CI_Project.Entities.ViewModels
 
         public bool Status { get; set; }
 
+        public bool? IsActive { get; set; }
+
         public string? OrganizationName { get; set; }
         public string? OrganizationDetails { get; set; }
 

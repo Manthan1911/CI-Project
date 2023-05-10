@@ -1,0 +1,81 @@
+﻿:root {
+    --light-orange: #f88634;
+    --dark-gray: #414141;
+}
+
+#notificationCounterDiv {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    font-size: 10px;
+    background-color: var(--light-orange);
+    padding: 0.1rem 0.4rem;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    border: 1px solid orange;
+}
+
+
+
+#notificationDiv {
+    z-index: 100;
+    display: block;
+    position: absolute;
+    top: 45px;
+    right: 5px !important;
+    height: 80vh;
+    background-color: white !important;
+    right: 60px;
+    width: 90vw !important;
+    overflow-y: scroll;
+}
+
+    #notificationDiv::-webkit-scrollbar {
+        display: none;
+    }
+
+#notification-overlay-div {
+    display: block;
+    position: absolute;
+    height: 100vh !important;
+    width: 100vw !important;
+    z-index: 50;
+}
+
+.notification {
+    font-size: .7rem;
+    max-height: 90px;
+}
+
+#notificationHeader {
+    height: 60px;
+}
+
+.notification-logo > img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+
+
+@media only screen and (min-width:768px) {
+    .notification {
+        font-size: 1rem;
+    }
+
+    #notificationDiv {
+        right: 180px !important;
+        background-color: black;
+        width: 60vw !important;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    #notificationDiv {
+        right: 180px !important;
+        background-color: black;
+        width: 40vw !important;
+    }
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FLBSnFIEmxlfrtXX6Eb2TZ8eeFuvD2Svq5oVC0szu/4=",
+  "Hash": "zRvGLLi6fBmyDFwCAp3HFs2Kmfs7DinIK1/jbXqn13w=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\landingPage.css"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\notification.css",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "css/notification.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\notification.css"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\css\\privacypolicy.css",
@@ -321,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Animal-welfare-&-save-birds-campaign-1.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\approve.svg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/approve.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\approve.svg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\arrow.png",
@@ -865,6 +899,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\deadline.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\decline.svg",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/decline.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\decline.svg"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\doc.png",

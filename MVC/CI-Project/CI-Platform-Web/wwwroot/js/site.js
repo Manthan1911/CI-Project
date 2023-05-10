@@ -62,3 +62,31 @@ $("#logoutBtn").on("click", (e) => {
         }
     })
 });
+
+// --------------------- notification ------------------------
+let notificationDiv = document.getElementById("notificationDiv");
+let notificationOverlayDiv = document.getElementById("notification-overlay-div");
+let notificationIconDiv = document.getElementById("notificationIconDiv");
+console.log(notificationDiv);
+console.log(notificationOverlayDiv);
+console.log(notificationIconDiv);
+if (notificationIconDiv) {
+    notificationIconDiv.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (!notificationDiv.classList.contains("d-none")) {
+            notificationDiv.classList.add("d-none");
+            notificationOverlayDiv.classList.add("d-none");
+        }
+        else {
+            notificationDiv.classList.remove("d-none");
+            notificationOverlayDiv.classList.remove("d-none");
+
+            notificationOverlayDiv.addEventListener("click", (e) => {
+                e.preventDefault();
+                notificationDiv.classList.add("d-none");
+                notificationOverlayDiv.classList.add("d-none");
+            });
+        }
+    });
+}

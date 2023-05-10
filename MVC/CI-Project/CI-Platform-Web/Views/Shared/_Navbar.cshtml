@@ -1,65 +1,93 @@
 ﻿@{
-	var userId = Context.Session.GetString("UserId");
-	var fullName = Context.Session.GetString("FullName");
-	var Avtar = Context.Session.GetString("Avtar") == null ? "/images/404-Page-image.png" : Context.Session.GetString("Avtar");
+    var userId = Context.Session.GetString("UserId");
+    var fullName = Context.Session.GetString("FullName");
+    var Avtar = Context.Session.GetString("Avtar") == null ? "/images/404-Page-image.png" : Context.Session.GetString("Avtar");
 }
+<div id="notification-overlay-div" class="d-none"></div>
 <nav id="header-profile" class="mx-auto d-flex align-items-center justify-content-between"
-	 style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
-	<div class="ci-page-header-left-div d-flex ">
-		<div class="p-2 h-100 d-sm-none">
-			<button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
-				<img src="~/images/list.png" alt="">
-			</button>
-		</div>
-		<a asp-action="Index" asp-controller="Home"><img id="logo" class=" mx-2" src="~/images/logo.png" alt=""></a>
-		<div id="header-sidebar" class="font-16 d-sm-flex flex-row align-items-center justify-content-center">
-			<div id="close-btn-div" class="p-2 ">
-				<button id="header-sidebar-close"
-						class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
-					<img src="~/images/cancel1.png" alt="">
-				</button>
-			</div>
-			<div id="stories-div" class="font-16 p-2">
-				<a class="text-decoration-none text-black mx-2" asp-action="Index" asp-controller="StoryListing">
-					Stories
-				</a>
-			</div>
+     style="max-width:var(--max-width);height:var(--header-height);background-color: transparent;">
+    <div class="ci-page-header-left-div d-flex ">
+        <div class="p-2 h-100 d-sm-none">
+            <button id="header-sidebar-open-btn" class="bg-transparent sidebar-open border-0">
+                <img src="~/images/list.png" alt="">
+            </button>
+        </div>
+        <a asp-action="Index" asp-controller="Home"><img id="logo" class=" mx-2" src="~/images/logo.png" alt=""></a>
+        <div id="header-sidebar" class="font-16 d-sm-flex flex-row align-items-center justify-content-center">
+            <div id="close-btn-div" class="p-2 ">
+                <button id="header-sidebar-close"
+                        class="sidebar-close d-sm-none d-flex  justify-content-center p-2 bg-transparent border-0">
+                    <img src="~/images/cancel1.png" alt="">
+                </button>
+            </div>
+            <div id="stories-div" class="font-16 p-2">
+                <a class="text-decoration-none text-black mx-2" asp-action="Index" asp-controller="StoryListing">
+                    Stories
+                </a>
+            </div>
 
-			<div id="policy-div" class="dropdown mx-2 font-16">
-				<button class="font-16 bg-transparent border-0 p-0 dropdown-toggle" type="button"
-						data-bs-toggle="dropdown" aria-expanded="false">
-					Policy
-					<img class="mx-1" src="~/images/drop-down.png" alt="">
-				</button>
-				<ul class="dropdown-menu cms-dropdown" aria-labelledby="dropdownMenuButton1">
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="ci-page-header-profile-div font-16 p-1 mx-1 d-flex" style="min-width: max-content;">
-		<div id="search-button" class="d-md-none d-flex justify-content-center align-items-center me-2">
-			<img src="~/images/search.png"/>
-		</div>
-		<div class="font-16 dropdown mx-2 px-sm-0 px-2">
-			<button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
-					id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-				<div href="">
-					<img class="ci-page-header-profile-img mx-1"
-						 style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
-						 src="@Avtar" alt="user-img">
-				</div>
-				<div class="d-md-block d-none">
-					<span class="ci-page-header-profile-name mx-1 py-1">
-						@fullName
-					</span>
-					<img src="~/images/drop-down.png" alt="">
-				</div>
-			</button>
-			<ul class="dropdown-menu font-16" aria-labelledby="dropdownMenuButton1">
-				<li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile" asp-route-userId="@userId">Add Profile</a></li>
-				<li><a class="dropdown-item" asp-action="Index" asp-controller="VolunteeringTimesheet" asp-route-userId="@userId">Volunteering Timesheet</a></li>
-				<li><a class="dropdown-item" id="logoutBtn" >Logout</a></li>
-			</ul>
-		</div>
-	</div>
+            <div id="policy-div" class="dropdown mx-2 font-16">
+                <button class="font-16 bg-transparent border-0 p-0 dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    Policy
+                    <img class="mx-1" src="~/images/drop-down.png" alt="">
+                </button>
+                <ul class="dropdown-menu cms-dropdown" aria-labelledby="dropdownMenuButton1">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ci-page-header-profile-div font-16 p-1 mx-1 d-flex" style="min-width: max-content;">
+        <div id="search-button" class="d-md-none d-flex justify-content-center align-items-center me-2 position-relative">
+            <img src="~/images/search.png" />
+        </div>
+        <div class="font-16 dropdown mx-2 px-sm-0 px-2 d-flex align-items-center">
+            <div class="me-2 " style="cursor:pointer;">
+
+                <div id="notificationIconDiv">
+                    <img class="ci-page-header-profile-img mx-1"
+                         src="~/images/bell.png" alt="noti-img">
+                    <div id="notificationCounterDiv">
+                        3
+                    </div>
+                </div>
+
+                <div id="notificationDiv" class="d-none shadow-lg rounded-3">
+                    <div id="notificationHeader ">
+                        <div class="d-flex justify-content-between p-2 h-100 border-bottom">
+                            <div class="d-flex align-items-center "><img src="~/images/settings.png"/></div>
+                            <div class="d-flex align-items-center fw-semibold text-secondary" style="font-size:1.4rem;">Notification</div>
+                            <button class="d-flex align-items-center bg-transparent border-0 text-decoration-underline text-secondary fw-semibold" type="button">Clear All</button>
+                        </div>
+                    </div>
+                    <div class="notification h-100">
+                        <div class="p-2 d-flex align-content-center justify-content-center h-100 border-bottom">
+                            <div class="notification-logo d-flex justify-content-center align-items-center h-100"><img src="~/images/volunteer1.png" /></div>
+                            <div class="notification-text d-flex justify-content-center align-items-center px-2 h-100  text-secondary">Manthan Patel - Recommends this mission - Plantation And Aforrestation Programme !</div>
+                            <div class="notification-status d-flex justify-content-center align-items-center h-100"><img src="~/images/checked.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"
+                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div>
+                    <img class="ci-page-header-profile-img mx-1"
+                         style="border-radius: 50%;height: 40px;width: 40px;object-fit: cover;"
+                         src="@Avtar" alt="user-img">
+                </div>
+                <div class="d-md-block d-none">
+                    <span class="ci-page-header-profile-name mx-1 py-1">
+                        @fullName
+                    </span>
+                    <img src="~/images/drop-down.png" alt="">
+                </div>
+            </button>
+            <ul class="dropdown-menu font-16" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" asp-action="Index" asp-controller="UserProfile" asp-route-userId="@userId">Add Profile</a></li>
+                <li><a class="dropdown-item" asp-action="Index" asp-controller="VolunteeringTimesheet" asp-route-userId="@userId">Volunteering Timesheet</a></li>
+                <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>

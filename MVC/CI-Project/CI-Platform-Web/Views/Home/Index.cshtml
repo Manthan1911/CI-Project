@@ -154,7 +154,6 @@
 @section Scripts{
 
 	<script type="text/javascript">
-		console.log(document.getElementById('profileSuccess').value);
 		if (document.getElementById('profileSuccess').value == "true") {
 			Swal.fire({
 				position: 'top-end',
@@ -192,7 +191,6 @@
 				method: "POST",
 				data: { "countries": arrOfCountries, "cities": arrOfCities, "themes": arrOfThemes, "skills": arrOfSkills, "sortBy": sortVal, "missionToSearch": missionToSearch, "pageNo": currPage, "pageSize": maxMissionPerPage},
 				success: function (data) {
-					console.log(data);
 					$('#missions-list').html("");
 					$('#missions-list').html(data);
 					sorting();

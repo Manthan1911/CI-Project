@@ -39,3 +39,7 @@ CREATE TABLE last_check
 	user_id BIGINT PRIMARY KEY,
 	created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 ); 
+
+ALTER TABLE last_check
+ADD CONSTRAINT FK_user_id
+FOREIGN KEY (user_id) REFERENCES  [dbo].[user](user_id)

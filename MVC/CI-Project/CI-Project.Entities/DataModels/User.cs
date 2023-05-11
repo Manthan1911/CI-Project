@@ -55,6 +55,8 @@ public partial class User
 
     public virtual ICollection<FavouriteMission> FavouriteMissions { get; } = new List<FavouriteMission>();
 
+    public virtual LastCheck? LastCheck { get; set; }
+
     public virtual ICollection<MissionApplication> MissionApplications { get; } = new List<MissionApplication>();
 
     public virtual ICollection<MissionInvite> MissionInviteFromUsers { get; } = new List<MissionInvite>();

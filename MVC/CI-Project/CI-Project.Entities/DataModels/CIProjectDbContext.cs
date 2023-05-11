@@ -363,6 +363,11 @@ public partial class CIProjectDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
+
+            entity.HasOne(d => d.User).WithOne(p => p.LastCheck)
+                .HasForeignKey<LastCheck>(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_user_id");
         });
 
         modelBuilder.Entity<Mission>(entity =>

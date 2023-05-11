@@ -63,6 +63,8 @@ public partial class User
 
     public virtual ICollection<MissionRating> MissionRatings { get; } = new List<MissionRating>();
 
+    public virtual NotificationSetting? NotificationSetting { get; set; }
+
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
 
     public virtual ICollection<StoryInvite> StoryInviteFromUsers { get; } = new List<StoryInvite>();
@@ -70,6 +72,8 @@ public partial class User
     public virtual ICollection<StoryInvite> StoryInviteToUsers { get; } = new List<StoryInvite>();
 
     public virtual ICollection<Timesheet> Timesheets { get; } = new List<Timesheet>();
+
+    public virtual ICollection<UserNotification> UserNotifications { get; } = new List<UserNotification>();
 
     public virtual ICollection<UserSkill> UserSkills { get; } = new List<UserSkill>();
 }

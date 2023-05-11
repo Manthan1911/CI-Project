@@ -42,9 +42,9 @@
             <img src="~/images/search.png" />
         </div>
         <div class="font-16 dropdown mx-2 px-sm-0 px-2 d-flex align-items-center">
-            <div class="me-2 " style="cursor:pointer;">
+            <div class="me-2 ">
 
-                <div id="notificationIconDiv">
+                <div id="notificationIconDiv" style="cursor:pointer;">
                     <img class="ci-page-header-profile-img mx-1"
                          src="~/images/bell.png" alt="noti-img">
                     <div id="notificationCounterDiv">
@@ -52,21 +52,112 @@
                     </div>
                 </div>
 
-                <div id="notificationDiv" class="d-none shadow-lg rounded-3">
+                <div id="notificationDiv" class="container p-0 d-none shadow-lg rounded-3">
                     <div id="notificationHeader ">
                         <div class="d-flex justify-content-between p-2 h-100 border-bottom">
-                            <div class="d-flex align-items-center "><img src="~/images/settings.png"/></div>
+                            <button type="button" class="d-flex align-items-center bg-transparent border-0"><img src="~/images/settings.png" /></button>
                             <div class="d-flex align-items-center fw-semibold text-secondary" style="font-size:1.4rem;">Notification</div>
                             <button class="d-flex align-items-center bg-transparent border-0 text-decoration-underline text-secondary fw-semibold" type="button">Clear All</button>
                         </div>
                     </div>
-                    <div class="notification h-100">
-                        <div class="p-2 d-flex align-content-center justify-content-center h-100 border-bottom">
-                            <div class="notification-logo d-flex justify-content-center align-items-center h-100"><img src="~/images/volunteer1.png" /></div>
-                            <div class="notification-text d-flex justify-content-center align-items-center px-2 h-100  text-secondary">Manthan Patel - Recommends this mission - Plantation And Aforrestation Programme !</div>
-                            <div class="notification-status d-flex justify-content-center align-items-center h-100"><img src="~/images/checked.png" /></div>
+                    @*<div class="notification-container h-100">
+                        <div class="notification p-2 row h-100 border-bottom mx-sm-0 mx-1">
+                        <div class="notification-logo col-2 h-100 d-flex align-items-center justify-content-center">
+                        <img src="~/images/volunteer1.png" />
                         </div>
-                    </div>
+                        <div class="notification-text col-8 col-sm-9 h-100 d-flex align-items-center justify-content-start text-secondary  ">
+                        Manthan Patel - Recommends this mission - Plantation And Afforrestation Programme !
+                        </div>
+                        <div class="notification-status col-2 col-sm-1 h-100 d-flex align-items-center justify-content-center ">
+                        <img src="~/images/checked.png" class="read-notification" />
+                        </div>
+                        </div>
+                        <div class="notification p-2 row h-100 border-bottom mx-sm-0 mx-1">
+                        <div class="notification-logo col-2 h-100 d-flex align-items-center justify-content-center">
+                        <img src="~/images/add.png" />
+                        </div>
+                        <div class="notification-text col-8 col-sm-9  h-100 d-flex align-items-center justify-content-start text-secondary ">
+                        New Mission - Plantation And Afforestation Programme !
+                        </div>
+                        <div class="notification-status col-2 col-sm-1 h-100 d-flex align-items-center justify-content-center">
+                        <div class="unread-notification"></div>
+                        </div>
+                        </div>*@
+
+                    <form id="notificationSettingForm" class="h-100">
+                        <div class="notification-setting-title-div fw-semibold text-secondary px-2 ">
+                            Get a notification for
+                        </div>
+                        <div id="notificationSettingsContainerDiv" class="container p-0 ">
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Recommended Mission</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Volunteering Hours</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Volunteering Goals</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">My Stories</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">New Missions</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">New Message</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Recommended Story</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Mission Application</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">News</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div class="row mx-1 py-2">
+                                <label class="col-10 col-sm-11 ">Receive notification by email</label>
+                                <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" style="height:20px;width:20px;" />
+                                </div>
+                            </div>
+                            <div id=" " class="d-flex justify-content-center align-items-center w-100 ">
+                                <div>
+                                    <button type="button" class="btn btn-outline-warning rounded-pill">Save</button>
+                                    <button type="button" class="btn btn-outline-danger rounded-pill">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
             <button class="bg-transparent d-flex justify-content-center align-items-center border-0 p-0 py-1 dropdown-toggle" type="button"

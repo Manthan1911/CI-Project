@@ -1,6 +1,7 @@
 ﻿:root {
     --light-orange: #f88634;
     --dark-gray: #414141;
+    --light-grey: #e8e8e8;
 }
 
 #notificationCounterDiv {
@@ -28,12 +29,9 @@
     background-color: white !important;
     right: 60px;
     width: 90vw !important;
-    overflow-y: scroll;
 }
 
-    #notificationDiv::-webkit-scrollbar {
-        display: none;
-    }
+ 
 
 #notification-overlay-div {
     display: block;
@@ -43,9 +41,14 @@
     z-index: 50;
 }
 
+.notification-container{
+    height:calc(100% - 50px) !important;
+    overflow-y:scroll;
+}
+
 .notification {
     font-size: .7rem;
-    max-height: 90px;
+    max-height: 100px;
 }
 
 #notificationHeader {
@@ -54,28 +57,66 @@
 
 .notification-logo > img {
     border-radius: 50%;
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
     object-fit: cover;
 }
 
+.read-notification {
+    height: 12px !important;
+    width: 12px !important;
+    cursor: pointer !important;
+    min-width: max-content !important;
+}
+
+.unread-notification {
+    background-color: var(--light-orange);
+    border-radius: 50%;
+    height: 12px !important;
+    width: 12px !important;
+    cursor: pointer !important;
+    min-width: max-content !important;
+    display:flex;
+    flex-shrink:0 !important;
+}
+
+.min-width-max-content {
+    min-width: max-content !important;
+}
+
+
+/*--------------- notification setting -------------*/
+.notification-setting-title-div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    background-color: var(--light-grey);
+}
+
+#notificationSettingsContainerDiv {
+    height: calc(100% - 100px);
+    overflow-y: scroll ;
+}
 
 @media only screen and (min-width:768px) {
-    .notification {
-        font-size: 1rem;
-    }
-
     #notificationDiv {
         right: 180px !important;
-        background-color: black;
         width: 60vw !important;
     }
+    .notification {
+        font-size: 1rem;
+        max-height: 90px !important;
+    }
+    .notification-logo > img {
+        height: 60px;
+        width: 60px;
+    }
+
 }
 
 @media only screen and (min-width:992px) {
     #notificationDiv {
-        right: 180px !important;
-        background-color: black;
         width: 40vw !important;
     }
 }

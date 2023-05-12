@@ -57,13 +57,23 @@ $("#logoutBtn").on("click", (e) => {
                         timer: 3000
                     });
                 }
-                });
+            });
 
         }
     })
 });
 
 // --------------------- notification ------------------------
+$(document).ready(() => {
+    const userId = $("#notificationIconDiv").data("user_id");
+    console.log("userId : " + userId);
+
+    if (userId != 0) {
+        loadNotification(userId);
+    }
+
+});
+
 let notificationDiv = document.getElementById("notificationDiv");
 let notificationOverlayDiv = document.getElementById("notification-overlay-div");
 let notificationIconDiv = document.getElementById("notificationIconDiv");
@@ -87,6 +97,22 @@ if (notificationIconDiv) {
                 notificationDiv.classList.add("d-none");
                 notificationOverlayDiv.classList.add("d-none");
             });
+        }
+    });
+}
+
+const loadNotification = (userId) => {
+
+
+    $.ajax({
+        url: "/Notification/GetAllNotificationsOfUser",
+        method: "GET",
+        data: { "userId": userId },
+        success: (data) => {
+            $(".notification-container").html(data);
+        },
+        error: (error) => {
+            
         }
     });
 }

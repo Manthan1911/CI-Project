@@ -199,6 +199,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Manthan/MVC/CI-Project/CI-Platform-Web/Views/Shared/_NotificationListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25MaXN0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Manthan/MVC/CI-Project/CI-Platform-Web/Views/Shared/_NotificationSettingsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25TZXR0aW5nc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Manthan/MVC/CI-Project/CI-Platform-Web/Views/Shared/_RecentVolunteers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWNlbnRWb2x1bnRlZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

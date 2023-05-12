@@ -49,6 +49,7 @@ namespace CI_Project.Services
 		public User GetUserById(long? userId)
 		{
 			User user =  _unitOfWork.UserProfile.GetUser(userId);
+			
 			if (user == null)
 			{
 				throw new Exception("User not found");

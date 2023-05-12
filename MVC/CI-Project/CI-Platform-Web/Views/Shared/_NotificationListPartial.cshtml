@@ -1,0 +1,38 @@
+﻿@using CI_Project.Entities.Enums
+@model IEnumerable<CI_Project.Entities.ViewModels.UserNotificationModel>
+
+
+
+@if (Model != null)
+{
+    @foreach (var currNotification in Model)
+    {
+        var notification = currNotification.NotificationVm;
+        var notificationImage = (notification?.NotificationType == NotificationType.ADD) ? "~/images/add.png" :
+        (notification?.NotificationType == NotificationType.APPROVE) ? "~/images/approve.svg" :
+        (notification?.NotificationType == NotificationType.DECLINE) ? "~/images/decline.svg" :
+        (notification?.NotificationType == NotificationType.RECOMMEND) ? @notification?.UserAvtar : null;
+
+        <div class="notification p-2 row h-100 border-bottom mx-sm-0 mx-1">
+            <div class="notification-logo col-2 h-100 d-flex align-items-center justify-content-center">
+                <img src="@notificationImage" />
+            </div>
+            <div class="notification-text col-8 col-sm-9  h-100 d-flex align-items-center justify-content-start text-secondary ">
+                @notification?.NotificationText
+            </div>
+            @if (currNotification.IsRead == true)
+            {
+                <div class="notification-status col-2 col-sm-1 h-100 d-flex align-items-center justify-content-center">
+                    <div class="unread-notification"></div>
+                </div>
+            }
+            else
+            {
+                <div class="notification-status col-2 col-sm-1 h-100 d-flex align-items-center justify-content-center ">
+                    <img src="~/images/checked.png" class="read-notification" />
+                </div>
+            }
+
+        </div>
+    }
+}

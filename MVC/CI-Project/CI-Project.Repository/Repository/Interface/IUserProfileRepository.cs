@@ -3,7 +3,7 @@ using CI_Project.Entities.ViewModels;
 
 namespace CI_Project.Repository.Repository.Interface
 {
-	public interface IUserProfileRepository
+	public interface IUserProfileRepository: IRepository<User>
 	{
 		public User GetUser(long? userId);
 

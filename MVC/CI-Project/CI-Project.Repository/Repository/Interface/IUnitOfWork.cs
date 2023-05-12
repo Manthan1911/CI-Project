@@ -2,18 +2,17 @@
 {
 	public interface IUnitOfWork
 	{
-
-		IUserRepository User { get; } 
-		
-		IHomeRepository Home { get; }
-
-		IStoryRepository Story { get; }
-
 		IUserProfileRepository UserProfile { get; }
-		
-		IVolunteeringMissionRepository VolunteeringMission { get; }
 
-		IVolunteeringTimesheetRepository VolunteeringTimesheet { get;}
+		IVolunteeringTimesheetRepository VolunteeringTimesheet { get; }
+		
+		INotificationRepository Notification { get; }
+
+		IUserNotificationRepository UserNotification { get; }
+
+		ILastCheckRepository LastCheck { get; }
+
+		NotificationSettingRepository NotificationSetting { get; }
 
 		void Save();
 	}

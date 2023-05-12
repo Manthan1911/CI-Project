@@ -18,16 +18,27 @@ namespace CI_Project.Repository.Repository
         {
             return table.ToList();
         }
-
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await table.ToListAsync();
+        }
         public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
         {
             return table.FirstOrDefault(filter);
         }
-
+        public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> filter)
+        {
+            return await table.FirstOrDefaultAsync(filter);
+        }
         public void Insert(T entity)
         {
             table.Add(entity);
         }
+        public async Task InsertAsync(T entity)
+        {
+            await table.AddAsync(entity);
+        }
+
 
         public void Delete(T entity)
         {
@@ -38,7 +49,6 @@ namespace CI_Project.Repository.Repository
         {
             table.Update(entity);
         }
-
 
     }
 }

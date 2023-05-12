@@ -1,0 +1,75 @@
+﻿@model CI_Project.Entities.ViewModels.NotificationSettingsModel
+
+<form id="notificationSettingForm" class="h-100">
+    <div class="notification-setting-title-div fw-semibold text-secondary px-2">
+        Get a notification for
+    </div>
+    <div id="notificationSettingsContainerDiv" class="container p-0">
+        <div class="row mx-1 py-2">
+            <label asp-for="RecommendMission" class="col-10 col-sm-11 ">Recommended Mission</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="RecommendMission" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="VolunteeringHour" class="col-10 col-sm-11 ">Volunteering Hours</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="VolunteeringHour" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="VolunteeringGoal" class="col-10 col-sm-11 ">Volunteering Goals</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="VolunteeringGoal" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="MyStory" class="col-10 col-sm-11 ">My Stories</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="MyStory" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="NewMission" class="col-10 col-sm-11 ">New Missions</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="NewMission" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="NewMessage" class="col-10 col-sm-11 ">New Message</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="NewMessage" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="RecommendStory" class="col-10 col-sm-11 ">Recommended Story</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="RecommendStory" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="MissionApplication" class="col-10 col-sm-11 ">Mission Application</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="MissionApplication" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="News" class="col-10 col-sm-11 ">News</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="News" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="row mx-1 py-2">
+            <label asp-for="Mail" class="col-10 col-sm-11 ">Receive notification by email</label>
+            <div class="col-2 col-sm-1 d-flex justify-content-center align-items-center">
+                <input asp-for="Mail" type="checkbox" style="height:20px;width:20px;" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center w-100 ">
+            <div>
+                <button type="submit" class="btn btn-outline-warning rounded-pill">Save</button>
+                <button type="button" class="btn btn-outline-danger rounded-pill">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>

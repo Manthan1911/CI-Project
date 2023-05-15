@@ -1,4 +1,5 @@
-﻿using CI_Project.Services.Interface;
+﻿using CI_Project.Entities.ViewModels;
+using CI_Project.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CI_Platform_Web.Controllers
@@ -13,9 +14,16 @@ namespace CI_Platform_Web.Controllers
 
         public async Task<IActionResult> GetAllNotificationsOfUser(long userId)
         {
-            var userNotifications = await _unitOfService.Notification.GetAllByUserId(userId);
+            var notificationMainModel = new NotificationMainModel();
 
-            return PartialView("_NotificationListPartial",userNotifications);
+            notificationMainModel.LatestNotifications = await _unitOfService.Notification.GetAllByUserId(userId);
+            return PartialView("_NotificationListPartial", notificationMainModel);
+        }
+
+        public async Task<IActionResult> GetNotificationSettingsPartial(long userId)
+        {
+            var userNotificationSettingsVm = await _unitOfService.Notification.GetNotificationSettingsByUserId(userId);
+            return PartialView("_NotificationSettingsPartial",userNotificationSettingsVm);
         }
     }
 }

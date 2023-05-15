@@ -29,7 +29,7 @@ namespace CI_Project.Repository.Repository
 
         public ILastCheckRepository LastCheck { get; }
 
-        public NotificationSettingRepository NotificationSetting { get; }
+        public INotificationSettingRepository NotificationSetting { get; }
 
         public void Save()
         {

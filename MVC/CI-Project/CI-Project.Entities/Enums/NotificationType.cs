@@ -2,9 +2,9 @@
 {
     public enum NotificationType
     {
-        ADD,
-        APPROVE,
-        DECLINE,
-        RECOMMEND,
+        ADD=1,
+        APPROVE=2,
+        DECLINE=3,
+        RECOMMEND=4,
     }
 }

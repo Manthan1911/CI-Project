@@ -3,8 +3,9 @@
     public class NotificationMainModel
     {
 
-        public IEnumerable<UserNotificationModel>? UserNotificatios { get; set; }
+        public IEnumerable<UserNotificationModel>? LatestNotifications { get; set; }
+        
+        public IEnumerable<UserNotificationModel>? OlderNotifications { get; set; }
 
-        public IEnumerable<NotificationSettingsModel>? UserNotificationSettings { get; set; }
     }
 }

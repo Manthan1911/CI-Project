@@ -1,5 +1,4 @@
-﻿using CI_Project.Entities.DataModels;
-using CI_Project.Entities.ViewModels;
+﻿using CI_Project.Entities.ViewModels;
 
 namespace CI_Project.Services.Interface
 {
@@ -10,5 +9,7 @@ namespace CI_Project.Services.Interface
         public Task MarkAsRead(long userNotificationId);
 
         public Task ClearAll(long userId);
+
+        public Task<NotificationSettingsModel> GetNotificationSettingsByUserId(long userId);
     }
 }

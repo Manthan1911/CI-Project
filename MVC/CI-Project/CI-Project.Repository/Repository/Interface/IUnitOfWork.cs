@@ -12,7 +12,7 @@
 
 		ILastCheckRepository LastCheck { get; }
 
-		NotificationSettingRepository NotificationSetting { get; }
+		INotificationSettingRepository NotificationSetting { get; }
 
 		void Save();
 	}

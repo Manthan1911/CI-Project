@@ -19,5 +19,6 @@ namespace CI_Project.Entities.ViewModels
         public virtual NotificationModel? NotificationVm { get; set; }
 
         public virtual User? User { get; set; }
+
     }
 }

@@ -31,6 +31,15 @@ namespace CI_Project.Services
             await _unitOfWork.UserNotification.MarkAsRead(userNotificationId);
         }
 
+        public async Task<NotificationSettingsModel> GetNotificationSettingsByUserId(long userId)
+        {
+            NotificationSetting? notificationSettings = await _unitOfWork.NotificationSetting.GetNotificationSettingsByUserId(userId);
+            if (notificationSettings is null) throw new Exception("Notification setting is null!: " + userId);
+            
+            NotificationSettingsModel notificationSettingsModel = ConvertNotificationSettingToVm(notificationSettings);
+            return notificationSettingsModel;
+        }
+
         public UserNotificationModel ConvertUserNotificationToVm(UserNotification userNotificationObj)
         {
             return new UserNotificationModel()
@@ -53,6 +62,24 @@ namespace CI_Project.Services
                 NotificationText = notification.NotificationText,
                 NotificationType = (NotificationType)notification.NotificationType,
                 UserAvtar = notification.UserAvtar,
+            };
+        }
+
+        public NotificationSettingsModel ConvertNotificationSettingToVm(NotificationSetting notificationSetting)
+        {
+            return new NotificationSettingsModel()
+            {
+                UserId = notificationSetting.UserId,
+                VolunteeringGoal = notificationSetting.VolunteeringGoal,
+                VolunteeringHour = notificationSetting.VolunteeringHour,
+                Mail = notificationSetting.Mail,
+                MissionApplication = notificationSetting.MissionApplication,
+                MyStory = notificationSetting.MyStory,
+                NewMessage = notificationSetting.NewMessage,
+                NewMission = notificationSetting.NewMission,
+                News = notificationSetting.News,
+                RecommendMission = notificationSetting.RecommendMission,
+                RecommendStory = notificationSetting.RecommendStory,
             };
         }
     }

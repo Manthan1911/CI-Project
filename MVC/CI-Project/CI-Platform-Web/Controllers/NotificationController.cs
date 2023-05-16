@@ -25,6 +25,9 @@ namespace CI_Platform_Web.Controllers
             var userNotificationSettingsVm = await _unitOfService.Notification.GetNotificationSettingsByUserId(userId);
             return PartialView("_NotificationSettingsPartial",userNotificationSettingsVm);
         }
+
+        [HttpPut]
+        public async Task UpdateNotificationSettings(NotificationSettingsModel newNotificationSettingsVm) => await _unitOfService.Notification.SaveNotificationSettings(newNotificationSettingsVm);
     }
 }
     

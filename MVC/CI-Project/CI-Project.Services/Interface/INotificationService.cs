@@ -11,5 +11,7 @@ namespace CI_Project.Services.Interface
         public Task ClearAll(long userId);
 
         public Task<NotificationSettingsModel> GetNotificationSettingsByUserId(long userId);
+
+        public Task SaveNotificationSettings(NotificationSettingsModel notificationSettingsModel);
     }
 }

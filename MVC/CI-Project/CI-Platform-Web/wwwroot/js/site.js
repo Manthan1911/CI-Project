@@ -70,8 +70,10 @@ $(document).ready(() => {
 
     if (userId != 0) {
         loadNotification(userId);
+        loadNotificationSettings(userId);
     }
 
+    toggleNotificationSettings();
 });
 
 let notificationDiv = document.getElementById("notificationDiv");
@@ -113,6 +115,54 @@ const loadNotification = (userId) => {
         },
         error: (error) => {
             
+        }
+    });
+}
+
+
+const loadNotificationSettings = (userId) => {
+    $.ajax({
+        url: "/Notification/GetNotificationSettingsPartial",
+        method: "GET",
+        data: { "userId": userId },
+        success: (data) => {
+            $("#notificationSettingsTogglerDiv").html(data);
+        },
+        error: (error) => {
+
+        }
+    });
+}
+const toggleNotificationSettings = () => {
+    const notificationSettingsBtn = document.getElementById("notificationSettingsBtn");
+    const notificationSettingsTogglerDiv = document.getElementById("notificationSettingsTogglerDiv");
+    const notificationSettingsOverlay = document.getElementById("notificationSettingsOverlay");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+    notificationSettingsBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (!notificationSettingsTogglerDiv.classList.contains("d-none")) {
+            notificationSettingsTogglerDiv.classList.add("d-none");
+            notificationSettingsOverlay.classList.add("d-none");
+            clearAllBtn.classList.remove("invisible");
+        }
+        else {
+            notificationSettingsTogglerDiv.classList.remove("d-none");
+            notificationSettingsOverlay.classList.remove("d-none");
+            clearAllBtn.classList.add("invisible");
+            
+            notificationSettingsOverlay.addEventListener("click", (e) => {
+                e.preventDefault();
+                notificationSettingsTogglerDiv.classList.add("d-none");
+                notificationSettingsOverlay.classList.add("d-none");
+                clearAllBtn.classList.remove("invisible");
+            });
+
+            notificationSettingsCancelBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                notificationSettingsTogglerDiv.classList.add("d-none");
+                notificationSettingsOverlay.classList.add("d-none");
+            });
         }
     });
 }

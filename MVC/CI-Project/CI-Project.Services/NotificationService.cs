@@ -70,17 +70,36 @@ namespace CI_Project.Services
             return new NotificationSettingsModel()
             {
                 UserId = notificationSetting.UserId,
-                VolunteeringGoal = notificationSetting.VolunteeringGoal,
-                VolunteeringHour = notificationSetting.VolunteeringHour,
-                Mail = notificationSetting.Mail,
-                MissionApplication = notificationSetting.MissionApplication,
-                MyStory = notificationSetting.MyStory,
-                NewMessage = notificationSetting.NewMessage,
-                NewMission = notificationSetting.NewMission,
-                News = notificationSetting.News,
-                RecommendMission = notificationSetting.RecommendMission,
-                RecommendStory = notificationSetting.RecommendStory,
+                VolunteeringGoal = (bool)notificationSetting.VolunteeringGoal,
+                VolunteeringHour = (bool)notificationSetting.VolunteeringHour,
+                Mail = (bool)notificationSetting.Mail,
+                MissionApplication = (bool)notificationSetting.MissionApplication,
+                MyStory = (bool)notificationSetting.MyStory,
+                NewMessage = (bool)notificationSetting.NewMessage,
+                NewMission = (bool)notificationSetting.NewMission,
+                News = (bool)notificationSetting.News,
+                RecommendMission = (bool)notificationSetting.RecommendMission,
+                RecommendStory = (bool)notificationSetting.RecommendStory,
             };
+        }
+
+        public async Task SaveNotificationSettings(NotificationSettingsModel notificationSettingsModel)
+        {
+            NotificationSetting? notificationSettings = await _unitOfWork.NotificationSetting.GetNotificationSettingsByUserId(notificationSettingsModel.UserId);
+            if (notificationSettings is null) throw new Exception("Notification setting is null!: " + notificationSettingsModel.UserId);
+
+            notificationSettings.RecommendMission = notificationSettingsModel.RecommendMission;
+            notificationSettings.RecommendStory = notificationSettingsModel.RecommendStory;
+            notificationSettings.VolunteeringHour = notificationSettingsModel.VolunteeringHour;
+            notificationSettings.VolunteeringGoal = notificationSettingsModel.VolunteeringGoal;
+            notificationSettings.MissionApplication = notificationSettingsModel.MissionApplication;
+            notificationSettings.MyStory = notificationSettingsModel.MyStory;
+            notificationSettings.NewMessage = notificationSettingsModel.NewMessage;
+            notificationSettings.Mail = notificationSettingsModel.Mail;
+            notificationSettings.NewMission = notificationSettingsModel.NewMission;
+            notificationSettings.News = notificationSettingsModel.News;
+
+            _unitOfWork.Save();
         }
     }
 }

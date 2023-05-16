@@ -55,16 +55,14 @@
                 <div id="notificationDiv" class="container p-0 d-none shadow-lg rounded-3">
                     <div id="notificationHeader ">
                         <div class="d-flex justify-content-between p-2 h-100 border-bottom">
-                            <button type="button" class="d-flex align-items-center bg-transparent border-0"><img src="~/images/settings.png" /></button>
+                            <button id="notificationSettingsBtn" type="button" class="d-flex align-items-center bg-transparent border-0"><img src="~/images/settings.png" /></button>
                             <div class="d-flex align-items-center fw-semibold text-secondary" style="font-size:1.4rem;">Notification</div>
-                            <button class="d-flex align-items-center bg-transparent border-0 text-decoration-underline text-secondary fw-semibold" type="button">Clear All</button>
+                            <button id="clearAllBtn" class="d-flex align-items-center bg-transparent border-0 text-decoration-underline text-secondary fw-semibold" type="button">Clear All</button>
                         </div>
                     </div>
-                    <div id="notificationSettingsTogglerDiv">
-
+                    <div id="notificationSettingsTogglerDiv" class="d-none">
                     </div>
-                    <div id="notificationSettingsOverlay">
-
+                    <div id="notificationSettingsOverlay" class="d-none">
                     </div>
                     <div class="notification-container h-100">
                     </div>

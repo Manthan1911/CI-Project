@@ -38,8 +38,6 @@ namespace CI_Project.Repository.Repository
         {
             await table.AddAsync(entity);
         }
-
-
         public void Delete(T entity)
         {
             table.Remove(entity);

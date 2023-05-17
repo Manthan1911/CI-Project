@@ -33,10 +33,15 @@ namespace CI_Project.Services
 
         public async Task<NotificationSettingsModel> GetNotificationSettingsByUserId(long userId)
         {
-            NotificationSetting? notificationSettings = await _unitOfWork.NotificationSetting.GetNotificationSettingsByUserId(userId);
-            if (notificationSettings is null) throw new Exception("Notification setting is null!: " + userId);
-            
-            NotificationSettingsModel notificationSettingsModel = ConvertNotificationSettingToVm(notificationSettings);
+            NotificationSetting? notificationSettings = await _unitOfWork.NotificationSetting.GetNotificationSettingsByUserIdUsingSp(userId);
+            NotificationSettingsModel? notificationSettingsModel = new NotificationSettingsModel();
+            if (userId > 0)
+            {
+
+                if (notificationSettings is null) throw new Exception("Notification setting is null!: " + userId);
+
+                notificationSettingsModel = ConvertNotificationSettingToVm(notificationSettings);
+            }
             return notificationSettingsModel;
         }
 

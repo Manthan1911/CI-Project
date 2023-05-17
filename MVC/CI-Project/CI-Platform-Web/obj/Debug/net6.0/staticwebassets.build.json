@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zRvGLLi6fBmyDFwCAp3HFs2Kmfs7DinIK1/jbXqn13w=",
+  "Hash": "fd/yxGLKNhyiZ677sV+FokBFWnnVDRCtZXA+XSY5zOI=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -3194,6 +3194,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\fee0576a-ae58-4959-ba14-a76307a2f07d.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\success.gif",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/success.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\success.gif"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\svgs-defs.svg",

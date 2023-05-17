@@ -3,8 +3,7 @@
 
 // Write your JavaScript code.
 const drop = document.querySelector(".cms-dropdown");
-console.log("drop : ");
-console.log(drop);
+
 if (drop) {
     $.ajax({
         url: "/Home/GetCmsList",
@@ -64,43 +63,44 @@ $("#logoutBtn").on("click", (e) => {
 });
 
 // --------------------- notification ------------------------
+let userId = 0;
 $(document).ready(() => {
-    const userId = $("#notificationIconDiv").data("user_id");
-    console.log("userId : " + userId);
+    userId = $("#notificationIconDiv").data("user_id");
 
-    if (userId != 0) {
-        loadNotification(userId);
-        loadNotificationSettings(userId);
-    }
-
-    toggleNotificationSettings();
+    setListenerOnNotificationIconClick();
 });
 
 let notificationDiv = document.getElementById("notificationDiv");
 let notificationOverlayDiv = document.getElementById("notification-overlay-div");
 let notificationIconDiv = document.getElementById("notificationIconDiv");
-console.log(notificationDiv);
-console.log(notificationOverlayDiv);
-console.log(notificationIconDiv);
-if (notificationIconDiv) {
-    notificationIconDiv.addEventListener("click", (e) => {
-        e.preventDefault();
 
-        if (!notificationDiv.classList.contains("d-none")) {
-            notificationDiv.classList.add("d-none");
-            notificationOverlayDiv.classList.add("d-none");
-        }
-        else {
-            notificationDiv.classList.remove("d-none");
-            notificationOverlayDiv.classList.remove("d-none");
+function setListenerOnNotificationIconClick() {
+    if (notificationIconDiv) {
+        notificationIconDiv.addEventListener("click", (e) => {
+            e.preventDefault();
 
-            notificationOverlayDiv.addEventListener("click", (e) => {
-                e.preventDefault();
+            if (!notificationDiv.classList.contains("d-none")) {
                 notificationDiv.classList.add("d-none");
                 notificationOverlayDiv.classList.add("d-none");
-            });
-        }
-    });
+            }
+            else {
+                notificationDiv.classList.remove("d-none");
+                notificationOverlayDiv.classList.remove("d-none");
+
+                if (userId != 0 && userId != null) {
+                    loadNotification(userId);
+                    loadNotificationSettings(userId);
+                    toggleNotificationSettings();
+                }
+
+                notificationOverlayDiv.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    notificationDiv.classList.add("d-none");
+                    notificationOverlayDiv.classList.add("d-none");
+                });
+            }
+        });
+    }
 }
 
 const loadNotification = (userId) => {
@@ -114,7 +114,7 @@ const loadNotification = (userId) => {
             $(".notification-container").html(data);
         },
         error: (error) => {
-            
+
         }
     });
 }
@@ -127,6 +127,24 @@ const loadNotificationSettings = (userId) => {
         data: { "userId": userId },
         success: (data) => {
             $("#notificationSettingsTogglerDiv").html(data);
+            const notificationSettingsCancelBtn = document.getElementById("notificationSettingsCancelBtn");
+
+            notificationSettingsOverlay.addEventListener("click", (e) => {
+                e.preventDefault();
+                notificationSettingsTogglerDiv.classList.add("d-none");
+                notificationSettingsOverlay.classList.add("d-none");
+                clearAllBtn.classList.remove("invisible");
+            });
+
+            if (notificationSettingsCancelBtn) {
+                notificationSettingsCancelBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    notificationSettingsTogglerDiv.classList.add("d-none");
+                    notificationSettingsOverlay.classList.add("d-none");
+                });
+            }
+
+            setListenerOnNotificationSettingsFormSubmit();
         },
         error: (error) => {
 
@@ -138,6 +156,7 @@ const toggleNotificationSettings = () => {
     const notificationSettingsTogglerDiv = document.getElementById("notificationSettingsTogglerDiv");
     const notificationSettingsOverlay = document.getElementById("notificationSettingsOverlay");
     const clearAllBtn = document.getElementById("clearAllBtn");
+    
     notificationSettingsBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
@@ -150,19 +169,61 @@ const toggleNotificationSettings = () => {
             notificationSettingsTogglerDiv.classList.remove("d-none");
             notificationSettingsOverlay.classList.remove("d-none");
             clearAllBtn.classList.add("invisible");
-            
-            notificationSettingsOverlay.addEventListener("click", (e) => {
-                e.preventDefault();
-                notificationSettingsTogglerDiv.classList.add("d-none");
-                notificationSettingsOverlay.classList.add("d-none");
-                clearAllBtn.classList.remove("invisible");
-            });
 
-            notificationSettingsCancelBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                notificationSettingsTogglerDiv.classList.add("d-none");
-                notificationSettingsOverlay.classList.add("d-none");
+            loadNotificationSettings(userId);
+        }
+    });
+}
+
+function setListenerOnNotificationSettingsFormSubmit() {
+
+    $('#notificationSettingForm').on("submit", (e) => {
+        e.preventDefault();
+        let form = $('#notificationSettingForm');
+        if (isNotificationFormValid(form)) {
+
+            let formData = form.serialize();
+
+            $.ajax({
+                url: "/Notification/UpdateNotificationSettings",
+                method: "PUT",
+                data: formData,
+                success: (data, _, status) => {
+
+                    let successDiv = `
+                        <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                            <img src="images/success.gif" />
+                        </div>
+                    `;
+
+                    $("#notificationSettingsTogglerDiv").html(successDiv);
+
+                    setTimeout(function () {
+                        setListenerOnNotificationIconClick();
+                        document.getElementById('notificationSettingsOverlay').click();
+                    }, 2500);
+
+                },
+                error: (error) => {
+                    //Swal.fire({
+                    //    position: 'top-end',
+                    //    icon: 'error',
+                    //    title: 'Error Adding Skill!',
+                    //    showConfirmButton: false,
+                    //    timer: 3000
+                    //})
+                    //return;
+
+                    console.log(error);
+                }
             });
         }
     });
+}
+
+let isNotificationFormValid = (form) => {
+    if (!form.valid()) {
+        return false;
+    }
+    return true;
 }

@@ -6,5 +6,7 @@ namespace CI_Project.Repository.Repository.Interface
     public interface INotificationSettingRepository:IRepository<NotificationSetting>
     {
         public Task<NotificationSetting?> GetNotificationSettingsByUserId(long userId);
+        public Task<NotificationSetting?> GetNotificationSettingsByUserIdUsingSp(long userId);
+
     }
 }

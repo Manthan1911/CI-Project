@@ -50,8 +50,8 @@
 
 @section Scripts {
     <script>
-        let letUserLogin = document.getElementById("letUserLogin").value;
-        if (letUserLogin == "false") {
+        let letUserLogin = document.getElementById("letUserLogin");
+        if (letUserLogin != null && letUserLogin.value == "false") {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',

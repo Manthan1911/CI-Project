@@ -110,7 +110,7 @@
     left: 5px;
     position: absolute;
     height: 50%;
-    background-color: white !important;
+    background-color: hsl(0deg 0% 98%) !important;
     width: 90%;
     z-index: 2;
 }

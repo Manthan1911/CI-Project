@@ -27,7 +27,7 @@ namespace CI_Platform_Web.Controllers
         }
 
         [HttpPut]
-        public async Task UpdateNotificationSettings(NotificationSettingsModel newNotificationSettingsVm) => await _unitOfService.Notification.SaveNotificationSettings(newNotificationSettingsVm);
+        public async Task UpdateNotificationSettings(NotificationSettingsModel newNotificationSettingsVm) =>    await _unitOfService.Notification.SaveNotificationSettings(newNotificationSettingsVm);
     }
 }
     

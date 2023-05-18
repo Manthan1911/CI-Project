@@ -63,9 +63,9 @@ $("#logoutBtn").on("click", (e) => {
 });
 
 // --------------------- notification ------------------------
-let userId = 0;
+let nUserId = 0;
 $(document).ready(() => {
-    userId = $("#notificationIconDiv").data("user_id");
+    nUserId = $("#notificationIconDiv").data("user_id");
 
     setListenerOnNotificationIconClick();
 });
@@ -87,9 +87,9 @@ function setListenerOnNotificationIconClick() {
                 notificationDiv.classList.remove("d-none");
                 notificationOverlayDiv.classList.remove("d-none");
 
-                if (userId != 0 && userId != null) {
-                    loadNotification(userId);
-                    loadNotificationSettings(userId);
+                if (nUserId != 0 && nUserId != null) {
+                    loadNotification(nUserId);
+                    loadNotificationSettings(nUserId);
                     toggleNotificationSettings();
                 }
 
@@ -103,13 +103,13 @@ function setListenerOnNotificationIconClick() {
     }
 }
 
-const loadNotification = (userId) => {
+const loadNotification = (nUserId) => {
 
 
     $.ajax({
         url: "/Notification/GetAllNotificationsOfUser",
         method: "GET",
-        data: { "userId": userId },
+        data: { "userId": nUserId },
         success: (data) => {
             $(".notification-container").html(data);
         },
@@ -120,11 +120,11 @@ const loadNotification = (userId) => {
 }
 
 
-const loadNotificationSettings = (userId) => {
+const loadNotificationSettings = (nUserId) => {
     $.ajax({
         url: "/Notification/GetNotificationSettingsPartial",
         method: "GET",
-        data: { "userId": userId },
+        data: { "userId": nUserId },
         success: (data) => {
             $("#notificationSettingsTogglerDiv").html(data);
             const notificationSettingsCancelBtn = document.getElementById("notificationSettingsCancelBtn");
@@ -170,7 +170,7 @@ const toggleNotificationSettings = () => {
             notificationSettingsOverlay.classList.remove("d-none");
             clearAllBtn.classList.add("invisible");
 
-            loadNotificationSettings(userId);
+            loadNotificationSettings(nUserId);
         }
     });
 }

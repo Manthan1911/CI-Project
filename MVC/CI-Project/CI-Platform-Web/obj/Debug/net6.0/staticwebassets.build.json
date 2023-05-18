@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fd/yxGLKNhyiZ677sV+FokBFWnnVDRCtZXA+XSY5zOI=",
+  "Hash": "CeDDswb+AZk3cNgdxu0bRbmMCXnaiS8Zo5pCX3ZgAxc=",
   "Source": "CI-Platform-Web",
   "BasePath": "_content/CI-Platform-Web",
   "Mode": "Default",
@@ -406,6 +406,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\banner_images\\23e9b1ce-408f-4f35-963a-b6f843d285d9.jpg"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\banner_images\\5ec668af-55f1-40c7-8497-aa2aa1218736.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/banner_images/5ec668af-55f1-40c7-8497-aa2aa1218736.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\banner_images\\5ec668af-55f1-40c7-8497-aa2aa1218736.png"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\banner_images\\9bb3eebb-1ae2-44ae-bb3d-3823b7610f11.jpg",
@@ -2822,40 +2839,6 @@
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\1da8305e-2e86-4665-83e1-be58b0d60ce1.png"
     },
     {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\1dc0d720-840f-44df-abd6-6270d0da83ae.png",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/storyimages/1dc0d720-840f-44df-abd6-6270d0da83ae.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\storyimages\\1dc0d720-840f-44df-abd6-6270d0da83ae.png"
-    },
-    {
-      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\24fa6b00-1506-4e45-bddc-2bf785e72e46.png",
-      "SourceId": "CI-Platform-Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
-      "BasePath": "_content/CI-Platform-Web",
-      "RelativePath": "images/storyimages/24fa6b00-1506-4e45-bddc-2bf785e72e46.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\storyimages\\24fa6b00-1506-4e45-bddc-2bf785e72e46.png"
-    },
-    {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\3134e7bf-652d-496e-acc0-59fbed2e777c.png",
       "SourceId": "CI-Platform-Web",
       "SourceType": "Discovered",
@@ -2905,6 +2888,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\481ab106-c56b-4e3f-a208-0c8454a29c7f.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\482d2fbb-7b59-4669-95a4-1c41a8838758.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/storyimages/482d2fbb-7b59-4669-95a4-1c41a8838758.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\storyimages\\482d2fbb-7b59-4669-95a4-1c41a8838758.png"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\4bec23fe-d485-4d82-bd38-05c773131774.png",
@@ -3024,6 +3024,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\storyimages\\a01e1c4e-a064-4b35-bc0c-d52d095edeb6.png"
+    },
+    {
+      "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\ad398162-c403-462c-a31e-5ce4544a2653.png",
+      "SourceId": "CI-Platform-Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\",
+      "BasePath": "_content/CI-Platform-Web",
+      "RelativePath": "images/storyimages/ad398162-c403-462c-a31e-5ce4544a2653.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\storyimages\\ad398162-c403-462c-a31e-5ce4544a2653.png"
     },
     {
       "Identity": "D:\\Manthan\\MVC\\CI-Project\\CI-Platform-Web\\wwwroot\\images\\storyimages\\b119a9c0-1f2f-48a8-93d7-d55e19cd595a.png",

@@ -1,4 +1,5 @@
-﻿using CI_Project.Entities.ViewModels;
+﻿using CI_Project.Entities.DataModels;
+using CI_Project.Entities.ViewModels;
 
 namespace CI_Project.Services.Interface
 {
@@ -13,5 +14,10 @@ namespace CI_Project.Services.Interface
         public Task<NotificationSettingsModel> GetNotificationSettingsByUserId(long userId);
 
         public Task SaveNotificationSettings(NotificationSettingsModel notificationSettingsModel);
+
+        public void SendNotificationToAllUsers(SendNotificationVm sendNotificationVm);
+        public void SendNotificationToSpecificUser(SendNotificationVm sendNotificationVm);
+        public IEnumerable<NotificationSetting?> GetAllNotificationSettings();
+
     }
 }

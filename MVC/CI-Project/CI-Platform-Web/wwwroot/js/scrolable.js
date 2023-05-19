@@ -13,14 +13,15 @@ if (filterMissionNavbars) {
     const observer = new ResizeObserver((entries) => {
         const isFilterMissionOpen =
             entries[0].contentRect.height > headerProfileHeight;
-
         if (isFilterMissionOpen) {
             scrollableArea.style.height = "calc(100% - calc(var(--header-height) * 3))";
         } else {
             scrollableArea.style.height = "calc(100% - calc(var(--header-height) * 2))";
         }
     });
-observer.observe(header);
+    setTimeout(() => {
+        observer.observe(header);
+    },100);
 }
 else {
     console.log("no");

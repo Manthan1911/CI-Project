@@ -106,5 +106,19 @@ namespace CI_Project.Services
 
             _unitOfWork.Save();
         }
+
+        public void SendNotificationToAllUsers(SendNotificationVm sendNotificationVm)
+        {
+            IEnumerable<User?> users = _unitOfWork.Notification.SendNotificationToAllUsers(sendNotificationVm);
+            Console.WriteLine(users);
+        }
+
+        public void SendNotificationToSpecificUser(SendNotificationVm sendNotificationVm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<NotificationSetting?> GetAllNotificationSettings() => _unitOfWork.NotificationSetting.GetAll();
+
     }
 }

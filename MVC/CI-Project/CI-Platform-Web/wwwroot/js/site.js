@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-const drop = document.querySelector(".cms-dropdown");
+﻿const drop = document.querySelector(".cms-dropdown");
 
 if (drop) {
     $.ajax({
@@ -119,7 +115,6 @@ const loadNotification = (nUserId) => {
     });
 }
 
-
 const loadNotificationSettings = (nUserId) => {
     $.ajax({
         url: "/Notification/GetNotificationSettingsPartial",
@@ -151,6 +146,7 @@ const loadNotificationSettings = (nUserId) => {
         }
     });
 }
+
 const toggleNotificationSettings = () => {
     const notificationSettingsBtn = document.getElementById("notificationSettingsBtn");
     const notificationSettingsTogglerDiv = document.getElementById("notificationSettingsTogglerDiv");
@@ -176,6 +172,7 @@ const toggleNotificationSettings = () => {
 }
 
 function setListenerOnNotificationSettingsFormSubmit() {
+
 
     $('#notificationSettingForm').on("submit", (e) => {
         e.preventDefault();
@@ -205,15 +202,7 @@ function setListenerOnNotificationSettingsFormSubmit() {
 
                 },
                 error: (error) => {
-                    //Swal.fire({
-                    //    position: 'top-end',
-                    //    icon: 'error',
-                    //    title: 'Error Adding Skill!',
-                    //    showConfirmButton: false,
-                    //    timer: 3000
-                    //})
-                    //return;
-
+                   
                     console.log(error);
                 }
             });

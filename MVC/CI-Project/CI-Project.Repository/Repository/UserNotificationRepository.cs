@@ -20,7 +20,7 @@ namespace CI_Project.Repository.Repository
 
         public async Task<IEnumerable<UserNotification>> GetAllByUserId(long userId)
         {
-            return await table.Include(userNotifcation => userNotifcation.Notification).Where(userNotification => userNotification.UserId == userId).ToListAsync();
+            return await table.Include(userNotifcation => userNotifcation.Notification).Where(userNotification => userNotification.UserId == userId).OrderByDescending(userNotification => userNotification.CreatedAt).ToListAsync();
         }
 
         public async Task MarkAsRead(long userNotificationId)

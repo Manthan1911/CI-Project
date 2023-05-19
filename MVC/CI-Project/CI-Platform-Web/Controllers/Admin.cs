@@ -1,5 +1,6 @@
 ﻿using CI_Platform_Web.Utilities;
 using CI_Project.Entities.DataModels;
+using CI_Project.Entities.Enums;
 using CI_Project.Entities.ViewModels;
 using CI_Project.Repository.Repository.Interface;
 using CI_Project.Services.Interface;
@@ -349,6 +350,9 @@ namespace CI_Platform_Web.Controllers
                     CreatedAt = DateTime.Now,
                 };
                 _cmsRepository.addCmsPage(cmsPage);
+                
+                NewCmsNotification(title,cmsPage.CmsPageId);
+
                 return NoContent();
             }
             catch (Exception ex)
@@ -1834,5 +1838,24 @@ namespace CI_Platform_Web.Controllers
                 UpdatedAt = timesheet.UpdatedAt,
             };
         }
+
+
+        public void NewCmsNotification(string title,long cmsId)
+        {
+            SendNotificationVm sendNotificationVm = new SendNotificationVm()
+            {
+                NotificationText = $"New Cms Page Added - {title} !",
+                NotificationType = NotificationType.ADD,
+                SettingTypeName = "news",
+                Link = $"/Home/CmsPage/{cmsId}"
+            };
+
+            _unitOfService.Notification.SendNotificationToAllUsers(sendNotificationVm);
+        }
+
+        //public string GetCommaSeperatedStringOfUserId()
+        //{
+        //    var userIds = _unitOfService.Notification.GetAllNotificationSettings();
+        //}
     }
 }
